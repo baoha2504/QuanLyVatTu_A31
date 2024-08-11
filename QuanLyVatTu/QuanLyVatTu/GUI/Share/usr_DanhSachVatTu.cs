@@ -1,4 +1,5 @@
 ﻿using QuanLyVatTu.Model;
+using QuanLyVatTu.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,8 @@ namespace QuanLyVatTu.GUI.Share
 {
     public partial class usr_DanhSachVatTu : UserControl
     {
+        Function function = new Function();
+        List<VatTu> vatTus = new List<VatTu>();
         public usr_DanhSachVatTu()
         {
             InitializeComponent();
@@ -37,7 +40,7 @@ namespace QuanLyVatTu.GUI.Share
                 {
                     vattu = dbContext.VatTus.ToList();
                 }
-
+                vatTus = vattu;
                 for (int i = 0; i < vattu.Count; i++)
                 {
                     string madanhmuc = (string)vattu[i].madanhmuc;
@@ -46,12 +49,14 @@ namespace QuanLyVatTu.GUI.Share
                     dataGridView_DSVatTu.Rows[i].Cells["Column1"].Value = vattu[i].mavattu;
                     dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value = vattu[i].tenvattu;
                     dataGridView_DSVatTu.Rows[i].Cells["Column3"].Value = vattu[i].donvitinh;
-                    dataGridView_DSVatTu.Rows[i].Cells["Column4"].Value = vattu[i].dongia;
+                    string dongia = function.FormatDecimal((decimal)vattu[i].dongia);
+                    dataGridView_DSVatTu.Rows[i].Cells["Column4"].Value = dongia;
                     dataGridView_DSVatTu.Rows[i].Cells["Column5"].Value = vattu[i].nguongoc;
-                    if(vattu[i].trangthai == 0)
+                    if (vattu[i].trangthai == 0)
                     {
                         dataGridView_DSVatTu.Rows[i].Cells["Column6"].Value = "Dừng sử dụng";
-                    } else if (vattu[i].trangthai == 1)
+                    }
+                    else if (vattu[i].trangthai == 1)
                     {
                         dataGridView_DSVatTu.Rows[i].Cells["Column6"].Value = "Đang sử dụng";
                     }
@@ -62,7 +67,6 @@ namespace QuanLyVatTu.GUI.Share
                     dataGridView_DSVatTu.Rows[i].Cells["Column7"].Value = danhMuc.tendanhmuc;
                     dataGridView_DSVatTu.Rows[i].Cells["Column8"].Value = vattu[i].nguoisuacuoi;
                     dataGridView_DSVatTu.Rows[i].Cells["Column9"].Value = "Sửa ▼";
-
                 }
             }
         }
@@ -71,18 +75,11 @@ namespace QuanLyVatTu.GUI.Share
         {
             if (e.ColumnIndex == dataGridView_DSVatTu.Columns["Column9"].Index && e.RowIndex >= 0)
             {
-                //// Lấy ID của dòng được chọn
-                //int rowID = (int)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column1"].Value;
-                //string tennguoidung = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column2"].Value;
-                //string quanham = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column3"].Value;
-                //string chucvu = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column4"].Value;
-                //string tentaikhoan = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column5"].Value;
-                //string trangthai = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column7"].Value;
-
-                //frmThemNguoiDung frmThemNguoiDung = new frmThemNguoiDung(rowID, tennguoidung, quanham, chucvu, tentaikhoan, trangthai);
-                //frmThemNguoiDung.Text = "Sửa thông tin người dùng";
-                //frmThemNguoiDung.ShowDialog();
-                //LoadDSVatTu();
+                int rowID = e.RowIndex;
+                frmThemVatTu frmThemVatTu = new frmThemVatTu(vatTus[rowID]);
+                frmThemVatTu.Text = "Sửa thông tin vật tư";
+                frmThemVatTu.ShowDialog();
+                LoadDSVatTu();
             }
         }
 
@@ -135,7 +132,7 @@ namespace QuanLyVatTu.GUI.Share
 
         private void btnXuatDanhSach_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)

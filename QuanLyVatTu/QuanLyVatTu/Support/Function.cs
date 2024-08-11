@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -26,6 +27,24 @@ namespace QuanLyVatTu.Support
                 byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
                 return ConvertToHexString(hashBytes);
             }
+        }
+
+        public string FormatDecimal(decimal number)
+        {
+            long integerPart = (long)number;
+
+            string formattedNumber = integerPart.ToString("N0", CultureInfo.InvariantCulture);
+
+            return formattedNumber;
+        }
+
+        public decimal ConvertStringToDecimal(string numberWithCommas)
+        {
+            string cleanedNumber = numberWithCommas.Replace(",", "");
+
+            decimal result = decimal.Parse(cleanedNumber, CultureInfo.InvariantCulture);
+
+            return result;
         }
     }
 }

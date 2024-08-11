@@ -275,6 +275,7 @@
             // txtTrangThai
             // 
             this.txtTrangThai.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTrangThai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTrangThai.FormattingEnabled = true;
             this.txtTrangThai.Items.AddRange(new object[] {
@@ -511,6 +512,7 @@
             // txtChucVu
             // 
             this.txtChucVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChucVu.FormattingEnabled = true;
             this.txtChucVu.Items.AddRange(new object[] {
@@ -581,6 +583,7 @@
             // txtQuanHam
             // 
             this.txtQuanHam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtQuanHam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtQuanHam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuanHam.FormattingEnabled = true;
             this.txtQuanHam.Items.AddRange(new object[] {

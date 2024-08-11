@@ -32,7 +32,7 @@ namespace QuanLyVatTu.GUI.Admin
 
         private void btnDanhSachVatTu_Click(object sender, EventArgs e)
         {
-            lblTieuDe1.Caption = "Vật tư";
+            lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Danh sách vật tư";
             if (usr_DanhSachVatTu == null)
             {
@@ -49,7 +49,7 @@ namespace QuanLyVatTu.GUI.Admin
 
         private void btnDanhMucVatTu_Click(object sender, EventArgs e)
         {
-            lblTieuDe1.Caption = "Vật tư";
+            lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Danh mục vật tư";
             if (usr_DanhMucVatTu == null)
             {
@@ -76,7 +76,7 @@ namespace QuanLyVatTu.GUI.Admin
 
         private void btnDanhSachTaiKhoan_Click(object sender, EventArgs e)
         {
-            lblTieuDe1.Caption = "Tài khoản";
+            lblTieuDe1.Caption = "Tài khoản hệ thông";
             lblTieuDe2.Caption = "Danh sách tài khoản";
             if (usr_DanhSachTaiKhoan == null)
             {
