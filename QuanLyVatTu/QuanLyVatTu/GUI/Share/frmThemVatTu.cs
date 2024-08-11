@@ -18,6 +18,7 @@ namespace QuanLyVatTu.GUI.Share
         public frmThemVatTu()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
 
             typingTimer = new System.Timers.Timer(TypingDelay);
             typingTimer.Elapsed += OnTypingTimerElapsed;
@@ -41,6 +42,7 @@ namespace QuanLyVatTu.GUI.Share
         public frmThemVatTu(VatTu vatTu)
         {
             InitializeComponent();
+            this.MaximizeBox = false;
 
             typingTimer = new System.Timers.Timer(TypingDelay);
             typingTimer.Elapsed += OnTypingTimerElapsed;

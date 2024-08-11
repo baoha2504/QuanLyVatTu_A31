@@ -10,12 +10,14 @@ namespace QuanLyVatTu.GUI.Share
         public frmThemDanhMuc()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
             txtThoiGian.Text = DateTime.Now.ToString("dd/MM/yyyy"); txtThoiGian.Enabled = false;
         }
 
         public frmThemDanhMuc(string madanhmuc, string tendanhmuc)
         {
             InitializeComponent();
+            this.MaximizeBox = false;
             txtMaDanhMuc.Text = madanhmuc; txtMaDanhMuc.Enabled = false;
             txtTenDanhMuc.Text = tendanhmuc;
             txtThoiGian.Text = DateTime.Now.ToString("dd/MM/yyyy"); txtThoiGian.Enabled = false;

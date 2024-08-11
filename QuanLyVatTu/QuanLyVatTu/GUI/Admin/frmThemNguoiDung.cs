@@ -13,6 +13,7 @@ namespace QuanLyVatTu.GUI.Admin
         public frmThemNguoiDung()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
             txtID.Enabled = false;
             txtMatKhau.Text = string.Empty;
             txtNgaySua.Text = DateTime.Now.ToString("dd/MM/yyyy"); txtNgaySua.ReadOnly = true;
@@ -21,6 +22,7 @@ namespace QuanLyVatTu.GUI.Admin
         public frmThemNguoiDung(int userID, string tennguoidung, string quanham, string chucvu, string tentaikhoan, string trangthai)
         {
             InitializeComponent();
+            this.MaximizeBox = false;
             txtID.Text = userID.ToString(); txtID.ReadOnly = true;
             txtTenNguoiDung.Text = tennguoidung;
             txtQuanHam.Text = quanham;

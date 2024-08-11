@@ -26,6 +26,7 @@ namespace QuanLyVatTu
         public frmDangNhap()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
             LoadMatKhau();
             toolTip = new ToolTip();
             toolTip.SetToolTip(btnHienThiMatKhau, "Nhấp để hiển thị/ẩn mật khẩu");
