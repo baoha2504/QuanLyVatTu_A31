@@ -56,18 +56,22 @@ namespace QuanLyVatTu.GUI.Admin
         {
             if (e.ColumnIndex == dataGridView_DSTaiKhoan.Columns["Column9"].Index && e.RowIndex >= 0)
             {
-                // Lấy ID của dòng được chọn
-                int rowID = (int)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column1"].Value;
-                string tennguoidung = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column2"].Value;
-                string quanham = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column3"].Value;
-                string chucvu = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column4"].Value;
-                string tentaikhoan = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column5"].Value;
-                string trangthai = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column7"].Value;
+                try
+                {
+                    // Lấy ID của dòng được chọn
+                    int rowID = (int)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column1"].Value;
+                    string tennguoidung = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column2"].Value;
+                    string quanham = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column3"].Value;
+                    string chucvu = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column4"].Value;
+                    string tentaikhoan = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column5"].Value;
+                    string trangthai = (string)dataGridView_DSTaiKhoan.Rows[e.RowIndex].Cells["Column7"].Value;
 
-                frmThemNguoiDung frmThemNguoiDung = new frmThemNguoiDung(rowID, tennguoidung, quanham, chucvu, tentaikhoan, trangthai);
-                frmThemNguoiDung.Text = "Sửa thông tin người dùng";
-                frmThemNguoiDung.ShowDialog();
-                btnLamMoi_Click(sender, e);
+                    frmThemNguoiDung frmThemNguoiDung = new frmThemNguoiDung(rowID, tennguoidung, quanham, chucvu, tentaikhoan, trangthai);
+                    frmThemNguoiDung.Text = "Sửa thông tin người dùng";
+                    frmThemNguoiDung.ShowDialog();
+                    btnLamMoi_Click(sender, e);
+                }
+                catch { }
             }
         }
 

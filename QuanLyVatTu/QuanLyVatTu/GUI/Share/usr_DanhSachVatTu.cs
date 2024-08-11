@@ -1,7 +1,9 @@
-﻿using QuanLyVatTu.Model;
+﻿using OfficeOpenXml;
+using QuanLyVatTu.Model;
 using QuanLyVatTu.Support;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -11,6 +13,7 @@ namespace QuanLyVatTu.GUI.Share
     {
         Function function = new Function();
         List<VatTu> vatTus = new List<VatTu>();
+        List<DanhMuc> danhMucs = new List<DanhMuc>();
         public usr_DanhSachVatTu()
         {
             InitializeComponent();
@@ -21,6 +24,7 @@ namespace QuanLyVatTu.GUI.Share
         private void LoadDSVatTu()
         {
             dataGridView_DSVatTu.Rows.Clear();
+            danhMucs.Clear();
             using (var dbContext = new QuanLyVatTuDbContext())
             {
                 var vattu = new List<VatTu>();
@@ -45,6 +49,7 @@ namespace QuanLyVatTu.GUI.Share
                 {
                     string madanhmuc = (string)vattu[i].madanhmuc;
                     DanhMuc danhMuc = dbContext.DanhMucs.SingleOrDefault(m => m.madanhmuc == madanhmuc);
+                    danhMucs.Add(danhMuc);
                     dataGridView_DSVatTu.Rows.Add();
                     dataGridView_DSVatTu.Rows[i].Cells["Column1"].Value = vattu[i].mavattu;
                     dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value = vattu[i].tenvattu;
@@ -75,11 +80,15 @@ namespace QuanLyVatTu.GUI.Share
         {
             if (e.ColumnIndex == dataGridView_DSVatTu.Columns["Column9"].Index && e.RowIndex >= 0)
             {
-                int rowID = e.RowIndex;
-                frmThemVatTu frmThemVatTu = new frmThemVatTu(vatTus[rowID]);
-                frmThemVatTu.Text = "Sửa thông tin vật tư";
-                frmThemVatTu.ShowDialog();
-                LoadDSVatTu();
+                try
+                {
+                    int rowID = e.RowIndex;
+                    frmThemVatTu frmThemVatTu = new frmThemVatTu(vatTus[rowID]);
+                    frmThemVatTu.Text = "Sửa thông tin vật tư";
+                    frmThemVatTu.ShowDialog();
+                    LoadDSVatTu();
+                }
+                catch { }
             }
         }
 
@@ -132,7 +141,69 @@ namespace QuanLyVatTu.GUI.Share
 
         private void btnXuatDanhSach_Click(object sender, EventArgs e)
         {
+            using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+            {
+                if (folderDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedPath = folderDialog.SelectedPath;
+                    string fileName = groupPanel1.Text + $"_{DateTime.Now.ToString("HH.mm.ss_dd.MM.yyyy")}.xlsx";
+                    string filePath = Path.Combine(selectedPath, fileName);
+                    ExportVatTusToExcel(vatTus, danhMucs, filePath);
+                    MessageBox.Show("Xuất danh sách thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
 
+        private void ExportVatTusToExcel(List<VatTu> vatTus, List<DanhMuc> danhMucs, string filePath)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (var package = new ExcelPackage())
+            {
+                var worksheet = package.Workbook.Worksheets.Add("Danh sách vật tư");
+
+                // Add header row
+                worksheet.Cells[1, 1].Value = "STT";
+                worksheet.Cells[1, 2].Value = "Mã Vật Tư";
+                worksheet.Cells[1, 3].Value = "Tên Vật Tư";
+                worksheet.Cells[1, 4].Value = "Đơn Vị Tính";
+                worksheet.Cells[1, 5].Value = "Đơn Giá";
+                worksheet.Cells[1, 6].Value = "Nguồn Gốc";
+                worksheet.Cells[1, 7].Value = "Trạng Thái";
+                worksheet.Cells[1, 8].Value = "Thông Số Kỹ Thuật";
+                worksheet.Cells[1, 9].Value = "Danh Mục";
+                worksheet.Cells[1, 10].Value = "Ghi Chú";
+
+                // Add data rows
+                for (int i = 0; i < vatTus.Count; i++)
+                {
+                    worksheet.Cells[i + 2, 1].Value = i + 1;
+                    worksheet.Cells[i + 2, 2].Value = vatTus[i].mavattu;
+                    worksheet.Cells[i + 2, 3].Value = vatTus[i].tenvattu;
+                    worksheet.Cells[i + 2, 4].Value = vatTus[i].donvitinh;
+                    string dongia = function.FormatDecimal((decimal)vatTus[i].dongia);
+                    worksheet.Cells[i + 2, 5].Value = dongia;
+                    worksheet.Cells[i + 2, 6].Value = vatTus[i].nguongoc;
+                    if (vatTus[i].trangthai == 0)
+                    {
+                        worksheet.Cells[i + 2, 7].Value = "Dừng sử dụng";
+                    }
+                    else if (vatTus[i].trangthai == 1)
+                    {
+                        worksheet.Cells[i + 2, 7].Value = "Đang sử dụng";
+                    }
+                    else if (vatTus[i].trangthai == 2)
+                    {
+                        worksheet.Cells[i + 2, 7].Value = "Bị trùng";
+                    }
+                    worksheet.Cells[i + 2, 8].Value = vatTus[i].thongsokythuat;
+                    worksheet.Cells[i + 2, 9].Value = danhMucs[i].tendanhmuc;
+                    worksheet.Cells[i + 2, 10].Value = vatTus[i].ghichu;
+                }
+
+                FileInfo fi = new FileInfo(filePath);
+                package.SaveAs(fi);
+            }
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)

@@ -1,12 +1,6 @@
 ﻿using QuanLyVatTu.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTu.GUI.Share
@@ -41,13 +35,17 @@ namespace QuanLyVatTu.GUI.Share
         {
             if (e.ColumnIndex == dataGridView_DSDanhMuc.Columns["Column5"].Index && e.RowIndex >= 0)
             {
-                string madanhmuc = (string)dataGridView_DSDanhMuc.Rows[e.RowIndex].Cells["Column1"].Value;
-                string tendanhmuc = (string)dataGridView_DSDanhMuc.Rows[e.RowIndex].Cells["Column2"].Value;
+                try
+                {
+                    string madanhmuc = (string)dataGridView_DSDanhMuc.Rows[e.RowIndex].Cells["Column1"].Value;
+                    string tendanhmuc = (string)dataGridView_DSDanhMuc.Rows[e.RowIndex].Cells["Column2"].Value;
 
-                frmThemDanhMuc frmThemDanhMuc = new frmThemDanhMuc(madanhmuc, tendanhmuc);
-                frmThemDanhMuc.Text = "Sửa thông tin danh mục";
-                frmThemDanhMuc.ShowDialog();
-                btnLamMoi_Click(sender, e);
+                    frmThemDanhMuc frmThemDanhMuc = new frmThemDanhMuc(madanhmuc, tendanhmuc);
+                    frmThemDanhMuc.Text = "Sửa thông tin danh mục";
+                    frmThemDanhMuc.ShowDialog();
+                    btnLamMoi_Click(sender, e);
+                }
+                catch { }
             }
         }
 

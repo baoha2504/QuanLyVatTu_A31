@@ -361,7 +361,7 @@
             this.btnXuatDanhSach.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnXuatDanhSach.TabIndex = 12;
             this.btnXuatDanhSach.Text = "Xuất danh sách";
-            this.btnXuatDanhSach.Tooltip = "Xuất danh sách đang hiển thị";
+            this.btnXuatDanhSach.Tooltip = "Xuất danh sách đang hiển thị ra Excel";
             this.btnXuatDanhSach.Click += new System.EventHandler(this.btnXuatDanhSach_Click);
             // 
             // panel11
