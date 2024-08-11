@@ -40,11 +40,20 @@
     <Reference Include="DevExpress.Utils.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Class\Config.cs" />
     <Compile Include="Class\Login.cs" />
+    <Compile Include="Class\TaiKhoan.cs" />
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,20 +80,111 @@
     <Compile Include="GUI\Admin\frmAdmin.Designer.cs">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Admin\frmThemNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\frmThemNguoiDung.Designer.cs">
+      <DependentUpon>frmThemNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\usr_DanhSachTaiKhoan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\usr_DanhSachTaiKhoan.Designer.cs">
+      <DependentUpon>usr_DanhSachTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\usr_NhatKyDangNhap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\usr_NhatKyDangNhap.Designer.cs">
+      <DependentUpon>usr_NhatKyDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Admin\usr_NhatKyHoatDong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\usr_NhatKyHoatDong.Designer.cs">
+      <DependentUpon>usr_NhatKyHoatDong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Share\frmThemDanhMuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\frmThemDanhMuc.Designer.cs">
+      <DependentUpon>frmThemDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Share\frmThemVatTu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\frmThemVatTu.Designer.cs">
+      <DependentUpon>frmThemVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Share\usr_DanhMucVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\usr_DanhMucVatTu.Designer.cs">
+      <DependentUpon>usr_DanhMucVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Share\usr_DanhSachVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\usr_DanhSachVatTu.Designer.cs">
+      <DependentUpon>usr_DanhSachVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Share\usr_DoiMatKhau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\usr_DoiMatKhau.Designer.cs">
+      <DependentUpon>usr_DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\User\frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\User\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ChiTietPhuongAn.cs" />
+    <Compile Include="Model\DangNhap.cs" />
+    <Compile Include="Model\DanhMuc.cs" />
+    <Compile Include="Model\LichSuDangNhap.cs" />
+    <Compile Include="Model\LichSuHoatDong.cs" />
+    <Compile Include="Model\NguoiDung.cs" />
+    <Compile Include="Model\PhuongAnVatTu.cs" />
+    <Compile Include="Model\QuanLyVatTuDbContext.cs" />
+    <Compile Include="Model\VatTu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Support\Function.cs" />
     <Compile Include="Support\GetConfig.cs" />
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\frmThemNguoiDung.resx">
+      <DependentUpon>frmThemNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\usr_DanhSachTaiKhoan.resx">
+      <DependentUpon>usr_DanhSachTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\usr_NhatKyDangNhap.resx">
+      <DependentUpon>usr_NhatKyDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\usr_NhatKyHoatDong.resx">
+      <DependentUpon>usr_NhatKyHoatDong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\frmThemDanhMuc.resx">
+      <DependentUpon>frmThemDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\frmThemVatTu.resx">
+      <DependentUpon>frmThemVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\usr_DanhMucVatTu.resx">
+      <DependentUpon>usr_DanhMucVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\usr_DanhSachVatTu.resx">
+      <DependentUpon>usr_DanhSachVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\usr_DoiMatKhau.resx">
+      <DependentUpon>usr_DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\User\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
@@ -114,8 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="GUI\Share\" />
-    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

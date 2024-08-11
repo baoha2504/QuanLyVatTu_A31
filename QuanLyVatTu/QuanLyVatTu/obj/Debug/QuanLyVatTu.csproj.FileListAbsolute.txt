@@ -62,3 +62,16 @@ E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\es\DevExpress.Sparkline
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\ja\DevExpress.Sparkline.v21.2.Core.resources.dll
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\ru\DevExpress.Sparkline.v21.2.Core.resources.dll
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Admin.frmAdmin.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\EntityFramework.dll
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\EntityFramework.SqlServer.dll
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\EntityFramework.xml
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\EntityFramework.SqlServer.xml
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Admin.usr_DanhSachTaiKhoan.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Admin.frmThemNguoiDung.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.usr_DoiMatKhau.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Admin.usr_NhatKyDangNhap.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Admin.usr_NhatKyHoatDong.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.usr_DanhMucVatTu.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmThemDanhMuc.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.usr_DanhSachVatTu.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmThemVatTu.resources

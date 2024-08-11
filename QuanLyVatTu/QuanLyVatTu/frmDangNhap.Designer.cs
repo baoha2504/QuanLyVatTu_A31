@@ -320,6 +320,7 @@
             this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
             this.txtTenTaiKhoan.Size = new System.Drawing.Size(340, 35);
             this.txtTenTaiKhoan.TabIndex = 6;
+            this.txtTenTaiKhoan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTenTaiKhoan_KeyDown);
             // 
             // panel9
             // 
