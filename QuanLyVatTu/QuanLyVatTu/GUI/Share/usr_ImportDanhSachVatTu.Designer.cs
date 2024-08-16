@@ -204,6 +204,7 @@
             // 
             // dataGridView_CanXacNhan
             // 
+            this.dataGridView_CanXacNhan.AllowUserToDeleteRows = false;
             this.dataGridView_CanXacNhan.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_CanXacNhan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_CanXacNhan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -552,6 +553,7 @@
             // 
             // dataGridView_VatTuMoi
             // 
+            this.dataGridView_VatTuMoi.AllowUserToDeleteRows = false;
             this.dataGridView_VatTuMoi.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_VatTuMoi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_VatTuMoi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

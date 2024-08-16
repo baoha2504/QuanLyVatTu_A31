@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyVatTu.GUI.Share
 {
-    public partial class usr_DanhSachPhuongAnVatTu : UserControl
+    public partial class frmChiTietPhuongAnVatTu : Form
     {
-        public usr_DanhSachPhuongAnVatTu()
+        public frmChiTietPhuongAnVatTu()
         {
             InitializeComponent();
         }

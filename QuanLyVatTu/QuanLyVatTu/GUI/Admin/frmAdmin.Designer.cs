@@ -71,10 +71,10 @@
             this.mainContainer.Appearance.BackColor = System.Drawing.Color.White;
             this.mainContainer.Appearance.Options.UseBackColor = true;
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(323, 39);
-            this.mainContainer.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.mainContainer.Location = new System.Drawing.Point(324, 39);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(1075, 710);
+            this.mainContainer.Size = new System.Drawing.Size(1074, 710);
             this.mainContainer.TabIndex = 0;
             // 
             // accordionControl1
@@ -87,10 +87,10 @@
             this.NHATKYHETHONG,
             this.TROGIUP});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(323, 710);
+            this.accordionControl1.Size = new System.Drawing.Size(324, 710);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 

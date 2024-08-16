@@ -90,8 +90,10 @@ E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\System.Buffers.xml
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\System.Memory.xml
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\System.Numerics.Vectors.xml
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.usr_DanhSachPhuongAnVatTu.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.usr_ImportDanhSachVatTu.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.usr_LocDanhSachVatTu.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.User.usr_LapPhuongAnVatTu.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmChiTietVatTuMoi.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Admin.usr_DanhSachPhuongAnVatTu_Admin.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.User.usr_DanhSachPhuongAnVatTu_User.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmChiTietPhuongAnVatTu.resources

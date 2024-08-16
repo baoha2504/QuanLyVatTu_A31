@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using QuanLyVatTu.GUI.Admin;
 using QuanLyVatTu.GUI.Share;
 using QuanLyVatTu.Model;
 using System;
@@ -19,6 +20,8 @@ namespace QuanLyVatTu.GUI.User
         usr_DanhSachVatTu usr_DanhSachVatTu;
         usr_LocDanhSachVatTu usr_LocDanhSachVatTu;
         usr_ImportDanhSachVatTu usr_ImportDanhSachVatTu;
+        usr_LapPhuongAnVatTu usr_LapPhuongAnVatTu;
+        usr_DanhSachPhuongAnVatTu_User usr_DanhSachPhuongAnVatTu_User;
 
         public frmUser()
         {
@@ -28,17 +31,41 @@ namespace QuanLyVatTu.GUI.User
 
         private void frmUser_Load(object sender, EventArgs e)
         {
-            btnDoiMatKhau_Click(sender, e);
+            btnLapPhuongAnVatTu_Click(sender, e);
         }
 
         private void btnLapPhuongAnVatTu_Click(object sender, EventArgs e)
         {
-
+            lblTieuDe1.Caption = "Phương án vật tư";
+            lblTieuDe2.Caption = "Lập phương án vật tư";
+            if (usr_LapPhuongAnVatTu == null)
+            {
+                usr_LapPhuongAnVatTu = new usr_LapPhuongAnVatTu();
+                usr_LapPhuongAnVatTu.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(usr_LapPhuongAnVatTu);
+                usr_LapPhuongAnVatTu.BringToFront();
+            }
+            else
+            {
+                usr_LapPhuongAnVatTu.BringToFront();
+            }
         }
 
         private void btnDanhSachPhuongAnVatTu_Click(object sender, EventArgs e)
         {
-
+            lblTieuDe1.Caption = "Phương án vật tư";
+            lblTieuDe2.Caption = "Danh sách phương án vật tư";
+            if (usr_DanhSachPhuongAnVatTu_User == null)
+            {
+                usr_DanhSachPhuongAnVatTu_User = new usr_DanhSachPhuongAnVatTu_User();
+                usr_DanhSachPhuongAnVatTu_User.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(usr_DanhSachPhuongAnVatTu_User);
+                usr_DanhSachPhuongAnVatTu_User.BringToFront();
+            }
+            else
+            {
+                usr_DanhSachPhuongAnVatTu_User.BringToFront();
+            }
         }
 
         private void btnDanhSachVatTu_Click(object sender, EventArgs e)

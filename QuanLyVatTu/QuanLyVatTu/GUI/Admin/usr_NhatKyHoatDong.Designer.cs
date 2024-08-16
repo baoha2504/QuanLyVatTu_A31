@@ -128,6 +128,7 @@
             // 
             // dataGridView_DSLog
             // 
+            this.dataGridView_DSLog.AllowUserToDeleteRows = false;
             this.dataGridView_DSLog.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_DSLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DSLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

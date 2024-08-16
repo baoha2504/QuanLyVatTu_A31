@@ -15,6 +15,7 @@ namespace QuanLyVatTu.GUI.Admin
         usr_DanhSachVatTu usr_DanhSachVatTu;
         usr_LocDanhSachVatTu usr_LocDanhSachVatTu;
         usr_ImportDanhSachVatTu usr_ImportDanhSachVatTu;
+        usr_DanhSachPhuongAnVatTu_Admin usr_DanhSachPhuongAnVatTu_Admin;
 
         public frmAdmin()
         {
@@ -24,12 +25,24 @@ namespace QuanLyVatTu.GUI.Admin
 
         private void frmAdmin_Load(object sender, EventArgs e)
         {
-            btnImportDanhSachVatTu_Click(sender, e);
+            btnDanhSachPhuongAnVatTu_Click(sender, e);
         }
 
         private void btnDanhSachPhuongAnVatTu_Click(object sender, EventArgs e)
         {
-
+            lblTieuDe1.Caption = "Phương án vật tư";
+            lblTieuDe2.Caption = "Danh sách phương án vật tư";
+            if (usr_DanhSachPhuongAnVatTu_Admin == null)
+            {
+                usr_DanhSachPhuongAnVatTu_Admin = new usr_DanhSachPhuongAnVatTu_Admin();
+                usr_DanhSachPhuongAnVatTu_Admin.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(usr_DanhSachPhuongAnVatTu_Admin);
+                usr_DanhSachPhuongAnVatTu_Admin.BringToFront();
+            }
+            else
+            {
+                usr_DanhSachPhuongAnVatTu_Admin.BringToFront();
+            }
         }
 
         private void btnDanhSachVatTu_Click(object sender, EventArgs e)

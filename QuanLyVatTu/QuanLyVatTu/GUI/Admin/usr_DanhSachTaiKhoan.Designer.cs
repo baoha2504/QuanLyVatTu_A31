@@ -28,23 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.btnTimKiemTheoTen = new DevComponents.DotNetBar.ButtonX();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.btnLamMoi = new DevComponents.DotNetBar.ButtonX();
             this.dataGridView_DSTaiKhoan = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.btnThemTaiKhoan = new DevComponents.DotNetBar.ButtonX();
-            this.txtNoiDungTimKiem = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,12 +42,24 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnThemTaiKhoan = new DevComponents.DotNetBar.ButtonX();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnLamMoi = new DevComponents.DotNetBar.ButtonX();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.txtNoiDungTimKiem = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnTimKiemTheoTen = new DevComponents.DotNetBar.ButtonX();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelEx1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.groupPanel1.SuspendLayout();
-            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSTaiKhoan)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -84,38 +84,6 @@
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 30);
-            this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnThemTaiKhoan);
-            this.panel2.Controls.Add(this.panel11);
-            this.panel2.Controls.Add(this.btnLamMoi);
-            this.panel2.Controls.Add(this.panel8);
-            this.panel2.Controls.Add(this.panel7);
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.btnTimKiemTheoTen);
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 30);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1200, 35);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 65);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1200, 10);
-            this.panel3.TabIndex = 2;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.groupPanel1);
@@ -124,14 +92,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1200, 625);
             this.panel4.TabIndex = 3;
-            // 
-            // panel5
-            // 
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(1150, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(50, 35);
-            this.panel5.TabIndex = 1;
             // 
             // groupPanel1
             // 
@@ -174,59 +134,9 @@
             this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "Danh sách tài khoản hệ thống";
             // 
-            // btnTimKiemTheoTen
-            // 
-            this.btnTimKiemTheoTen.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTimKiemTheoTen.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTimKiemTheoTen.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnTimKiemTheoTen.Location = new System.Drawing.Point(1000, 0);
-            this.btnTimKiemTheoTen.Name = "btnTimKiemTheoTen";
-            this.btnTimKiemTheoTen.Size = new System.Drawing.Size(150, 35);
-            this.btnTimKiemTheoTen.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTimKiemTheoTen.TabIndex = 2;
-            this.btnTimKiemTheoTen.Text = "Tìm kiếm theo tên";
-            this.btnTimKiemTheoTen.Click += new System.EventHandler(this.btnTimKiemTheoTen_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(995, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(5, 35);
-            this.panel6.TabIndex = 3;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.txtNoiDungTimKiem);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(795, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(200, 35);
-            this.panel7.TabIndex = 4;
-            // 
-            // panel8
-            // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(760, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(35, 35);
-            this.panel8.TabIndex = 5;
-            // 
-            // btnLamMoi
-            // 
-            this.btnLamMoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnLamMoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnLamMoi.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLamMoi.Location = new System.Drawing.Point(610, 0);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(150, 35);
-            this.btnLamMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnLamMoi.TabIndex = 6;
-            this.btnLamMoi.Text = "Làm mới";
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
-            // 
             // dataGridView_DSTaiKhoan
             // 
+            this.dataGridView_DSTaiKhoan.AllowUserToDeleteRows = false;
             this.dataGridView_DSTaiKhoan.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_DSTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DSTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -239,14 +149,14 @@
             this.Column7,
             this.Column8,
             this.Column9});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_DSTaiKhoan.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DSTaiKhoan.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_DSTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_DSTaiKhoan.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView_DSTaiKhoan.Location = new System.Drawing.Point(0, 0);
@@ -257,38 +167,6 @@
             this.dataGridView_DSTaiKhoan.Size = new System.Drawing.Size(1194, 602);
             this.dataGridView_DSTaiKhoan.TabIndex = 0;
             this.dataGridView_DSTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DSTaiKhoan_CellClick);
-            // 
-            // panel11
-            // 
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(575, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(35, 35);
-            this.panel11.TabIndex = 11;
-            // 
-            // btnThemTaiKhoan
-            // 
-            this.btnThemTaiKhoan.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnThemTaiKhoan.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnThemTaiKhoan.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnThemTaiKhoan.Location = new System.Drawing.Point(425, 0);
-            this.btnThemTaiKhoan.Name = "btnThemTaiKhoan";
-            this.btnThemTaiKhoan.Size = new System.Drawing.Size(150, 35);
-            this.btnThemTaiKhoan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnThemTaiKhoan.TabIndex = 12;
-            this.btnThemTaiKhoan.Text = "Thêm tài khoản";
-            this.btnThemTaiKhoan.Click += new System.EventHandler(this.btnThemTaiKhoan_Click);
-            // 
-            // txtNoiDungTimKiem
-            // 
-            this.txtNoiDungTimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNoiDungTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNoiDungTimKiem.Location = new System.Drawing.Point(0, 0);
-            this.txtNoiDungTimKiem.Multiline = true;
-            this.txtNoiDungTimKiem.Name = "txtNoiDungTimKiem";
-            this.txtNoiDungTimKiem.Size = new System.Drawing.Size(200, 35);
-            this.txtNoiDungTimKiem.TabIndex = 0;
-            this.txtNoiDungTimKiem.TextChanged += new System.EventHandler(this.txtNoiDungTimKiem_TextChanged);
             // 
             // Column1
             // 
@@ -363,6 +241,129 @@
             this.Column9.Text = "Sửa";
             this.Column9.Width = 125;
             // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 65);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1200, 10);
+            this.panel3.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnThemTaiKhoan);
+            this.panel2.Controls.Add(this.panel11);
+            this.panel2.Controls.Add(this.btnLamMoi);
+            this.panel2.Controls.Add(this.panel8);
+            this.panel2.Controls.Add(this.panel7);
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.btnTimKiemTheoTen);
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 30);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1200, 35);
+            this.panel2.TabIndex = 1;
+            // 
+            // btnThemTaiKhoan
+            // 
+            this.btnThemTaiKhoan.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnThemTaiKhoan.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnThemTaiKhoan.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnThemTaiKhoan.Location = new System.Drawing.Point(425, 0);
+            this.btnThemTaiKhoan.Name = "btnThemTaiKhoan";
+            this.btnThemTaiKhoan.Size = new System.Drawing.Size(150, 35);
+            this.btnThemTaiKhoan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnThemTaiKhoan.TabIndex = 12;
+            this.btnThemTaiKhoan.Text = "Thêm tài khoản";
+            this.btnThemTaiKhoan.Click += new System.EventHandler(this.btnThemTaiKhoan_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel11.Location = new System.Drawing.Point(575, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(35, 35);
+            this.panel11.TabIndex = 11;
+            // 
+            // btnLamMoi
+            // 
+            this.btnLamMoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnLamMoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnLamMoi.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLamMoi.Location = new System.Drawing.Point(610, 0);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(150, 35);
+            this.btnLamMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnLamMoi.TabIndex = 6;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel8.Location = new System.Drawing.Point(760, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(35, 35);
+            this.panel8.TabIndex = 5;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.txtNoiDungTimKiem);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel7.Location = new System.Drawing.Point(795, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(200, 35);
+            this.panel7.TabIndex = 4;
+            // 
+            // txtNoiDungTimKiem
+            // 
+            this.txtNoiDungTimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNoiDungTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoiDungTimKiem.Location = new System.Drawing.Point(0, 0);
+            this.txtNoiDungTimKiem.Multiline = true;
+            this.txtNoiDungTimKiem.Name = "txtNoiDungTimKiem";
+            this.txtNoiDungTimKiem.Size = new System.Drawing.Size(200, 35);
+            this.txtNoiDungTimKiem.TabIndex = 0;
+            this.txtNoiDungTimKiem.TextChanged += new System.EventHandler(this.txtNoiDungTimKiem_TextChanged);
+            // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel6.Location = new System.Drawing.Point(995, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(5, 35);
+            this.panel6.TabIndex = 3;
+            // 
+            // btnTimKiemTheoTen
+            // 
+            this.btnTimKiemTheoTen.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTimKiemTheoTen.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTimKiemTheoTen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnTimKiemTheoTen.Location = new System.Drawing.Point(1000, 0);
+            this.btnTimKiemTheoTen.Name = "btnTimKiemTheoTen";
+            this.btnTimKiemTheoTen.Size = new System.Drawing.Size(150, 35);
+            this.btnTimKiemTheoTen.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTimKiemTheoTen.TabIndex = 2;
+            this.btnTimKiemTheoTen.Text = "Tìm kiếm theo tên";
+            this.btnTimKiemTheoTen.Click += new System.EventHandler(this.btnTimKiemTheoTen_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Location = new System.Drawing.Point(1150, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(50, 35);
+            this.panel5.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1200, 30);
+            this.panel1.TabIndex = 0;
+            // 
             // usr_DanhSachTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -371,12 +372,12 @@
             this.Name = "usr_DanhSachTaiKhoan";
             this.Size = new System.Drawing.Size(1200, 700);
             this.panelEx1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSTaiKhoan)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSTaiKhoan)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -144,6 +144,7 @@
             // 
             // dataGridView_DSVatTu
             // 
+            this.dataGridView_DSVatTu.AllowUserToDeleteRows = false;
             this.dataGridView_DSVatTu.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_DSVatTu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DSVatTu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

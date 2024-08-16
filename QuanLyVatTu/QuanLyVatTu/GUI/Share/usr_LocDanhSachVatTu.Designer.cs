@@ -28,14 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panel4 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.dataGridView_DSVatTu1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.txtNoiDungTimKiem1 = new System.Windows.Forms.TextBox();
@@ -63,23 +70,16 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLocTuDong = new DevComponents.DotNetBar.ButtonX();
+            this.btnLocTuDong90 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnLocTuDong80 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnLocTuDong70 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnLocTuDong60 = new DevComponents.DotNetBar.ButtonItem();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnLamMoi = new DevComponents.DotNetBar.ButtonX();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnLuuDanhSachDaLoc = new DevComponents.DotNetBar.ButtonX();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnLocTuDong90 = new DevComponents.DotNetBar.ButtonItem();
-            this.btnLocTuDong80 = new DevComponents.DotNetBar.ButtonItem();
-            this.btnLocTuDong70 = new DevComponents.DotNetBar.ButtonItem();
-            this.btnLocTuDong60 = new DevComponents.DotNetBar.ButtonItem();
             this.panelEx1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -201,6 +201,7 @@
             // 
             // dataGridView_DSVatTu1
             // 
+            this.dataGridView_DSVatTu1.AllowUserToDeleteRows = false;
             this.dataGridView_DSVatTu1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_DSVatTu1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DSVatTu1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -211,14 +212,14 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_DSVatTu1.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DSVatTu1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_DSVatTu1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_DSVatTu1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView_DSVatTu1.Location = new System.Drawing.Point(0, 0);
@@ -229,6 +230,62 @@
             this.dataGridView_DSVatTu1.Size = new System.Drawing.Size(560, 557);
             this.dataGridView_DSVatTu1.TabIndex = 1;
             this.dataGridView_DSVatTu1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DSVatTu1_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Xác nhận";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 70;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Danh mục 1";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 70;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Tên vật tư 1";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "#";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 20;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Danh mục 2";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 70;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Tên vật tư 2";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 150;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Giống nhau";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 50;
             // 
             // panel16
             // 
@@ -353,6 +410,7 @@
             // 
             // dataGridView_DSVatTu2
             // 
+            this.dataGridView_DSVatTu2.AllowUserToDeleteRows = false;
             this.dataGridView_DSVatTu2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_DSVatTu2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DSVatTu2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -363,14 +421,14 @@
             this.Column12,
             this.Column13,
             this.Column14});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_DSVatTu2.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DSVatTu2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_DSVatTu2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_DSVatTu2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView_DSVatTu2.Location = new System.Drawing.Point(0, 0);
@@ -545,6 +603,34 @@
             this.btnLocTuDong.Text = "Lọc tự động";
             this.btnLocTuDong.Tooltip = "Lọc tự động bằng phần mềm";
             // 
+            // btnLocTuDong90
+            // 
+            this.btnLocTuDong90.GlobalItem = false;
+            this.btnLocTuDong90.Name = "btnLocTuDong90";
+            this.btnLocTuDong90.Text = "Giống trên 90%";
+            this.btnLocTuDong90.Click += new System.EventHandler(this.btnLocTuDong90_Click);
+            // 
+            // btnLocTuDong80
+            // 
+            this.btnLocTuDong80.GlobalItem = false;
+            this.btnLocTuDong80.Name = "btnLocTuDong80";
+            this.btnLocTuDong80.Text = "Giống trên 80%";
+            this.btnLocTuDong80.Click += new System.EventHandler(this.btnLocTuDong80_Click);
+            // 
+            // btnLocTuDong70
+            // 
+            this.btnLocTuDong70.GlobalItem = false;
+            this.btnLocTuDong70.Name = "btnLocTuDong70";
+            this.btnLocTuDong70.Text = "Giống trên 70%";
+            this.btnLocTuDong70.Click += new System.EventHandler(this.btnLocTuDong70_Click);
+            // 
+            // btnLocTuDong60
+            // 
+            this.btnLocTuDong60.GlobalItem = false;
+            this.btnLocTuDong60.Name = "btnLocTuDong60";
+            this.btnLocTuDong60.Text = "Giống trên 60%";
+            this.btnLocTuDong60.Click += new System.EventHandler(this.btnLocTuDong60_Click);
+            // 
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
@@ -604,90 +690,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 30);
             this.panel1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Xác nhận";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 70;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Danh mục 1";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 70;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Tên vật tư 1";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "#";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 20;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Danh mục 2";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 70;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Tên vật tư 2";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 150;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Giống nhau";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 50;
-            // 
-            // btnLocTuDong90
-            // 
-            this.btnLocTuDong90.GlobalItem = false;
-            this.btnLocTuDong90.Name = "btnLocTuDong90";
-            this.btnLocTuDong90.Text = "Giống trên 90%";
-            this.btnLocTuDong90.Click += new System.EventHandler(this.btnLocTuDong90_Click);
-            // 
-            // btnLocTuDong80
-            // 
-            this.btnLocTuDong80.GlobalItem = false;
-            this.btnLocTuDong80.Name = "btnLocTuDong80";
-            this.btnLocTuDong80.Text = "Giống trên 80%";
-            this.btnLocTuDong80.Click += new System.EventHandler(this.btnLocTuDong80_Click);
-            // 
-            // btnLocTuDong70
-            // 
-            this.btnLocTuDong70.GlobalItem = false;
-            this.btnLocTuDong70.Name = "btnLocTuDong70";
-            this.btnLocTuDong70.Text = "Giống trên 70%";
-            this.btnLocTuDong70.Click += new System.EventHandler(this.btnLocTuDong70_Click);
-            // 
-            // btnLocTuDong60
-            // 
-            this.btnLocTuDong60.GlobalItem = false;
-            this.btnLocTuDong60.Name = "btnLocTuDong60";
-            this.btnLocTuDong60.Text = "Giống trên 60%";
-            this.btnLocTuDong60.Click += new System.EventHandler(this.btnLocTuDong60_Click);
             // 
             // usr_LocDanhSachVatTu
             // 
