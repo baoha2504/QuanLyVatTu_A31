@@ -79,7 +79,6 @@ namespace QuanLyVatTu.GUI.Share
                     dataGridView_DSDanhMuc.Rows[i].Visible = false;
                 }
             }
-
         }
 
         private void txtNoiDungTimKiem_TextChanged(object sender, EventArgs e)

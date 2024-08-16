@@ -143,6 +143,7 @@ namespace QuanLyVatTu.GUI.Share
         {
             using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
             {
+                folderDialog.Description = "Chọn thư mục lưu file";
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
                     string selectedPath = folderDialog.SelectedPath;

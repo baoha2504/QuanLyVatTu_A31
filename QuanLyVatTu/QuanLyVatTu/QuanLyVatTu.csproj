@@ -97,6 +97,8 @@
   <ItemGroup>
     <Compile Include="Class\Config.cs" />
     <Compile Include="Class\Login.cs" />
+    <Compile Include="Class\NewVatTuFromExcel.cs" />
+    <Compile Include="Class\SoSanhVatTu.cs" />
     <Compile Include="Class\TaiKhoan.cs" />
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
@@ -134,6 +136,12 @@
     <Compile Include="GUI\Admin\usr_NhatKyHoatDong.Designer.cs">
       <DependentUpon>usr_NhatKyHoatDong.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Share\frmChiTietVatTuMoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\frmChiTietVatTuMoi.Designer.cs">
+      <DependentUpon>frmChiTietVatTuMoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Share\frmThemDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +160,12 @@
     <Compile Include="GUI\Share\usr_DanhMucVatTu.Designer.cs">
       <DependentUpon>usr_DanhMucVatTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Share\usr_DanhSachPhuongAnVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\usr_DanhSachPhuongAnVatTu.Designer.cs">
+      <DependentUpon>usr_DanhSachPhuongAnVatTu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Share\usr_DanhSachVatTu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,11 +178,29 @@
     <Compile Include="GUI\Share\usr_DoiMatKhau.Designer.cs">
       <DependentUpon>usr_DoiMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Share\usr_ImportDanhSachVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\usr_ImportDanhSachVatTu.Designer.cs">
+      <DependentUpon>usr_ImportDanhSachVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Share\usr_LocDanhSachVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\usr_LocDanhSachVatTu.Designer.cs">
+      <DependentUpon>usr_LocDanhSachVatTu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\User\frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\User\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\User\usr_LapPhuongAnVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\User\usr_LapPhuongAnVatTu.Designer.cs">
+      <DependentUpon>usr_LapPhuongAnVatTu.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ChiTietPhuongAn.cs" />
     <Compile Include="Model\DangNhap.cs" />
@@ -201,6 +233,9 @@
     <EmbeddedResource Include="GUI\Admin\usr_NhatKyHoatDong.resx">
       <DependentUpon>usr_NhatKyHoatDong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\frmChiTietVatTuMoi.resx">
+      <DependentUpon>frmChiTietVatTuMoi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmThemDanhMuc.resx">
       <DependentUpon>frmThemDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,14 +245,26 @@
     <EmbeddedResource Include="GUI\Share\usr_DanhMucVatTu.resx">
       <DependentUpon>usr_DanhMucVatTu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\usr_DanhSachPhuongAnVatTu.resx">
+      <DependentUpon>usr_DanhSachPhuongAnVatTu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\usr_DanhSachVatTu.resx">
       <DependentUpon>usr_DanhSachVatTu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\usr_DoiMatKhau.resx">
       <DependentUpon>usr_DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\usr_ImportDanhSachVatTu.resx">
+      <DependentUpon>usr_ImportDanhSachVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\usr_LocDanhSachVatTu.resx">
+      <DependentUpon>usr_LocDanhSachVatTu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\User\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\User\usr_LapPhuongAnVatTu.resx">
+      <DependentUpon>usr_LapPhuongAnVatTu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

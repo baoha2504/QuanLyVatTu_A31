@@ -1,0 +1,773 @@
+﻿namespace QuanLyVatTu.GUI.Share
+{
+    partial class usr_LocDanhSachVatTu
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.dataGridView_DSVatTu1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.txtNoiDungTimKiem1 = new System.Windows.Forms.TextBox();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.btnTimKiemVatTu1 = new DevComponents.DotNetBar.ButtonX();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.dataGridView_DSVatTu2 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.txtNoiDungTimKiem2 = new System.Windows.Forms.TextBox();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.btnTimKiemVatTu2 = new DevComponents.DotNetBar.ButtonX();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnLocTuDong = new DevComponents.DotNetBar.ButtonX();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnLamMoi = new DevComponents.DotNetBar.ButtonX();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnLuuDanhSachDaLoc = new DevComponents.DotNetBar.ButtonX();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnLocTuDong90 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnLocTuDong80 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnLocTuDong70 = new DevComponents.DotNetBar.ButtonItem();
+            this.btnLocTuDong60 = new DevComponents.DotNetBar.ButtonItem();
+            this.panelEx1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.groupPanel1.SuspendLayout();
+            this.panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu1)).BeginInit();
+            this.panel14.SuspendLayout();
+            this.groupPanel2.SuspendLayout();
+            this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu2)).BeginInit();
+            this.panel15.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panelEx1
+            // 
+            this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.panel4);
+            this.panelEx1.Controls.Add(this.panel3);
+            this.panelEx1.Controls.Add(this.panel2);
+            this.panelEx1.Controls.Add(this.panel1);
+            this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEx1.Location = new System.Drawing.Point(0, 0);
+            this.panelEx1.Name = "panelEx1";
+            this.panelEx1.Size = new System.Drawing.Size(1200, 700);
+            this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx1.Style.GradientAngle = 90;
+            this.panelEx1.TabIndex = 12;
+            this.panelEx1.Resize += new System.EventHandler(this.panelEx1_Resize);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.splitContainer1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 80);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1200, 620);
+            this.panel4.TabIndex = 3;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupPanel1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupPanel2);
+            this.splitContainer1.Size = new System.Drawing.Size(1200, 620);
+            this.splitContainer1.SplitterDistance = 576;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // groupPanel1
+            // 
+            this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.panel18);
+            this.groupPanel1.Controls.Add(this.panel16);
+            this.groupPanel1.Controls.Add(this.panel14);
+            this.groupPanel1.Controls.Add(this.panel12);
+            this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupPanel1.Location = new System.Drawing.Point(0, 0);
+            this.groupPanel1.Name = "groupPanel1";
+            this.groupPanel1.Size = new System.Drawing.Size(576, 620);
+            // 
+            // 
+            // 
+            this.groupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel1.Style.BackColorGradientAngle = 90;
+            this.groupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderBottomWidth = 1;
+            this.groupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderLeftWidth = 1;
+            this.groupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderRightWidth = 1;
+            this.groupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderTopWidth = 1;
+            this.groupPanel1.Style.CornerDiameter = 4;
+            this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel1.TabIndex = 0;
+            this.groupPanel1.Text = "Danh sách vật tư có thể đã trùng nhau";
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.dataGridView_DSVatTu1);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel18.Location = new System.Drawing.Point(0, 40);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(560, 557);
+            this.panel18.TabIndex = 5;
+            // 
+            // dataGridView_DSVatTu1
+            // 
+            this.dataGridView_DSVatTu1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_DSVatTu1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_DSVatTu1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DSVatTu1.DefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridView_DSVatTu1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_DSVatTu1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridView_DSVatTu1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_DSVatTu1.Name = "dataGridView_DSVatTu1";
+            this.dataGridView_DSVatTu1.ReadOnly = true;
+            this.dataGridView_DSVatTu1.RowHeadersWidth = 51;
+            this.dataGridView_DSVatTu1.RowTemplate.Height = 24;
+            this.dataGridView_DSVatTu1.Size = new System.Drawing.Size(560, 557);
+            this.dataGridView_DSVatTu1.TabIndex = 1;
+            this.dataGridView_DSVatTu1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DSVatTu1_CellClick);
+            // 
+            // panel16
+            // 
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(0, 35);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(560, 5);
+            this.panel16.TabIndex = 4;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.txtNoiDungTimKiem1);
+            this.panel14.Controls.Add(this.panel23);
+            this.panel14.Controls.Add(this.btnTimKiemVatTu1);
+            this.panel14.Controls.Add(this.panel22);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(0, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(560, 35);
+            this.panel14.TabIndex = 3;
+            // 
+            // txtNoiDungTimKiem1
+            // 
+            this.txtNoiDungTimKiem1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtNoiDungTimKiem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoiDungTimKiem1.Location = new System.Drawing.Point(185, 0);
+            this.txtNoiDungTimKiem1.Multiline = true;
+            this.txtNoiDungTimKiem1.Name = "txtNoiDungTimKiem1";
+            this.txtNoiDungTimKiem1.Size = new System.Drawing.Size(200, 35);
+            this.txtNoiDungTimKiem1.TabIndex = 6;
+            this.txtNoiDungTimKiem1.TextChanged += new System.EventHandler(this.txtNoiDungTimKiem1_TextChanged);
+            // 
+            // panel23
+            // 
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel23.Location = new System.Drawing.Point(385, 0);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(5, 35);
+            this.panel23.TabIndex = 5;
+            // 
+            // btnTimKiemVatTu1
+            // 
+            this.btnTimKiemVatTu1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTimKiemVatTu1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTimKiemVatTu1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnTimKiemVatTu1.Location = new System.Drawing.Point(390, 0);
+            this.btnTimKiemVatTu1.Name = "btnTimKiemVatTu1";
+            this.btnTimKiemVatTu1.Size = new System.Drawing.Size(120, 35);
+            this.btnTimKiemVatTu1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTimKiemVatTu1.TabIndex = 4;
+            this.btnTimKiemVatTu1.Text = "Tìm kiếm vật tư";
+            this.btnTimKiemVatTu1.Click += new System.EventHandler(this.btnTimKiemVatTu1_Click);
+            // 
+            // panel22
+            // 
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel22.Location = new System.Drawing.Point(510, 0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(50, 35);
+            this.panel22.TabIndex = 3;
+            // 
+            // panel12
+            // 
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel12.Location = new System.Drawing.Point(560, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(10, 597);
+            this.panel12.TabIndex = 2;
+            // 
+            // groupPanel2
+            // 
+            this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel2.Controls.Add(this.panel19);
+            this.groupPanel2.Controls.Add(this.panel17);
+            this.groupPanel2.Controls.Add(this.panel15);
+            this.groupPanel2.Controls.Add(this.panel13);
+            this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
+            this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupPanel2.Location = new System.Drawing.Point(0, 0);
+            this.groupPanel2.Name = "groupPanel2";
+            this.groupPanel2.Size = new System.Drawing.Size(620, 620);
+            // 
+            // 
+            // 
+            this.groupPanel2.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel2.Style.BackColorGradientAngle = 90;
+            this.groupPanel2.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel2.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderBottomWidth = 1;
+            this.groupPanel2.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel2.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderLeftWidth = 1;
+            this.groupPanel2.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderRightWidth = 1;
+            this.groupPanel2.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderTopWidth = 1;
+            this.groupPanel2.Style.CornerDiameter = 4;
+            this.groupPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel2.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel2.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel2.TabIndex = 1;
+            this.groupPanel2.Text = "Danh sách đã được xác nhận là trùng nhau";
+            // 
+            // panel19
+            // 
+            this.panel19.Controls.Add(this.dataGridView_DSVatTu2);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel19.Location = new System.Drawing.Point(10, 40);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(604, 557);
+            this.panel19.TabIndex = 6;
+            // 
+            // dataGridView_DSVatTu2
+            // 
+            this.dataGridView_DSVatTu2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_DSVatTu2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_DSVatTu2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14});
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DSVatTu2.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridView_DSVatTu2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_DSVatTu2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridView_DSVatTu2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_DSVatTu2.Name = "dataGridView_DSVatTu2";
+            this.dataGridView_DSVatTu2.ReadOnly = true;
+            this.dataGridView_DSVatTu2.RowHeadersWidth = 51;
+            this.dataGridView_DSVatTu2.RowTemplate.Height = 24;
+            this.dataGridView_DSVatTu2.Size = new System.Drawing.Size(604, 557);
+            this.dataGridView_DSVatTu2.TabIndex = 0;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "STT";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 50;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Danh mục 1";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 70;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Tên vật tư 1";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 150;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "#";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 20;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Danh mục 2";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 70;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Tên vật tư 2";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 150;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Giống nhau";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 50;
+            // 
+            // panel17
+            // 
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel17.Location = new System.Drawing.Point(10, 35);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(604, 5);
+            this.panel17.TabIndex = 5;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.txtNoiDungTimKiem2);
+            this.panel15.Controls.Add(this.panel21);
+            this.panel15.Controls.Add(this.btnTimKiemVatTu2);
+            this.panel15.Controls.Add(this.panel20);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(10, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(604, 35);
+            this.panel15.TabIndex = 4;
+            // 
+            // txtNoiDungTimKiem2
+            // 
+            this.txtNoiDungTimKiem2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtNoiDungTimKiem2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoiDungTimKiem2.Location = new System.Drawing.Point(229, 0);
+            this.txtNoiDungTimKiem2.Multiline = true;
+            this.txtNoiDungTimKiem2.Name = "txtNoiDungTimKiem2";
+            this.txtNoiDungTimKiem2.Size = new System.Drawing.Size(200, 35);
+            this.txtNoiDungTimKiem2.TabIndex = 5;
+            this.txtNoiDungTimKiem2.TextChanged += new System.EventHandler(this.txtNoiDungTimKiem2_TextChanged);
+            // 
+            // panel21
+            // 
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel21.Location = new System.Drawing.Point(429, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(5, 35);
+            this.panel21.TabIndex = 4;
+            // 
+            // btnTimKiemVatTu2
+            // 
+            this.btnTimKiemVatTu2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTimKiemVatTu2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTimKiemVatTu2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnTimKiemVatTu2.Location = new System.Drawing.Point(434, 0);
+            this.btnTimKiemVatTu2.Name = "btnTimKiemVatTu2";
+            this.btnTimKiemVatTu2.Size = new System.Drawing.Size(120, 35);
+            this.btnTimKiemVatTu2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTimKiemVatTu2.TabIndex = 3;
+            this.btnTimKiemVatTu2.Text = "Tìm kiếm vật tư";
+            this.btnTimKiemVatTu2.Click += new System.EventHandler(this.btnTimKiemVatTu2_Click);
+            // 
+            // panel20
+            // 
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel20.Location = new System.Drawing.Point(554, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(50, 35);
+            this.panel20.TabIndex = 2;
+            // 
+            // panel13
+            // 
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(10, 597);
+            this.panel13.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 65);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1200, 15);
+            this.panel3.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnLocTuDong);
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.btnLamMoi);
+            this.panel2.Controls.Add(this.panel8);
+            this.panel2.Controls.Add(this.btnLuuDanhSachDaLoc);
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 30);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1200, 35);
+            this.panel2.TabIndex = 1;
+            // 
+            // btnLocTuDong
+            // 
+            this.btnLocTuDong.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnLocTuDong.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnLocTuDong.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLocTuDong.Location = new System.Drawing.Point(620, 0);
+            this.btnLocTuDong.Name = "btnLocTuDong";
+            this.btnLocTuDong.Size = new System.Drawing.Size(160, 35);
+            this.btnLocTuDong.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnLocTuDong.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnLocTuDong90,
+            this.btnLocTuDong80,
+            this.btnLocTuDong70,
+            this.btnLocTuDong60});
+            this.btnLocTuDong.TabIndex = 8;
+            this.btnLocTuDong.Text = "Lọc tự động";
+            this.btnLocTuDong.Tooltip = "Lọc tự động bằng phần mềm";
+            // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel6.Location = new System.Drawing.Point(780, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(35, 35);
+            this.panel6.TabIndex = 7;
+            // 
+            // btnLamMoi
+            // 
+            this.btnLamMoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnLamMoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnLamMoi.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLamMoi.Location = new System.Drawing.Point(815, 0);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(150, 35);
+            this.btnLamMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnLamMoi.TabIndex = 6;
+            this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.Tooltip = "Làm mới 2 danh sách";
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel8.Location = new System.Drawing.Point(965, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(35, 35);
+            this.panel8.TabIndex = 5;
+            // 
+            // btnLuuDanhSachDaLoc
+            // 
+            this.btnLuuDanhSachDaLoc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnLuuDanhSachDaLoc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnLuuDanhSachDaLoc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLuuDanhSachDaLoc.Location = new System.Drawing.Point(1000, 0);
+            this.btnLuuDanhSachDaLoc.Name = "btnLuuDanhSachDaLoc";
+            this.btnLuuDanhSachDaLoc.Size = new System.Drawing.Size(150, 35);
+            this.btnLuuDanhSachDaLoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnLuuDanhSachDaLoc.TabIndex = 2;
+            this.btnLuuDanhSachDaLoc.Text = "Lưu danh sách đã lọc";
+            this.btnLuuDanhSachDaLoc.Tooltip = "Lưu danh sách xác nhận đã trùng";
+            this.btnLuuDanhSachDaLoc.Click += new System.EventHandler(this.btnLuuDanhSachDaLoc_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Location = new System.Drawing.Point(1150, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(50, 35);
+            this.panel5.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1200, 30);
+            this.panel1.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Xác nhận";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 70;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Danh mục 1";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 70;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Tên vật tư 1";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "#";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 20;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Danh mục 2";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 70;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Tên vật tư 2";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 150;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Giống nhau";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 50;
+            // 
+            // btnLocTuDong90
+            // 
+            this.btnLocTuDong90.GlobalItem = false;
+            this.btnLocTuDong90.Name = "btnLocTuDong90";
+            this.btnLocTuDong90.Text = "Giống trên 90%";
+            this.btnLocTuDong90.Click += new System.EventHandler(this.btnLocTuDong90_Click);
+            // 
+            // btnLocTuDong80
+            // 
+            this.btnLocTuDong80.GlobalItem = false;
+            this.btnLocTuDong80.Name = "btnLocTuDong80";
+            this.btnLocTuDong80.Text = "Giống trên 80%";
+            this.btnLocTuDong80.Click += new System.EventHandler(this.btnLocTuDong80_Click);
+            // 
+            // btnLocTuDong70
+            // 
+            this.btnLocTuDong70.GlobalItem = false;
+            this.btnLocTuDong70.Name = "btnLocTuDong70";
+            this.btnLocTuDong70.Text = "Giống trên 70%";
+            this.btnLocTuDong70.Click += new System.EventHandler(this.btnLocTuDong70_Click);
+            // 
+            // btnLocTuDong60
+            // 
+            this.btnLocTuDong60.GlobalItem = false;
+            this.btnLocTuDong60.Name = "btnLocTuDong60";
+            this.btnLocTuDong60.Text = "Giống trên 60%";
+            this.btnLocTuDong60.Click += new System.EventHandler(this.btnLocTuDong60_Click);
+            // 
+            // usr_LocDanhSachVatTu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelEx1);
+            this.Name = "usr_LocDanhSachVatTu";
+            this.Size = new System.Drawing.Size(1200, 700);
+            this.panelEx1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.groupPanel1.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu1)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.groupPanel2.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu2)).EndInit();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private DevComponents.DotNetBar.PanelEx panelEx1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel8;
+        private DevComponents.DotNetBar.ButtonX btnLuuDanhSachDaLoc;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panel23;
+        private DevComponents.DotNetBar.ButtonX btnTimKiemVatTu1;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.TextBox txtNoiDungTimKiem2;
+        private System.Windows.Forms.Panel panel21;
+        private DevComponents.DotNetBar.ButtonX btnTimKiemVatTu2;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.TextBox txtNoiDungTimKiem1;
+        private DevComponents.DotNetBar.ButtonX btnLamMoi;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView_DSVatTu1;
+        private DevComponents.DotNetBar.ButtonX btnLocTuDong;
+        private System.Windows.Forms.Panel panel6;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView_DSVatTu2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewButtonColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private DevComponents.DotNetBar.ButtonItem btnLocTuDong90;
+        private DevComponents.DotNetBar.ButtonItem btnLocTuDong80;
+        private DevComponents.DotNetBar.ButtonItem btnLocTuDong70;
+        private DevComponents.DotNetBar.ButtonItem btnLocTuDong60;
+    }
+}
