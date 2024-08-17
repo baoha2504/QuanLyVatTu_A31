@@ -21,7 +21,7 @@ namespace QuanLyVatTu.GUI.User
         usr_LocDanhSachVatTu usr_LocDanhSachVatTu;
         usr_ImportDanhSachVatTu usr_ImportDanhSachVatTu;
         usr_LapPhuongAnVatTu usr_LapPhuongAnVatTu;
-        usr_DanhSachPhuongAnVatTu_User usr_DanhSachPhuongAnVatTu_User;
+        usr_DanhSachPhuongAnVatTu usr_DanhSachPhuongAnVatTu;
 
         public frmUser()
         {
@@ -31,7 +31,7 @@ namespace QuanLyVatTu.GUI.User
 
         private void frmUser_Load(object sender, EventArgs e)
         {
-            btnLapPhuongAnVatTu_Click(sender, e);
+            btnDanhSachPhuongAnVatTu_Click(sender, e);
         }
 
         private void btnLapPhuongAnVatTu_Click(object sender, EventArgs e)
@@ -55,16 +55,16 @@ namespace QuanLyVatTu.GUI.User
         {
             lblTieuDe1.Caption = "Phương án vật tư";
             lblTieuDe2.Caption = "Danh sách phương án vật tư";
-            if (usr_DanhSachPhuongAnVatTu_User == null)
+            if (usr_DanhSachPhuongAnVatTu == null)
             {
-                usr_DanhSachPhuongAnVatTu_User = new usr_DanhSachPhuongAnVatTu_User();
-                usr_DanhSachPhuongAnVatTu_User.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(usr_DanhSachPhuongAnVatTu_User);
-                usr_DanhSachPhuongAnVatTu_User.BringToFront();
+                usr_DanhSachPhuongAnVatTu = new usr_DanhSachPhuongAnVatTu(2);
+                usr_DanhSachPhuongAnVatTu.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(usr_DanhSachPhuongAnVatTu);
+                usr_DanhSachPhuongAnVatTu.BringToFront();
             }
             else
             {
-                usr_DanhSachPhuongAnVatTu_User.BringToFront();
+                usr_DanhSachPhuongAnVatTu.BringToFront();
             }
         }
 

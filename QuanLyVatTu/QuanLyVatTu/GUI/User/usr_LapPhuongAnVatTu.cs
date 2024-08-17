@@ -321,6 +321,7 @@ namespace QuanLyVatTu.GUI.User
                                 pavt.tongtien = TinhTongTien();
                                 pavt.nguoilap = frmDangNhap.tennguoidung;
                                 pavt.thoigianlap = DateTime.Now;
+                                pavt.user_id = frmDangNhap.userID;
                                 dbContext.PhuongAnVatTus.Add(pavt);
                                 dbContext.SaveChanges();
 

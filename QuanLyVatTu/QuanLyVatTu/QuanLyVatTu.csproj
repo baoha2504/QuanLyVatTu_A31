@@ -40,6 +40,9 @@
     <Reference Include="DevExpress.Utils.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DocumentFormat.OpenXml, Version=2.18.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.18.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -57,6 +60,9 @@
     </Reference>
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.0\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniWord, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniWord.0.7.0\lib\net45\MiniWord.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -93,8 +99,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\ChiTietPhuongAnVatTu_Print.cs" />
     <Compile Include="Class\Config.cs" />
     <Compile Include="Class\Login.cs" />
     <Compile Include="Class\NewVatTuFromExcel.cs" />
@@ -113,17 +121,17 @@
     <Compile Include="GUI\Admin\frmAdmin.Designer.cs">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Admin\frmChiTietPhuongAnVatTu_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Admin\frmChiTietPhuongAnVatTu_Admin.Designer.cs">
+      <DependentUpon>frmChiTietPhuongAnVatTu_Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Admin\frmThemNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Admin\frmThemNguoiDung.Designer.cs">
       <DependentUpon>frmThemNguoiDung.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Admin\usr_DanhSachPhuongAnVatTu_Admin.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Admin\usr_DanhSachPhuongAnVatTu_Admin.Designer.cs">
-      <DependentUpon>usr_DanhSachPhuongAnVatTu_Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Admin\usr_DanhSachTaiKhoan.cs">
       <SubType>UserControl</SubType>
@@ -142,12 +150,6 @@
     </Compile>
     <Compile Include="GUI\Admin\usr_NhatKyHoatDong.Designer.cs">
       <DependentUpon>usr_NhatKyHoatDong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\Share\frmChiTietPhuongAnVatTu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Share\frmChiTietPhuongAnVatTu.Designer.cs">
-      <DependentUpon>frmChiTietPhuongAnVatTu.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Share\frmChiTietVatTuMoi.cs">
       <SubType>Form</SubType>
@@ -173,6 +175,12 @@
     <Compile Include="GUI\Share\usr_DanhMucVatTu.Designer.cs">
       <DependentUpon>usr_DanhMucVatTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Share\usr_DanhSachPhuongAnVatTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\usr_DanhSachPhuongAnVatTu.Designer.cs">
+      <DependentUpon>usr_DanhSachPhuongAnVatTu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Share\usr_DanhSachVatTu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -197,17 +205,17 @@
     <Compile Include="GUI\Share\usr_LocDanhSachVatTu.Designer.cs">
       <DependentUpon>usr_LocDanhSachVatTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\User\frmChiTietPhuongAnVatTu_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\User\frmChiTietPhuongAnVatTu_User.Designer.cs">
+      <DependentUpon>frmChiTietPhuongAnVatTu_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\User\frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\User\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\User\usr_DanhSachPhuongAnVatTu_User.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\User\usr_DanhSachPhuongAnVatTu_User.Designer.cs">
-      <DependentUpon>usr_DanhSachPhuongAnVatTu_User.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\User\usr_LapPhuongAnVatTu.cs">
       <SubType>UserControl</SubType>
@@ -234,11 +242,11 @@
     <EmbeddedResource Include="GUI\Admin\frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Admin\frmChiTietPhuongAnVatTu_Admin.resx">
+      <DependentUpon>frmChiTietPhuongAnVatTu_Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\frmThemNguoiDung.resx">
       <DependentUpon>frmThemNguoiDung.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Admin\usr_DanhSachPhuongAnVatTu_Admin.resx">
-      <DependentUpon>usr_DanhSachPhuongAnVatTu_Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\usr_DanhSachTaiKhoan.resx">
       <DependentUpon>usr_DanhSachTaiKhoan.cs</DependentUpon>
@@ -248,9 +256,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Admin\usr_NhatKyHoatDong.resx">
       <DependentUpon>usr_NhatKyHoatDong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Share\frmChiTietPhuongAnVatTu.resx">
-      <DependentUpon>frmChiTietPhuongAnVatTu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmChiTietVatTuMoi.resx">
       <DependentUpon>frmChiTietVatTuMoi.cs</DependentUpon>
@@ -264,6 +269,9 @@
     <EmbeddedResource Include="GUI\Share\usr_DanhMucVatTu.resx">
       <DependentUpon>usr_DanhMucVatTu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\usr_DanhSachPhuongAnVatTu.resx">
+      <DependentUpon>usr_DanhSachPhuongAnVatTu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\usr_DanhSachVatTu.resx">
       <DependentUpon>usr_DanhSachVatTu.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,11 +284,11 @@
     <EmbeddedResource Include="GUI\Share\usr_LocDanhSachVatTu.resx">
       <DependentUpon>usr_LocDanhSachVatTu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\User\frmChiTietPhuongAnVatTu_User.resx">
+      <DependentUpon>frmChiTietPhuongAnVatTu_User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\User\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\User\usr_DanhSachPhuongAnVatTu_User.resx">
-      <DependentUpon>usr_DanhSachPhuongAnVatTu_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\User\usr_LapPhuongAnVatTu.resx">
       <DependentUpon>usr_LapPhuongAnVatTu.cs</DependentUpon>

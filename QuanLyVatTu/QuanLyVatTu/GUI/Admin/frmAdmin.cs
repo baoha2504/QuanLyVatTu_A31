@@ -15,7 +15,7 @@ namespace QuanLyVatTu.GUI.Admin
         usr_DanhSachVatTu usr_DanhSachVatTu;
         usr_LocDanhSachVatTu usr_LocDanhSachVatTu;
         usr_ImportDanhSachVatTu usr_ImportDanhSachVatTu;
-        usr_DanhSachPhuongAnVatTu_Admin usr_DanhSachPhuongAnVatTu_Admin;
+        usr_DanhSachPhuongAnVatTu usr_DanhSachPhuongAnVatTu;
 
         public frmAdmin()
         {
@@ -32,16 +32,16 @@ namespace QuanLyVatTu.GUI.Admin
         {
             lblTieuDe1.Caption = "Phương án vật tư";
             lblTieuDe2.Caption = "Danh sách phương án vật tư";
-            if (usr_DanhSachPhuongAnVatTu_Admin == null)
+            if (usr_DanhSachPhuongAnVatTu == null)
             {
-                usr_DanhSachPhuongAnVatTu_Admin = new usr_DanhSachPhuongAnVatTu_Admin();
-                usr_DanhSachPhuongAnVatTu_Admin.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(usr_DanhSachPhuongAnVatTu_Admin);
-                usr_DanhSachPhuongAnVatTu_Admin.BringToFront();
+                usr_DanhSachPhuongAnVatTu = new usr_DanhSachPhuongAnVatTu(1);
+                usr_DanhSachPhuongAnVatTu.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(usr_DanhSachPhuongAnVatTu);
+                usr_DanhSachPhuongAnVatTu.BringToFront();
             }
             else
             {
-                usr_DanhSachPhuongAnVatTu_Admin.BringToFront();
+                usr_DanhSachPhuongAnVatTu.BringToFront();
             }
         }
 
