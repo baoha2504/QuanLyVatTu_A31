@@ -241,7 +241,7 @@ namespace QuanLyVatTu.GUI.Admin
 
                         ChiTietPhuongAnVatTu_Print ctcuoi = new ChiTietPhuongAnVatTu_Print();
                         ctcuoi.stt = "*";
-                        ctcuoi.tenvattu = $"Tổng {DS_chitietphuonganvattus.Count} khoản";
+                        ctcuoi.tenvattu = $"Tổng {chitiets.Count} khoản";
                         chitiets.Add(ctcuoi);
 
                         var value = new

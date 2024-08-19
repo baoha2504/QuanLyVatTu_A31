@@ -105,7 +105,7 @@ namespace QuanLyVatTu.GUI.User
         private void btnLocDanhSachVatTu_Click(object sender, EventArgs e)
         {
             lblTieuDe1.Caption = "Quản lý vật tư";
-            lblTieuDe2.Caption = "Lọc danh sách vật tư";
+            lblTieuDe2.Caption = "Chuẩn hóa danh sách vật tư";
             if (usr_LocDanhSachVatTu == null)
             {
                 usr_LocDanhSachVatTu = new usr_LocDanhSachVatTu();

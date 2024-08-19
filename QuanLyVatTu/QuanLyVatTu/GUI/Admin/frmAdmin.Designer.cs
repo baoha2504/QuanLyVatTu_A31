@@ -72,7 +72,7 @@
             this.mainContainer.Appearance.Options.UseBackColor = true;
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainContainer.Location = new System.Drawing.Point(324, 39);
-            this.mainContainer.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(10);
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Size = new System.Drawing.Size(1074, 710);
             this.mainContainer.TabIndex = 0;
@@ -87,7 +87,7 @@
             this.NHATKYHETHONG,
             this.TROGIUP});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(10);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.accordionControl1.Size = new System.Drawing.Size(324, 710);
@@ -145,7 +145,8 @@
             // 
             this.btnLocDanhSachVatTu.Name = "btnLocDanhSachVatTu";
             this.btnLocDanhSachVatTu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnLocDanhSachVatTu.Text = "Lọc danh sách vật tư";
+            this.btnLocDanhSachVatTu.Text = "Chuẩn hóa danh sách vật tư";
+            this.btnLocDanhSachVatTu.Visible = false;
             this.btnLocDanhSachVatTu.Click += new System.EventHandler(this.btnLocDanhSachVatTu_Click);
             // 
             // btnImportDanhSachVatTu
@@ -153,6 +154,7 @@
             this.btnImportDanhSachVatTu.Name = "btnImportDanhSachVatTu";
             this.btnImportDanhSachVatTu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnImportDanhSachVatTu.Text = "Import danh sách vật tư";
+            this.btnImportDanhSachVatTu.Visible = false;
             this.btnImportDanhSachVatTu.Click += new System.EventHandler(this.btnImportDanhSachVatTu_Click);
             // 
             // accordionControlElement7

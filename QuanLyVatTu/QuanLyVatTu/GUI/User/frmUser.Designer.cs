@@ -66,7 +66,7 @@
             this.mainContainer.Appearance.Options.UseBackColor = true;
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainContainer.Location = new System.Drawing.Point(313, 39);
-            this.mainContainer.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(6);
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Size = new System.Drawing.Size(1085, 710);
             this.mainContainer.TabIndex = 0;
@@ -79,7 +79,7 @@
             this.QUANLYVATTU,
             this.TROGIUP});
             this.accordionControl1.Location = new System.Drawing.Point(0, 39);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(6);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.accordionControl1.Size = new System.Drawing.Size(313, 710);
@@ -145,7 +145,7 @@
             // 
             this.btnLocDanhSachVatTu.Name = "btnLocDanhSachVatTu";
             this.btnLocDanhSachVatTu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnLocDanhSachVatTu.Text = "Lọc danh sách vật tư";
+            this.btnLocDanhSachVatTu.Text = "Chuẩn hóa danh sách vật tư";
             this.btnLocDanhSachVatTu.Click += new System.EventHandler(this.btnLocDanhSachVatTu_Click);
             // 
             // btnImportDanhSachVatTu

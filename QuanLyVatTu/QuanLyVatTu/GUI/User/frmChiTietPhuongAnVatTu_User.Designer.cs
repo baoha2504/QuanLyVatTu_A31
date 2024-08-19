@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChiTietPhuongAnVatTu_User));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel50 = new System.Windows.Forms.Panel();
             this.panel49 = new System.Windows.Forms.Panel();
@@ -40,8 +40,31 @@
             this.panel51 = new System.Windows.Forms.Panel();
             this.panel48 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel53 = new System.Windows.Forms.Panel();
+            this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.panel55 = new System.Windows.Forms.Panel();
+            this.dataGridView_DSVatTu = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dtgv2_Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dtgv2_Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgv2_Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgv2_Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel58 = new System.Windows.Forms.Panel();
+            this.panel56 = new System.Windows.Forms.Panel();
+            this.txtNoiDungTimKiem = new System.Windows.Forms.TextBox();
+            this.panel59 = new System.Windows.Forms.Panel();
+            this.btnTimKiem = new DevComponents.DotNetBar.ButtonX();
+            this.panel57 = new System.Windows.Forms.Panel();
+            this.panel54 = new System.Windows.Forms.Panel();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.dataGridView_DS_CTPAVT = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -103,32 +126,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.panel53 = new System.Windows.Forms.Panel();
-            this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.panel55 = new System.Windows.Forms.Panel();
-            this.dataGridView_DSVatTu = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.panel54 = new System.Windows.Forms.Panel();
-            this.panel56 = new System.Windows.Forms.Panel();
-            this.panel57 = new System.Windows.Forms.Panel();
-            this.btnTimKiem = new DevComponents.DotNetBar.ButtonX();
-            this.panel58 = new System.Windows.Forms.Panel();
-            this.panel59 = new System.Windows.Forms.Panel();
-            this.txtNoiDungTimKiem = new System.Windows.Forms.TextBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgv2_Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dtgv2_Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgv2_Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgv2_Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel49.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel53.SuspendLayout();
+            this.groupPanel2.SuspendLayout();
+            this.panel55.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu)).BeginInit();
+            this.panel56.SuspendLayout();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DS_CTPAVT)).BeginInit();
             this.panel2.SuspendLayout();
@@ -156,11 +161,6 @@
             this.panel20.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel14.SuspendLayout();
-            this.panel53.SuspendLayout();
-            this.groupPanel2.SuspendLayout();
-            this.panel55.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu)).BeginInit();
-            this.panel56.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -210,6 +210,7 @@
             this.btnXuatFileWord.TabIndex = 5;
             this.btnXuatFileWord.Text = "Xuất phương án";
             this.btnXuatFileWord.TextAlignment = DevComponents.DotNetBar.eButtonTextAlignment.Left;
+            this.btnXuatFileWord.Click += new System.EventHandler(this.btnXuatFileWord_Click);
             // 
             // panel52
             // 
@@ -231,6 +232,7 @@
             this.btnLuu.TabIndex = 3;
             this.btnLuu.Text = "Lưu nội dung";
             this.btnLuu.Tooltip = "Lưu nội dung vừa duyệt";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // panel51
             // 
@@ -257,6 +259,199 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1482, 488);
             this.panel3.TabIndex = 1;
+            // 
+            // panel53
+            // 
+            this.panel53.Controls.Add(this.groupPanel2);
+            this.panel53.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel53.Location = new System.Drawing.Point(0, 0);
+            this.panel53.Name = "panel53";
+            this.panel53.Size = new System.Drawing.Size(655, 488);
+            this.panel53.TabIndex = 7;
+            // 
+            // groupPanel2
+            // 
+            this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel2.Controls.Add(this.panel55);
+            this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
+            this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupPanel2.Location = new System.Drawing.Point(0, 0);
+            this.groupPanel2.Name = "groupPanel2";
+            this.groupPanel2.Size = new System.Drawing.Size(655, 488);
+            // 
+            // 
+            // 
+            this.groupPanel2.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel2.Style.BackColorGradientAngle = 90;
+            this.groupPanel2.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel2.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderBottomWidth = 1;
+            this.groupPanel2.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel2.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderLeftWidth = 1;
+            this.groupPanel2.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderRightWidth = 1;
+            this.groupPanel2.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderTopWidth = 1;
+            this.groupPanel2.Style.CornerDiameter = 4;
+            this.groupPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel2.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel2.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel2.TabIndex = 0;
+            this.groupPanel2.Text = "Danh sách vật tư";
+            // 
+            // panel55
+            // 
+            this.panel55.BackColor = System.Drawing.Color.Transparent;
+            this.panel55.Controls.Add(this.dataGridView_DSVatTu);
+            this.panel55.Controls.Add(this.panel58);
+            this.panel55.Controls.Add(this.panel56);
+            this.panel55.Controls.Add(this.panel54);
+            this.panel55.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel55.Location = new System.Drawing.Point(0, 0);
+            this.panel55.Name = "panel55";
+            this.panel55.Size = new System.Drawing.Size(649, 465);
+            this.panel55.TabIndex = 3;
+            // 
+            // dataGridView_DSVatTu
+            // 
+            this.dataGridView_DSVatTu.AllowUserToDeleteRows = false;
+            this.dataGridView_DSVatTu.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_DSVatTu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_DSVatTu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgv2_Column1,
+            this.dtgv2_Column2,
+            this.dtgv2_Column3,
+            this.dtgv2_Column4});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DSVatTu.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView_DSVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_DSVatTu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridView_DSVatTu.Location = new System.Drawing.Point(0, 45);
+            this.dataGridView_DSVatTu.Name = "dataGridView_DSVatTu";
+            this.dataGridView_DSVatTu.ReadOnly = true;
+            this.dataGridView_DSVatTu.RowHeadersWidth = 51;
+            this.dataGridView_DSVatTu.RowTemplate.Height = 24;
+            this.dataGridView_DSVatTu.Size = new System.Drawing.Size(649, 420);
+            this.dataGridView_DSVatTu.TabIndex = 1;
+            this.dataGridView_DSVatTu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DSVatTu_CellClick);
+            // 
+            // dtgv2_Column1
+            // 
+            this.dtgv2_Column1.HeaderText = "Lựa chọn";
+            this.dtgv2_Column1.MinimumWidth = 6;
+            this.dtgv2_Column1.Name = "dtgv2_Column1";
+            this.dtgv2_Column1.ReadOnly = true;
+            this.dtgv2_Column1.Width = 70;
+            // 
+            // dtgv2_Column2
+            // 
+            this.dtgv2_Column2.HeaderText = "Tên vật tư";
+            this.dtgv2_Column2.MinimumWidth = 6;
+            this.dtgv2_Column2.Name = "dtgv2_Column2";
+            this.dtgv2_Column2.ReadOnly = true;
+            this.dtgv2_Column2.Width = 200;
+            // 
+            // dtgv2_Column3
+            // 
+            this.dtgv2_Column3.HeaderText = "Đơn vị tính";
+            this.dtgv2_Column3.MinimumWidth = 6;
+            this.dtgv2_Column3.Name = "dtgv2_Column3";
+            this.dtgv2_Column3.ReadOnly = true;
+            this.dtgv2_Column3.Width = 70;
+            // 
+            // dtgv2_Column4
+            // 
+            this.dtgv2_Column4.HeaderText = "Danh mục";
+            this.dtgv2_Column4.MinimumWidth = 6;
+            this.dtgv2_Column4.Name = "dtgv2_Column4";
+            this.dtgv2_Column4.ReadOnly = true;
+            this.dtgv2_Column4.Width = 125;
+            // 
+            // panel58
+            // 
+            this.panel58.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel58.Location = new System.Drawing.Point(0, 40);
+            this.panel58.Name = "panel58";
+            this.panel58.Size = new System.Drawing.Size(649, 5);
+            this.panel58.TabIndex = 9;
+            // 
+            // panel56
+            // 
+            this.panel56.Controls.Add(this.txtNoiDungTimKiem);
+            this.panel56.Controls.Add(this.panel59);
+            this.panel56.Controls.Add(this.btnTimKiem);
+            this.panel56.Controls.Add(this.panel57);
+            this.panel56.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel56.Location = new System.Drawing.Point(0, 5);
+            this.panel56.Name = "panel56";
+            this.panel56.Size = new System.Drawing.Size(649, 35);
+            this.panel56.TabIndex = 8;
+            // 
+            // txtNoiDungTimKiem
+            // 
+            this.txtNoiDungTimKiem.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtNoiDungTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoiDungTimKiem.Location = new System.Drawing.Point(284, 0);
+            this.txtNoiDungTimKiem.Multiline = true;
+            this.txtNoiDungTimKiem.Name = "txtNoiDungTimKiem";
+            this.txtNoiDungTimKiem.Size = new System.Drawing.Size(200, 35);
+            this.txtNoiDungTimKiem.TabIndex = 14;
+            this.txtNoiDungTimKiem.TextChanged += new System.EventHandler(this.txtNoiDungTimKiem_TextChanged);
+            // 
+            // panel59
+            // 
+            this.panel59.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel59.Location = new System.Drawing.Point(484, 0);
+            this.panel59.Name = "panel59";
+            this.panel59.Size = new System.Drawing.Size(5, 35);
+            this.panel59.TabIndex = 13;
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTimKiem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTimKiem.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnTimKiem.Location = new System.Drawing.Point(489, 0);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(150, 35);
+            this.btnTimKiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTimKiem.TabIndex = 11;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.Tooltip = "Tìm kiếm";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // panel57
+            // 
+            this.panel57.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel57.Location = new System.Drawing.Point(639, 0);
+            this.panel57.Name = "panel57";
+            this.panel57.Size = new System.Drawing.Size(10, 35);
+            this.panel57.TabIndex = 12;
+            // 
+            // panel54
+            // 
+            this.panel54.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel54.Location = new System.Drawing.Point(0, 0);
+            this.panel54.Name = "panel54";
+            this.panel54.Size = new System.Drawing.Size(649, 5);
+            this.panel54.TabIndex = 7;
             // 
             // groupPanel1
             // 
@@ -314,14 +509,14 @@
             this.Column6,
             this.Column7,
             this.Column8});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_DS_CTPAVT.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DS_CTPAVT.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_DS_CTPAVT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_DS_CTPAVT.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView_DS_CTPAVT.Location = new System.Drawing.Point(0, 0);
@@ -331,6 +526,66 @@
             this.dataGridView_DS_CTPAVT.Size = new System.Drawing.Size(821, 465);
             this.dataGridView_DS_CTPAVT.TabIndex = 0;
             this.dataGridView_DS_CTPAVT.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView_DS_CTPAVT_CellValidating);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "STT";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 70;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên vật tư";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Đơn vị tính";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Số lượng";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 70;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Đổi cũ";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 70;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Cấp mới";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 70;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Ghi chú";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 150;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Cấp trên nhận xét";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 170;
             // 
             // panel2
             // 
@@ -929,258 +1184,6 @@
             this.panel10.Size = new System.Drawing.Size(10, 255);
             this.panel10.TabIndex = 1;
             // 
-            // panel53
-            // 
-            this.panel53.Controls.Add(this.groupPanel2);
-            this.panel53.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel53.Location = new System.Drawing.Point(0, 0);
-            this.panel53.Name = "panel53";
-            this.panel53.Size = new System.Drawing.Size(655, 488);
-            this.panel53.TabIndex = 7;
-            // 
-            // groupPanel2
-            // 
-            this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel2.Controls.Add(this.panel55);
-            this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
-            this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupPanel2.Location = new System.Drawing.Point(0, 0);
-            this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(655, 488);
-            // 
-            // 
-            // 
-            this.groupPanel2.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel2.Style.BackColorGradientAngle = 90;
-            this.groupPanel2.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel2.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel2.Style.BorderBottomWidth = 1;
-            this.groupPanel2.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel2.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel2.Style.BorderLeftWidth = 1;
-            this.groupPanel2.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel2.Style.BorderRightWidth = 1;
-            this.groupPanel2.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel2.Style.BorderTopWidth = 1;
-            this.groupPanel2.Style.CornerDiameter = 4;
-            this.groupPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel2.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel2.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            // 
-            // 
-            // 
-            this.groupPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.groupPanel2.TabIndex = 0;
-            this.groupPanel2.Text = "Danh sách vật tư";
-            // 
-            // panel55
-            // 
-            this.panel55.BackColor = System.Drawing.Color.Transparent;
-            this.panel55.Controls.Add(this.dataGridView_DSVatTu);
-            this.panel55.Controls.Add(this.panel58);
-            this.panel55.Controls.Add(this.panel56);
-            this.panel55.Controls.Add(this.panel54);
-            this.panel55.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel55.Location = new System.Drawing.Point(0, 0);
-            this.panel55.Name = "panel55";
-            this.panel55.Size = new System.Drawing.Size(649, 465);
-            this.panel55.TabIndex = 3;
-            // 
-            // dataGridView_DSVatTu
-            // 
-            this.dataGridView_DSVatTu.AllowUserToDeleteRows = false;
-            this.dataGridView_DSVatTu.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView_DSVatTu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_DSVatTu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dtgv2_Column1,
-            this.dtgv2_Column2,
-            this.dtgv2_Column3,
-            this.dtgv2_Column4});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_DSVatTu.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView_DSVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_DSVatTu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridView_DSVatTu.Location = new System.Drawing.Point(0, 45);
-            this.dataGridView_DSVatTu.Name = "dataGridView_DSVatTu";
-            this.dataGridView_DSVatTu.ReadOnly = true;
-            this.dataGridView_DSVatTu.RowHeadersWidth = 51;
-            this.dataGridView_DSVatTu.RowTemplate.Height = 24;
-            this.dataGridView_DSVatTu.Size = new System.Drawing.Size(649, 420);
-            this.dataGridView_DSVatTu.TabIndex = 1;
-            this.dataGridView_DSVatTu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DSVatTu_CellClick);
-            // 
-            // panel54
-            // 
-            this.panel54.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel54.Location = new System.Drawing.Point(0, 0);
-            this.panel54.Name = "panel54";
-            this.panel54.Size = new System.Drawing.Size(649, 5);
-            this.panel54.TabIndex = 7;
-            // 
-            // panel56
-            // 
-            this.panel56.Controls.Add(this.txtNoiDungTimKiem);
-            this.panel56.Controls.Add(this.panel59);
-            this.panel56.Controls.Add(this.btnTimKiem);
-            this.panel56.Controls.Add(this.panel57);
-            this.panel56.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel56.Location = new System.Drawing.Point(0, 5);
-            this.panel56.Name = "panel56";
-            this.panel56.Size = new System.Drawing.Size(649, 35);
-            this.panel56.TabIndex = 8;
-            // 
-            // panel57
-            // 
-            this.panel57.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel57.Location = new System.Drawing.Point(639, 0);
-            this.panel57.Name = "panel57";
-            this.panel57.Size = new System.Drawing.Size(10, 35);
-            this.panel57.TabIndex = 12;
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnTimKiem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTimKiem.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnTimKiem.Location = new System.Drawing.Point(489, 0);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(150, 35);
-            this.btnTimKiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnTimKiem.TabIndex = 11;
-            this.btnTimKiem.Text = "Tìm kiếm";
-            this.btnTimKiem.Tooltip = "Tìm kiếm";
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
-            // panel58
-            // 
-            this.panel58.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel58.Location = new System.Drawing.Point(0, 40);
-            this.panel58.Name = "panel58";
-            this.panel58.Size = new System.Drawing.Size(649, 5);
-            this.panel58.TabIndex = 9;
-            // 
-            // panel59
-            // 
-            this.panel59.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel59.Location = new System.Drawing.Point(484, 0);
-            this.panel59.Name = "panel59";
-            this.panel59.Size = new System.Drawing.Size(5, 35);
-            this.panel59.TabIndex = 13;
-            // 
-            // txtNoiDungTimKiem
-            // 
-            this.txtNoiDungTimKiem.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtNoiDungTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNoiDungTimKiem.Location = new System.Drawing.Point(284, 0);
-            this.txtNoiDungTimKiem.Multiline = true;
-            this.txtNoiDungTimKiem.Name = "txtNoiDungTimKiem";
-            this.txtNoiDungTimKiem.Size = new System.Drawing.Size(200, 35);
-            this.txtNoiDungTimKiem.TabIndex = 14;
-            this.txtNoiDungTimKiem.TextChanged += new System.EventHandler(this.txtNoiDungTimKiem_TextChanged);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "STT";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 70;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên vật tư";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 200;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Đơn vị tính";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Số lượng";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 70;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Đổi cũ";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 70;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Cấp mới";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 70;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Ghi chú";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 150;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Cấp trên nhận xét";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 170;
-            // 
-            // dtgv2_Column1
-            // 
-            this.dtgv2_Column1.HeaderText = "Lựa chọn";
-            this.dtgv2_Column1.MinimumWidth = 6;
-            this.dtgv2_Column1.Name = "dtgv2_Column1";
-            this.dtgv2_Column1.ReadOnly = true;
-            this.dtgv2_Column1.Width = 70;
-            // 
-            // dtgv2_Column2
-            // 
-            this.dtgv2_Column2.HeaderText = "Tên vật tư";
-            this.dtgv2_Column2.MinimumWidth = 6;
-            this.dtgv2_Column2.Name = "dtgv2_Column2";
-            this.dtgv2_Column2.ReadOnly = true;
-            this.dtgv2_Column2.Width = 200;
-            // 
-            // dtgv2_Column3
-            // 
-            this.dtgv2_Column3.HeaderText = "Đơn vị tính";
-            this.dtgv2_Column3.MinimumWidth = 6;
-            this.dtgv2_Column3.Name = "dtgv2_Column3";
-            this.dtgv2_Column3.ReadOnly = true;
-            this.dtgv2_Column3.Width = 70;
-            // 
-            // dtgv2_Column4
-            // 
-            this.dtgv2_Column4.HeaderText = "Danh mục";
-            this.dtgv2_Column4.MinimumWidth = 6;
-            this.dtgv2_Column4.Name = "dtgv2_Column4";
-            this.dtgv2_Column4.ReadOnly = true;
-            this.dtgv2_Column4.Width = 125;
-            // 
             // frmChiTietPhuongAnVatTu_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1194,6 +1197,12 @@
             this.panel1.ResumeLayout(false);
             this.panel49.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel53.ResumeLayout(false);
+            this.groupPanel2.ResumeLayout(false);
+            this.panel55.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu)).EndInit();
+            this.panel56.ResumeLayout(false);
+            this.panel56.PerformLayout();
             this.groupPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DS_CTPAVT)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -1237,12 +1246,6 @@
             this.panel18.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            this.panel53.ResumeLayout(false);
-            this.groupPanel2.ResumeLayout(false);
-            this.panel55.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu)).EndInit();
-            this.panel56.ResumeLayout(false);
-            this.panel56.PerformLayout();
             this.ResumeLayout(false);
 
         }
