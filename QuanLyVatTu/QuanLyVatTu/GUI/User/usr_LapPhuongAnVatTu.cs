@@ -16,6 +16,7 @@ namespace QuanLyVatTu.GUI.User
         List<VatTu> DS_vatTus = new List<VatTu>();
         List<VatTu> DS_vatTus_DaChon = new List<VatTu>();
         List<ThongTinPhuongAnVatTu> DS_thongTinPhuongAnVatTus = new List<ThongTinPhuongAnVatTu>();
+        List<DanhMuc> listdanhmuc = new List<DanhMuc>();
 
 
         public usr_LapPhuongAnVatTu()
@@ -24,6 +25,15 @@ namespace QuanLyVatTu.GUI.User
             dataGridView_DSVatTu.RowTemplate.Height = 35;
             dataGridView_DSVatTuDaChon.RowTemplate.Height = 35;
             LoadData();
+            using (var dbContext = new QuanLyVatTuDbContext())
+            {
+                listdanhmuc = dbContext.DanhMucs.OrderBy(m => m.tendanhmuc).ToList();
+                foreach (var dm in listdanhmuc)
+                {
+                    cbbDanhMuc.Items.Add(dm.tendanhmuc);
+                }
+                cbbDanhMuc.Items.Add("Tất cả danh mục");
+            }
         }
 
         private void panelEx1_Resize(object sender, EventArgs e)
@@ -39,7 +49,7 @@ namespace QuanLyVatTu.GUI.User
         {
             using (var dbContext = new QuanLyVatTuDbContext())
             {
-                var vatTus = dbContext.VatTus.Where(m => m.trangthai == 1).ToList();
+                var vatTus = dbContext.VatTus.Where(m => m.trangthai == 1).OrderBy(m => m.tenvattu).ToList();
                 DS_vatTus = vatTus;
                 for (int i = 0; i < vatTus.Count; i++)
                 {
@@ -93,6 +103,7 @@ namespace QuanLyVatTu.GUI.User
                 {
                     dataGridView_DSVatTu.Rows[i].Visible = true;
                 }
+                cbbDanhMuc_SelectedIndexChanged(sender, e);
             }
         }
 
@@ -259,6 +270,7 @@ namespace QuanLyVatTu.GUI.User
             txtNoiDungTimKiem1.Text = string.Empty;
             txtNoiDungTimKiem2.Text = string.Empty;
             txtTenPhuongAn.Text = string.Empty;
+            cbbDanhMuc.Text = "Tất cả danh mục";
             dataGridView_DSVatTu.Rows.Clear();
             dataGridView_DSVatTuDaChon.Rows.Clear();
             DS_vatTus.Clear();
@@ -366,6 +378,33 @@ namespace QuanLyVatTu.GUI.User
                 else
                 {
                     MessageBox.Show("Còn vật tư có số lượng bằng 0", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void cbbDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbDanhMuc.Text == "Tất cả danh mục")
+            {
+                for (int i = 0; i < dataGridView_DSVatTu.Rows.Count; i++)
+                {
+                    dataGridView_DSVatTu.Rows[i].Visible = true;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < dataGridView_DSVatTu.Rows.Count - 1; i++)
+                {
+                    string tenDanhMuc = ((string)dataGridView_DSVatTu.Rows[i].Cells["Column5"].Value).ToLower();
+
+                    if (tenDanhMuc.Contains(cbbDanhMuc.Text.ToLower()))
+                    {
+                        dataGridView_DSVatTu.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dataGridView_DSVatTu.Rows[i].Visible = false;
+                    }
                 }
             }
         }

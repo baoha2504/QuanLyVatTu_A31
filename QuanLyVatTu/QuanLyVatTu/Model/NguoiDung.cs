@@ -17,6 +17,7 @@ namespace QuanLyVatTu.Model
             LichSuDangNhaps = new HashSet<LichSuDangNhap>();
             LichSuHoatDongs = new HashSet<LichSuHoatDong>();
             PhuongAnVatTus = new HashSet<PhuongAnVatTu>();
+            TuKhoaVatTus = new HashSet<TuKhoaVatTu>();
             VatTus = new HashSet<VatTu>();
         }
 
@@ -51,6 +52,9 @@ namespace QuanLyVatTu.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhuongAnVatTu> PhuongAnVatTus { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TuKhoaVatTu> TuKhoaVatTus { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VatTu> VatTus { get; set; }

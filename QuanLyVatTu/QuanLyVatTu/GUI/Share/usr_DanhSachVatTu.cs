@@ -14,11 +14,21 @@ namespace QuanLyVatTu.GUI.Share
         Function function = new Function();
         List<VatTu> vatTus = new List<VatTu>();
         List<DanhMuc> danhMucs = new List<DanhMuc>();
+        List<DanhMuc> listdanhmuc = new List<DanhMuc>();
         public usr_DanhSachVatTu()
         {
             InitializeComponent();
             dataGridView_DSVatTu.RowTemplate.Height = 35;
             LoadDSVatTu();
+            using (var dbContext = new QuanLyVatTuDbContext())
+            {
+                listdanhmuc = dbContext.DanhMucs.OrderBy(m => m.tendanhmuc).ToList();
+                foreach (var dm in listdanhmuc)
+                {
+                    cbbDanhMuc.Items.Add(dm.tendanhmuc);
+                }
+                cbbDanhMuc.Items.Add("Tất cả danh mục");
+            }
         }
 
         private void LoadDSVatTu()
@@ -28,22 +38,51 @@ namespace QuanLyVatTu.GUI.Share
             using (var dbContext = new QuanLyVatTuDbContext())
             {
                 var vattu = new List<VatTu>();
-                if (groupPanel1.Text == "Danh sách vật tư đang sử dụng")
+                //if(cbbDanhMuc.Text == "Tất cả danh mục") { }
+                //else { }
+
+                if (cbbDanhMuc.Text == "Tất cả danh mục")
                 {
-                    vattu = dbContext.VatTus.Where(m => m.trangthai == 1).ToList();
+                    if (groupPanel1.Text == "Danh sách vật tư đang sử dụng")
+                    {
+                        vattu = dbContext.VatTus.Where(m => m.trangthai == 1).OrderBy(m => m.tenvattu).ToList();
+                    }
+                    else if (groupPanel1.Text == "Danh sách vật tư dừng sử dụng")
+                    {
+                        vattu = dbContext.VatTus.Where(m => m.trangthai == 0).OrderBy(m => m.tenvattu).ToList();
+                    }
+                    else if (groupPanel1.Text == "Danh sách vật tư bị trùng")
+                    {
+                        vattu = dbContext.VatTus.Where(m => m.trangthai == 2).OrderBy(m => m.tenvattu).ToList();
+                    }
+                    else if (groupPanel1.Text == "Danh sách tất cả vật tư")
+                    {
+                        vattu = dbContext.VatTus.ToList();
+                    }
                 }
-                else if (groupPanel1.Text == "Danh sách vật tư dừng sử dụng")
+                else
                 {
-                    vattu = dbContext.VatTus.Where(m => m.trangthai == 0).ToList();
+                    DanhMuc dm = listdanhmuc.SingleOrDefault(m => m.tendanhmuc == cbbDanhMuc.Text);
+                    string madanhmuc = dm.madanhmuc;
+                    if (groupPanel1.Text == "Danh sách vật tư đang sử dụng")
+                    {
+                        vattu = dbContext.VatTus.Where(m => m.trangthai == 1 && m.madanhmuc == madanhmuc).OrderBy(m => m.tenvattu).ToList();
+                    }
+                    else if (groupPanel1.Text == "Danh sách vật tư dừng sử dụng")
+                    {
+                        vattu = dbContext.VatTus.Where(m => m.trangthai == 0 && m.madanhmuc == madanhmuc).OrderBy(m => m.tenvattu).ToList();
+                    }
+                    else if (groupPanel1.Text == "Danh sách vật tư bị trùng")
+                    {
+                        vattu = dbContext.VatTus.Where(m => m.trangthai == 2 && m.madanhmuc == madanhmuc).OrderBy(m => m.tenvattu).ToList();
+                    }
+                    else if (groupPanel1.Text == "Danh sách tất cả vật tư")
+                    {
+                        vattu = dbContext.VatTus.Where(m => m.madanhmuc == madanhmuc).ToList();
+                    }
                 }
-                else if (groupPanel1.Text == "Danh sách vật tư bị trùng")
-                {
-                    vattu = dbContext.VatTus.Where(m => m.trangthai == 2).ToList();
-                }
-                else if (groupPanel1.Text == "Danh sách tất cả vật tư")
-                {
-                    vattu = dbContext.VatTus.ToList();
-                }
+
+
                 vatTus = vattu;
                 for (int i = 0; i < vattu.Count; i++)
                 {
@@ -51,7 +90,7 @@ namespace QuanLyVatTu.GUI.Share
                     DanhMuc danhMuc = dbContext.DanhMucs.SingleOrDefault(m => m.madanhmuc == madanhmuc);
                     danhMucs.Add(danhMuc);
                     dataGridView_DSVatTu.Rows.Add();
-                    dataGridView_DSVatTu.Rows[i].Cells["Column1"].Value = vattu[i].mavattu;
+                    dataGridView_DSVatTu.Rows[i].Cells["Column1"].Value = madanhmuc + vattu[i].mavattu;
                     dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value = vattu[i].tenvattu;
                     dataGridView_DSVatTu.Rows[i].Cells["Column3"].Value = vattu[i].donvitinh;
                     string dongia = function.FormatDecimal((decimal)vattu[i].dongia);
@@ -209,6 +248,7 @@ namespace QuanLyVatTu.GUI.Share
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
+            cbbDanhMuc.Text = "Tất cả danh mục";
             LoadDSVatTu();
         }
 
@@ -240,6 +280,11 @@ namespace QuanLyVatTu.GUI.Share
                     dataGridView_DSVatTu.Rows[i].Visible = true;
                 }
             }
+        }
+
+        private void cbbDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDSVatTu();
         }
     }
 }

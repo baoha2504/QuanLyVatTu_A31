@@ -29,6 +29,7 @@ namespace QuanLyVatTu.GUI.Share
                 List<PhuongAnVatTu> phuonganvattu_type2 = new List<PhuongAnVatTu>();
                 List<PhuongAnVatTu> phuonganvattu_type3 = new List<PhuongAnVatTu>();
                 List<PhuongAnVatTu> phuonganvattu_type4 = new List<PhuongAnVatTu>();
+                List<PhuongAnVatTu> phuonganvattu_type5 = new List<PhuongAnVatTu>();
                 if (phanquyen == 1)
                 {
                     phuonganvattu = dbContext.PhuongAnVatTus.OrderByDescending(p => p.thoigianlap).ToList();
@@ -65,6 +66,14 @@ namespace QuanLyVatTu.GUI.Share
                     DS_phuonganvattus = phuonganvattu_type4;
                 }
 
+                else if (groupPanel1.Text == "Danh sách tất cả phương án đã hoàn thành")
+                {
+                    phuonganvattu_type5 = phuonganvattu.Where(p => p.hoanthanh == 1)
+                             .OrderByDescending(p => p.thoigianlap)
+                             .ToList();
+                    DS_phuonganvattus = phuonganvattu_type5;
+                }
+
 
                 for (int i = 0; i < DS_phuonganvattus.Count; i++)
                 {
@@ -85,6 +94,14 @@ namespace QuanLyVatTu.GUI.Share
                     }
                     dataGridView_DS_PAVT.Rows[i].Cells["Column7"].Value = DS_phuonganvattus[i].noidungduyet;
                     dataGridView_DS_PAVT.Rows[i].Cells["Column8"].Value = "Xem";
+                    if(DS_phuonganvattus[i].hoanthanh == 1)
+                    {
+                        dataGridView_DS_PAVT.Rows[i].Cells["Column9"].Value = "Hoàn thành";
+                    }
+                    else
+                    {
+                        dataGridView_DS_PAVT.Rows[i].Cells["Column9"].Value = "Chưa hoàn thành";
+                    }
                 }
             }
         }
@@ -175,9 +192,16 @@ namespace QuanLyVatTu.GUI.Share
             LamMoi();
         }
 
-        private void btnTatCa_Click(object sender, EventArgs e)
+        private void btnDaHoanThanh_Click(object sender, EventArgs e)
         {
             btnHienThi.Text = "Hiển thị (4)";
+            groupPanel1.Text = "Danh sách tất cả phương án đã hoàn thành";
+            LamMoi();
+        }
+
+        private void btnTatCa_Click(object sender, EventArgs e)
+        {
+            btnHienThi.Text = "Hiển thị (5)";
             groupPanel1.Text = "Danh sách tất cả phương án vật tư";
             LamMoi();
         }

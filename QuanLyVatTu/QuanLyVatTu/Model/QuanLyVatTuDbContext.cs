@@ -19,6 +19,9 @@ namespace QuanLyVatTu.Model
         public virtual DbSet<LichSuHoatDong> LichSuHoatDongs { get; set; }
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
         public virtual DbSet<PhuongAnVatTu> PhuongAnVatTus { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<TuKhoaTrung> TuKhoaTrungs { get; set; }
+        public virtual DbSet<TuKhoaVatTu> TuKhoaVatTus { get; set; }
         public virtual DbSet<VatTu> VatTus { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

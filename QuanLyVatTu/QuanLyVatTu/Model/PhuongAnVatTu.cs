@@ -37,6 +37,8 @@ namespace QuanLyVatTu.Model
 
         public int? user_id { get; set; }
 
+        public int? hoanthanh { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietPhuongAn> ChiTietPhuongAns { get; set; }
 

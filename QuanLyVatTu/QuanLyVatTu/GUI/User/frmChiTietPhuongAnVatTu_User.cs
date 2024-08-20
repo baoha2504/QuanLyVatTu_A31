@@ -21,6 +21,7 @@ namespace QuanLyVatTu.GUI.User
         List<ChiTietPhuongAn> DS_chitietphuonganvattus = new List<ChiTietPhuongAn>(); // dùng cái này để lưu
         List<ChiTietPhuongAn> DS_chitietphuonganvattus_DaXoa = new List<ChiTietPhuongAn>(); // dùng cái này để lưu
         List<ThongTinPhuongAnVatTu> DS_thongtinphuonganvattus_MoiThem = new List<ThongTinPhuongAnVatTu>(); // dùng cái này để lưu
+        List<DanhMuc> listdanhmuc = new List<DanhMuc>();
         Function function = new Function();
         int sokhoan = 0;
         int solanload = 0;
@@ -34,6 +35,15 @@ namespace QuanLyVatTu.GUI.User
             dataGridView_DSVatTu.RowTemplate.Height = 30;
             LoadData();
             LoadData_DSVatTu();
+            using (var dbContext = new QuanLyVatTuDbContext())
+            {
+                listdanhmuc = dbContext.DanhMucs.OrderBy(m => m.tendanhmuc).ToList();
+                foreach (var dm in listdanhmuc)
+                {
+                    cbbDanhMuc.Items.Add(dm.tendanhmuc);
+                }
+                cbbDanhMuc.Items.Add("Tất cả danh mục");
+            }
         }
 
         private void LoadData()
@@ -42,7 +52,7 @@ namespace QuanLyVatTu.GUI.User
             using (var dbContext = new QuanLyVatTuDbContext())
             {
                 int maphuongan = pavt.maphuongan;
-                var chitiet_pavts = dbContext.ChiTietPhuongAns.Where(m => m.maphuongan == maphuongan).ToList();
+                var chitiet_pavts = dbContext.ChiTietPhuongAns.Where(m => m.maphuongan == maphuongan).OrderBy(m => m.tenvattu).ToList();
                 if (chitiet_pavts != null)
                 {
                     solanload++;
@@ -106,6 +116,14 @@ namespace QuanLyVatTu.GUI.User
             }
             catch { }
             txtNoiDungDuyet.Text = pavt.noidungduyet;
+            if (pavt.hoanthanh == 1)
+            {
+                swTrangThaiPhuongAn.IsOn = true;
+            }
+            else
+            {
+                swTrangThaiPhuongAn.IsOn = false;
+            }
         }
 
         private void LoadData_DSVatTu()
@@ -113,7 +131,7 @@ namespace QuanLyVatTu.GUI.User
             dataGridView_DSVatTu.Rows.Clear();
             using (var dbContext = new QuanLyVatTuDbContext())
             {
-                var vatTus = dbContext.VatTus.Where(m => m.trangthai == 1).ToList();
+                var vatTus = dbContext.VatTus.Where(m => m.trangthai == 1).OrderBy(m => m.tenvattu).ToList();
                 DS_vattus = vatTus;
                 for (int i = 0; i < vatTus.Count; i++)
                 {
@@ -351,6 +369,7 @@ namespace QuanLyVatTu.GUI.User
                 {
                     dataGridView_DSVatTu.Rows[i].Visible = true;
                 }
+                cbbDanhMuc_SelectedIndexChanged(sender, e);
             }
         }
 
@@ -405,7 +424,7 @@ namespace QuanLyVatTu.GUI.User
                             ct.ghichu = DS_chitietphuonganvattus[i].ghichu;
                         }
                     }
-                    
+
                     for (int i = 0; i < DS_chitietphuonganvattus_DaXoa.Count; i++)
                     {
                         int id = (int)DS_chitietphuonganvattus_DaXoa[i].id;
@@ -426,14 +445,22 @@ namespace QuanLyVatTu.GUI.User
                         ct.soluong = DS_thongtinphuonganvattus_MoiThem[i].soluong;
                         ct.doicu = DS_thongtinphuonganvattus_MoiThem[i].doicu;
                         ct.capmoi = DS_thongtinphuonganvattus_MoiThem[i].capmoi;
-                        ct.ghichu = DS_thongtinphuonganvattus_MoiThem[i].ghichu ;
+                        ct.ghichu = DS_thongtinphuonganvattus_MoiThem[i].ghichu;
                         ct.maphuongan = Int32.Parse(txtMaPhuongAn.Text);
                         dbContext.ChiTietPhuongAns.Add(ct);
                     }
 
                     int maphuongan = Int32.Parse(txtMaPhuongAn.Text);
-                    PhuongAnVatTu pavt = dbContext.PhuongAnVatTus.SingleOrDefault(m => m.maphuongan == maphuongan);
-                    pavt.thoigianlap = DateTime.Now;
+                    PhuongAnVatTu p = dbContext.PhuongAnVatTus.SingleOrDefault(m => m.maphuongan == maphuongan);
+                    p.thoigianlap = DateTime.Now;
+                    if(swTrangThaiPhuongAn.IsOn == true)
+                    {
+                        p.hoanthanh = 1;
+                    }
+                    else
+                    {
+                        p.hoanthanh = 0;
+                    }
 
                     LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
                     lichSuHoatDong.thoigian = DateTime.Now;
@@ -441,6 +468,7 @@ namespace QuanLyVatTu.GUI.User
                     lichSuHoatDong.tennguoidung = frmDangNhap.tennguoidung;
                     lichSuHoatDong.id = frmDangNhap.userID;
                     dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
+                    dbContext.SaveChanges();
 
                     MessageBox.Show("Lưu thay đổi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtLanSuaCuoi.Text = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
@@ -522,6 +550,33 @@ namespace QuanLyVatTu.GUI.User
                     else
                     {
                         MessageBox.Show("File không tồn tại: " + PATH_EXPORT, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void cbbDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbDanhMuc.Text == "Tất cả danh mục")
+            {
+                for (int i = 0; i < dataGridView_DSVatTu.Rows.Count; i++)
+                {
+                    dataGridView_DSVatTu.Rows[i].Visible = true;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < dataGridView_DSVatTu.Rows.Count - 1; i++)
+                {
+                    string tenDanhMuc = ((string)dataGridView_DSVatTu.Rows[i].Cells["dtgv2_Column4"].Value).ToLower();
+
+                    if (tenDanhMuc.Contains(cbbDanhMuc.Text.ToLower()))
+                    {
+                        dataGridView_DSVatTu.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dataGridView_DSVatTu.Rows[i].Visible = false;
                     }
                 }
             }

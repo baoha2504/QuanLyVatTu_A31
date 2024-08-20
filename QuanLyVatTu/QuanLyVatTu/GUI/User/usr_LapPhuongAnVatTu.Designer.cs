@@ -43,6 +43,8 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.cbbDanhMuc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.txtNoiDungTimKiem1 = new System.Windows.Forms.TextBox();
             this.panel21 = new System.Windows.Forms.Panel();
             this.btnTimKiem1 = new DevComponents.DotNetBar.ButtonX();
@@ -276,6 +278,8 @@
             // 
             // panel16
             // 
+            this.panel16.Controls.Add(this.cbbDanhMuc);
+            this.panel16.Controls.Add(this.panel19);
             this.panel16.Controls.Add(this.txtNoiDungTimKiem1);
             this.panel16.Controls.Add(this.panel21);
             this.panel16.Controls.Add(this.btnTimKiem1);
@@ -284,6 +288,30 @@
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(560, 35);
             this.panel16.TabIndex = 7;
+            // 
+            // cbbDanhMuc
+            // 
+            this.cbbDanhMuc.DisplayMember = "Text";
+            this.cbbDanhMuc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cbbDanhMuc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbDanhMuc.FormattingEnabled = true;
+            this.cbbDanhMuc.ItemHeight = 22;
+            this.cbbDanhMuc.Location = new System.Drawing.Point(0, 0);
+            this.cbbDanhMuc.Name = "cbbDanhMuc";
+            this.cbbDanhMuc.Size = new System.Drawing.Size(180, 28);
+            this.cbbDanhMuc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbbDanhMuc.TabIndex = 18;
+            this.cbbDanhMuc.Text = "Tất cả danh mục";
+            this.cbbDanhMuc.SelectedIndexChanged += new System.EventHandler(this.cbbDanhMuc_SelectedIndexChanged);
+            // 
+            // panel19
+            // 
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel19.Location = new System.Drawing.Point(180, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(25, 35);
+            this.panel19.TabIndex = 14;
             // 
             // txtNoiDungTimKiem1
             // 
@@ -633,8 +661,8 @@
             this.btnXacNhanPhuongAn.Size = new System.Drawing.Size(150, 35);
             this.btnXacNhanPhuongAn.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnXacNhanPhuongAn.TabIndex = 2;
-            this.btnXacNhanPhuongAn.Text = "Xác nhận phương án";
-            this.btnXacNhanPhuongAn.Tooltip = "Xác nhận lập phươn án";
+            this.btnXacNhanPhuongAn.Text = "Lập phương án";
+            this.btnXacNhanPhuongAn.Tooltip = "Xác nhận lập phương án";
             this.btnXacNhanPhuongAn.Click += new System.EventHandler(this.btnXacNhanPhuongAn_Click);
             // 
             // panel5
@@ -729,5 +757,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.Panel panel19;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbbDanhMuc;
     }
 }

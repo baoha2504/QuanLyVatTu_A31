@@ -13,6 +13,7 @@ namespace QuanLyVatTu.GUI.Share
     {
         List<SoSanhVatTu> soSanhVatTus = new List<SoSanhVatTu>();
         List<SoSanhVatTu> soSanhVatTus_DaLoc = new List<SoSanhVatTu>();
+        List<DanhMuc> listdanhmuc = new List<DanhMuc>();
         double dogiongkhac = 60;
 
         public usr_LocDanhSachVatTu()
@@ -21,6 +22,15 @@ namespace QuanLyVatTu.GUI.Share
             dataGridView_DSVatTu1.RowTemplate.Height = 35;
             dataGridView_DSVatTu2.RowTemplate.Height = 35;
             LoadDSVatTu_Loc();
+            using (var dbContext = new QuanLyVatTuDbContext())
+            {
+                listdanhmuc = dbContext.DanhMucs.OrderBy(m => m.tendanhmuc).ToList();
+                foreach (var dm in listdanhmuc)
+                {
+                    cbbDanhMuc.Items.Add(dm.tendanhmuc);
+                }
+                cbbDanhMuc.Items.Add("Tất cả danh mục");
+            }
         }
 
         private void panelEx1_Resize(object sender, EventArgs e)
@@ -228,6 +238,7 @@ namespace QuanLyVatTu.GUI.Share
                 {
                     dataGridView_DSVatTu1.Rows[i].Visible = true;
                 }
+                cbbDanhMuc_SelectedIndexChanged(sender, e);
             }
         }
 
@@ -299,6 +310,7 @@ namespace QuanLyVatTu.GUI.Share
         {
             txtNoiDungTimKiem1.Text = string.Empty;
             txtNoiDungTimKiem2.Text = string.Empty;
+            cbbDanhMuc.Text = "Tất cả danh mục";
             soSanhVatTus.Clear();
             soSanhVatTus_DaLoc.Clear();
             dataGridView_DSVatTu1.Rows.Clear();
@@ -365,6 +377,38 @@ namespace QuanLyVatTu.GUI.Share
                 for (int i = 0; i < dataGridView_DSVatTu2.Rows.Count; i++)
                 {
                     dataGridView_DSVatTu2.Rows[i].Visible = true;
+                }
+            }
+        }
+
+        private void cbbDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbDanhMuc.Text == "Tất cả danh mục")
+            {
+                for (int i = 0; i < dataGridView_DSVatTu1.Rows.Count; i++)
+                {
+                    dataGridView_DSVatTu1.Rows[i].Visible = true;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < dataGridView_DSVatTu1.Rows.Count - 1; i++)
+                {
+                    string tenDanhMuc1 = ((string)dataGridView_DSVatTu1.Rows[i].Cells["Column2"].Value).ToLower();
+                    string tenDanhMuc2 = ((string)dataGridView_DSVatTu1.Rows[i].Cells["Column5"].Value).ToLower();
+
+                    if (tenDanhMuc1.Contains(cbbDanhMuc.Text.ToLower()))
+                    {
+                        dataGridView_DSVatTu1.Rows[i].Visible = true;
+                    }
+                    if (tenDanhMuc2.Contains(cbbDanhMuc.Text.ToLower()))
+                    {
+                        dataGridView_DSVatTu1.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dataGridView_DSVatTu1.Rows[i].Visible = false;
+                    }
                 }
             }
         }

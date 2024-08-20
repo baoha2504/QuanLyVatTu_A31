@@ -74,6 +74,14 @@ namespace QuanLyVatTu.GUI.Admin
             }
             catch { }
             txtNoiDungDuyet.Text = pavt.noidungduyet;
+            if(pavt.hoanthanh == 1)
+            {
+                swTrangThaiPhuongAn.IsOn = true;
+            }
+            else
+            {
+                swTrangThaiPhuongAn.IsOn = false;
+            }
         }
 
         private void dataGridView_DS_CTPAVT_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -160,6 +168,14 @@ namespace QuanLyVatTu.GUI.Admin
                     p.nguoiduyet = frmDangNhap.tennguoidung;
                     p.thoigianduyet = DateTime.Now;
                     p.noidungduyet = txtNoiDungDuyet.Text;
+                    if (swTrangThaiPhuongAn.IsOn == true)
+                    {
+                        p.hoanthanh = 1;
+                    }
+                    else
+                    {
+                        p.hoanthanh = 0;
+                    }
 
                     var chitiet_pavts = dbContext.ChiTietPhuongAns.Where(m => m.maphuongan == maphuongan).ToList();
                     if (chitiet_pavts != null)

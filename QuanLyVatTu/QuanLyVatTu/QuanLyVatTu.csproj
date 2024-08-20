@@ -231,6 +231,9 @@
     <Compile Include="Model\NguoiDung.cs" />
     <Compile Include="Model\PhuongAnVatTu.cs" />
     <Compile Include="Model\QuanLyVatTuDbContext.cs" />
+    <Compile Include="Model\sysdiagram.cs" />
+    <Compile Include="Model\TuKhoaTrung.cs" />
+    <Compile Include="Model\TuKhoaVatTu.cs" />
     <Compile Include="Model\VatTu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -45,6 +45,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnThemVatTu = new DevComponents.DotNetBar.ButtonX();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.cbbDanhMuc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panel10 = new System.Windows.Forms.Panel();
             this.btnHienThi = new DevComponents.DotNetBar.ButtonX();
             this.btnVatTuDangSuDung = new DevComponents.DotNetBar.ButtonItem();
@@ -82,7 +84,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(1200, 700);
+            this.panelEx1.Size = new System.Drawing.Size(1400, 700);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -98,7 +100,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 75);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1200, 625);
+            this.panel4.Size = new System.Drawing.Size(1400, 625);
             this.panel4.TabIndex = 3;
             // 
             // groupPanel1
@@ -110,7 +112,7 @@
             this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupPanel1.Location = new System.Drawing.Point(0, 0);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(1200, 625);
+            this.groupPanel1.Size = new System.Drawing.Size(1400, 625);
             // 
             // 
             // 
@@ -172,7 +174,7 @@
             this.dataGridView_DSVatTu.ReadOnly = true;
             this.dataGridView_DSVatTu.RowHeadersWidth = 51;
             this.dataGridView_DSVatTu.RowTemplate.Height = 24;
-            this.dataGridView_DSVatTu.Size = new System.Drawing.Size(1194, 602);
+            this.dataGridView_DSVatTu.Size = new System.Drawing.Size(1394, 602);
             this.dataGridView_DSVatTu.TabIndex = 0;
             this.dataGridView_DSVatTu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DSDanhMuc_CellClick);
             // 
@@ -253,12 +255,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 65);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1200, 10);
+            this.panel3.Size = new System.Drawing.Size(1400, 10);
             this.panel3.TabIndex = 2;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnThemVatTu);
+            this.panel2.Controls.Add(this.panel12);
+            this.panel2.Controls.Add(this.cbbDanhMuc);
             this.panel2.Controls.Add(this.panel10);
             this.panel2.Controls.Add(this.btnHienThi);
             this.panel2.Controls.Add(this.panel9);
@@ -273,7 +277,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1200, 35);
+            this.panel2.Size = new System.Drawing.Size(1400, 35);
             this.panel2.TabIndex = 1;
             // 
             // btnThemVatTu
@@ -281,7 +285,7 @@
             this.btnThemVatTu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnThemVatTu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnThemVatTu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnThemVatTu.Location = new System.Drawing.Point(55, 0);
+            this.btnThemVatTu.Location = new System.Drawing.Point(40, 0);
             this.btnThemVatTu.Name = "btnThemVatTu";
             this.btnThemVatTu.Size = new System.Drawing.Size(150, 35);
             this.btnThemVatTu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -289,10 +293,34 @@
             this.btnThemVatTu.Text = "Thêm vật tư";
             this.btnThemVatTu.Click += new System.EventHandler(this.btnThemVatTu_Click);
             // 
+            // panel12
+            // 
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel12.Location = new System.Drawing.Point(190, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(35, 35);
+            this.panel12.TabIndex = 18;
+            // 
+            // cbbDanhMuc
+            // 
+            this.cbbDanhMuc.DisplayMember = "Text";
+            this.cbbDanhMuc.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cbbDanhMuc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbDanhMuc.FormattingEnabled = true;
+            this.cbbDanhMuc.ItemHeight = 22;
+            this.cbbDanhMuc.Location = new System.Drawing.Point(225, 0);
+            this.cbbDanhMuc.Name = "cbbDanhMuc";
+            this.cbbDanhMuc.Size = new System.Drawing.Size(180, 28);
+            this.cbbDanhMuc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbbDanhMuc.TabIndex = 17;
+            this.cbbDanhMuc.Text = "Tất cả danh mục";
+            this.cbbDanhMuc.SelectedIndexChanged += new System.EventHandler(this.cbbDanhMuc_SelectedIndexChanged);
+            // 
             // panel10
             // 
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(205, 0);
+            this.panel10.Location = new System.Drawing.Point(405, 0);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(35, 35);
             this.panel10.TabIndex = 15;
@@ -302,7 +330,7 @@
             this.btnHienThi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnHienThi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnHienThi.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnHienThi.Location = new System.Drawing.Point(240, 0);
+            this.btnHienThi.Location = new System.Drawing.Point(440, 0);
             this.btnHienThi.Name = "btnHienThi";
             this.btnHienThi.Size = new System.Drawing.Size(150, 35);
             this.btnHienThi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -346,7 +374,7 @@
             // panel9
             // 
             this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel9.Location = new System.Drawing.Point(390, 0);
+            this.panel9.Location = new System.Drawing.Point(590, 0);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(35, 35);
             this.panel9.TabIndex = 13;
@@ -356,7 +384,7 @@
             this.btnXuatDanhSach.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnXuatDanhSach.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnXuatDanhSach.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnXuatDanhSach.Location = new System.Drawing.Point(425, 0);
+            this.btnXuatDanhSach.Location = new System.Drawing.Point(625, 0);
             this.btnXuatDanhSach.Name = "btnXuatDanhSach";
             this.btnXuatDanhSach.Size = new System.Drawing.Size(150, 35);
             this.btnXuatDanhSach.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -368,7 +396,7 @@
             // panel11
             // 
             this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(575, 0);
+            this.panel11.Location = new System.Drawing.Point(775, 0);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(35, 35);
             this.panel11.TabIndex = 11;
@@ -378,7 +406,7 @@
             this.btnLamMoi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnLamMoi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnLamMoi.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLamMoi.Location = new System.Drawing.Point(610, 0);
+            this.btnLamMoi.Location = new System.Drawing.Point(810, 0);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(150, 35);
             this.btnLamMoi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -389,7 +417,7 @@
             // panel8
             // 
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(760, 0);
+            this.panel8.Location = new System.Drawing.Point(960, 0);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(35, 35);
             this.panel8.TabIndex = 5;
@@ -398,7 +426,7 @@
             // 
             this.panel7.Controls.Add(this.txtNoiDungTimKiem);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(795, 0);
+            this.panel7.Location = new System.Drawing.Point(995, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(200, 35);
             this.panel7.TabIndex = 4;
@@ -417,7 +445,7 @@
             // panel6
             // 
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(995, 0);
+            this.panel6.Location = new System.Drawing.Point(1195, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(5, 35);
             this.panel6.TabIndex = 3;
@@ -427,7 +455,7 @@
             this.btnTimKiem.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTimKiem.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnTimKiem.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnTimKiem.Location = new System.Drawing.Point(1000, 0);
+            this.btnTimKiem.Location = new System.Drawing.Point(1200, 0);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(150, 35);
             this.btnTimKiem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -438,7 +466,7 @@
             // panel5
             // 
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(1150, 0);
+            this.panel5.Location = new System.Drawing.Point(1350, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(50, 35);
             this.panel5.TabIndex = 1;
@@ -448,7 +476,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1200, 30);
+            this.panel1.Size = new System.Drawing.Size(1400, 30);
             this.panel1.TabIndex = 0;
             // 
             // usr_DanhSachVatTu
@@ -457,7 +485,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelEx1);
             this.Name = "usr_DanhSachVatTu";
-            this.Size = new System.Drawing.Size(1200, 700);
+            this.Size = new System.Drawing.Size(1400, 700);
             this.panelEx1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);
@@ -504,5 +532,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewButtonColumn Column9;
+        private System.Windows.Forms.Panel panel12;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbbDanhMuc;
     }
 }

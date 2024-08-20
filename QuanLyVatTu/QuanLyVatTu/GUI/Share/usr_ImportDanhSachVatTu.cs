@@ -70,7 +70,7 @@ namespace QuanLyVatTu.GUI.Share
                     for (int row = 2; row <= rowCount; row++)
                     {
                         NewVatTuFromExcel vatTuMoiExcel = new NewVatTuFromExcel();
-                        vatTuMoiExcel.tenvattu = worksheet.Cells[row, 2].Text;
+                        vatTuMoiExcel.tenvattu = function.NormalizeString(worksheet.Cells[row, 2].Text);
                         vatTuMoiExcel.donvitinh = worksheet.Cells[row, 3].Text;
                         try
                         {
@@ -81,10 +81,10 @@ namespace QuanLyVatTu.GUI.Share
                         {
                             vatTuMoiExcel.dongia = 0;
                         }
-                        vatTuMoiExcel.nguongoc = worksheet.Cells[row, 5].Text;
-                        vatTuMoiExcel.thongsokythuat = worksheet.Cells[row, 6].Text;
-                        vatTuMoiExcel.tendanhmuc = worksheet.Cells[row, 7].Text;
-                        vatTuMoiExcel.ghichu = worksheet.Cells[row, 8].Text;
+                        vatTuMoiExcel.nguongoc = function.NormalizeString(worksheet.Cells[row, 5].Text);
+                        vatTuMoiExcel.thongsokythuat = function.NormalizeString(worksheet.Cells[row, 6].Text);
+                        vatTuMoiExcel.tendanhmuc = function.NormalizeString(worksheet.Cells[row, 7].Text);
+                        vatTuMoiExcel.ghichu = function.NormalizeString(worksheet.Cells[row, 8].Text);
 
                         vatTuMoiExcels.Add(vatTuMoiExcel);
                     }
