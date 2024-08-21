@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace QuanLyVatTu.GUI.Share
 {
@@ -121,7 +122,10 @@ namespace QuanLyVatTu.GUI.Share
             {
                 try
                 {
-                    int rowID = e.RowIndex;
+                    string mvt = (string)dataGridView_DSVatTu.Rows[e.RowIndex].Cells["Column1"].Value;
+                    mvt = Regex.Replace(mvt, @"[^\d]", "");
+                    int mapvattu = Int32.Parse(mvt);
+                    int rowID = vatTus.FindIndex(m => m.mavattu == mapvattu);
                     frmThemVatTu frmThemVatTu = new frmThemVatTu(vatTus[rowID]);
                     frmThemVatTu.Text = "Sửa thông tin vật tư";
                     frmThemVatTu.ShowDialog();

@@ -70,7 +70,7 @@ namespace QuanLyVatTu.GUI.Share
                     for (int row = 2; row <= rowCount; row++)
                     {
                         NewVatTuFromExcel vatTuMoiExcel = new NewVatTuFromExcel();
-                        vatTuMoiExcel.tenvattu = function.NormalizeString(worksheet.Cells[row, 2].Text);
+                        vatTuMoiExcel.tenvattu = worksheet.Cells[row, 2].Text;
                         vatTuMoiExcel.donvitinh = worksheet.Cells[row, 3].Text;
                         try
                         {
@@ -81,10 +81,10 @@ namespace QuanLyVatTu.GUI.Share
                         {
                             vatTuMoiExcel.dongia = 0;
                         }
-                        vatTuMoiExcel.nguongoc = function.NormalizeString(worksheet.Cells[row, 5].Text);
-                        vatTuMoiExcel.thongsokythuat = function.NormalizeString(worksheet.Cells[row, 6].Text);
-                        vatTuMoiExcel.tendanhmuc = function.NormalizeString(worksheet.Cells[row, 7].Text);
-                        vatTuMoiExcel.ghichu = function.NormalizeString(worksheet.Cells[row, 8].Text);
+                        vatTuMoiExcel.nguongoc = worksheet.Cells[row, 5].Text;
+                        vatTuMoiExcel.thongsokythuat = worksheet.Cells[row, 6].Text;
+                        vatTuMoiExcel.tendanhmuc = worksheet.Cells[row, 7].Text;
+                        vatTuMoiExcel.ghichu = worksheet.Cells[row, 8].Text;
 
                         vatTuMoiExcels.Add(vatTuMoiExcel);
                     }
@@ -245,8 +245,9 @@ namespace QuanLyVatTu.GUI.Share
                         {
                             cell.Style.BackColor = Color.LightGreen;
                         }
+                        int id = vatTuMoiExcels_Giong.FindIndex(m=>m.tenvattu == tenvattu);
                         NewVatTuFromExcel newVatTu = new NewVatTuFromExcel();
-                        newVatTu = vatTuMoiExcels_Giong[rowID];
+                        newVatTu = vatTuMoiExcels_Giong[id];
                         vatTuMoiExcels_Khac.Add(newVatTu);
 
                         LoadVatTuMoiThem_KhiClick();
@@ -277,7 +278,8 @@ namespace QuanLyVatTu.GUI.Share
             {
                 try
                 {
-                    int rowID = e.RowIndex;
+                    int stt = (int)dataGridView_VatTuMoi.Rows[e.RowIndex].Cells["Column6"].Value;
+                    int rowID = stt - 1;
                     frmChiTietVatTuMoi frm = new frmChiTietVatTuMoi(vatTuMoiExcels_Khac[rowID]);
                     frm.ShowDialog();
                     vatTuMoiExcels_Khac[rowID] = frm.vtmExcel;

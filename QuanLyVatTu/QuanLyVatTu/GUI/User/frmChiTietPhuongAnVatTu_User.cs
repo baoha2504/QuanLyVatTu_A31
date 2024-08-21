@@ -275,7 +275,10 @@ namespace QuanLyVatTu.GUI.User
                             {
                                 cell.Style.BackColor = Color.White;
                             }
-                            int mavattu = DS_vattus[rowID].mavattu;
+                            string tvt = (string)dataGridView_DSVatTu.Rows[rowID].Cells["dtgv2_Column2"].Value;
+                            int id = DS_vattus.FindIndex(m=>m.tenvattu == tvt);
+                            int mavattu = DS_vattus[id].mavattu;
+                            
                             ChiTietPhuongAn ctpavt = DS_chitietphuonganvattus.SingleOrDefault(m => m.mavattu == mavattu);
                             if (ctpavt != null)
                             {
@@ -291,7 +294,9 @@ namespace QuanLyVatTu.GUI.User
                         {
                             cell.Style.BackColor = Color.White;
                         }
-                        int mavattu = DS_vattus[rowID].mavattu;
+                        string tvt = (string)dataGridView_DSVatTu.Rows[rowID].Cells["dtgv2_Column2"].Value;
+                        int id = DS_vattus.FindIndex(m => m.tenvattu == tvt);
+                        int mavattu = DS_vattus[id].mavattu;
                         ThongTinPhuongAnVatTu ttpa = DS_thongtinphuonganvattus_MoiThem.SingleOrDefault(m => m.mavattu == mavattu);
                         if (ttpa != null)
                         {
@@ -315,10 +320,14 @@ namespace QuanLyVatTu.GUI.User
                         {
                             cell.Style.BackColor = Color.LightGreen;
                         }
+
+                        string tvt = (string)dataGridView_DSVatTu.Rows[rowID].Cells["dtgv2_Column2"].Value;
+                        int id = DS_vattus.FindIndex(m => m.tenvattu == tvt);
+
                         ThongTinPhuongAnVatTu ttpa = new ThongTinPhuongAnVatTu();
-                        ttpa.mavattu = DS_vattus[rowID].mavattu;
-                        ttpa.tenvattu = DS_vattus[rowID].tenvattu;
-                        ttpa.donvitinh = DS_vattus[rowID].donvitinh;
+                        ttpa.mavattu = DS_vattus[id].mavattu;
+                        ttpa.tenvattu = DS_vattus[id].tenvattu;
+                        ttpa.donvitinh = DS_vattus[id].donvitinh;
                         ttpa.soluong = 0;
                         ttpa.doicu = 0;
                         ttpa.capmoi = 0;

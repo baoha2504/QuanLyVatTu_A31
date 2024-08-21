@@ -123,7 +123,11 @@ namespace QuanLyVatTu.GUI.User
                         {
                             cell.Style.BackColor = Color.White;
                         }
-                        int mavattu = DS_vatTus[rowID].mavattu;
+
+                        string tvt = (string)dataGridView_DSVatTu.Rows[rowID].Cells["Column2"].Value;
+                        int id = DS_vatTus.FindIndex(m => m.tenvattu == tvt);
+                        int mavattu = DS_vatTus[id].mavattu;
+                        
                         VatTu vt = DS_vatTus_DaChon.SingleOrDefault(m => m.mavattu == mavattu);
                         ThongTinPhuongAnVatTu ttpavt = DS_thongTinPhuongAnVatTus.SingleOrDefault(m => m.mavattu == mavattu);
                         if (vt != null && ttpavt != null)
@@ -140,9 +144,11 @@ namespace QuanLyVatTu.GUI.User
                         {
                             cell.Style.BackColor = Color.LightGreen;
                         }
-                        DS_vatTus_DaChon.Add(DS_vatTus[rowID]);
+                        string tvt = (string)dataGridView_DSVatTu.Rows[rowID].Cells["Column2"].Value;
+                        int id = DS_vatTus.FindIndex(m => m.tenvattu == tvt);
+                        DS_vatTus_DaChon.Add(DS_vatTus[id]);
                         ThongTinPhuongAnVatTu ttpavt = new ThongTinPhuongAnVatTu();
-                        ttpavt.mavattu = DS_vatTus[rowID].mavattu;
+                        ttpavt.mavattu = DS_vatTus[id].mavattu;
                         DS_thongTinPhuongAnVatTus.Add(ttpavt);
                         Load_DSVatTu_DaChon();
                     }

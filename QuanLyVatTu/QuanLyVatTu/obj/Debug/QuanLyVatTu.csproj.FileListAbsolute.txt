@@ -100,3 +100,6 @@ E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.User.fr
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\DocumentFormat.OpenXml.dll
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\MiniWord.dll
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\DocumentFormat.OpenXml.xml
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.usr_DanhSachTuCungNghia.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmChiTietTuKhoa.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmThemTuKhoa.resources

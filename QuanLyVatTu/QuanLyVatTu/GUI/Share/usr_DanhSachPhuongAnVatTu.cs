@@ -110,7 +110,8 @@ namespace QuanLyVatTu.GUI.Share
         {
             if (e.ColumnIndex == dataGridView_DS_PAVT.Columns["Column8"].Index && e.RowIndex >= 0)
             {
-                int rowID = e.RowIndex;
+                int maphuongan = (int)dataGridView_DS_PAVT.Rows[e.RowIndex].Cells["Column1"].Value;
+                int rowID = DS_phuonganvattus.FindIndex(m => m.maphuongan == maphuongan);
                 if (phanquyen == 1)
                 {
                     frmChiTietPhuongAnVatTu_Admin frm = new frmChiTietPhuongAnVatTu_Admin(DS_phuonganvattus[rowID]);

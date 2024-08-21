@@ -55,6 +55,7 @@
             this.lblNguoiDung = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
+            this.btnTuKhoaCungNghia = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -122,6 +123,7 @@
             this.btnDanhMucVatTu,
             this.btnLocDanhSachVatTu,
             this.btnImportDanhSachVatTu,
+            this.btnTuKhoaCungNghia,
             this.accordionControlElement8});
             this.QUANLYVATTU.Expanded = true;
             this.QUANLYVATTU.Name = "QUANLYVATTU";
@@ -286,6 +288,13 @@
             this.barStaticItem4});
             this.fluentFormDefaultManager1.MaxItemId = 7;
             // 
+            // btnTuKhoaCungNghia
+            // 
+            this.btnTuKhoaCungNghia.Name = "btnTuKhoaCungNghia";
+            this.btnTuKhoaCungNghia.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnTuKhoaCungNghia.Text = "Từ khóa cùng nghĩa";
+            this.btnTuKhoaCungNghia.Click += new System.EventHandler(this.btnTuKhoaCungNghia_Click);
+            // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -336,5 +345,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnDoiMatKhau;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnDangXuat;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement11;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnTuKhoaCungNghia;
     }
 }

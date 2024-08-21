@@ -28,6 +28,11 @@ namespace QuanLyVatTu.Model
 
         public int? user_id { get; set; }
 
+        [StringLength(100)]
+        public string madanhmuc { get; set; }
+
+        public virtual DanhMuc DanhMuc { get; set; }
+
         public virtual NguoiDung NguoiDung { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

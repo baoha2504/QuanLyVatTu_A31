@@ -13,6 +13,7 @@ namespace QuanLyVatTu.Model
         public DanhMuc()
         {
             VatTus = new HashSet<VatTu>();
+            TuKhoaVatTus = new HashSet<TuKhoaVatTu>();
         }
 
         [Key]
@@ -33,5 +34,8 @@ namespace QuanLyVatTu.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VatTu> VatTus { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TuKhoaVatTu> TuKhoaVatTus { get; set; }
     }
 }

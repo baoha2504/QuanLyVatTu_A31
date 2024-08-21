@@ -38,6 +38,10 @@ namespace QuanLyVatTu.Model
                 .Property(e => e.madanhmuc)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<TuKhoaVatTu>()
+                .Property(e => e.madanhmuc)
+                .IsUnicode(false);
+
             modelBuilder.Entity<VatTu>()
                 .Property(e => e.madanhmuc)
                 .IsUnicode(false);

@@ -22,6 +22,7 @@ namespace QuanLyVatTu.GUI.User
         usr_ImportDanhSachVatTu usr_ImportDanhSachVatTu;
         usr_LapPhuongAnVatTu usr_LapPhuongAnVatTu;
         usr_DanhSachPhuongAnVatTu usr_DanhSachPhuongAnVatTu;
+        usr_DanhSachTuCungNghia usr_DanhSachTuCungNghia;
 
         public frmUser()
         {
@@ -31,7 +32,7 @@ namespace QuanLyVatTu.GUI.User
 
         private void frmUser_Load(object sender, EventArgs e)
         {
-            btnDanhSachPhuongAnVatTu_Click(sender, e);
+            btnTuKhoaCungNghia_Click(sender, e);
         }
 
         private void btnLapPhuongAnVatTu_Click(object sender, EventArgs e)
@@ -133,6 +134,23 @@ namespace QuanLyVatTu.GUI.User
             else
             {
                 usr_ImportDanhSachVatTu.BringToFront();
+            }
+        }
+
+        private void btnTuKhoaCungNghia_Click(object sender, EventArgs e)
+        {
+            lblTieuDe1.Caption = "Quản lý vật tư";
+            lblTieuDe2.Caption = "Từ khóa cùng nghĩa";
+            if (usr_DanhSachTuCungNghia == null)
+            {
+                usr_DanhSachTuCungNghia = new usr_DanhSachTuCungNghia();
+                usr_DanhSachTuCungNghia.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(usr_DanhSachTuCungNghia);
+                usr_DanhSachTuCungNghia.BringToFront();
+            }
+            else
+            {
+                usr_DanhSachTuCungNghia.BringToFront();
             }
         }
 

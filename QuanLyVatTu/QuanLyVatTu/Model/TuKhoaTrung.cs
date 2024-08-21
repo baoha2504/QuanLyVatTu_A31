@@ -13,7 +13,7 @@ namespace QuanLyVatTu.Model
 
         [Column("tukhoatrung")]
         [StringLength(255)]
-        public string tukhoatrung1 { get; set; }
+        public string tukhoatrung { get; set; }
 
         [StringLength(255)]
         public string nguoisuacuoi { get; set; }

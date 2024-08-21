@@ -151,6 +151,12 @@
     <Compile Include="GUI\Admin\usr_NhatKyHoatDong.Designer.cs">
       <DependentUpon>usr_NhatKyHoatDong.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Share\frmChiTietTuKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\frmChiTietTuKhoa.Designer.cs">
+      <DependentUpon>frmChiTietTuKhoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Share\frmChiTietVatTuMoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,12 @@
     </Compile>
     <Compile Include="GUI\Share\frmThemDanhMuc.Designer.cs">
       <DependentUpon>frmThemDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Share\frmThemTuKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\frmThemTuKhoa.Designer.cs">
+      <DependentUpon>frmThemTuKhoa.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Share\frmThemVatTu.cs">
       <SubType>Form</SubType>
@@ -180,6 +192,12 @@
     </Compile>
     <Compile Include="GUI\Share\usr_DanhSachPhuongAnVatTu.Designer.cs">
       <DependentUpon>usr_DanhSachPhuongAnVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Share\usr_DanhSachTuCungNghia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\usr_DanhSachTuCungNghia.Designer.cs">
+      <DependentUpon>usr_DanhSachTuCungNghia.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Share\usr_DanhSachVatTu.cs">
       <SubType>UserControl</SubType>
@@ -260,11 +278,17 @@
     <EmbeddedResource Include="GUI\Admin\usr_NhatKyHoatDong.resx">
       <DependentUpon>usr_NhatKyHoatDong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\frmChiTietTuKhoa.resx">
+      <DependentUpon>frmChiTietTuKhoa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmChiTietVatTuMoi.resx">
       <DependentUpon>frmChiTietVatTuMoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmThemDanhMuc.resx">
       <DependentUpon>frmThemDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\frmThemTuKhoa.resx">
+      <DependentUpon>frmThemTuKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmThemVatTu.resx">
       <DependentUpon>frmThemVatTu.cs</DependentUpon>
@@ -274,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\usr_DanhSachPhuongAnVatTu.resx">
       <DependentUpon>usr_DanhSachPhuongAnVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\usr_DanhSachTuCungNghia.resx">
+      <DependentUpon>usr_DanhSachTuCungNghia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\usr_DanhSachVatTu.resx">
       <DependentUpon>usr_DanhSachVatTu.cs</DependentUpon>

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChiTietPhuongAnVatTu_User));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel50 = new System.Windows.Forms.Panel();
             this.panel49 = new System.Windows.Forms.Panel();
@@ -71,6 +71,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
+            this.panel64 = new System.Windows.Forms.Panel();
+            this.swTrangThaiPhuongAn = new DevExpress.XtraEditors.ToggleSwitch();
+            this.panel63 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
             this.txtNoiDungDuyet = new System.Windows.Forms.TextBox();
             this.panel26 = new System.Windows.Forms.Panel();
@@ -82,6 +85,9 @@
             this.panel30 = new System.Windows.Forms.Panel();
             this.panel31 = new System.Windows.Forms.Panel();
             this.panel32 = new System.Windows.Forms.Panel();
+            this.panel62 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel61 = new System.Windows.Forms.Panel();
             this.panel33 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
@@ -128,12 +134,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.panel61 = new System.Windows.Forms.Panel();
-            this.panel62 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel63 = new System.Windows.Forms.Panel();
-            this.panel64 = new System.Windows.Forms.Panel();
-            this.swTrangThaiPhuongAn = new DevExpress.XtraEditors.ToggleSwitch();
             this.panel1.SuspendLayout();
             this.panel49.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -148,10 +148,13 @@
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel24.SuspendLayout();
+            this.panel64.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.swTrangThaiPhuongAn.Properties)).BeginInit();
             this.panel25.SuspendLayout();
             this.panel27.SuspendLayout();
             this.panel29.SuspendLayout();
             this.panel32.SuspendLayout();
+            this.panel62.SuspendLayout();
             this.panel33.SuspendLayout();
             this.panel35.SuspendLayout();
             this.panel37.SuspendLayout();
@@ -169,9 +172,6 @@
             this.panel20.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel14.SuspendLayout();
-            this.panel62.SuspendLayout();
-            this.panel64.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.swTrangThaiPhuongAn.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -344,14 +344,14 @@
             this.dtgv2_Column2,
             this.dtgv2_Column3,
             this.dtgv2_Column4});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_DSVatTu.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DSVatTu.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_DSVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_DSVatTu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView_DSVatTu.Location = new System.Drawing.Point(0, 45);
@@ -546,14 +546,14 @@
             this.Column6,
             this.Column7,
             this.Column8});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_DS_CTPAVT.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DS_CTPAVT.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_DS_CTPAVT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_DS_CTPAVT.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView_DS_CTPAVT.Location = new System.Drawing.Point(0, 0);
@@ -670,6 +670,36 @@
             this.panel24.Size = new System.Drawing.Size(546, 255);
             this.panel24.TabIndex = 3;
             // 
+            // panel64
+            // 
+            this.panel64.Controls.Add(this.swTrangThaiPhuongAn);
+            this.panel64.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel64.Location = new System.Drawing.Point(10, 190);
+            this.panel64.Name = "panel64";
+            this.panel64.Size = new System.Drawing.Size(536, 35);
+            this.panel64.TabIndex = 11;
+            // 
+            // swTrangThaiPhuongAn
+            // 
+            this.swTrangThaiPhuongAn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.swTrangThaiPhuongAn.Location = new System.Drawing.Point(0, 0);
+            this.swTrangThaiPhuongAn.Margin = new System.Windows.Forms.Padding(4);
+            this.swTrangThaiPhuongAn.Name = "swTrangThaiPhuongAn";
+            this.swTrangThaiPhuongAn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.swTrangThaiPhuongAn.Properties.Appearance.Options.UseFont = true;
+            this.swTrangThaiPhuongAn.Properties.OffText = "Chưa hoàn thành";
+            this.swTrangThaiPhuongAn.Properties.OnText = "Hoàn thành";
+            this.swTrangThaiPhuongAn.Size = new System.Drawing.Size(250, 35);
+            this.swTrangThaiPhuongAn.TabIndex = 0;
+            // 
+            // panel63
+            // 
+            this.panel63.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel63.Location = new System.Drawing.Point(10, 185);
+            this.panel63.Name = "panel63";
+            this.panel63.Size = new System.Drawing.Size(536, 5);
+            this.panel63.TabIndex = 10;
+            // 
             // panel25
             // 
             this.panel25.Controls.Add(this.txtNoiDungDuyet);
@@ -779,6 +809,34 @@
             this.panel32.Name = "panel32";
             this.panel32.Size = new System.Drawing.Size(200, 255);
             this.panel32.TabIndex = 2;
+            // 
+            // panel62
+            // 
+            this.panel62.Controls.Add(this.label9);
+            this.panel62.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel62.Location = new System.Drawing.Point(0, 190);
+            this.panel62.Name = "panel62";
+            this.panel62.Size = new System.Drawing.Size(190, 35);
+            this.panel62.TabIndex = 10;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(44, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 18);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Trạng thái phương án";
+            // 
+            // panel61
+            // 
+            this.panel61.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel61.Location = new System.Drawing.Point(0, 185);
+            this.panel61.Name = "panel61";
+            this.panel61.Size = new System.Drawing.Size(190, 5);
+            this.panel61.TabIndex = 9;
             // 
             // panel33
             // 
@@ -1225,64 +1283,6 @@
             this.panel10.Size = new System.Drawing.Size(10, 255);
             this.panel10.TabIndex = 1;
             // 
-            // panel61
-            // 
-            this.panel61.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel61.Location = new System.Drawing.Point(0, 185);
-            this.panel61.Name = "panel61";
-            this.panel61.Size = new System.Drawing.Size(190, 5);
-            this.panel61.TabIndex = 9;
-            // 
-            // panel62
-            // 
-            this.panel62.Controls.Add(this.label9);
-            this.panel62.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel62.Location = new System.Drawing.Point(0, 190);
-            this.panel62.Name = "panel62";
-            this.panel62.Size = new System.Drawing.Size(190, 35);
-            this.panel62.TabIndex = 10;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(44, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(146, 18);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Trạng thái phương án";
-            // 
-            // panel63
-            // 
-            this.panel63.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel63.Location = new System.Drawing.Point(10, 185);
-            this.panel63.Name = "panel63";
-            this.panel63.Size = new System.Drawing.Size(536, 5);
-            this.panel63.TabIndex = 10;
-            // 
-            // panel64
-            // 
-            this.panel64.Controls.Add(this.swTrangThaiPhuongAn);
-            this.panel64.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel64.Location = new System.Drawing.Point(10, 190);
-            this.panel64.Name = "panel64";
-            this.panel64.Size = new System.Drawing.Size(536, 35);
-            this.panel64.TabIndex = 11;
-            // 
-            // swTrangThaiPhuongAn
-            // 
-            this.swTrangThaiPhuongAn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.swTrangThaiPhuongAn.Location = new System.Drawing.Point(0, 0);
-            this.swTrangThaiPhuongAn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.swTrangThaiPhuongAn.Name = "swTrangThaiPhuongAn";
-            this.swTrangThaiPhuongAn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.swTrangThaiPhuongAn.Properties.Appearance.Options.UseFont = true;
-            this.swTrangThaiPhuongAn.Properties.OffText = "Chưa hoàn thành";
-            this.swTrangThaiPhuongAn.Properties.OnText = "Hoàn thành";
-            this.swTrangThaiPhuongAn.Size = new System.Drawing.Size(250, 35);
-            this.swTrangThaiPhuongAn.TabIndex = 0;
-            // 
             // frmChiTietPhuongAnVatTu_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1308,6 +1308,8 @@
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
+            this.panel64.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.swTrangThaiPhuongAn.Properties)).EndInit();
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
             this.panel27.ResumeLayout(false);
@@ -1315,6 +1317,8 @@
             this.panel29.ResumeLayout(false);
             this.panel29.PerformLayout();
             this.panel32.ResumeLayout(false);
+            this.panel62.ResumeLayout(false);
+            this.panel62.PerformLayout();
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
             this.panel35.ResumeLayout(false);
@@ -1345,10 +1349,6 @@
             this.panel18.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            this.panel62.ResumeLayout(false);
-            this.panel62.PerformLayout();
-            this.panel64.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.swTrangThaiPhuongAn.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
