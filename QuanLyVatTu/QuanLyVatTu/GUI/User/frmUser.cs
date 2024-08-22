@@ -32,7 +32,7 @@ namespace QuanLyVatTu.GUI.User
 
         private void frmUser_Load(object sender, EventArgs e)
         {
-            btnTuKhoaCungNghia_Click(sender, e);
+            btnDanhSachVatTu_Click(sender, e);
         }
 
         private void btnLapPhuongAnVatTu_Click(object sender, EventArgs e)

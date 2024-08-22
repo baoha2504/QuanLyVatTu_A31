@@ -1,11 +1,11 @@
-﻿using System;
+﻿using QuanLyVatTu.Model;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace QuanLyVatTu.Support
 {
@@ -92,6 +92,50 @@ namespace QuanLyVatTu.Support
 
             // Trả về Cosine Similarity
             return dotProduct / (magnitudeA * magnitudeB);
+        }
+
+        public List<string> GetList_VatTuTrung(string input)
+        {
+            using (var dbContext = new QuanLyVatTuDbContext())
+            {
+                List<string> outputs = new List<string>();
+                TuKhoaVatTu tkvt = dbContext.TuKhoaVatTus.FirstOrDefault(m => m.tukhoachinh.Trim().ToLower() == input.Trim().ToLower());
+                if (tkvt != null)
+                {
+                    outputs.Add(tkvt.tukhoachinh);
+                    var tukhoatrung = dbContext.TuKhoaTrungs.Where(m => m.tukhoa_id == tkvt.tukhoa_id).ToList();
+                    if (tukhoatrung != null)
+                    {
+                        for (int i = 0; i < tukhoatrung.Count; i++)
+                        {
+                            outputs.Add(tukhoatrung[i].tukhoatrung);
+                        }
+                    }
+                    return outputs;
+                }
+                else
+                {
+                    TuKhoaTrung tkt = dbContext.TuKhoaTrungs.FirstOrDefault(m => m.tukhoatrung.Trim().ToLower() == input.Trim().ToLower());
+                    if (tkt != null)
+                    {
+                        var tukhoatrung = dbContext.TuKhoaTrungs.Where(m => m.tukhoa_id == tkt.tukhoa_id).ToList();
+                        var tukhoavattu = dbContext.TuKhoaVatTus.FirstOrDefault(m => m.tukhoa_id == tkt.tukhoa_id);
+                        outputs.Add(tukhoavattu.tukhoachinh);
+                        if (tukhoatrung != null)
+                        {
+                            for (int i = 0; i < tukhoatrung.Count; i++)
+                            {
+                                outputs.Add(tukhoatrung[i].tukhoatrung);
+                            }
+                        }
+                        return outputs;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
         }
     }
 }

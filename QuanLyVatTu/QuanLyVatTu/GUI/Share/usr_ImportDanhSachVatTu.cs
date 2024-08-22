@@ -245,7 +245,7 @@ namespace QuanLyVatTu.GUI.Share
                         {
                             cell.Style.BackColor = Color.LightGreen;
                         }
-                        int id = vatTuMoiExcels_Giong.FindIndex(m=>m.tenvattu == tenvattu);
+                        int id = vatTuMoiExcels_Giong.FindIndex(m => m.tenvattu == tenvattu);
                         NewVatTuFromExcel newVatTu = new NewVatTuFromExcel();
                         newVatTu = vatTuMoiExcels_Giong[id];
                         vatTuMoiExcels_Khac.Add(newVatTu);
@@ -292,19 +292,41 @@ namespace QuanLyVatTu.GUI.Share
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string searchText = txtNoiDungTimKiem.Text.Trim().ToLower();
-
+            var liststring = function.GetList_VatTuTrung(searchText);
+            
             for (int i = 0; i < dataGridView_CanXacNhan.Rows.Count - 1; i++)
             {
-                string tenVatTu1 = ((string)dataGridView_CanXacNhan.Rows[i].Cells["Column2"].Value).ToLower();
-                string tenVatTu2 = ((string)dataGridView_CanXacNhan.Rows[i].Cells["Column3"].Value).ToLower();
-
-                if (tenVatTu1.Contains(searchText) || tenVatTu2.Contains(searchText))
+                if (liststring == null)
                 {
-                    dataGridView_CanXacNhan.Rows[i].Visible = true;
+                    string tenVatTu1 = ((string)dataGridView_CanXacNhan.Rows[i].Cells["Column2"].Value).ToLower();
+                    string tenVatTu2 = ((string)dataGridView_CanXacNhan.Rows[i].Cells["Column3"].Value).ToLower();
+
+                    if (tenVatTu1.Contains(searchText) || tenVatTu2.Contains(searchText))
+                    {
+                        dataGridView_CanXacNhan.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dataGridView_CanXacNhan.Rows[i].Visible = false;
+                    }
                 }
                 else
                 {
-                    dataGridView_CanXacNhan.Rows[i].Visible = false;
+                    string tenVatTu1 = ((string)dataGridView_CanXacNhan.Rows[i].Cells["Column2"].Value).ToLower();
+                    string tenVatTu2 = ((string)dataGridView_CanXacNhan.Rows[i].Cells["Column3"].Value).ToLower();
+
+                    for (int j = 0; j < liststring.Count; j++)
+                    {
+                        if (tenVatTu1.Contains(liststring[j].Trim().ToLower()) || tenVatTu2.Contains(liststring[j].Trim().ToLower()))
+                        {
+                            dataGridView_CanXacNhan.Rows[i].Visible = true;
+                            break;
+                        }
+                        else
+                        {
+                            dataGridView_CanXacNhan.Rows[i].Visible = false;
+                        }
+                    }
                 }
             }
         }

@@ -1,5 +1,6 @@
 ﻿using QuanLyVatTu.Class;
 using QuanLyVatTu.Model;
+using QuanLyVatTu.Support;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,6 +12,7 @@ namespace QuanLyVatTu.GUI.Share
 {
     public partial class usr_LocDanhSachVatTu : UserControl
     {
+        Function function = new Function();
         List<SoSanhVatTu> soSanhVatTus = new List<SoSanhVatTu>();
         List<SoSanhVatTu> soSanhVatTus_DaLoc = new List<SoSanhVatTu>();
         List<DanhMuc> listdanhmuc = new List<DanhMuc>();
@@ -213,19 +215,41 @@ namespace QuanLyVatTu.GUI.Share
         private void btnTimKiemVatTu1_Click(object sender, EventArgs e)
         {
             string searchText = txtNoiDungTimKiem1.Text.Trim().ToLower();
+            var liststring = function.GetList_VatTuTrung(searchText);
 
             for (int i = 0; i < dataGridView_DSVatTu1.Rows.Count - 1; i++)
             {
-                string tenVatTu1 = ((string)dataGridView_DSVatTu1.Rows[i].Cells["Column3"].Value).ToLower();
-                string tenVatTu2 = ((string)dataGridView_DSVatTu1.Rows[i].Cells["Column6"].Value).ToLower();
-
-                if (tenVatTu1.Contains(searchText) || tenVatTu2.Contains(searchText))
+                if (liststring == null)
                 {
-                    dataGridView_DSVatTu1.Rows[i].Visible = true;
+                    string tenVatTu1 = ((string)dataGridView_DSVatTu1.Rows[i].Cells["Column3"].Value).ToLower();
+                    string tenVatTu2 = ((string)dataGridView_DSVatTu1.Rows[i].Cells["Column6"].Value).ToLower();
+
+                    if (tenVatTu1.Contains(searchText) || tenVatTu2.Contains(searchText))
+                    {
+                        dataGridView_DSVatTu1.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dataGridView_DSVatTu1.Rows[i].Visible = false;
+                    }
                 }
                 else
                 {
-                    dataGridView_DSVatTu1.Rows[i].Visible = false;
+                    string tenVatTu1 = ((string)dataGridView_DSVatTu1.Rows[i].Cells["Column3"].Value).ToLower();
+                    string tenVatTu2 = ((string)dataGridView_DSVatTu1.Rows[i].Cells["Column6"].Value).ToLower();
+
+                    for (int j = 0; j < liststring.Count; j++)
+                    {
+                        if (tenVatTu1.Contains(liststring[j].Trim().ToLower()) || tenVatTu2.Contains(liststring[j].Trim().ToLower()))
+                        {
+                            dataGridView_DSVatTu1.Rows[i].Visible = true;
+                            break;
+                        }
+                        else
+                        {
+                            dataGridView_DSVatTu1.Rows[i].Visible = false;
+                        }
+                    }
                 }
             }
         }
@@ -353,19 +377,41 @@ namespace QuanLyVatTu.GUI.Share
         private void btnTimKiemVatTu2_Click(object sender, EventArgs e)
         {
             string searchText = txtNoiDungTimKiem2.Text.Trim().ToLower();
+            var liststring = function.GetList_VatTuTrung(searchText);
 
             for (int i = 0; i < dataGridView_DSVatTu2.Rows.Count - 1; i++)
             {
-                string tenVatTu1 = ((string)dataGridView_DSVatTu2.Rows[i].Cells["Column10"].Value).ToLower();
-                string tenVatTu2 = ((string)dataGridView_DSVatTu2.Rows[i].Cells["Column13"].Value).ToLower();
-
-                if (tenVatTu1.Contains(searchText) || tenVatTu2.Contains(searchText))
+                if (liststring == null)
                 {
-                    dataGridView_DSVatTu2.Rows[i].Visible = true;
+                    string tenVatTu1 = ((string)dataGridView_DSVatTu2.Rows[i].Cells["Column10"].Value).ToLower();
+                    string tenVatTu2 = ((string)dataGridView_DSVatTu2.Rows[i].Cells["Column13"].Value).ToLower();
+
+                    if (tenVatTu1.Contains(searchText) || tenVatTu2.Contains(searchText))
+                    {
+                        dataGridView_DSVatTu2.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dataGridView_DSVatTu2.Rows[i].Visible = false;
+                    }
                 }
                 else
                 {
-                    dataGridView_DSVatTu2.Rows[i].Visible = false;
+                    string tenVatTu1 = ((string)dataGridView_DSVatTu2.Rows[i].Cells["Column10"].Value).ToLower();
+                    string tenVatTu2 = ((string)dataGridView_DSVatTu2.Rows[i].Cells["Column13"].Value).ToLower();
+
+                    for (int j = 0; j < liststring.Count; j++)
+                    {
+                        if (tenVatTu1.Contains(liststring[j].Trim().ToLower()) || tenVatTu2.Contains(liststring[j].Trim().ToLower()))
+                        {
+                            dataGridView_DSVatTu2.Rows[i].Visible = true;
+                            break;
+                        }
+                        else
+                        {
+                            dataGridView_DSVatTu2.Rows[i].Visible = false;
+                        }
+                    }
                 }
             }
         }

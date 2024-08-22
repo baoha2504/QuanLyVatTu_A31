@@ -103,3 +103,4 @@ E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\DocumentFormat.OpenXml.
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.usr_DanhSachTuCungNghia.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmChiTietTuKhoa.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmThemTuKhoa.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmThemTuKhoaTrung.resources

@@ -1,4 +1,5 @@
-﻿using QuanLyVatTu.Model;
+﻿using DevExpress.XtraPrinting;
+using QuanLyVatTu.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace QuanLyVatTu.GUI.Share
         public frmThemTuKhoa()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
             using (var dbContext = new QuanLyVatTuDbContext())
             {
                 listdanhmuc = dbContext.DanhMucs.OrderBy(m => m.tendanhmuc).ToList();
@@ -45,7 +47,7 @@ namespace QuanLyVatTu.GUI.Share
                 bool isTukhoachinhExists = dbContext.TuKhoaVatTus.Any(tk => tk.tukhoachinh.ToLower() == tukhoa);
                 if (isTukhoachinhExists)
                 {
-                    MessageBox.Show("Tên từ khóa vật tư bị trùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tên từ khóa vật tư đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -53,7 +55,7 @@ namespace QuanLyVatTu.GUI.Share
                 bool isTukhoatrungExists = dbContext.TuKhoaTrungs.Any(tk => tk.tukhoatrung.ToLower() == tukhoa);
                 if (isTukhoatrungExists)
                 {
-                    MessageBox.Show("Tên từ khóa vật tư bị trùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tên từ khóa vật tư đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -68,6 +70,14 @@ namespace QuanLyVatTu.GUI.Share
                 };
 
                 dbContext.TuKhoaVatTus.Add(tkvt);
+
+                LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+                lichSuHoatDong.thoigian = DateTime.Now;
+                lichSuHoatDong.hoatdong = $"Tài khoản {frmDangNhap.userID} - {frmDangNhap.tennguoidung} đã thêm từ khóa vật tư '{txtTenTuKhoa.Text}'";
+                lichSuHoatDong.tennguoidung = frmDangNhap.tennguoidung;
+                lichSuHoatDong.id = frmDangNhap.userID;
+                dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
+
                 dbContext.SaveChanges();
 
                 MessageBox.Show("Thêm từ khóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

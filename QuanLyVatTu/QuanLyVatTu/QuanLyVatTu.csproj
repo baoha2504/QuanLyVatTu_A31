@@ -175,6 +175,12 @@
     <Compile Include="GUI\Share\frmThemTuKhoa.Designer.cs">
       <DependentUpon>frmThemTuKhoa.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Share\frmThemTuKhoaTrung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\frmThemTuKhoaTrung.Designer.cs">
+      <DependentUpon>frmThemTuKhoaTrung.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Share\frmThemVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmThemTuKhoa.resx">
       <DependentUpon>frmThemTuKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\frmThemTuKhoaTrung.resx">
+      <DependentUpon>frmThemTuKhoaTrung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmThemVatTu.resx">
       <DependentUpon>frmThemVatTu.cs</DependentUpon>

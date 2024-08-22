@@ -5,8 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace QuanLyVatTu.GUI.Share
 {
@@ -39,8 +39,6 @@ namespace QuanLyVatTu.GUI.Share
             using (var dbContext = new QuanLyVatTuDbContext())
             {
                 var vattu = new List<VatTu>();
-                //if(cbbDanhMuc.Text == "Tất cả danh mục") { }
-                //else { }
 
                 if (cbbDanhMuc.Text == "Tất cả danh mục")
                 {
@@ -259,18 +257,37 @@ namespace QuanLyVatTu.GUI.Share
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string searchText = txtNoiDungTimKiem.Text.Trim().ToLower();
-
+            var liststring = function.GetList_VatTuTrung(searchText);
             for (int i = 0; i < dataGridView_DSVatTu.Rows.Count - 1; i++)
             {
-                string tenNguoiDung = ((string)dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value).ToLower();
-
-                if (tenNguoiDung.Contains(searchText))
+                if (liststring == null)
                 {
-                    dataGridView_DSVatTu.Rows[i].Visible = true;
+                    string tenNguoiDung = ((string)dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value).ToLower();
+
+                    if (tenNguoiDung.Contains(searchText))
+                    {
+                        dataGridView_DSVatTu.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dataGridView_DSVatTu.Rows[i].Visible = false;
+                    }
                 }
                 else
                 {
-                    dataGridView_DSVatTu.Rows[i].Visible = false;
+                    string tenNguoiDung = ((string)dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value).ToLower();
+                    for (int j = 0; j < liststring.Count; j++)
+                    {
+                        if (tenNguoiDung.Contains(liststring[j].Trim().ToLower()))
+                        {
+                            dataGridView_DSVatTu.Rows[i].Visible = true;
+                            break;
+                        }
+                        else
+                        {
+                            dataGridView_DSVatTu.Rows[i].Visible = false;
+                        }
+                    }
                 }
             }
         }

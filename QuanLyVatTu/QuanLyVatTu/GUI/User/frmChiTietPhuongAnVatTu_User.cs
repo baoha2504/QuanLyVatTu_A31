@@ -354,18 +354,38 @@ namespace QuanLyVatTu.GUI.User
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string searchText = txtNoiDungTimKiem.Text.Trim().ToLower();
+            var liststring = function.GetList_VatTuTrung(searchText);
 
             for (int i = 0; i < dataGridView_DSVatTu.Rows.Count - 1; i++)
             {
-                string tenVatTu = ((string)dataGridView_DSVatTu.Rows[i].Cells["dtgv2_Column2"].Value).ToLower();
-
-                if (tenVatTu.Contains(searchText))
+                if (liststring == null)
                 {
-                    dataGridView_DSVatTu.Rows[i].Visible = true;
+                    string tenVatTu = ((string)dataGridView_DSVatTu.Rows[i].Cells["dtgv2_Column2"].Value).ToLower();
+
+                    if (tenVatTu.Contains(searchText))
+                    {
+                        dataGridView_DSVatTu.Rows[i].Visible = true;
+                    }
+                    else
+                    {
+                        dataGridView_DSVatTu.Rows[i].Visible = false;
+                    }
                 }
                 else
                 {
-                    dataGridView_DSVatTu.Rows[i].Visible = false;
+                    string tenVatTu = ((string)dataGridView_DSVatTu.Rows[i].Cells["dtgv2_Column2"].Value).ToLower();
+                    for (int j = 0; j < liststring.Count; j++)
+                    {
+                        if (tenVatTu.Contains(liststring[j].Trim().ToLower()))
+                        {
+                            dataGridView_DSVatTu.Rows[i].Visible = true;
+                            break;
+                        }
+                        else
+                        {
+                            dataGridView_DSVatTu.Rows[i].Visible = false;
+                        }
+                    }
                 }
             }
         }

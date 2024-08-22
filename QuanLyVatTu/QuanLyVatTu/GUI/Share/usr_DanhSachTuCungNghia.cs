@@ -69,8 +69,7 @@ namespace QuanLyVatTu.GUI.Share
                     if (tukhoa != null)
                     {
                         frmChiTietTuKhoa frmChiTietTuKhoa = new frmChiTietTuKhoa(tukhoa);
-                        frmChiTietTuKhoa.ShowDialog();
-                        LoadDSTuKhoa();
+                        frmChiTietTuKhoa.Show();
                     }
                 }
                 catch { }
@@ -96,6 +95,14 @@ namespace QuanLyVatTu.GUI.Share
                                 }
                             }
                             dbContext.TuKhoaVatTus.Remove(tukhoavattu);
+
+                            LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+                            lichSuHoatDong.thoigian = DateTime.Now;
+                            lichSuHoatDong.hoatdong = $"Tài khoản {frmDangNhap.userID} - {frmDangNhap.tennguoidung} đã xóa từ khóa vật tư '{str}'";
+                            lichSuHoatDong.tennguoidung = frmDangNhap.tennguoidung;
+                            lichSuHoatDong.id = frmDangNhap.userID;
+                            dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
+
                             dbContext.SaveChanges();
                         }
                         LoadDSTuKhoa();
