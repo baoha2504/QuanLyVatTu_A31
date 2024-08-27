@@ -406,7 +406,7 @@ namespace QuanLyVatTu.GUI.Share
                         vatTu.thoigiansua = DateTime.Now;
                         vatTu.user_id = frmDangNhap.userID;
                         string tendanhmuc = vatTuMoiExcels_Khac[i].tendanhmuc;
-                        var danhmuc = dbContext.DanhMucs.SingleOrDefault(m => m.tendanhmuc == tendanhmuc);
+                        var danhmuc = dbContext.DanhMucs.SingleOrDefault(m => m.tendanhmuc.Trim().ToLower() == tendanhmuc.Trim().ToLower());
                         if (danhmuc != null)
                         {
                             vatTu.madanhmuc = danhmuc.madanhmuc;

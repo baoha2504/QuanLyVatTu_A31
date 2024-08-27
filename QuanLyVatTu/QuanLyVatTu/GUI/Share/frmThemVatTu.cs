@@ -221,7 +221,7 @@ namespace QuanLyVatTu.GUI.Share
 
         private bool CheckDistance()
         {
-            double dogiongkhac = 80;
+            double dogiongkhac = 70;
             string tenvattu_giong = "";
             using (var dbContext = new QuanLyVatTuDbContext())
             {
