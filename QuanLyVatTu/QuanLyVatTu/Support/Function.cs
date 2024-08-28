@@ -1,4 +1,5 @@
-﻿using QuanLyVatTu.Model;
+﻿using QuanLyVatTu.Class;
+using QuanLyVatTu.Model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -135,6 +136,40 @@ namespace QuanLyVatTu.Support
                         return null;
                     }
                 }
+            }
+        }
+
+        public List<TimTuKhoaTrung> GetList_TuKhoVatTu_VatTuTrung()
+        {
+            using (var dbContext = new QuanLyVatTuDbContext())
+            {
+                List<TimTuKhoaTrung> outputs = new List<TimTuKhoaTrung>();
+                var tkvt = dbContext.TuKhoaVatTus.ToList();
+                if (tkvt != null && tkvt.Count > 0)
+                {
+                    foreach (var item in tkvt)
+                    {
+                        TimTuKhoaTrung ttkt = new TimTuKhoaTrung();
+                        ttkt.id = item.tukhoa_id;
+                        ttkt.tentukhoa = item.tukhoachinh;
+                        outputs.Add(ttkt);
+
+                        var tukhoatrung = dbContext.TuKhoaTrungs
+                            .Where(m => m.tukhoa_id == item.tukhoa_id).ToList();
+
+                        if (tukhoatrung != null && tukhoatrung.Count > 0)
+                        {
+                            foreach (var trung in tukhoatrung)
+                            {
+                                TimTuKhoaTrung tt= new TimTuKhoaTrung();
+                                tt.id = (int)trung.tukhoa_id;
+                                tt.tentukhoa = trung.tukhoatrung;
+                                outputs.Add(tt);
+                            }
+                        }
+                    }
+                }
+                return outputs;
             }
         }
     }

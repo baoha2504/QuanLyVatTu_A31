@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTu.GUI.Share
@@ -126,6 +127,46 @@ namespace QuanLyVatTu.GUI.Share
                             soSanhVatTu.giongnhau = Math.Round(similarity, 2);
                             soSanhVatTus.Add(soSanhVatTu);
                         }
+                        else
+                        {
+                            var liststring = function.GetList_TuKhoVatTu_VatTuTrung();
+                            if (liststring != null)
+                            {
+                                int dem = 0;
+                                for (int k = 0; k < liststring.Count; k++)
+                                {
+                                    if (vatTus[i].tenvattu.Contains(liststring[k].tentukhoa.Trim()) || vatTus[j].tenvattu.Contains(liststring[k].tentukhoa.Trim()))
+                                    {
+                                        dem++;
+                                    }
+                                }
+                                if (dem >= 2)
+                                {
+                                    SoSanhVatTu soSanhVatTu = new SoSanhVatTu();
+                                    // vật tư 1
+                                    string madanhmuc1 = (string)vatTus[i].madanhmuc;
+                                    var danhmuc1 = dbContext.DanhMucs.SingleOrDefault(m => m.madanhmuc == madanhmuc1);
+                                    if (danhmuc1 != null)
+                                    {
+                                        soSanhVatTu.danhmuc1 = danhmuc1.tendanhmuc;
+                                    }
+                                    soSanhVatTu.mavattu1 = vatTus[i].mavattu;
+                                    soSanhVatTu.tenvattu1 = vatTus[i].tenvattu;
+
+                                    // vật tư 2
+                                    string madanhmuc2 = (string)vatTus[j].madanhmuc;
+                                    var danhmuc2 = dbContext.DanhMucs.SingleOrDefault(m => m.madanhmuc == madanhmuc2);
+                                    if (danhmuc2 != null)
+                                    {
+                                        soSanhVatTu.danhmuc2 = danhmuc2.tendanhmuc;
+                                    }
+                                    soSanhVatTu.mavattu2 = vatTus[j].mavattu;
+                                    soSanhVatTu.tenvattu2 = vatTus[j].tenvattu;
+                                    soSanhVatTu.giongnhau = 101;
+                                    soSanhVatTus.Add(soSanhVatTu);
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -140,16 +181,51 @@ namespace QuanLyVatTu.GUI.Share
                 soSanhVatTus.Clear();
                 CompareVatTus(vattu);
                 List<SoSanhVatTu> sortedList = soSanhVatTus.OrderByDescending(vt => vt.giongnhau).ToList();
-                for (int i = 0; i < sortedList.Count; i++)
+
+                try
                 {
-                    dataGridView_DSVatTu1.Rows.Add();
-                    dataGridView_DSVatTu1.Rows[i].Cells["Column1"].Value = "Xác định";
-                    dataGridView_DSVatTu1.Rows[i].Cells["Column2"].Value = sortedList[i].danhmuc1;
-                    dataGridView_DSVatTu1.Rows[i].Cells["Column3"].Value = sortedList[i].tenvattu1;
-                    dataGridView_DSVatTu1.Rows[i].Cells["Column4"].Value = "-";
-                    dataGridView_DSVatTu1.Rows[i].Cells["Column5"].Value = sortedList[i].danhmuc2;
-                    dataGridView_DSVatTu1.Rows[i].Cells["Column6"].Value = sortedList[i].tenvattu2;
-                    dataGridView_DSVatTu1.Rows[i].Cells["Column7"].Value = sortedList[i].giongnhau + "%";
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        for (int i = 0; i < sortedList.Count; i++)
+                        {
+                            dataGridView_DSVatTu1.Rows.Add();
+                            dataGridView_DSVatTu1.Rows[i].Cells["Column1"].Value = "Xác định";
+                            dataGridView_DSVatTu1.Rows[i].Cells["Column2"].Value = sortedList[i].danhmuc1;
+                            dataGridView_DSVatTu1.Rows[i].Cells["Column3"].Value = sortedList[i].tenvattu1;
+                            dataGridView_DSVatTu1.Rows[i].Cells["Column4"].Value = "-";
+                            dataGridView_DSVatTu1.Rows[i].Cells["Column5"].Value = sortedList[i].danhmuc2;
+                            dataGridView_DSVatTu1.Rows[i].Cells["Column6"].Value = sortedList[i].tenvattu2;
+                            if(sortedList[i].giongnhau != 101)
+                            {
+                                dataGridView_DSVatTu1.Rows[i].Cells["Column7"].Value = sortedList[i].giongnhau + "%";
+                            }
+                            else
+                            {
+                                dataGridView_DSVatTu1.Rows[i].Cells["Column7"].Value = "Cùng nghĩa";
+                            }
+                        }
+                    });
+                }
+                catch
+                {
+                    for (int i = 0; i < sortedList.Count; i++)
+                    {
+                        dataGridView_DSVatTu1.Rows.Add();
+                        dataGridView_DSVatTu1.Rows[i].Cells["Column1"].Value = "Xác định";
+                        dataGridView_DSVatTu1.Rows[i].Cells["Column2"].Value = sortedList[i].danhmuc1;
+                        dataGridView_DSVatTu1.Rows[i].Cells["Column3"].Value = sortedList[i].tenvattu1;
+                        dataGridView_DSVatTu1.Rows[i].Cells["Column4"].Value = "-";
+                        dataGridView_DSVatTu1.Rows[i].Cells["Column5"].Value = sortedList[i].danhmuc2;
+                        dataGridView_DSVatTu1.Rows[i].Cells["Column6"].Value = sortedList[i].tenvattu2;
+                        if (sortedList[i].giongnhau != 101)
+                        {
+                            dataGridView_DSVatTu1.Rows[i].Cells["Column7"].Value = sortedList[i].giongnhau + "%";
+                        }
+                        else
+                        {
+                            dataGridView_DSVatTu1.Rows[i].Cells["Column7"].Value = "Cùng nghĩa";
+                        }
+                    }
                 }
             }
         }
@@ -278,7 +354,14 @@ namespace QuanLyVatTu.GUI.Share
                 dataGridView_DSVatTu2.Rows[i].Cells["Column11"].Value = "-";
                 dataGridView_DSVatTu2.Rows[i].Cells["Column12"].Value = soSanhVatTus_DaLoc[i].danhmuc2;
                 dataGridView_DSVatTu2.Rows[i].Cells["Column13"].Value = soSanhVatTus_DaLoc[i].tenvattu2;
-                dataGridView_DSVatTu2.Rows[i].Cells["Column14"].Value = soSanhVatTus_DaLoc[i].giongnhau + "%";
+                if (soSanhVatTus_DaLoc[i].giongnhau != 101)
+                {
+                    dataGridView_DSVatTu2.Rows[i].Cells["Column14"].Value = soSanhVatTus_DaLoc[i].giongnhau + "%";
+                }
+                else
+                {
+                    dataGridView_DSVatTu2.Rows[i].Cells["Column14"].Value = "Cùng nghĩa";
+                }
             }
         }
 
@@ -332,19 +415,26 @@ namespace QuanLyVatTu.GUI.Share
 
         private void LamMoi()
         {
-            txtNoiDungTimKiem1.Text = string.Empty;
-            txtNoiDungTimKiem2.Text = string.Empty;
-            cbbDanhMuc.Text = "Tất cả danh mục";
-            soSanhVatTus.Clear();
-            soSanhVatTus_DaLoc.Clear();
-            dataGridView_DSVatTu1.Rows.Clear();
-            dataGridView_DSVatTu2.Rows.Clear();
+            // Code to refresh the UI elements
+            this.Invoke((MethodInvoker)delegate
+            {
+                txtNoiDungTimKiem1.Text = string.Empty;
+                txtNoiDungTimKiem2.Text = string.Empty;
+                cbbDanhMuc.Text = "Tất cả danh mục";
+                soSanhVatTus.Clear();
+                soSanhVatTus_DaLoc.Clear();
+                dataGridView_DSVatTu1.Rows.Clear();
+                dataGridView_DSVatTu2.Rows.Clear();
+            });
+
             LoadDSVatTu_Loc();
         }
 
-        private void btnLamMoi_Click(object sender, EventArgs e)
+        private async void btnLamMoi_Click(object sender, EventArgs e)
         {
-            LamMoi();
+            panelLoad.Visible = true;
+            await Task.Run(() => LamMoi());
+            panelLoad.Visible = false;
         }
 
         private void btnLuuDanhSachDaLoc_Click(object sender, EventArgs e)

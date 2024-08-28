@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usr_LocDanhSachVatTu));
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panel4 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -55,13 +56,6 @@
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.dataGridView_DSVatTu2 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.txtNoiDungTimKiem2 = new System.Windows.Forms.TextBox();
@@ -76,12 +70,21 @@
             this.btnLocTuDong80 = new DevComponents.DotNetBar.ButtonItem();
             this.btnLocTuDong70 = new DevComponents.DotNetBar.ButtonItem();
             this.btnLocTuDong60 = new DevComponents.DotNetBar.ButtonItem();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.panelLoad = new System.Windows.Forms.Panel();
             this.btnLamMoi = new DevComponents.DotNetBar.ButtonX();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnLuuDanhSachDaLoc = new DevComponents.DotNetBar.ButtonX();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.pictureBoxLoad = new System.Windows.Forms.PictureBox();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -97,6 +100,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu2)).BeginInit();
             this.panel15.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelLoad.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoad)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -467,62 +472,6 @@
             this.dataGridView_DSVatTu2.Size = new System.Drawing.Size(708, 557);
             this.dataGridView_DSVatTu2.TabIndex = 0;
             // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "STT";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 50;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Danh mục 1";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 70;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Tên vật tư 1";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 150;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "#";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 20;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Danh mục 2";
-            this.Column12.MinimumWidth = 6;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Width = 70;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Tên vật tư 2";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Width = 150;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Giống nhau";
-            this.Column14.MinimumWidth = 6;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 50;
-            // 
             // panel17
             // 
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
@@ -602,7 +551,8 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnLocTuDong);
-            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel9);
+            this.panel2.Controls.Add(this.panelLoad);
             this.panel2.Controls.Add(this.btnLamMoi);
             this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.btnLuuDanhSachDaLoc);
@@ -618,7 +568,7 @@
             this.btnLocTuDong.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnLocTuDong.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnLocTuDong.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLocTuDong.Location = new System.Drawing.Point(820, 0);
+            this.btnLocTuDong.Location = new System.Drawing.Point(785, 0);
             this.btnLocTuDong.Name = "btnLocTuDong";
             this.btnLocTuDong.Size = new System.Drawing.Size(160, 35);
             this.btnLocTuDong.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -659,13 +609,15 @@
             this.btnLocTuDong60.Text = "Giống trên 60%";
             this.btnLocTuDong60.Click += new System.EventHandler(this.btnLocTuDong60_Click);
             // 
-            // panel6
+            // panelLoad
             // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(980, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(35, 35);
-            this.panel6.TabIndex = 7;
+            this.panelLoad.Controls.Add(this.pictureBoxLoad);
+            this.panelLoad.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelLoad.Location = new System.Drawing.Point(980, 0);
+            this.panelLoad.Name = "panelLoad";
+            this.panelLoad.Size = new System.Drawing.Size(35, 35);
+            this.panelLoad.TabIndex = 7;
+            this.panelLoad.Visible = false;
             // 
             // btnLamMoi
             // 
@@ -719,6 +671,81 @@
             this.panel1.Size = new System.Drawing.Size(1400, 30);
             this.panel1.TabIndex = 0;
             // 
+            // panel9
+            // 
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel9.Location = new System.Drawing.Point(945, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(35, 35);
+            this.panel9.TabIndex = 9;
+            // 
+            // pictureBoxLoad
+            // 
+            this.pictureBoxLoad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxLoad.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLoad.Image")));
+            this.pictureBoxLoad.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLoad.Name = "pictureBoxLoad";
+            this.pictureBoxLoad.Size = new System.Drawing.Size(35, 35);
+            this.pictureBoxLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLoad.TabIndex = 0;
+            this.pictureBoxLoad.TabStop = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "STT";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 50;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Danh mục 1";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 70;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Vật tư giữ lại";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 150;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "#";
+            this.Column11.MinimumWidth = 6;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 20;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Danh mục 2";
+            this.Column12.MinimumWidth = 6;
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 70;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Vật tư sẽ bỏ";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 150;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Giống nhau";
+            this.Column14.MinimumWidth = 6;
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 50;
+            // 
             // usr_LocDanhSachVatTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -743,6 +770,8 @@
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panelLoad.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoad)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -779,15 +808,8 @@
         private DevComponents.DotNetBar.ButtonX btnLamMoi;
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView_DSVatTu1;
         private DevComponents.DotNetBar.ButtonX btnLocTuDong;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panelLoad;
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView_DSVatTu2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -801,5 +823,14 @@
         private DevComponents.DotNetBar.ButtonItem btnLocTuDong60;
         private System.Windows.Forms.Panel panel7;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbbDanhMuc;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.PictureBox pictureBoxLoad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
     }
 }
