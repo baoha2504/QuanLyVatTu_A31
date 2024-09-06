@@ -418,7 +418,6 @@
             // 
             // dataGridView_DSVatTuDaChon
             // 
-            this.dataGridView_DSVatTuDaChon.AllowUserToAddRows = false;
             this.dataGridView_DSVatTuDaChon.AllowUserToDeleteRows = false;
             this.dataGridView_DSVatTuDaChon.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_DSVatTuDaChon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

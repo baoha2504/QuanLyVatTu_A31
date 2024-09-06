@@ -18,7 +18,8 @@ namespace QuanLyVatTu.GUI.User
         usr_DoiMatKhau usr_DoiMatKhau;
         usr_DanhMucVatTu usr_DanhMucVatTu;
         usr_DanhSachVatTu usr_DanhSachVatTu;
-        usr_LocDanhSachVatTu usr_LocDanhSachVatTu;
+        //usr_LocDanhSachVatTu usr_LocDanhSachVatTu;
+        usr_LocDanhSachVatTu2 usr_LocDanhSachVatTu2;
         usr_ImportDanhSachVatTu usr_ImportDanhSachVatTu;
         usr_LapPhuongAnVatTu usr_LapPhuongAnVatTu;
         usr_DanhSachPhuongAnVatTu usr_DanhSachPhuongAnVatTu;
@@ -107,16 +108,28 @@ namespace QuanLyVatTu.GUI.User
         {
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Chuẩn hóa danh sách vật tư";
-            if (usr_LocDanhSachVatTu == null)
+            //if (usr_LocDanhSachVatTu == null)
+            //{
+            //    usr_LocDanhSachVatTu = new usr_LocDanhSachVatTu();
+            //    usr_LocDanhSachVatTu.Dock = DockStyle.Fill;
+            //    mainContainer.Controls.Add(usr_LocDanhSachVatTu);
+            //    usr_LocDanhSachVatTu.BringToFront();
+            //}
+            //else
+            //{
+            //    usr_LocDanhSachVatTu.BringToFront();
+            //}
+
+            if (usr_LocDanhSachVatTu2 == null)
             {
-                usr_LocDanhSachVatTu = new usr_LocDanhSachVatTu();
-                usr_LocDanhSachVatTu.Dock = DockStyle.Fill;
-                mainContainer.Controls.Add(usr_LocDanhSachVatTu);
-                usr_LocDanhSachVatTu.BringToFront();
+                usr_LocDanhSachVatTu2 = new usr_LocDanhSachVatTu2();
+                usr_LocDanhSachVatTu2.Dock = DockStyle.Fill;
+                mainContainer.Controls.Add(usr_LocDanhSachVatTu2);
+                usr_LocDanhSachVatTu2.BringToFront();
             }
             else
             {
-                usr_LocDanhSachVatTu.BringToFront();
+                usr_LocDanhSachVatTu2.BringToFront();
             }
         }
 

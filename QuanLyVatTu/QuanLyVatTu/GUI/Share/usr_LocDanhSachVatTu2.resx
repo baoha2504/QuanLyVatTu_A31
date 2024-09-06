@@ -129,27 +129,6 @@
   <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnChonFileExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAJ
-        0wAACdMBTpOQpQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMMSURBVDhPjZPJ
-        T1NRFIff3+FKEydEmWWQURDCJARaWspUoEAHKKO0CJSxpVDKDA8tIGOMAiZINO5EBaomBpVERWSh0qIR
-        UGKMuvt5bssKNp7kru673/1+59zHHazckYYjCXxpXFSHqiHElD8X2Cbb8DVIs/a3D5fYolUn8FeG4wcr
-        rLH9Jd8julQIbs/HhTYZ/IzZ8NZnwKNOIt3//HDF8+WI6S9BVK8a4V1KhHXIEdSeh4C2XJw3ZMGrOQOJ
-        veU/ZFP6LbZypprs0vFGe8ZYvd2nVbrDxQ2UIZoAkT1FuEiAEHMBAk0EaM2BjyETns3pkPBaFE4Y8XJz
-        HSUznVBPmzHydB7pYzobFztQiqg+NS71FCKsU4FgM+mbZPAngLc+Ex5NaUjlNVCNtWB5bQXFt81OgHUe
-        ktFaGxfTTwDSFw1XQ2jROvQ1d3qRyFfAi+UngJgBxg1YfPMCyskWFN0yYdh6F6kM4NDvLULZbCc+736B
-        6mYrbLtfHSCm794ogWhAAyUZLL1dgXxMD8WEAUPLcxDfqLFxUX3FDn2W/8n6CvZ+/UT9/DX4tGTBozkN
-        bo2pEDGDCQK8IwCZFNDiF6YhHmEA0o9g+bsUMD4Yxe+/fxDZXQhvaiDTP9sgRgpfCSUBWA8YQD6hB/9w
-        GsLrWjvH9MO7VWShwqftLax8XMO49R68DBlwb5LAtV5EAIpAAOvaKzrMAAYMLMwgeVBj5xz63UroSPv+
-        6hJi+krwbW8XcdQbpn+mPgVCZjBphPX9a8gnKQIzeEQGDODUVyK4owABplz4tWbTGHPha8zCOQK41DkB
-        Cur+sw9OQD4BBh/PQmDRbHJMP5TmH0Tz96fX52uUOvRZA5n+aZ0QAodBC55vrKKAAaacgGSLdpNj+qGd
-        cgSa8whAr4+670nzZ/mZ/imdANHd6t3UoWq72HLVLrJU2YWWKptgSLvp0ize5gKN+YoAY/YgHV6k23e8
-        2e36dLgRgOmfrE3G8aqkdOef8x/lVptyzK1GJHCtTW5y0QnmTtQkbRytvCzZ3z5QHPcPfWwRRHWH/qEA
-        AAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

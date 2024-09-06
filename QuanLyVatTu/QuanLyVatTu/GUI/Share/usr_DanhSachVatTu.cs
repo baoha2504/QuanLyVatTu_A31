@@ -107,7 +107,10 @@ namespace QuanLyVatTu.GUI.Share
                     {
                         dataGridView_DSVatTu.Rows[i].Cells["Column6"].Value = "Bị trùng";
                     }
-                    dataGridView_DSVatTu.Rows[i].Cells["Column7"].Value = danhMuc.tendanhmuc;
+                    if(danhMuc != null)
+                    {
+                        dataGridView_DSVatTu.Rows[i].Cells["Column7"].Value = danhMuc.tendanhmuc;
+                    }
                     dataGridView_DSVatTu.Rows[i].Cells["Column8"].Value = vattu[i].nguoisuacuoi;
                     dataGridView_DSVatTu.Rows[i].Cells["Column9"].Value = "Sửa ▼";
                 }
@@ -127,7 +130,7 @@ namespace QuanLyVatTu.GUI.Share
                     frmThemVatTu frmThemVatTu = new frmThemVatTu(vatTus[rowID]);
                     frmThemVatTu.Text = "Sửa thông tin vật tư";
                     frmThemVatTu.ShowDialog();
-                    LoadDSVatTu();
+                    //LoadDSVatTu();
                 }
                 catch { }
             }

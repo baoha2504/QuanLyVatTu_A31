@@ -16,6 +16,7 @@ namespace QuanLyVatTu.GUI.Share
         private System.Timers.Timer typingTimer1;
         private const int TypingDelay = 1000;
         private const int TypingDelay1 = 2000;
+        private string tenvattu_bandau = "";
 
         public frmThemVatTu()
         {
@@ -45,10 +46,16 @@ namespace QuanLyVatTu.GUI.Share
             txtThoiGianSua.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
-        public frmThemVatTu(VatTu vatTu)
+        public frmThemVatTu(VatTu vt)
         {
             InitializeComponent();
             this.MaximizeBox = false;
+
+            VatTu vatTu = new VatTu();
+            using (var dbContext = new QuanLyVatTuDbContext())
+            {
+                vatTu = dbContext.VatTus.FirstOrDefault(m=>m.mavattu == vt.mavattu);
+            }
 
             typingTimer = new System.Timers.Timer(TypingDelay);
             typingTimer.Elapsed += OnTypingTimerElapsed;
@@ -56,6 +63,7 @@ namespace QuanLyVatTu.GUI.Share
 
             txtMaVatTu.Text = vatTu.mavattu.ToString();
             txtTenVatTu.Text = vatTu.tenvattu;
+            tenvattu_bandau = vatTu.tenvattu;
             txtDonViTinh.Text = vatTu.donvitinh;
             txtDonGia.Text = function.FormatDecimal((decimal)vatTu.dongia);
             txtNguonGoc.Text = vatTu.nguongoc;
@@ -71,7 +79,10 @@ namespace QuanLyVatTu.GUI.Share
                 }
 
                 DanhMuc danhMuc = dbContext.DanhMucs.SingleOrDefault(m => m.madanhmuc == vatTu.madanhmuc);
-                txtDanhMuc.Text = danhMuc.tendanhmuc;
+                if (danhMuc != null)
+                {
+                    txtDanhMuc.Text = danhMuc.tendanhmuc;
+                }
             }
             if (vatTu.trangthai == 0)
             {
@@ -221,37 +232,46 @@ namespace QuanLyVatTu.GUI.Share
 
         private bool CheckDistance()
         {
-            double dogiongkhac = 70;
-            string tenvattu_giong = "";
-            using (var dbContext = new QuanLyVatTuDbContext())
+            if (tenvattu_bandau == txtTenVatTu.Text)
             {
-                var list_Vattu = dbContext.VatTus.ToList();
-                for (int i = 0; i < list_Vattu.Count; i++)
-                {
-                    double dogiongkhac_tamthoi = function.CalculateCosineSimilarity(txtTenVatTu.Text, list_Vattu[i].tenvattu);
-                    dogiongkhac_tamthoi = dogiongkhac_tamthoi * 100;
-                    if (dogiongkhac_tamthoi > dogiongkhac)
-                    {
-                        dogiongkhac = dogiongkhac_tamthoi;
-                        tenvattu_giong = list_Vattu[i].tenvattu;
-                    }
-                }
-            }
-            if (tenvattu_giong != "")
-            {
-                DialogResult result = MessageBox.Show($"Vật tư bạn muốn thêm giống {Math.Round(dogiongkhac, 2)}% vật tư đã có: '{tenvattu_giong}'. Nếu vẫn tiếp tục muốn tiếp tục, hãy xác nhận!", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
             else
             {
-                return true;
+                double dogiongkhac = 70;
+                string tenvattu_giong = "";
+                using (var dbContext = new QuanLyVatTuDbContext())
+                {
+                    var list_Vattu = dbContext.VatTus.ToList();
+                    for (int i = 0; i < list_Vattu.Count; i++)
+                    {
+                        double dogiongkhac_tamthoi = function.CalculateCosineSimilarity(txtTenVatTu.Text, list_Vattu[i].tenvattu);
+                        dogiongkhac_tamthoi = dogiongkhac_tamthoi * 100;
+                        if (dogiongkhac_tamthoi > dogiongkhac)
+                        {
+                            dogiongkhac = dogiongkhac_tamthoi;
+                            tenvattu_giong = list_Vattu[i].tenvattu;
+                        }
+                    }
+                }
+
+
+                if (tenvattu_giong != "")
+                {
+                    DialogResult result = MessageBox.Show($"Vật tư bạn muốn thêm giống {Math.Round(dogiongkhac, 2)}% vật tư đã có: '{tenvattu_giong}'. Nếu vẫn tiếp tục muốn tiếp tục, hãy xác nhận!", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
 

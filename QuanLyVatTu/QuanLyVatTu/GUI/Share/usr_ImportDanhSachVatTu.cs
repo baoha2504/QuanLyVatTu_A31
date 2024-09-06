@@ -69,24 +69,27 @@ namespace QuanLyVatTu.GUI.Share
 
                     for (int row = 2; row <= rowCount; row++)
                     {
-                        NewVatTuFromExcel vatTuMoiExcel = new NewVatTuFromExcel();
-                        vatTuMoiExcel.tenvattu = worksheet.Cells[row, 2].Text;
-                        vatTuMoiExcel.donvitinh = worksheet.Cells[row, 3].Text;
-                        try
+                        if (!string.IsNullOrEmpty(worksheet.Cells[row, 2].Text))
                         {
-                            decimal dongia = function.ConvertStringToDecimal(worksheet.Cells[row, 4].Text);
-                            vatTuMoiExcel.dongia = dongia;
-                        }
-                        catch
-                        {
-                            vatTuMoiExcel.dongia = 0;
-                        }
-                        vatTuMoiExcel.nguongoc = worksheet.Cells[row, 5].Text;
-                        vatTuMoiExcel.thongsokythuat = worksheet.Cells[row, 6].Text;
-                        vatTuMoiExcel.tendanhmuc = worksheet.Cells[row, 7].Text;
-                        vatTuMoiExcel.ghichu = worksheet.Cells[row, 8].Text;
+                            NewVatTuFromExcel vatTuMoiExcel = new NewVatTuFromExcel();
+                            vatTuMoiExcel.tenvattu = worksheet.Cells[row, 2].Text;
+                            vatTuMoiExcel.donvitinh = worksheet.Cells[row, 3].Text;
+                            try
+                            {
+                                decimal dongia = function.ConvertStringToDecimal(worksheet.Cells[row, 4].Text);
+                                vatTuMoiExcel.dongia = dongia;
+                            }
+                            catch
+                            {
+                                vatTuMoiExcel.dongia = 0;
+                            }
+                            vatTuMoiExcel.nguongoc = worksheet.Cells[row, 5].Text;
+                            vatTuMoiExcel.thongsokythuat = worksheet.Cells[row, 6].Text;
+                            vatTuMoiExcel.tendanhmuc = worksheet.Cells[row, 7].Text;
+                            vatTuMoiExcel.ghichu = worksheet.Cells[row, 8].Text;
 
-                        vatTuMoiExcels.Add(vatTuMoiExcel);
+                            vatTuMoiExcels.Add(vatTuMoiExcel);
+                        }
                     }
                 }
             }
@@ -293,7 +296,7 @@ namespace QuanLyVatTu.GUI.Share
         {
             string searchText = txtNoiDungTimKiem.Text.Trim().ToLower();
             var liststring = function.GetList_VatTuTrung(searchText);
-            
+
             for (int i = 0; i < dataGridView_CanXacNhan.Rows.Count - 1; i++)
             {
                 if (liststring == null)
@@ -388,43 +391,53 @@ namespace QuanLyVatTu.GUI.Share
 
         private void btnLuuDanhSachDaLoc_Click(object sender, EventArgs e)
         {
-            if (dataGridView_CanXacNhan.Rows.Count == 1 && dataGridView_VatTuMoi.Rows.Count == 1 && txtPathFileExcel.Text == string.Empty)
+            
+            if (dataGridView_VatTuMoi.Rows.Count >= 1)
             {
-                using (var dbContext = new QuanLyVatTuDbContext())
+                DialogResult result = MessageBox.Show("Xác nhận lưu danh vật tư mới?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    for (int i = 0; i < vatTuMoiExcels_Khac.Count; i++)
+                    using (var dbContext = new QuanLyVatTuDbContext())
                     {
-                        VatTu vatTu = new VatTu();
-                        vatTu.tenvattu = vatTuMoiExcels_Khac[i].tenvattu;
-                        vatTu.donvitinh = vatTuMoiExcels_Khac[i].donvitinh;
-                        vatTu.dongia = vatTuMoiExcels_Khac[i].dongia;
-                        vatTu.nguongoc = vatTuMoiExcels_Khac[i].nguongoc;
-                        vatTu.thongsokythuat = vatTuMoiExcels_Khac[i].thongsokythuat;
-                        vatTu.trangthai = 1;
-                        vatTu.ghichu = vatTuMoiExcels_Khac[i].ghichu;
-                        vatTu.nguoisuacuoi = frmDangNhap.tennguoidung;
-                        vatTu.thoigiansua = DateTime.Now;
-                        vatTu.user_id = frmDangNhap.userID;
-                        string tendanhmuc = vatTuMoiExcels_Khac[i].tendanhmuc;
-                        var danhmuc = dbContext.DanhMucs.SingleOrDefault(m => m.tendanhmuc.Trim().ToLower() == tendanhmuc.Trim().ToLower());
-                        if (danhmuc != null)
+                        for (int i = 0; i < vatTuMoiExcels_Khac.Count; i++)
                         {
-                            vatTu.madanhmuc = danhmuc.madanhmuc;
+                            VatTu vatTu = new VatTu();
+                            vatTu.tenvattu = vatTuMoiExcels_Khac[i].tenvattu;
+                            vatTu.donvitinh = vatTuMoiExcels_Khac[i].donvitinh;
+                            vatTu.dongia = vatTuMoiExcels_Khac[i].dongia;
+                            vatTu.nguongoc = vatTuMoiExcels_Khac[i].nguongoc;
+                            vatTu.thongsokythuat = vatTuMoiExcels_Khac[i].thongsokythuat;
+                            vatTu.trangthai = 1;
+                            vatTu.ghichu = vatTuMoiExcels_Khac[i].ghichu;
+                            vatTu.nguoisuacuoi = frmDangNhap.tennguoidung;
+                            vatTu.thoigiansua = DateTime.Now;
+                            vatTu.user_id = frmDangNhap.userID;
+                            string tendanhmuc = vatTuMoiExcels_Khac[i].tendanhmuc;
+                            var danhmuc = dbContext.DanhMucs.SingleOrDefault(m => m.tendanhmuc.Trim().ToLower() == tendanhmuc.Trim().ToLower());
+                            if (danhmuc != null)
+                            {
+                                vatTu.madanhmuc = danhmuc.madanhmuc;
+                            }
+                            else
+                            {
+                                vatTu.madanhmuc = "KHAC";
+                            }
+                            dbContext.VatTus.Add(vatTu);
                         }
-                        dbContext.VatTus.Add(vatTu);
+
+                        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+                        lichSuHoatDong.thoigian = DateTime.Now;
+                        lichSuHoatDong.hoatdong = $"Tài khoản {frmDangNhap.userID} - {frmDangNhap.tennguoidung} đã nhập file vật tư {Path.GetFileName(txtPathFileExcel.Text)}";
+                        lichSuHoatDong.tennguoidung = frmDangNhap.tennguoidung;
+                        lichSuHoatDong.id = frmDangNhap.userID;
+                        dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
+
+                        dbContext.SaveChanges();
                     }
-
-                    LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
-                    lichSuHoatDong.thoigian = DateTime.Now;
-                    lichSuHoatDong.hoatdong = $"Tài khoản {frmDangNhap.userID} - {frmDangNhap.tennguoidung} đã nhập file vật tư {Path.GetFileName(txtPathFileExcel.Text)}";
-                    lichSuHoatDong.tennguoidung = frmDangNhap.tennguoidung;
-                    lichSuHoatDong.id = frmDangNhap.userID;
-                    dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
-
-                    dbContext.SaveChanges();
+                    MessageBox.Show("Thêm danh sách mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LamMoi();
                 }
-                MessageBox.Show("Thêm danh sách mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LamMoi();
             }
             else
             {

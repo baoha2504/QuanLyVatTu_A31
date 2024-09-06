@@ -110,6 +110,7 @@
     <Compile Include="Class\TaiKhoan.cs" />
     <Compile Include="Class\ThongTinPhuongAnVatTu.cs" />
     <Compile Include="Class\TimTuKhoaTrung.cs" />
+    <Compile Include="Class\VatTuTrung.cs" />
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +231,12 @@
     <Compile Include="GUI\Share\usr_LocDanhSachVatTu.Designer.cs">
       <DependentUpon>usr_LocDanhSachVatTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Share\usr_LocDanhSachVatTu2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\usr_LocDanhSachVatTu2.Designer.cs">
+      <DependentUpon>usr_LocDanhSachVatTu2.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\User\frmChiTietPhuongAnVatTu_User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\usr_LocDanhSachVatTu.resx">
       <DependentUpon>usr_LocDanhSachVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\usr_LocDanhSachVatTu2.resx">
+      <DependentUpon>usr_LocDanhSachVatTu2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\User\frmChiTietPhuongAnVatTu_User.resx">
       <DependentUpon>frmChiTietPhuongAnVatTu_User.cs</DependentUpon>
