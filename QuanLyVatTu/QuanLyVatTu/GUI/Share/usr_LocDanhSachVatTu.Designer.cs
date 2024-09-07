@@ -343,7 +343,7 @@
             // txtNoiDungTimKiem1
             // 
             this.txtNoiDungTimKiem1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtNoiDungTimKiem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoiDungTimKiem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoiDungTimKiem1.Location = new System.Drawing.Point(281, 0);
             this.txtNoiDungTimKiem1.Multiline = true;
             this.txtNoiDungTimKiem1.Name = "txtNoiDungTimKiem1";
@@ -551,7 +551,7 @@
             // txtNoiDungTimKiem2
             // 
             this.txtNoiDungTimKiem2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtNoiDungTimKiem2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoiDungTimKiem2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoiDungTimKiem2.Location = new System.Drawing.Point(333, 0);
             this.txtNoiDungTimKiem2.Multiline = true;
             this.txtNoiDungTimKiem2.Name = "txtNoiDungTimKiem2";

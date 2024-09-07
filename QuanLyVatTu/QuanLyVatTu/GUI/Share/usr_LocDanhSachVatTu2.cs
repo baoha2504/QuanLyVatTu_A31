@@ -296,7 +296,7 @@ namespace QuanLyVatTu.GUI.Share
                     }
                     if (vatTuBiTrungs[i].giongnhau >= dogiongkhac)
                     {
-                        dataGridView_DSVatTuTrung.Rows[i].Cells["Column10"].Value = Math.Round(vatTuBiTrungs[i].giongnhau, 2);
+                        dataGridView_DSVatTuTrung.Rows[i].Cells["Column10"].Value = Math.Round(vatTuBiTrungs[i].giongnhau, 2) + "%";
                     }
                     else
                     {
@@ -457,7 +457,32 @@ namespace QuanLyVatTu.GUI.Share
 
             if (result == DialogResult.Yes)
             {
+                using (var dbContext = new QuanLyVatTuDbContext())
+                {
+                    for (int i = 0; i < vatTuBiTrungs.Count; i++)
+                    {
+                        if (vatTuBiTrungs[i].tinhtrangxacnhan == 1)
+                        {
+                            int mavattu = (int)vatTuBiTrungs[i].mavattu;
+                            var vattu = dbContext.VatTus.FirstOrDefault(m => m.mavattu == mavattu);
+                            if (vattu != null)
+                            {
+                                vattu.nguoisuacuoi = frmDangNhap.tennguoidung;
+                                vattu.thoigiansua = DateTime.Now;
+                                vattu.trangthai = 2;
+                            }
+                        }
+                    }
 
+                    LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+                    lichSuHoatDong.thoigian = DateTime.Now;
+                    lichSuHoatDong.hoatdong = $"Tài khoản {frmDangNhap.userID} - {frmDangNhap.tennguoidung} đã lọc danh sách vật tư";
+                    lichSuHoatDong.tennguoidung = frmDangNhap.tennguoidung;
+                    lichSuHoatDong.id = frmDangNhap.userID;
+                    dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
+                    dbContext.SaveChanges();
+                }
+                MessageBox.Show("Lọc danh sách thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

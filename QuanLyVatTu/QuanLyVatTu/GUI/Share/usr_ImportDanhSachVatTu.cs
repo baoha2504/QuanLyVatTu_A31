@@ -227,6 +227,7 @@ namespace QuanLyVatTu.GUI.Share
                 string dongia = function.FormatDecimal(vatTuMoiExcels_Khac[i].dongia);
                 dataGridView_VatTuMoi.Rows[i].Cells["Column9"].Value = dongia;
                 dataGridView_VatTuMoi.Rows[i].Cells["Column10"].Value = vatTuMoiExcels_Khac[i].nguongoc;
+                dataGridView_VatTuMoi.Rows[i].Cells["Column11"].Value = vatTuMoiExcels_Khac[i].tendanhmuc;
             }
         }
 

@@ -133,7 +133,7 @@
   <data name="btnChonFileExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAJ
-        0wAACdMBTpOQpQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMMSURBVDhPjZPJ
+        0gAACdIBnNRyQQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMMSURBVDhPjZPJ
         T1NRFIff3+FKEydEmWWQURDCJARaWspUoEAHKKO0CJSxpVDKDA8tIGOMAiZINO5EBaomBpVERWSh0qIR
         UGKMuvt5bssKNp7kru673/1+59zHHazckYYjCXxpXFSHqiHElD8X2Cbb8DVIs/a3D5fYolUn8FeG4wcr
         rLH9Jd8julQIbs/HhTYZ/IzZ8NZnwKNOIt3//HDF8+WI6S9BVK8a4V1KhHXIEdSeh4C2XJw3ZMGrOQOJ
@@ -166,6 +166,9 @@
     <value>True</value>
   </metadata>
   <metadata name="Column10.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column11.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

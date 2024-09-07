@@ -53,6 +53,11 @@
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.dataGridView_DSVatTuTrung = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel24 = new System.Windows.Forms.Panel();
@@ -78,11 +83,6 @@
             this.btnLuuDanhSachDaLoc = new DevComponents.DotNetBar.ButtonX();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -323,7 +323,7 @@
             // txtNoiDungTimKiem1
             // 
             this.txtNoiDungTimKiem1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtNoiDungTimKiem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoiDungTimKiem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoiDungTimKiem1.Location = new System.Drawing.Point(281, 0);
             this.txtNoiDungTimKiem1.Multiline = true;
             this.txtNoiDungTimKiem1.Name = "txtNoiDungTimKiem1";
@@ -452,6 +452,46 @@
             this.dataGridView_DSVatTuTrung.TabIndex = 0;
             this.dataGridView_DSVatTuTrung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DSVatTuTrung_CellClick);
             // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Xác nhận";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 80;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Tên vật tư";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 160;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Nguồn gốc";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Danh mục";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 140;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Độ giống";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 125;
+            // 
             // panel17
             // 
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
@@ -529,7 +569,7 @@
             // txtNoiDungTimKiem2
             // 
             this.txtNoiDungTimKiem2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.txtNoiDungTimKiem2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoiDungTimKiem2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoiDungTimKiem2.Location = new System.Drawing.Point(333, 0);
             this.txtNoiDungTimKiem2.Multiline = true;
             this.txtNoiDungTimKiem2.Name = "txtNoiDungTimKiem2";
@@ -702,46 +742,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1400, 30);
             this.panel1.TabIndex = 0;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Xác nhận";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Tên vật tư";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 160;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Nguồn gốc";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 125;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Danh mục";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 140;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Độ giống";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 125;
             // 
             // usr_LocDanhSachVatTu2
             // 

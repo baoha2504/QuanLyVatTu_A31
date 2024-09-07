@@ -434,7 +434,7 @@
             // txtNoiDungTimKiem
             // 
             this.txtNoiDungTimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNoiDungTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoiDungTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNoiDungTimKiem.Location = new System.Drawing.Point(0, 0);
             this.txtNoiDungTimKiem.Multiline = true;
             this.txtNoiDungTimKiem.Name = "txtNoiDungTimKiem";
