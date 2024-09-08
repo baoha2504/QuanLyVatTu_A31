@@ -21,13 +21,13 @@ namespace QuanLyVatTu.Support
 
         public void UpdateLogin(string path, string username, string password)
         {
-            string configFilePath = Path.Combine(path, "config.json");
-            Config config = ReadConfig(path);
-            config.login.username = username;
-            config.login.password = password;
+            //string configFilePath = Path.Combine(path, "config.json");
+            //Config config = ReadConfig(path);
+            //config.login.username = username;
+            //config.login.password = password;
 
-            string updatedJson = JsonConvert.SerializeObject(config, Formatting.Indented);
-            File.WriteAllText(configFilePath, updatedJson);
+            //string updatedJson = JsonConvert.SerializeObject(config, Formatting.Indented);
+            //File.WriteAllText(configFilePath, updatedJson);
         }
     }
 }

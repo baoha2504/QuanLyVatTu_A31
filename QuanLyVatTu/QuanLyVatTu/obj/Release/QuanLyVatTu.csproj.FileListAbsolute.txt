@@ -74,7 +74,6 @@ E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Release\es\DevExpress.Sparkli
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Release\ja\DevExpress.Sparkline.v21.2.Core.resources.dll
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Release\ru\DevExpress.Sparkline.v21.2.Core.resources.dll
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.csproj.AssemblyReference.cache
-E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.csproj.SuggestedBindingRedirects.cache
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.frmDangNhap.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Admin.frmAdmin.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Admin.frmChiTietPhuongAnVatTu_Admin.resources
@@ -97,6 +96,11 @@ E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.User.
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.Properties.Resources.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.csproj.GenerateResource.cache
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.csproj.CoreCompileInputs.cache
-E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.csproj.CopyComplete
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.exe
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.pdb
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share.frmChiTietTuKhoa.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share.frmThemTuKhoa.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share.frmThemTuKhoaTrung.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share.usr_DanhSachTuCungNghia.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share.usr_LocDanhSachVatTu2.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVa.6E15CABF.Up2Date

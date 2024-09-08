@@ -1,7 +1,7 @@
 {
   "login": {
-    "username": "dongthuong",
-    "password": "a"
+    "username": "",
+    "password": ""
   },
   "datasource": "Data Source=.;Initial Catalog=CameraTrackingSystem_V2;Integrated Security=True"
 }

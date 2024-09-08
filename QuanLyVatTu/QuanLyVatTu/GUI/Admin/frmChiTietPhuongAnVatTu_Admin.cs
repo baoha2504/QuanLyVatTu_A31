@@ -219,6 +219,10 @@ namespace QuanLyVatTu.GUI.Admin
 
                     string sourceDirectory = AppDomain.CurrentDomain.BaseDirectory;
                     string projectDirectory = Directory.GetParent(sourceDirectory).Parent.Parent.FullName;
+                    if (!function.IsFileExists(Path.Combine(projectDirectory, "template.docx")))
+                    {
+                        projectDirectory = Directory.GetParent(sourceDirectory).FullName;
+                    }
                     string PATH_TEMPLATE = Path.Combine(projectDirectory, "template.docx");
                     //string PATH_TEMPLATE = Application.StartupPath + "\\mauword.docx";
 
@@ -266,8 +270,8 @@ namespace QuanLyVatTu.GUI.Admin
                             ngay = DateTime.Now.ToString("dd"),
                             thang = DateTime.Now.ToString("MM"),
                             nam = DateTime.Now.ToString("yyyy"),
-                            capbac = frmDangNhap.capbac,
-                            hoten = frmDangNhap.tennguoidung,
+                            capbac = "",
+                            hoten = "",
                             sokhoan = DS_chitietphuonganvattus.Count(),
                         };
 

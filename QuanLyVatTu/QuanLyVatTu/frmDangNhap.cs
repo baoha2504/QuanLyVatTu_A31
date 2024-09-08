@@ -43,9 +43,13 @@ namespace QuanLyVatTu
         {
             string sourceDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string projectDirectory = Directory.GetParent(sourceDirectory).Parent.Parent.FullName;
+            if (!function.IsFileExists(Path.Combine(projectDirectory, "config.json")))
+            {
+                projectDirectory = Directory.GetParent(sourceDirectory).FullName;
+            }
+
             GetConfig getConfig = new GetConfig();
             Config config = getConfig.ReadConfig(projectDirectory);
-
             if (config.login.username != string.Empty && config.login.password != string.Empty)
             {
                 txtTenTaiKhoan.Text = config.login.username;
@@ -83,6 +87,10 @@ namespace QuanLyVatTu
                                 // đăng nhập thành công
                                 string sourceDirectory = AppDomain.CurrentDomain.BaseDirectory;
                                 string projectDirectory = Directory.GetParent(sourceDirectory).Parent.Parent.FullName;
+                                if (!function.IsFileExists(Path.Combine(projectDirectory, "config.json")))
+                                {
+                                    projectDirectory = Directory.GetParent(sourceDirectory).FullName;
+                                }
                                 GetConfig getConfig = new GetConfig();
                                 if (checkBox.Checked == true)
                                 {

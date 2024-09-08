@@ -4,13 +4,11 @@ E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\QuanLyVatTu.pdb
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\DevComponents.DotNetBar2.dll
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\DevComponents.DotNetBar2.xml
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.csproj.AssemblyReference.cache
-E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.csproj.SuggestedBindingRedirects.cache
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.frmDangNhap.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.User.frmUser.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.Properties.Resources.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.csproj.GenerateResource.cache
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.csproj.CoreCompileInputs.cache
-E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.csproj.CopyComplete
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.exe
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.pdb
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\bin\Debug\Newtonsoft.Json.dll
@@ -105,3 +103,4 @@ E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.f
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmThemTuKhoa.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.frmThemTuKhoaTrung.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVatTu.GUI.Share.usr_LocDanhSachVatTu2.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Debug\QuanLyVa.6E15CABF.Up2Date

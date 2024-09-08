@@ -519,6 +519,10 @@ namespace QuanLyVatTu.GUI.User
 
                     string sourceDirectory = AppDomain.CurrentDomain.BaseDirectory;
                     string projectDirectory = Directory.GetParent(sourceDirectory).Parent.Parent.FullName;
+                    if (!function.IsFileExists(Path.Combine(projectDirectory, "template.docx")))
+                    {
+                        projectDirectory = Directory.GetParent(sourceDirectory).FullName;
+                    }
                     string PATH_TEMPLATE = Path.Combine(projectDirectory, "template.docx");
                     //string PATH_TEMPLATE = Application.StartupPath + "\\mauword.docx";
 

@@ -3,6 +3,7 @@ using QuanLyVatTu.Model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -171,6 +172,11 @@ namespace QuanLyVatTu.Support
                 }
                 return outputs;
             }
+        }
+
+        public bool IsFileExists(string filePath)
+        {
+            return File.Exists(filePath);
         }
     }
 }
