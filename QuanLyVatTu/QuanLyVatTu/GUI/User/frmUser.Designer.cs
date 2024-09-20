@@ -41,6 +41,7 @@
             this.btnDanhMucVatTu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnLocDanhSachVatTu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnImportDanhSachVatTu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnTuKhoaCungNghia = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.TROGIUP = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnDoiMatKhau = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -55,7 +56,6 @@
             this.lblNguoiDung = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
-            this.btnTuKhoaCungNghia = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -156,6 +156,13 @@
             this.btnImportDanhSachVatTu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnImportDanhSachVatTu.Text = "Import danh sách vật tư";
             this.btnImportDanhSachVatTu.Click += new System.EventHandler(this.btnImportDanhSachVatTu_Click);
+            // 
+            // btnTuKhoaCungNghia
+            // 
+            this.btnTuKhoaCungNghia.Name = "btnTuKhoaCungNghia";
+            this.btnTuKhoaCungNghia.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnTuKhoaCungNghia.Text = "Từ khóa cùng nghĩa";
+            this.btnTuKhoaCungNghia.Click += new System.EventHandler(this.btnTuKhoaCungNghia_Click);
             // 
             // accordionControlElement8
             // 
@@ -288,13 +295,6 @@
             this.barStaticItem4});
             this.fluentFormDefaultManager1.MaxItemId = 7;
             // 
-            // btnTuKhoaCungNghia
-            // 
-            this.btnTuKhoaCungNghia.Name = "btnTuKhoaCungNghia";
-            this.btnTuKhoaCungNghia.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnTuKhoaCungNghia.Text = "Từ khóa cùng nghĩa";
-            this.btnTuKhoaCungNghia.Click += new System.EventHandler(this.btnTuKhoaCungNghia_Click);
-            // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -311,6 +311,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PHẦN MỀM QUẢN LÝ VẬT TƯ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmUser_FormClosing);
             this.Load += new System.EventHandler(this.frmUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();

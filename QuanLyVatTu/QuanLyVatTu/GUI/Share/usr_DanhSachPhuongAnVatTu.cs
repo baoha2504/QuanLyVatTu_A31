@@ -206,5 +206,17 @@ namespace QuanLyVatTu.GUI.Share
             groupPanel1.Text = "Danh sách tất cả phương án vật tư";
             LamMoi();
         }
+
+        private void usr_DanhSachPhuongAnVatTu_Resize(object sender, EventArgs e)
+        {
+            dataGridView_DS_PAVT.Columns["Column8"].Width = (int)(dataGridView_DS_PAVT.Width * 2 / 31);
+            dataGridView_DS_PAVT.Columns["Column1"].Width = (int)(dataGridView_DS_PAVT.Width * 2 / 31);
+            dataGridView_DS_PAVT.Columns["Column2"].Width = (int)(dataGridView_DS_PAVT.Width * 7 / 31);
+            dataGridView_DS_PAVT.Columns["Column3"].Width = (int)(dataGridView_DS_PAVT.Width * 4 / 31);
+            dataGridView_DS_PAVT.Columns["Column4"].Width = (int)(dataGridView_DS_PAVT.Width * 3 / 31);
+            dataGridView_DS_PAVT.Columns["Column5"].Width = (int)(dataGridView_DS_PAVT.Width * 3 / 31);
+            dataGridView_DS_PAVT.Columns["Column7"].Width = (int)(dataGridView_DS_PAVT.Width * 5 / 31);
+            dataGridView_DS_PAVT.Columns["Column9"].Width = (int)(dataGridView_DS_PAVT.Width * 3 / 31);
+        }
     }
 }

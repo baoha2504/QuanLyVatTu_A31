@@ -21,7 +21,6 @@ namespace QuanLyVatTu.GUI.Admin
         public frmChiTietPhuongAnVatTu_Admin(PhuongAnVatTu pavt)
         {
             InitializeComponent();
-            this.MaximizeBox = false;
             this.pavt = pavt;
             dataGridView_DS_CTPAVT.RowTemplate.Height = 35;
             LoadData();
@@ -74,7 +73,7 @@ namespace QuanLyVatTu.GUI.Admin
             }
             catch { }
             txtNoiDungDuyet.Text = pavt.noidungduyet;
-            if(pavt.hoanthanh == 1)
+            if (pavt.hoanthanh == 1)
             {
                 swTrangThaiPhuongAn.IsOn = true;
             }
@@ -286,6 +285,22 @@ namespace QuanLyVatTu.GUI.Admin
                     }
                 }
             }
+        }
+
+        private void frmChiTietPhuongAnVatTu_Admin_Resize(object sender, EventArgs e)
+        {
+            panel4.Width = (int)(panel2.Width / 2);
+            panel3.Height = panel1.Height - panel2.Height - 60;
+            panel32.Width = (int)(panel7.Width / 3.5);
+
+            dataGridView_DS_CTPAVT.Columns["Column1"].Width = (int)(dataGridView_DS_CTPAVT.Width * 1 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column2"].Width = (int)(dataGridView_DS_CTPAVT.Width * 6 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column3"].Width = (int)(dataGridView_DS_CTPAVT.Width * 3 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column4"].Width = (int)(dataGridView_DS_CTPAVT.Width * 2 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column5"].Width = (int)(dataGridView_DS_CTPAVT.Width * 2 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column6"].Width = (int)(dataGridView_DS_CTPAVT.Width * 2 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column7"].Width = (int)(dataGridView_DS_CTPAVT.Width * 4 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column8"].Width = (int)(dataGridView_DS_CTPAVT.Width * 5 / 26);
         }
     }
 }

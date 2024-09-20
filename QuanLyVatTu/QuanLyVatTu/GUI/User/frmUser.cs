@@ -24,6 +24,7 @@ namespace QuanLyVatTu.GUI.User
         usr_LapPhuongAnVatTu usr_LapPhuongAnVatTu;
         usr_DanhSachPhuongAnVatTu usr_DanhSachPhuongAnVatTu;
         usr_DanhSachTuCungNghia usr_DanhSachTuCungNghia;
+        private bool isLoggingOut = false;
 
         public frmUser()
         {
@@ -33,7 +34,7 @@ namespace QuanLyVatTu.GUI.User
 
         private void frmUser_Load(object sender, EventArgs e)
         {
-            btnLocDanhSachVatTu_Click(sender, e);
+            btnDanhSachPhuongAnVatTu_Click(sender, e);
         }
 
         private void btnLapPhuongAnVatTu_Click(object sender, EventArgs e)
@@ -198,10 +199,42 @@ namespace QuanLyVatTu.GUI.User
                     dbContext.LichSuDangNhaps.Add(lichSuDangNhap);
                     dbContext.SaveChanges();
 
+                    // Đặt cờ đăng xuất để ngăn sự kiện FormClosing
+                    isLoggingOut = true;
+
+                    // Ẩn form và mở lại form đăng nhập
                     this.Hide();
                     frmDangNhap frmDangNhap = new frmDangNhap();
                     frmDangNhap.ShowDialog();
+
+                    // Đóng form sau khi đăng nhập thành công
                     this.Close();
+                }
+            }
+        }
+
+        private void frmUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isLoggingOut)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đóng form không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    using (var dbContext = new QuanLyVatTuDbContext())
+                    {
+                        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+                        lichSuHoatDong.thoigian = DateTime.Now;
+                        lichSuHoatDong.hoatdong = $"Tài khoản {frmDangNhap.userID} - {frmDangNhap.tennguoidung} đã đăng xuất thành công";
+                        lichSuHoatDong.tennguoidung = frmDangNhap.tennguoidung;
+                        lichSuHoatDong.id = frmDangNhap.userID;
+                        dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
+                        dbContext.SaveChanges();
+                    }
                 }
             }
         }

@@ -91,5 +91,14 @@ namespace QuanLyVatTu.GUI.Share
                 }
             }
         }
+
+        private void usr_DanhMucVatTu_Resize(object sender, EventArgs e)
+        {
+            dataGridView_DSDanhMuc.Columns["Column1"].Width = (int)(dataGridView_DSDanhMuc.Width * 3 / 22);
+            dataGridView_DSDanhMuc.Columns["Column2"].Width = (int)(dataGridView_DSDanhMuc.Width * 8 / 22);
+            dataGridView_DSDanhMuc.Columns["Column3"].Width = (int)(dataGridView_DSDanhMuc.Width * 4 / 22);
+            dataGridView_DSDanhMuc.Columns["Column4"].Width = (int)(dataGridView_DSDanhMuc.Width * 4 / 22);
+            dataGridView_DSDanhMuc.Columns["Column5"].Width = (int)(dataGridView_DSDanhMuc.Width * 2 / 22);
+        }
     }
 }

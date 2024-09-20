@@ -30,10 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemDanhMuc));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.btnLuu = new DevComponents.DotNetBar.ButtonX();
             this.panel24 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
+            this.txtThoiGian = new System.Windows.Forms.TextBox();
             this.panel22 = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,12 +57,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.txtThoiGian = new System.Windows.Forms.TextBox();
-            this.btnLuu = new DevComponents.DotNetBar.ButtonX();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel25.SuspendLayout();
             this.panel20.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel23.SuspendLayout();
@@ -68,7 +69,6 @@
             this.panel10.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.panel25.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,6 +81,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(599, 217);
             this.panel1.TabIndex = 5;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(559, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(40, 217);
+            this.panel3.TabIndex = 4;
             // 
             // panel2
             // 
@@ -98,6 +106,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(559, 217);
             this.panel2.TabIndex = 0;
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.btnLuu);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel25.Location = new System.Drawing.Point(40, 160);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(519, 35);
+            this.panel25.TabIndex = 11;
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnLuu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnLuu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLuu.Location = new System.Drawing.Point(399, 0);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(120, 35);
+            this.btnLuu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnLuu.TabIndex = 0;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // panel24
             // 
@@ -126,6 +156,17 @@
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(374, 35);
             this.panel21.TabIndex = 7;
+            // 
+            // txtThoiGian
+            // 
+            this.txtThoiGian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtThoiGian.Enabled = false;
+            this.txtThoiGian.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtThoiGian.Location = new System.Drawing.Point(0, 0);
+            this.txtThoiGian.Multiline = true;
+            this.txtThoiGian.Name = "txtThoiGian";
+            this.txtThoiGian.Size = new System.Drawing.Size(374, 35);
+            this.txtThoiGian.TabIndex = 1;
             // 
             // panel22
             // 
@@ -303,59 +344,20 @@
             this.panel6.Size = new System.Drawing.Size(40, 217);
             this.panel6.TabIndex = 3;
             // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(559, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(40, 217);
-            this.panel3.TabIndex = 4;
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.btnLuu);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel25.Location = new System.Drawing.Point(40, 160);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(519, 35);
-            this.panel25.TabIndex = 11;
-            // 
-            // txtThoiGian
-            // 
-            this.txtThoiGian.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtThoiGian.Enabled = false;
-            this.txtThoiGian.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThoiGian.Location = new System.Drawing.Point(0, 0);
-            this.txtThoiGian.Multiline = true;
-            this.txtThoiGian.Name = "txtThoiGian";
-            this.txtThoiGian.Size = new System.Drawing.Size(374, 35);
-            this.txtThoiGian.TabIndex = 1;
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnLuu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnLuu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLuu.Location = new System.Drawing.Point(399, 0);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(120, 35);
-            this.btnLuu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnLuu.TabIndex = 0;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
             // frmThemDanhMuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 217);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmThemDanhMuc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm danh mục";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
             this.panel20.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
@@ -371,7 +373,6 @@
             this.panel14.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            this.panel25.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

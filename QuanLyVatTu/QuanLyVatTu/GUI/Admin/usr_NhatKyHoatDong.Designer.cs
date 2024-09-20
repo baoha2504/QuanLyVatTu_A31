@@ -284,6 +284,7 @@
             this.Controls.Add(this.panelEx1);
             this.Name = "usr_NhatKyHoatDong";
             this.Size = new System.Drawing.Size(1200, 700);
+            this.Resize += new System.EventHandler(this.usr_NhatKyHoatDong_Resize);
             this.panelEx1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.groupPanel1.ResumeLayout(false);

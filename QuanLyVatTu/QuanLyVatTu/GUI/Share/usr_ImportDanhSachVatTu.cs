@@ -445,5 +445,21 @@ namespace QuanLyVatTu.GUI.Share
                 MessageBox.Show("Hãy nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void groupPanel2_Resize(object sender, EventArgs e)
+        {
+            dataGridView_CanXacNhan.Columns["Column1"].Width = (int)(dataGridView_CanXacNhan.Width * 2 / 13);
+            dataGridView_CanXacNhan.Columns["Column2"].Width = (int)(dataGridView_CanXacNhan.Width * 4 / 13);
+            dataGridView_CanXacNhan.Columns["Column3"].Width = (int)(dataGridView_CanXacNhan.Width * 4 / 13);
+            dataGridView_CanXacNhan.Columns["Column4"].Width = (int)(dataGridView_CanXacNhan.Width * 2 / 13);
+
+            dataGridView_VatTuMoi.Columns["Column5"].Width = (int)(dataGridView_VatTuMoi.Width * 2 / 28);
+            dataGridView_VatTuMoi.Columns["Column6"].Width = (int)(dataGridView_VatTuMoi.Width * 2 / 28);
+            dataGridView_VatTuMoi.Columns["Column7"].Width = (int)(dataGridView_VatTuMoi.Width * 6 / 28);
+            dataGridView_VatTuMoi.Columns["Column8"].Width = (int)(dataGridView_VatTuMoi.Width * 4 / 28);
+            dataGridView_VatTuMoi.Columns["Column9"].Width = (int)(dataGridView_VatTuMoi.Width * 4 / 28);
+            dataGridView_VatTuMoi.Columns["Column10"].Width = (int)(dataGridView_VatTuMoi.Width * 4 / 28);
+            dataGridView_VatTuMoi.Columns["Column11"].Width = (int)(dataGridView_VatTuMoi.Width * 4 / 28);
+        }
     }
 }

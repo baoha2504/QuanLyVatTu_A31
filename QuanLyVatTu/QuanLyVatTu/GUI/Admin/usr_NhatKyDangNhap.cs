@@ -74,5 +74,12 @@ namespace QuanLyVatTu.GUI.Admin
                 }
             }
         }
+
+        private void usr_NhatKyDangNhap_Resize(object sender, EventArgs e)
+        {
+            dataGridView_DSLog.Columns["Column1"].Width = (int)(dataGridView_DSLog.Width * 3 / 24);
+            dataGridView_DSLog.Columns["Column2"].Width = (int)(dataGridView_DSLog.Width * 10 / 24);
+            dataGridView_DSLog.Columns["Column3"].Width = (int)(dataGridView_DSLog.Width * 10 / 24);
+        }
     }
 }

@@ -518,7 +518,8 @@
             this.txtChucVu.Items.AddRange(new object[] {
             "Trưởng phòng",
             "Phó Trưởng phòng",
-            "Trợ lý"});
+            "Trợ lý",
+            "Nhân viên"});
             this.txtChucVu.Location = new System.Drawing.Point(0, 0);
             this.txtChucVu.Name = "txtChucVu";
             this.txtChucVu.Size = new System.Drawing.Size(276, 26);
@@ -790,6 +791,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 260);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmThemNguoiDung";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

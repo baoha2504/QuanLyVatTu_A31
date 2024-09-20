@@ -189,5 +189,16 @@ namespace QuanLyVatTu.GUI.Share
                 }
             }
         }
+
+        private void usr_DanhSachTuCungNghia_Resize(object sender, EventArgs e)
+        {
+            dataGridView_DSTuKhoa.Columns["Column1"].Width = (int)(dataGridView_DSTuKhoa.Width * 1 / 20);
+            dataGridView_DSTuKhoa.Columns["Column2"].Width = (int)(dataGridView_DSTuKhoa.Width * 4 / 20);
+            dataGridView_DSTuKhoa.Columns["Column3"].Width = (int)(dataGridView_DSTuKhoa.Width * 4 / 20);
+            dataGridView_DSTuKhoa.Columns["Column4"].Width = (int)(dataGridView_DSTuKhoa.Width * 3 / 20);
+            dataGridView_DSTuKhoa.Columns["Column5"].Width = (int)(dataGridView_DSTuKhoa.Width * 3 / 20);
+            dataGridView_DSTuKhoa.Columns["Column6"].Width = (int)(dataGridView_DSTuKhoa.Width * 2 / 20);
+            dataGridView_DSTuKhoa.Columns["Column7"].Width = (int)(dataGridView_DSTuKhoa.Width * 2 / 20);
+        }
     }
 }

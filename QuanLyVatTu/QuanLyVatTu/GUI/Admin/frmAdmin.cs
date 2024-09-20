@@ -16,6 +16,7 @@ namespace QuanLyVatTu.GUI.Admin
         usr_LocDanhSachVatTu usr_LocDanhSachVatTu;
         usr_ImportDanhSachVatTu usr_ImportDanhSachVatTu;
         usr_DanhSachPhuongAnVatTu usr_DanhSachPhuongAnVatTu;
+        private bool isLoggingOut = false;
 
         public frmAdmin()
         {
@@ -195,10 +196,42 @@ namespace QuanLyVatTu.GUI.Admin
                     dbContext.LichSuDangNhaps.Add(lichSuDangNhap);
                     dbContext.SaveChanges();
 
+                    // Đặt cờ đăng xuất để ngăn sự kiện FormClosing
+                    isLoggingOut = true;
+
+                    // Ẩn form và mở lại form đăng nhập
                     this.Hide();
                     frmDangNhap frmDangNhap = new frmDangNhap();
                     frmDangNhap.ShowDialog();
+
+                    // Đóng form sau khi đăng nhập thành công
                     this.Close();
+                }
+            }
+        }
+
+        private void frmAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isLoggingOut)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đóng form không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    using (var dbContext = new QuanLyVatTuDbContext())
+                    {
+                        LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
+                        lichSuHoatDong.thoigian = DateTime.Now;
+                        lichSuHoatDong.hoatdong = $"Tài khoản {frmDangNhap.userID} - {frmDangNhap.tennguoidung} đã đăng xuất thành công";
+                        lichSuHoatDong.tennguoidung = frmDangNhap.tennguoidung;
+                        lichSuHoatDong.id = frmDangNhap.userID;
+                        dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
+                        dbContext.SaveChanges();
+                    }
                 }
             }
         }

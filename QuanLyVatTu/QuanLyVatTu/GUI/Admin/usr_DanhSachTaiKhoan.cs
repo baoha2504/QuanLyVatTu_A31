@@ -124,5 +124,18 @@ namespace QuanLyVatTu.GUI.Admin
                 }
             }
         }
+
+        private void usr_DanhSachTaiKhoan_Resize(object sender, EventArgs e)
+        {
+            dataGridView_DSTaiKhoan.Columns["Column1"].Width = (int)(dataGridView_DSTaiKhoan.Width * 2 / 43);
+            dataGridView_DSTaiKhoan.Columns["Column2"].Width = (int)(dataGridView_DSTaiKhoan.Width * 7 / 43);
+            dataGridView_DSTaiKhoan.Columns["Column3"].Width = (int)(dataGridView_DSTaiKhoan.Width * 5 / 43);
+            dataGridView_DSTaiKhoan.Columns["Column4"].Width = (int)(dataGridView_DSTaiKhoan.Width * 5 / 43);
+            dataGridView_DSTaiKhoan.Columns["Column5"].Width = (int)(dataGridView_DSTaiKhoan.Width * 5 / 43);
+            dataGridView_DSTaiKhoan.Columns["Column6"].Width = (int)(dataGridView_DSTaiKhoan.Width * 4 / 43);
+            dataGridView_DSTaiKhoan.Columns["Column7"].Width = (int)(dataGridView_DSTaiKhoan.Width * 4 / 43);
+            dataGridView_DSTaiKhoan.Columns["Column8"].Width = (int)(dataGridView_DSTaiKhoan.Width * 5 / 43);
+            dataGridView_DSTaiKhoan.Columns["Column9"].Width = (int)(dataGridView_DSTaiKhoan.Width * 4 / 43);
+        }
     }
 }

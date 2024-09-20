@@ -453,5 +453,22 @@ namespace QuanLyVatTu.GUI.User
                 }
             }
         }
+
+        private void groupPanel2_Resize(object sender, EventArgs e)
+        {
+            dataGridView_DSVatTu.Columns["Column1"].Width = (int)(dataGridView_DSVatTu.Width * 2 / 20);
+            dataGridView_DSVatTu.Columns["Column2"].Width = (int)(dataGridView_DSVatTu.Width * 6 / 20);
+            dataGridView_DSVatTu.Columns["Column3"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 20);
+            dataGridView_DSVatTu.Columns["Column4"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 20);
+            dataGridView_DSVatTu.Columns["Column5"].Width = (int)(dataGridView_DSVatTu.Width * 5 / 20);
+
+            dataGridView_DSVatTuDaChon.Columns["Column6"].Width = (int)(dataGridView_DSVatTuDaChon.Width * 2 / 28);
+            dataGridView_DSVatTuDaChon.Columns["Column7"].Width = (int)(dataGridView_DSVatTuDaChon.Width * 7 / 28);
+            dataGridView_DSVatTuDaChon.Columns["Column8"].Width = (int)(dataGridView_DSVatTuDaChon.Width * 3 / 28);
+            dataGridView_DSVatTuDaChon.Columns["Column9"].Width = (int)(dataGridView_DSVatTuDaChon.Width * 3 / 28);
+            dataGridView_DSVatTuDaChon.Columns["Column10"].Width = (int)(dataGridView_DSVatTuDaChon.Width * 3 / 28);
+            dataGridView_DSVatTuDaChon.Columns["Column11"].Width = (int)(dataGridView_DSVatTuDaChon.Width * 3 / 28);
+            dataGridView_DSVatTuDaChon.Columns["Column12"].Width = (int)(dataGridView_DSVatTuDaChon.Width * 5 / 28);
+        }
     }
 }

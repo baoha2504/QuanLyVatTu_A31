@@ -310,5 +310,18 @@ namespace QuanLyVatTu.GUI.Share
         {
             LoadDSVatTu();
         }
+
+        private void usr_DanhSachVatTu_Resize(object sender, EventArgs e)
+        {
+            dataGridView_DSVatTu.Columns["Column1"].Width = (int)(dataGridView_DSVatTu.Width * 2 / 27);
+            dataGridView_DSVatTu.Columns["Column2"].Width = (int)(dataGridView_DSVatTu.Width * 5 / 27);
+            dataGridView_DSVatTu.Columns["Column3"].Width = (int)(dataGridView_DSVatTu.Width * 2 / 27);
+            dataGridView_DSVatTu.Columns["Column4"].Width = (int)(dataGridView_DSVatTu.Width * 2.5 / 27);
+            dataGridView_DSVatTu.Columns["Column5"].Width = (int)(dataGridView_DSVatTu.Width * 2.5 / 27);
+            dataGridView_DSVatTu.Columns["Column6"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 27);
+            dataGridView_DSVatTu.Columns["Column7"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 27);
+            dataGridView_DSVatTu.Columns["Column8"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 27);
+            dataGridView_DSVatTu.Columns["Column9"].Width = (int)(dataGridView_DSVatTu.Width * 2 / 27);
+        }
     }
 }

@@ -1048,6 +1048,8 @@
             this.Name = "frmChiTietPhuongAnVatTu_Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết phương án vật tư";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.frmChiTietPhuongAnVatTu_Admin_Resize);
             this.panel1.ResumeLayout(false);
             this.panel49.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
