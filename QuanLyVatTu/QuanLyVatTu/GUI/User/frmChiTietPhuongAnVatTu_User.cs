@@ -629,15 +629,11 @@ namespace QuanLyVatTu.GUI.User
 
         private void cbbDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (pageSize != 10000)
-            {
-                pageSize = 10000;
-                LoadData_DSVatTu();
-            }
-            currentPage = 1;
-            
             if (cbbDanhMuc.Text == "Tất cả danh mục")
             {
+                currentPage = 1;
+                pageSize = 200;
+                LoadData_DSVatTu();
                 for (int i = 0; i < dataGridView_DSVatTu.Rows.Count; i++)
                 {
                     dataGridView_DSVatTu.Rows[i].Visible = true;
@@ -645,6 +641,12 @@ namespace QuanLyVatTu.GUI.User
             }
             else
             {
+                currentPage = 1;
+                if (pageSize != 10000)
+                {
+                    pageSize = 10000;
+                    LoadData_DSVatTu();
+                }
                 for (int i = 0; i < dataGridView_DSVatTu.Rows.Count - 1; i++)
                 {
                     string tenDanhMuc = ((string)dataGridView_DSVatTu.Rows[i].Cells["dtgv2_Column4"].Value).ToLower();
