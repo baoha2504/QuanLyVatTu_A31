@@ -184,12 +184,12 @@ namespace QuanLyVatTu.GUI.Share
 
         private void LoadVatTuMoiThem()
         {
+            var vattu = new List<VatTu>();
             using (var dbContext = new QuanLyVatTuDbContext())
             {
-                var vattu = new List<VatTu>();
                 vattu = dbContext.VatTus.Where(m => m.trangthai == 1).ToList();
-                CompareVatTus(vattu, vatTuMoiExcels);
             }
+            CompareVatTus(vattu, vatTuMoiExcels);
             LoadVatTuGiong();
             LoadVatTuKhac();
         }

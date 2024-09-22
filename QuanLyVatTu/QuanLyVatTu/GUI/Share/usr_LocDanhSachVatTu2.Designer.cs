@@ -41,6 +41,12 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.lblPageNumber = new DevComponents.DotNetBar.PanelEx();
+            this.btnTrangTruoc = new DevComponents.DotNetBar.ButtonX();
+            this.btnTrangTiep = new DevComponents.DotNetBar.ButtonX();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.cbbDanhMuc = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -92,6 +98,7 @@
             this.groupPanel1.SuspendLayout();
             this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTuHoatDong)).BeginInit();
+            this.panel11.SuspendLayout();
             this.panel14.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -198,6 +205,7 @@
             // panel18
             // 
             this.panel18.Controls.Add(this.dataGridView_DSVatTuHoatDong);
+            this.panel18.Controls.Add(this.panel11);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel18.Location = new System.Drawing.Point(0, 40);
             this.panel18.Name = "panel18";
@@ -230,7 +238,7 @@
             this.dataGridView_DSVatTuHoatDong.ReadOnly = true;
             this.dataGridView_DSVatTuHoatDong.RowHeadersWidth = 51;
             this.dataGridView_DSVatTuHoatDong.RowTemplate.Height = 24;
-            this.dataGridView_DSVatTuHoatDong.Size = new System.Drawing.Size(656, 557);
+            this.dataGridView_DSVatTuHoatDong.Size = new System.Drawing.Size(656, 527);
             this.dataGridView_DSVatTuHoatDong.TabIndex = 1;
             this.dataGridView_DSVatTuHoatDong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DSVatTuHoatDong_CellClick);
             // 
@@ -273,6 +281,82 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Width = 140;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.lblPageNumber);
+            this.panel11.Controls.Add(this.btnTrangTruoc);
+            this.panel11.Controls.Add(this.btnTrangTiep);
+            this.panel11.Controls.Add(this.panel25);
+            this.panel11.Controls.Add(this.panel26);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel11.Location = new System.Drawing.Point(0, 527);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(656, 30);
+            this.panel11.TabIndex = 2;
+            // 
+            // lblPageNumber
+            // 
+            this.lblPageNumber.CanvasColor = System.Drawing.SystemColors.Control;
+            this.lblPageNumber.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.lblPageNumber.DisabledBackColor = System.Drawing.Color.Empty;
+            this.lblPageNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPageNumber.Location = new System.Drawing.Point(210, 0);
+            this.lblPageNumber.Name = "lblPageNumber";
+            this.lblPageNumber.Size = new System.Drawing.Size(236, 30);
+            this.lblPageNumber.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.lblPageNumber.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.lblPageNumber.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.lblPageNumber.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.lblPageNumber.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.lblPageNumber.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.lblPageNumber.Style.GradientAngle = 90;
+            this.lblPageNumber.TabIndex = 23;
+            this.lblPageNumber.Text = "Trang x/n";
+            // 
+            // btnTrangTruoc
+            // 
+            this.btnTrangTruoc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTrangTruoc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTrangTruoc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTrangTruoc.Location = new System.Drawing.Point(150, 0);
+            this.btnTrangTruoc.Name = "btnTrangTruoc";
+            this.btnTrangTruoc.Size = new System.Drawing.Size(60, 30);
+            this.btnTrangTruoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTrangTruoc.TabIndex = 22;
+            this.btnTrangTruoc.Text = "<";
+            this.btnTrangTruoc.Tooltip = "Trang trước";
+            this.btnTrangTruoc.Click += new System.EventHandler(this.btnTrangTruoc_Click);
+            // 
+            // btnTrangTiep
+            // 
+            this.btnTrangTiep.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnTrangTiep.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnTrangTiep.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnTrangTiep.Location = new System.Drawing.Point(446, 0);
+            this.btnTrangTiep.Name = "btnTrangTiep";
+            this.btnTrangTiep.Size = new System.Drawing.Size(60, 30);
+            this.btnTrangTiep.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnTrangTiep.TabIndex = 21;
+            this.btnTrangTiep.Text = ">";
+            this.btnTrangTiep.Tooltip = "Trang tiếp";
+            this.btnTrangTiep.Click += new System.EventHandler(this.btnTrangTiep_Click);
+            // 
+            // panel25
+            // 
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel25.Location = new System.Drawing.Point(0, 0);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(150, 30);
+            this.panel25.TabIndex = 20;
+            // 
+            // panel26
+            // 
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel26.Location = new System.Drawing.Point(506, 0);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(150, 30);
+            this.panel26.TabIndex = 19;
             // 
             // panel16
             // 
@@ -760,6 +844,7 @@
             this.groupPanel1.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTuHoatDong)).EndInit();
+            this.panel11.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.groupPanel2.ResumeLayout(false);
@@ -831,5 +916,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.Panel panel11;
+        private DevComponents.DotNetBar.PanelEx lblPageNumber;
+        private DevComponents.DotNetBar.ButtonX btnTrangTruoc;
+        private DevComponents.DotNetBar.ButtonX btnTrangTiep;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Panel panel26;
     }
 }

@@ -25,6 +25,9 @@ namespace QuanLyVatTu.GUI.User
         Function function = new Function();
         int sokhoan = 0;
         int solanload = 0;
+        private int currentPage = 1;    // Trang hiện tại
+        private int pageSize = 200;     // Số dòng trên mỗi trang
+        private int totalPages = 0;     // Tổng số trang
 
         public frmChiTietPhuongAnVatTu_User(PhuongAnVatTu pavt)
         {
@@ -127,31 +130,66 @@ namespace QuanLyVatTu.GUI.User
 
         private void LoadData_DSVatTu()
         {
-            dataGridView_DSVatTu.Rows.Clear();
             using (var dbContext = new QuanLyVatTuDbContext())
             {
                 var vatTus = dbContext.VatTus.Where(m => m.trangthai == 1).OrderBy(m => m.tenvattu).ToList();
-                DS_vattus = vatTus;
-                for (int i = 0; i < vatTus.Count; i++)
+                DS_vattus = vatTus; // Lưu dữ liệu vào danh sách
+                totalPages = (DS_vattus.Count + pageSize - 1) / pageSize;
+                DisplayCurrentPage(); // Hiển thị trang hiện tại
+            }
+        }
+
+        private void DisplayCurrentPage()
+        {
+            dataGridView_DSVatTu.Rows.Clear(); // Xóa dữ liệu cũ
+            lblPageNumber.Text = $"Trang {currentPage}/{totalPages}";      // Cập nhật số trang
+
+            int startIndex = (currentPage - 1) * pageSize;
+            int endIndex = Math.Min(startIndex + pageSize, DS_vattus.Count);
+
+            for (int i = startIndex; i < endIndex; i++)
+            {
+                dataGridView_DSVatTu.Rows.Add();
+                dataGridView_DSVatTu.Rows[i - startIndex].Cells["dtgv2_Column1"].Value = "Xác định";
+                dataGridView_DSVatTu.Rows[i - startIndex].Cells["dtgv2_Column2"].Value = DS_vattus[i].tenvattu;
+                dataGridView_DSVatTu.Rows[i - startIndex].Cells["dtgv2_Column3"].Value = DS_vattus[i].donvitinh;
+
+                string madanhmuc = DS_vattus[i].madanhmuc;
+                using (var dbContext = new QuanLyVatTuDbContext())
                 {
-                    dataGridView_DSVatTu.Rows.Add();
-                    dataGridView_DSVatTu.Rows[i].Cells["dtgv2_Column1"].Value = "Xác định";
-                    dataGridView_DSVatTu.Rows[i].Cells["dtgv2_Column2"].Value = vatTus[i].tenvattu;
-                    dataGridView_DSVatTu.Rows[i].Cells["dtgv2_Column3"].Value = vatTus[i].donvitinh;
-                    string madanhmuc = (string)vatTus[i].madanhmuc;
                     DanhMuc danhmuc = dbContext.DanhMucs.SingleOrDefault(m => m.madanhmuc == madanhmuc);
                     if (danhmuc != null)
                     {
-                        dataGridView_DSVatTu.Rows[i].Cells["dtgv2_Column4"].Value = danhmuc.tendanhmuc;
-                    }
-                    for (int j = 0; j < DS_chitietphuonganvattus.Count; j++)
-                    {
-                        if (vatTus[i].mavattu == DS_chitietphuonganvattus[j].mavattu)
-                        {
-                            ToMauTheoDong(i, "bandau");
-                        }
+                        dataGridView_DSVatTu.Rows[i - startIndex].Cells["dtgv2_Column4"].Value = danhmuc.tendanhmuc;
                     }
                 }
+
+                // Kiểm tra và tô màu nếu cần
+                for (int j = 0; j < DS_chitietphuonganvattus.Count; j++)
+                {
+                    if (DS_vattus[i].mavattu == DS_chitietphuonganvattus[j].mavattu)
+                    {
+                        ToMauTheoDong(i - startIndex, "bandau"); // Tô màu cho dòng
+                    }
+                }
+            }
+        }
+
+        private void btnTrangTruoc_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                DisplayCurrentPage(); // Hiển thị trang trước
+            }
+        }
+
+        private void btnTrangTiep_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                DisplayCurrentPage(); // Hiển thị trang tiếp theo
             }
         }
 
@@ -352,6 +390,9 @@ namespace QuanLyVatTu.GUI.User
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            currentPage = 1;
+            pageSize = 10000;
+            LoadData_DSVatTu();
             string searchText = txtNoiDungTimKiem.Text.Trim().ToLower();
             var liststring = function.GetList_VatTuTrung(searchText);
 
@@ -393,10 +434,9 @@ namespace QuanLyVatTu.GUI.User
         {
             if (txtNoiDungTimKiem.Text == string.Empty)
             {
-                for (int i = 0; i < dataGridView_DSVatTu.Rows.Count; i++)
-                {
-                    dataGridView_DSVatTu.Rows[i].Visible = true;
-                }
+                currentPage = 1;
+                pageSize = 200;
+                LoadData_DSVatTu();
                 cbbDanhMuc_SelectedIndexChanged(sender, e);
             }
         }
@@ -589,6 +629,13 @@ namespace QuanLyVatTu.GUI.User
 
         private void cbbDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (pageSize != 10000)
+            {
+                pageSize = 10000;
+                LoadData_DSVatTu();
+            }
+            currentPage = 1;
+            
             if (cbbDanhMuc.Text == "Tất cả danh mục")
             {
                 for (int i = 0; i < dataGridView_DSVatTu.Rows.Count; i++)

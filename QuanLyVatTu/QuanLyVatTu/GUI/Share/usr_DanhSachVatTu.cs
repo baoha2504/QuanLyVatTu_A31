@@ -16,6 +16,9 @@ namespace QuanLyVatTu.GUI.Share
         List<VatTu> vatTus = new List<VatTu>();
         List<DanhMuc> danhMucs = new List<DanhMuc>();
         List<DanhMuc> listdanhmuc = new List<DanhMuc>();
+        private int currentPage = 1;
+        private int pageSize = 200; // Number of items per page
+        private int totalPages = 0;
         public usr_DanhSachVatTu()
         {
             InitializeComponent();
@@ -32,88 +35,203 @@ namespace QuanLyVatTu.GUI.Share
             }
         }
 
+        //private void LoadDSVatTu()
+        //{
+        //    dataGridView_DSVatTu.Rows.Clear();
+        //    danhMucs.Clear();
+        //    using (var dbContext = new QuanLyVatTuDbContext())
+        //    {
+        //        var vattu = new List<VatTu>();
+
+        //        if (cbbDanhMuc.Text == "Tất cả danh mục")
+        //        {
+        //            if (groupPanel1.Text == "Danh sách vật tư đang sử dụng")
+        //            {
+        //                vattu = dbContext.VatTus.Where(m => m.trangthai == 1).OrderBy(m => m.tenvattu).ToList();
+        //            }
+        //            else if (groupPanel1.Text == "Danh sách vật tư dừng sử dụng")
+        //            {
+        //                vattu = dbContext.VatTus.Where(m => m.trangthai == 0).OrderBy(m => m.tenvattu).ToList();
+        //            }
+        //            else if (groupPanel1.Text == "Danh sách vật tư bị trùng")
+        //            {
+        //                vattu = dbContext.VatTus.Where(m => m.trangthai == 2).OrderBy(m => m.tenvattu).ToList();
+        //            }
+        //            else if (groupPanel1.Text == "Danh sách tất cả vật tư")
+        //            {
+        //                vattu = dbContext.VatTus.ToList();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            DanhMuc dm = listdanhmuc.SingleOrDefault(m => m.tendanhmuc == cbbDanhMuc.Text);
+        //            string madanhmuc = dm.madanhmuc;
+        //            if (groupPanel1.Text == "Danh sách vật tư đang sử dụng")
+        //            {
+        //                vattu = dbContext.VatTus.Where(m => m.trangthai == 1 && m.madanhmuc == madanhmuc).OrderBy(m => m.tenvattu).ToList();
+        //            }
+        //            else if (groupPanel1.Text == "Danh sách vật tư dừng sử dụng")
+        //            {
+        //                vattu = dbContext.VatTus.Where(m => m.trangthai == 0 && m.madanhmuc == madanhmuc).OrderBy(m => m.tenvattu).ToList();
+        //            }
+        //            else if (groupPanel1.Text == "Danh sách vật tư bị trùng")
+        //            {
+        //                vattu = dbContext.VatTus.Where(m => m.trangthai == 2 && m.madanhmuc == madanhmuc).OrderBy(m => m.tenvattu).ToList();
+        //            }
+        //            else if (groupPanel1.Text == "Danh sách tất cả vật tư")
+        //            {
+        //                vattu = dbContext.VatTus.Where(m => m.madanhmuc == madanhmuc).ToList();
+        //            }
+        //        }
+
+
+        //        vatTus = vattu;
+        //        for (int i = 0; i < vattu.Count; i++)
+        //        {
+        //            string madanhmuc = (string)vattu[i].madanhmuc;
+        //            DanhMuc danhMuc = dbContext.DanhMucs.SingleOrDefault(m => m.madanhmuc == madanhmuc);
+        //            danhMucs.Add(danhMuc);
+        //            dataGridView_DSVatTu.Rows.Add();
+        //            dataGridView_DSVatTu.Rows[i].Cells["Column1"].Value = madanhmuc + vattu[i].mavattu;
+        //            dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value = vattu[i].tenvattu;
+        //            dataGridView_DSVatTu.Rows[i].Cells["Column3"].Value = vattu[i].donvitinh;
+        //            string dongia = function.FormatDecimal((decimal)vattu[i].dongia);
+        //            dataGridView_DSVatTu.Rows[i].Cells["Column4"].Value = dongia;
+        //            dataGridView_DSVatTu.Rows[i].Cells["Column5"].Value = vattu[i].nguongoc;
+        //            if (vattu[i].trangthai == 0)
+        //            {
+        //                dataGridView_DSVatTu.Rows[i].Cells["Column6"].Value = "Dừng sử dụng";
+        //            }
+        //            else if (vattu[i].trangthai == 1)
+        //            {
+        //                dataGridView_DSVatTu.Rows[i].Cells["Column6"].Value = "Đang sử dụng";
+        //            }
+        //            else if (vattu[i].trangthai == 2)
+        //            {
+        //                dataGridView_DSVatTu.Rows[i].Cells["Column6"].Value = "Bị trùng";
+        //            }
+        //            if(danhMuc != null)
+        //            {
+        //                dataGridView_DSVatTu.Rows[i].Cells["Column7"].Value = danhMuc.tendanhmuc;
+        //            }
+        //            dataGridView_DSVatTu.Rows[i].Cells["Column8"].Value = vattu[i].nguoisuacuoi;
+        //            dataGridView_DSVatTu.Rows[i].Cells["Column9"].Value = "Sửa ▼";
+        //        }
+        //    }
+        //}
+
         private void LoadDSVatTu()
         {
             dataGridView_DSVatTu.Rows.Clear();
             danhMucs.Clear();
+
             using (var dbContext = new QuanLyVatTuDbContext())
             {
-                var vattu = new List<VatTu>();
+                var vattuQuery = new List<VatTu>().AsQueryable();
 
+                // Handle category selection
                 if (cbbDanhMuc.Text == "Tất cả danh mục")
                 {
                     if (groupPanel1.Text == "Danh sách vật tư đang sử dụng")
                     {
-                        vattu = dbContext.VatTus.Where(m => m.trangthai == 1).OrderBy(m => m.tenvattu).ToList();
+                        vattuQuery = dbContext.VatTus.Where(m => m.trangthai == 1);
                     }
                     else if (groupPanel1.Text == "Danh sách vật tư dừng sử dụng")
                     {
-                        vattu = dbContext.VatTus.Where(m => m.trangthai == 0).OrderBy(m => m.tenvattu).ToList();
+                        vattuQuery = dbContext.VatTus.Where(m => m.trangthai == 0);
                     }
                     else if (groupPanel1.Text == "Danh sách vật tư bị trùng")
                     {
-                        vattu = dbContext.VatTus.Where(m => m.trangthai == 2).OrderBy(m => m.tenvattu).ToList();
+                        vattuQuery = dbContext.VatTus.Where(m => m.trangthai == 2);
                     }
                     else if (groupPanel1.Text == "Danh sách tất cả vật tư")
                     {
-                        vattu = dbContext.VatTus.ToList();
+                        vattuQuery = dbContext.VatTus;
                     }
                 }
                 else
                 {
                     DanhMuc dm = listdanhmuc.SingleOrDefault(m => m.tendanhmuc == cbbDanhMuc.Text);
                     string madanhmuc = dm.madanhmuc;
+
                     if (groupPanel1.Text == "Danh sách vật tư đang sử dụng")
                     {
-                        vattu = dbContext.VatTus.Where(m => m.trangthai == 1 && m.madanhmuc == madanhmuc).OrderBy(m => m.tenvattu).ToList();
+                        vattuQuery = dbContext.VatTus.Where(m => m.trangthai == 1 && m.madanhmuc == madanhmuc);
                     }
                     else if (groupPanel1.Text == "Danh sách vật tư dừng sử dụng")
                     {
-                        vattu = dbContext.VatTus.Where(m => m.trangthai == 0 && m.madanhmuc == madanhmuc).OrderBy(m => m.tenvattu).ToList();
+                        vattuQuery = dbContext.VatTus.Where(m => m.trangthai == 0 && m.madanhmuc == madanhmuc);
                     }
                     else if (groupPanel1.Text == "Danh sách vật tư bị trùng")
                     {
-                        vattu = dbContext.VatTus.Where(m => m.trangthai == 2 && m.madanhmuc == madanhmuc).OrderBy(m => m.tenvattu).ToList();
+                        vattuQuery = dbContext.VatTus.Where(m => m.trangthai == 2 && m.madanhmuc == madanhmuc);
                     }
                     else if (groupPanel1.Text == "Danh sách tất cả vật tư")
                     {
-                        vattu = dbContext.VatTus.Where(m => m.madanhmuc == madanhmuc).ToList();
+                        vattuQuery = dbContext.VatTus.Where(m => m.madanhmuc == madanhmuc);
                     }
                 }
 
+                // Pagination
+                vatTus = vattuQuery.OrderBy(m => m.tenvattu).ToList();
+                totalPages = (int)Math.Ceiling((double)vatTus.Count / pageSize);
+                var pagedVatTus = vatTus.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
 
-                vatTus = vattu;
-                for (int i = 0; i < vattu.Count; i++)
+                // Display data for the current page
+                for (int i = 0; i < pagedVatTus.Count; i++)
                 {
-                    string madanhmuc = (string)vattu[i].madanhmuc;
+                    string madanhmuc = (string)pagedVatTus[i].madanhmuc;
                     DanhMuc danhMuc = dbContext.DanhMucs.SingleOrDefault(m => m.madanhmuc == madanhmuc);
                     danhMucs.Add(danhMuc);
                     dataGridView_DSVatTu.Rows.Add();
-                    dataGridView_DSVatTu.Rows[i].Cells["Column1"].Value = madanhmuc + vattu[i].mavattu;
-                    dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value = vattu[i].tenvattu;
-                    dataGridView_DSVatTu.Rows[i].Cells["Column3"].Value = vattu[i].donvitinh;
-                    string dongia = function.FormatDecimal((decimal)vattu[i].dongia);
+                    dataGridView_DSVatTu.Rows[i].Cells["Column1"].Value = madanhmuc + pagedVatTus[i].mavattu;
+                    dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value = pagedVatTus[i].tenvattu;
+                    dataGridView_DSVatTu.Rows[i].Cells["Column3"].Value = pagedVatTus[i].donvitinh;
+                    string dongia = function.FormatDecimal((decimal)pagedVatTus[i].dongia);
                     dataGridView_DSVatTu.Rows[i].Cells["Column4"].Value = dongia;
-                    dataGridView_DSVatTu.Rows[i].Cells["Column5"].Value = vattu[i].nguongoc;
-                    if (vattu[i].trangthai == 0)
+                    dataGridView_DSVatTu.Rows[i].Cells["Column5"].Value = pagedVatTus[i].nguongoc;
+
+                    if (pagedVatTus[i].trangthai == 0)
                     {
                         dataGridView_DSVatTu.Rows[i].Cells["Column6"].Value = "Dừng sử dụng";
                     }
-                    else if (vattu[i].trangthai == 1)
+                    else if (pagedVatTus[i].trangthai == 1)
                     {
                         dataGridView_DSVatTu.Rows[i].Cells["Column6"].Value = "Đang sử dụng";
                     }
-                    else if (vattu[i].trangthai == 2)
+                    else if (pagedVatTus[i].trangthai == 2)
                     {
                         dataGridView_DSVatTu.Rows[i].Cells["Column6"].Value = "Bị trùng";
                     }
-                    if(danhMuc != null)
+
+                    if (danhMuc != null)
                     {
                         dataGridView_DSVatTu.Rows[i].Cells["Column7"].Value = danhMuc.tendanhmuc;
                     }
-                    dataGridView_DSVatTu.Rows[i].Cells["Column8"].Value = vattu[i].nguoisuacuoi;
+
+                    dataGridView_DSVatTu.Rows[i].Cells["Column8"].Value = pagedVatTus[i].nguoisuacuoi;
                     dataGridView_DSVatTu.Rows[i].Cells["Column9"].Value = "Sửa ▼";
                 }
+                lblPageNumber.Text = $"Trang {currentPage}/{totalPages}";
+            }
+        }
+
+
+        private void btnTrangTruoc_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                LoadDSVatTu();
+            }
+        }
+
+        private void btnTrangTiep_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                LoadDSVatTu();
             }
         }
 
@@ -242,7 +360,15 @@ namespace QuanLyVatTu.GUI.Share
                         worksheet.Cells[i + 2, 7].Value = "Bị trùng";
                     }
                     worksheet.Cells[i + 2, 8].Value = vatTus[i].thongsokythuat;
-                    worksheet.Cells[i + 2, 9].Value = danhMucs[i].tendanhmuc;
+                    try
+                    {
+                        worksheet.Cells[i + 2, 9].Value = danhMucs[i].tendanhmuc;
+                    }
+                    catch
+                    {
+                        worksheet.Cells[i + 2, 9].Value = "";
+                    }
+
                     worksheet.Cells[i + 2, 10].Value = vatTus[i].ghichu;
                 }
 
@@ -259,6 +385,9 @@ namespace QuanLyVatTu.GUI.Share
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+            currentPage = 1;
+            pageSize = 10000;
+            LoadDSVatTu();
             string searchText = txtNoiDungTimKiem.Text.Trim().ToLower();
             var liststring = function.GetList_VatTuTrung(searchText);
             for (int i = 0; i < dataGridView_DSVatTu.Rows.Count - 1; i++)
@@ -299,15 +428,16 @@ namespace QuanLyVatTu.GUI.Share
         {
             if (txtNoiDungTimKiem.Text == string.Empty)
             {
-                for (int i = 0; i < dataGridView_DSVatTu.Rows.Count; i++)
-                {
-                    dataGridView_DSVatTu.Rows[i].Visible = true;
-                }
+                currentPage = 1;
+                pageSize = 200;
+                LoadDSVatTu();
             }
         }
 
         private void cbbDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
         {
+            currentPage = 1;
+            pageSize = 200;
             LoadDSVatTu();
         }
 
