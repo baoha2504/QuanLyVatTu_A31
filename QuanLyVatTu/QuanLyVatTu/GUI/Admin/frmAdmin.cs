@@ -24,6 +24,14 @@ namespace QuanLyVatTu.GUI.Admin
             accordionControl1.Width = 260;
         }
 
+        private void HideControlInMainContainer()
+        {
+            foreach (Control control in mainContainer.Controls)
+            {
+                control.Visible = false;
+            }
+        }
+
         private void frmAdmin_Load(object sender, EventArgs e)
         {
             btnDanhSachPhuongAnVatTu_Click(sender, e);
@@ -33,6 +41,7 @@ namespace QuanLyVatTu.GUI.Admin
         {
             lblTieuDe1.Caption = "Phương án vật tư";
             lblTieuDe2.Caption = "Danh sách phương án vật tư";
+            HideControlInMainContainer();
             if (usr_DanhSachPhuongAnVatTu == null)
             {
                 usr_DanhSachPhuongAnVatTu = new usr_DanhSachPhuongAnVatTu(1);
@@ -42,6 +51,7 @@ namespace QuanLyVatTu.GUI.Admin
             }
             else
             {
+                usr_DanhSachPhuongAnVatTu.Visible = true;
                 usr_DanhSachPhuongAnVatTu.BringToFront();
             }
         }
@@ -50,6 +60,7 @@ namespace QuanLyVatTu.GUI.Admin
         {
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Danh sách vật tư";
+            HideControlInMainContainer();
             if (usr_DanhSachVatTu == null)
             {
                 usr_DanhSachVatTu = new usr_DanhSachVatTu();
@@ -59,6 +70,7 @@ namespace QuanLyVatTu.GUI.Admin
             }
             else
             {
+                usr_DanhSachVatTu.Visible = true;
                 usr_DanhSachVatTu.BringToFront();
             }
         }
@@ -67,6 +79,7 @@ namespace QuanLyVatTu.GUI.Admin
         {
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Danh mục vật tư";
+            HideControlInMainContainer();
             if (usr_DanhMucVatTu == null)
             {
                 usr_DanhMucVatTu = new usr_DanhMucVatTu();
@@ -76,6 +89,7 @@ namespace QuanLyVatTu.GUI.Admin
             }
             else
             {
+                usr_DanhMucVatTu.Visible = true;
                 usr_DanhMucVatTu.BringToFront();
             }
         }
@@ -84,6 +98,7 @@ namespace QuanLyVatTu.GUI.Admin
         {
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Chuấn hóa danh sách vật tư";
+            HideControlInMainContainer();
             if (usr_LocDanhSachVatTu == null)
             {
                 usr_LocDanhSachVatTu = new usr_LocDanhSachVatTu();
@@ -93,6 +108,7 @@ namespace QuanLyVatTu.GUI.Admin
             }
             else
             {
+                usr_LocDanhSachVatTu.Visible = true;
                 usr_LocDanhSachVatTu.BringToFront();
             }
         }
@@ -101,6 +117,7 @@ namespace QuanLyVatTu.GUI.Admin
         {
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Nhập file danh sách vật tư";
+            HideControlInMainContainer();
             if (usr_ImportDanhSachVatTu == null)
             {
                 usr_ImportDanhSachVatTu = new usr_ImportDanhSachVatTu();
@@ -110,6 +127,7 @@ namespace QuanLyVatTu.GUI.Admin
             }
             else
             {
+                usr_ImportDanhSachVatTu.Visible = true;
                 usr_ImportDanhSachVatTu.BringToFront();
             }
         }
@@ -118,6 +136,7 @@ namespace QuanLyVatTu.GUI.Admin
         {
             lblTieuDe1.Caption = "Tài khoản hệ thông";
             lblTieuDe2.Caption = "Danh sách tài khoản";
+            HideControlInMainContainer();
             if (usr_DanhSachTaiKhoan == null)
             {
                 usr_DanhSachTaiKhoan = new usr_DanhSachTaiKhoan();
@@ -127,6 +146,7 @@ namespace QuanLyVatTu.GUI.Admin
             }
             else
             {
+                usr_DanhSachTaiKhoan.Visible = true;
                 usr_DanhSachTaiKhoan.BringToFront();
             }
         }
@@ -135,6 +155,7 @@ namespace QuanLyVatTu.GUI.Admin
         {
             lblTieuDe1.Caption = "Nhật ký hệ thống";
             lblTieuDe2.Caption = "Nhật ký hoạt động";
+            HideControlInMainContainer();
             if (usr_NhatKyHoatDong == null)
             {
                 usr_NhatKyHoatDong = new usr_NhatKyHoatDong();
@@ -144,6 +165,7 @@ namespace QuanLyVatTu.GUI.Admin
             }
             else
             {
+                usr_NhatKyHoatDong.Visible = true;
                 usr_NhatKyHoatDong.BringToFront();
             }
         }
@@ -152,6 +174,7 @@ namespace QuanLyVatTu.GUI.Admin
         {
             lblTieuDe1.Caption = "Nhật ký hệ thống";
             lblTieuDe2.Caption = "Nhật ký đăng nhập";
+            HideControlInMainContainer();
             if (usr_NhatKyDangNhap == null)
             {
                 usr_NhatKyDangNhap = new usr_NhatKyDangNhap();
@@ -161,6 +184,7 @@ namespace QuanLyVatTu.GUI.Admin
             }
             else
             {
+                usr_NhatKyDangNhap.Visible = true;
                 usr_NhatKyDangNhap.BringToFront();
             }
         }
@@ -169,6 +193,7 @@ namespace QuanLyVatTu.GUI.Admin
         {
             lblTieuDe1.Caption = "Trợ giúp";
             lblTieuDe2.Caption = "Đổi mật khẩu";
+            HideControlInMainContainer();
             if (usr_DoiMatKhau == null)
             {
                 usr_DoiMatKhau = new usr_DoiMatKhau();
@@ -178,6 +203,7 @@ namespace QuanLyVatTu.GUI.Admin
             }
             else
             {
+                usr_DoiMatKhau.Visible = true;
                 usr_DoiMatKhau.BringToFront();
             }
         }
