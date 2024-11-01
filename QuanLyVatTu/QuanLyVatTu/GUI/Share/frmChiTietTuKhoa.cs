@@ -148,6 +148,7 @@ namespace QuanLyVatTu.GUI.Share
                 dbContext.SaveChanges();
                 MessageBox.Show("Cập nhật thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listtukhoatrung_DaXoa.Clear();
+                this.Close();
             }
         }
 

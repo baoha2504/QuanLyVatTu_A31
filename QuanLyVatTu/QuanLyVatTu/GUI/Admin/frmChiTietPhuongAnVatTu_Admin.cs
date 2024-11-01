@@ -164,6 +164,7 @@ namespace QuanLyVatTu.GUI.Admin
                 {
                     int maphuongan = Int32.Parse(txtMaPhuongAn.Text);
                     PhuongAnVatTu p = dbContext.PhuongAnVatTus.SingleOrDefault(m => m.maphuongan == maphuongan);
+                    p.tenphuongan = txtTenPhuongAn.Text;
                     p.nguoiduyet = frmDangNhap.tennguoidung;
                     p.thoigianduyet = DateTime.Now;
                     p.noidungduyet = txtNoiDungDuyet.Text;

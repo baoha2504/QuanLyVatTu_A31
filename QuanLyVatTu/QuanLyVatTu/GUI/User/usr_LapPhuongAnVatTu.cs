@@ -20,6 +20,7 @@ namespace QuanLyVatTu.GUI.User
         private int currentPage = 1;   // Trang hiện tại
         private int pageSize = 200;    // Số dòng trên mỗi trang
         private int totalPages = 0;    // Tổng số trang
+        public event EventHandler ButtonClicked;
 
         public usr_LapPhuongAnVatTu()
         {
@@ -448,6 +449,8 @@ namespace QuanLyVatTu.GUI.User
                             }
                             MessageBox.Show("Lập phương án vật tư thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             btnLamMoi_Click(sender, e);
+                            ButtonClicked?.Invoke(this, EventArgs.Empty);
+
                         }
                         else
                         {

@@ -115,6 +115,7 @@ namespace QuanLyVatTu.GUI.Admin
                         dbContext.SaveChanges();
 
                         MessageBox.Show("Sửa thông tin người dùng thành công");
+                        this.Close();
                     }
                     else // thêm người dùng
                     {
@@ -164,6 +165,7 @@ namespace QuanLyVatTu.GUI.Admin
                             dbContext.SaveChanges();
 
                             MessageBox.Show("Thêm người dùng thành công");
+                            this.Close();
                         }
                         else
                         {

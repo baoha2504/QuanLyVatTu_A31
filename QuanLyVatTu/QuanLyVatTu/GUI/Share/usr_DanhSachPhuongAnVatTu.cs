@@ -159,7 +159,7 @@ namespace QuanLyVatTu.GUI.Share
             }
         }
 
-        private void LamMoi()
+        public void LamMoi()
         {
             txtNoiDungTimKiem.Text = string.Empty;
             dataGridView_DS_PAVT.Rows.Clear();

@@ -36,7 +36,6 @@ namespace QuanLyVatTu.GUI.Share
                     danhMuc.thoigiansua = DateTime.Now;
                     danhMuc.user_id = frmDangNhap.userID;
                     dbContext.SaveChanges();
-                    MessageBox.Show("Sửa thông tin danh mục thành công");
 
                     LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
                     lichSuHoatDong.thoigian = DateTime.Now;
@@ -45,6 +44,9 @@ namespace QuanLyVatTu.GUI.Share
                     lichSuHoatDong.id = frmDangNhap.userID;
                     dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
                     dbContext.SaveChanges();
+
+                    MessageBox.Show("Sửa thông tin danh mục thành công");
+                    this.Close();
                 }
             }
             else
@@ -72,6 +74,7 @@ namespace QuanLyVatTu.GUI.Share
                         lichSuHoatDong.id = frmDangNhap.userID;
                         dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
                         dbContext.SaveChanges();
+                        this.Close();
                     }
                     else
                     {

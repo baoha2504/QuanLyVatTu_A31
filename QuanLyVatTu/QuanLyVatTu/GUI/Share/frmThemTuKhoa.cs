@@ -81,6 +81,7 @@ namespace QuanLyVatTu.GUI.Share
                 dbContext.SaveChanges();
 
                 MessageBox.Show("Thêm từ khóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
         }
 

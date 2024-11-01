@@ -520,6 +520,7 @@ namespace QuanLyVatTu.GUI.User
 
                     int maphuongan = Int32.Parse(txtMaPhuongAn.Text);
                     PhuongAnVatTu p = dbContext.PhuongAnVatTus.SingleOrDefault(m => m.maphuongan == maphuongan);
+                    p.tenphuongan = txtTenPhuongAn.Text;
                     p.thoigianlap = DateTime.Now;
                     if(swTrangThaiPhuongAn.IsOn == true)
                     {

@@ -39,17 +39,40 @@ namespace QuanLyVatTu
             chucvu = string.Empty;
         }
 
-        private void LoadMatKhau()
+        public void EnsureConfigFileExists()
         {
-            string sourceDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string projectDirectory = Directory.GetParent(sourceDirectory).Parent.Parent.FullName;
-            if (!function.IsFileExists(Path.Combine(projectDirectory, "config.json")))
+            string filePath = @"C:\QuanLyVatTu\Data\config.json";
+            string directoryPath = Path.GetDirectoryName(filePath);
+
+            if (!Directory.Exists(directoryPath))
             {
-                projectDirectory = Directory.GetParent(sourceDirectory).FullName;
+                Directory.CreateDirectory(directoryPath);
             }
 
+            if (!File.Exists(filePath))
+            {
+                string jsonContent = @"{
+  ""login"": {
+    ""username"": """",
+    ""password"": """"
+  },
+  ""datasource"": """"
+}";
+
+                File.WriteAllText(filePath, jsonContent);
+                Console.WriteLine("Config file created successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Config file already exists.");
+            }
+        }
+
+        private void LoadMatKhau()
+        {
+            EnsureConfigFileExists();
             GetConfig getConfig = new GetConfig();
-            Config config = getConfig.ReadConfig(projectDirectory);
+            Config config = getConfig.ReadConfig(@"C:\QuanLyVatTu\Data\");
             if (config.login.username != string.Empty && config.login.password != string.Empty)
             {
                 txtTenTaiKhoan.Text = config.login.username;
@@ -85,12 +108,7 @@ namespace QuanLyVatTu
                             if (dangNhap.trangthai == 1)
                             {
                                 // đăng nhập thành công
-                                string sourceDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                                string projectDirectory = Directory.GetParent(sourceDirectory).Parent.Parent.FullName;
-                                if (!function.IsFileExists(Path.Combine(projectDirectory, "config.json")))
-                                {
-                                    projectDirectory = Directory.GetParent(sourceDirectory).FullName;
-                                }
+                                string projectDirectory = Path.GetDirectoryName(@"C:\QuanLyVatTu\Data\");
                                 GetConfig getConfig = new GetConfig();
                                 if (checkBox.Checked == true)
                                 {
@@ -114,7 +132,7 @@ namespace QuanLyVatTu
                                     lichSuDangNhap.trangthai = $"Tài khoản {nguoiDung.quanham} {tennguoidung} - {nguoiDung.chucvu} đăng nhập thành công";
                                     lichSuDangNhap.tennguoidung = tennguoidung;
                                     lichSuDangNhap.user_id = userID;
-                                    dbContext.LichSuDangNhaps.Add(lichSuDangNhap); 
+                                    dbContext.LichSuDangNhaps.Add(lichSuDangNhap);
                                     dbContext.SaveChanges();
 
                                     frmAdmin frmAdmin = new frmAdmin();

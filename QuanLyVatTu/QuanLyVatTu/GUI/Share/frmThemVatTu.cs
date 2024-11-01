@@ -54,7 +54,7 @@ namespace QuanLyVatTu.GUI.Share
             VatTu vatTu = new VatTu();
             using (var dbContext = new QuanLyVatTuDbContext())
             {
-                vatTu = dbContext.VatTus.FirstOrDefault(m=>m.mavattu == vt.mavattu);
+                vatTu = dbContext.VatTus.FirstOrDefault(m => m.mavattu == vt.mavattu);
             }
 
             typingTimer = new System.Timers.Timer(TypingDelay);
@@ -166,6 +166,7 @@ namespace QuanLyVatTu.GUI.Share
                             dbContext.SaveChanges();
 
                             MessageBox.Show("Thêm vật tư mới thành công");
+                            this.Close();
                         }
                     }
                 }
@@ -225,6 +226,7 @@ namespace QuanLyVatTu.GUI.Share
                         dbContext.SaveChanges();
 
                         MessageBox.Show("Sửa thông tin vật tư thành công");
+                        this.Close();
                     }
                 }
             }
@@ -258,14 +260,22 @@ namespace QuanLyVatTu.GUI.Share
 
                 if (tenvattu_giong != "")
                 {
-                    DialogResult result = MessageBox.Show($"Vật tư bạn muốn thêm giống {Math.Round(dogiongkhac, 2)}% vật tư đã có: '{tenvattu_giong}'. Nếu vẫn tiếp tục muốn tiếp tục, hãy xác nhận!", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (result == DialogResult.Yes)
+                    if (dogiongkhac >= 99)
                     {
-                        return true;
+                        DialogResult result = MessageBox.Show($"Vật tư bạn muốn thêm giống {Math.Round(dogiongkhac, 2)}% vật tư đã có: '{tenvattu_giong}'. Vui lòng kiểm tra lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return false;
                     }
                     else
                     {
-                        return false;
+                        DialogResult result = MessageBox.Show($"Vật tư bạn muốn thêm giống {Math.Round(dogiongkhac, 2)}% vật tư đã có: '{tenvattu_giong}'. Nếu vẫn tiếp tục muốn tiếp tục, hãy xác nhận!", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.Yes)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
                 }
                 else

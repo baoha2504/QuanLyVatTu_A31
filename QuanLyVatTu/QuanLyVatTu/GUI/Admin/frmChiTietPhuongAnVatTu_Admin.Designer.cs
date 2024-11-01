@@ -350,6 +350,7 @@
             this.Column4.HeaderText = "Số lượng";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Width = 70;
             // 
             // Column5
@@ -357,6 +358,7 @@
             this.Column5.HeaderText = "Đổi cũ";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             this.Column5.Width = 70;
             // 
             // Column6
@@ -364,6 +366,7 @@
             this.Column6.HeaderText = "Cấp mới";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             this.Column6.Width = 70;
             // 
             // Column7
@@ -371,6 +374,7 @@
             this.Column7.HeaderText = "Ghi chú";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             this.Column7.Width = 150;
             // 
             // Column8
@@ -443,8 +447,8 @@
             this.swTrangThaiPhuongAn.Name = "swTrangThaiPhuongAn";
             this.swTrangThaiPhuongAn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.swTrangThaiPhuongAn.Properties.Appearance.Options.UseFont = true;
-            this.swTrangThaiPhuongAn.Properties.OffText = "Chưa hoàn thành";
-            this.swTrangThaiPhuongAn.Properties.OnText = "Hoàn thành";
+            this.swTrangThaiPhuongAn.Properties.OffText = "Chưa duyệt";
+            this.swTrangThaiPhuongAn.Properties.OnText = "Đã duyệt";
             this.swTrangThaiPhuongAn.Size = new System.Drawing.Size(312, 35);
             this.swTrangThaiPhuongAn.TabIndex = 1;
             // 
@@ -663,11 +667,11 @@
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Right;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(72, 0);
+            this.label6.Location = new System.Drawing.Point(52, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 18);
+            this.label6.Size = new System.Drawing.Size(138, 18);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Người duyệt cuối";
+            this.label6.Text = "DS chỉ huy đã duyệt";
             // 
             // panel38
             // 
@@ -819,7 +823,6 @@
             // txtTenPhuongAn
             // 
             this.txtTenPhuongAn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtTenPhuongAn.Enabled = false;
             this.txtTenPhuongAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenPhuongAn.Location = new System.Drawing.Point(0, 0);
             this.txtTenPhuongAn.Multiline = true;
@@ -1178,6 +1181,12 @@
         private DevComponents.DotNetBar.ButtonX btnLuu;
         private System.Windows.Forms.Panel panel52;
         private DevComponents.DotNetBar.ButtonX btnXuatFileWord;
+        private System.Windows.Forms.Panel panel53;
+        private System.Windows.Forms.Panel panel61;
+        private System.Windows.Forms.Panel panel62;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel64;
+        private DevExpress.XtraEditors.ToggleSwitch swTrangThaiPhuongAn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -1186,11 +1195,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.Panel panel53;
-        private System.Windows.Forms.Panel panel61;
-        private System.Windows.Forms.Panel panel62;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel64;
-        private DevExpress.XtraEditors.ToggleSwitch swTrangThaiPhuongAn;
     }
 }

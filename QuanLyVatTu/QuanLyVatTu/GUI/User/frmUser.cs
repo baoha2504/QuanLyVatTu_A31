@@ -54,6 +54,7 @@ namespace QuanLyVatTu.GUI.User
             {
                 usr_LapPhuongAnVatTu = new usr_LapPhuongAnVatTu();
                 usr_LapPhuongAnVatTu.Dock = DockStyle.Fill;
+                usr_LapPhuongAnVatTu.ButtonClicked += btnDanhSachPhuongAnVatTu_Click;
                 mainContainer.Controls.Add(usr_LapPhuongAnVatTu);
                 usr_LapPhuongAnVatTu.BringToFront();
             }
@@ -80,6 +81,7 @@ namespace QuanLyVatTu.GUI.User
             {
                 usr_DanhSachPhuongAnVatTu.Visible = true;
                 usr_DanhSachPhuongAnVatTu.BringToFront();
+                usr_DanhSachPhuongAnVatTu.LamMoi();
             }
         }
 

@@ -445,9 +445,9 @@ namespace QuanLyVatTu.GUI.Share
         {
             dataGridView_DSVatTu.Columns["Column1"].Width = (int)(dataGridView_DSVatTu.Width * 2 / 27);
             dataGridView_DSVatTu.Columns["Column2"].Width = (int)(dataGridView_DSVatTu.Width * 5 / 27);
-            dataGridView_DSVatTu.Columns["Column3"].Width = (int)(dataGridView_DSVatTu.Width * 2 / 27);
-            dataGridView_DSVatTu.Columns["Column4"].Width = (int)(dataGridView_DSVatTu.Width * 2.5 / 27);
-            dataGridView_DSVatTu.Columns["Column5"].Width = (int)(dataGridView_DSVatTu.Width * 2.5 / 27);
+            dataGridView_DSVatTu.Columns["Column3"].Width = (int)(dataGridView_DSVatTu.Width * 2.4 / 27);
+            dataGridView_DSVatTu.Columns["Column4"].Width = (int)(dataGridView_DSVatTu.Width * 2.3 / 27);
+            dataGridView_DSVatTu.Columns["Column5"].Width = (int)(dataGridView_DSVatTu.Width * 2.4 / 27);
             dataGridView_DSVatTu.Columns["Column6"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 27);
             dataGridView_DSVatTu.Columns["Column7"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 27);
             dataGridView_DSVatTu.Columns["Column8"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 27);
