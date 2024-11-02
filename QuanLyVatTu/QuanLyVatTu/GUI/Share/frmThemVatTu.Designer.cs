@@ -118,6 +118,8 @@
             this.panel61 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel60 = new System.Windows.Forms.Panel();
+            this.panel67 = new System.Windows.Forms.Panel();
+            this.btnAnhVatTu = new DevComponents.DotNetBar.ButtonX();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -989,6 +991,8 @@
             // 
             // panel66
             // 
+            this.panel66.Controls.Add(this.btnAnhVatTu);
+            this.panel66.Controls.Add(this.panel67);
             this.panel66.Controls.Add(this.btnLuu);
             this.panel66.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel66.Location = new System.Drawing.Point(0, 277);
@@ -1001,9 +1005,9 @@
             this.btnLuu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnLuu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnLuu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnLuu.Location = new System.Drawing.Point(715, 0);
+            this.btnLuu.Location = new System.Drawing.Point(700, 0);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(120, 35);
+            this.btnLuu.Size = new System.Drawing.Size(135, 35);
             this.btnLuu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnLuu.TabIndex = 8;
             this.btnLuu.Text = "Lưu";
@@ -1072,6 +1076,28 @@
             this.panel60.Name = "panel60";
             this.panel60.Size = new System.Drawing.Size(10, 330);
             this.panel60.TabIndex = 4;
+            // 
+            // panel67
+            // 
+            this.panel67.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel67.Location = new System.Drawing.Point(685, 0);
+            this.panel67.Name = "panel67";
+            this.panel67.Size = new System.Drawing.Size(15, 35);
+            this.panel67.TabIndex = 9;
+            // 
+            // btnAnhVatTu
+            // 
+            this.btnAnhVatTu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAnhVatTu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAnhVatTu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAnhVatTu.Location = new System.Drawing.Point(550, 0);
+            this.btnAnhVatTu.Name = "btnAnhVatTu";
+            this.btnAnhVatTu.Size = new System.Drawing.Size(135, 35);
+            this.btnAnhVatTu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAnhVatTu.TabIndex = 10;
+            this.btnAnhVatTu.Text = "Ảnh vật tư";
+            this.btnAnhVatTu.Tooltip = "Ảnh của vật tư";
+            this.btnAnhVatTu.Click += new System.EventHandler(this.btnAnhVatTu_Click);
             // 
             // frmThemVatTu
             // 
@@ -1237,5 +1263,7 @@
         private System.Windows.Forms.ComboBox txtDanhMuc;
         private System.Windows.Forms.ComboBox txtNguonGoc;
         private System.Windows.Forms.TextBox txtDonGia;
+        private DevComponents.DotNetBar.ButtonX btnAnhVatTu;
+        private System.Windows.Forms.Panel panel67;
     }
 }

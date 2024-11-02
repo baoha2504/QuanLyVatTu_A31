@@ -31,7 +31,7 @@ namespace QuanLyVatTu.GUI.Admin
             using (var dbContext = new QuanLyVatTuDbContext())
             {
                 int maphuongan = pavt.maphuongan;
-                var chitiet_pavts = dbContext.ChiTietPhuongAns.Where(m => m.maphuongan == maphuongan).ToList();
+                var chitiet_pavts = dbContext.ChiTietPhuongAns.Where(m => m.maphuongan == maphuongan).OrderBy(m => m.tt_uutien).ThenBy(m => m.tenvattu).ToList();
                 if (chitiet_pavts != null)
                 {
                     sokhoan = chitiet_pavts.Count;
@@ -199,6 +199,7 @@ namespace QuanLyVatTu.GUI.Admin
                     dbContext.SaveChanges();
                 }
                 MessageBox.Show("Cập nhật nội dung duyệt thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch (Exception ex)
             {

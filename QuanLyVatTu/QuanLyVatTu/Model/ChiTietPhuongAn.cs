@@ -35,6 +35,8 @@ namespace QuanLyVatTu.Model
 
         public int? mavattu { get; set; }
 
+        public int? tt_uutien { get; set; }
+
         public virtual PhuongAnVatTu PhuongAnVatTu { get; set; }
 
         public virtual VatTu VatTu { get; set; }

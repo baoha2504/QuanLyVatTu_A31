@@ -153,6 +153,12 @@
     <Compile Include="GUI\Admin\usr_NhatKyHoatDong.Designer.cs">
       <DependentUpon>usr_NhatKyHoatDong.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Share\frmChiTietAnhVatTu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\frmChiTietAnhVatTu.Designer.cs">
+      <DependentUpon>frmChiTietAnhVatTu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Share\frmChiTietTuKhoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,12 @@
     </Compile>
     <Compile Include="GUI\Share\frmThemVatTu.Designer.cs">
       <DependentUpon>frmThemVatTu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Share\frm_XemAnh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\frm_XemAnh.Designer.cs">
+      <DependentUpon>frm_XemAnh.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Share\usr_DanhMucVatTu.cs">
       <SubType>UserControl</SubType>
@@ -255,6 +267,7 @@
     <Compile Include="GUI\User\usr_LapPhuongAnVatTu.Designer.cs">
       <DependentUpon>usr_LapPhuongAnVatTu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\AnhVatTu.cs" />
     <Compile Include="Model\ChiTietPhuongAn.cs" />
     <Compile Include="Model\DangNhap.cs" />
     <Compile Include="Model\DanhMuc.cs" />
@@ -292,6 +305,9 @@
     <EmbeddedResource Include="GUI\Admin\usr_NhatKyHoatDong.resx">
       <DependentUpon>usr_NhatKyHoatDong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\frmChiTietAnhVatTu.resx">
+      <DependentUpon>frmChiTietAnhVatTu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmChiTietTuKhoa.resx">
       <DependentUpon>frmChiTietTuKhoa.cs</DependentUpon>
     </EmbeddedResource>
@@ -309,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmThemVatTu.resx">
       <DependentUpon>frmThemVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\frm_XemAnh.resx">
+      <DependentUpon>frm_XemAnh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\usr_DanhMucVatTu.resx">
       <DependentUpon>usr_DanhMucVatTu.cs</DependentUpon>

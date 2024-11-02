@@ -12,6 +12,7 @@ namespace QuanLyVatTu.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VatTu()
         {
+            AnhVatTus = new HashSet<AnhVatTu>();
             ChiTietPhuongAns = new HashSet<ChiTietPhuongAn>();
         }
 
@@ -44,6 +45,12 @@ namespace QuanLyVatTu.Model
 
         [StringLength(100)]
         public string madanhmuc { get; set; }
+
+        [StringLength(255)]
+        public string mavattu_hethong { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AnhVatTu> AnhVatTus { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietPhuongAn> ChiTietPhuongAns { get; set; }

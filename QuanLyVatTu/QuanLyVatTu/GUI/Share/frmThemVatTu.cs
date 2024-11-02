@@ -325,5 +325,11 @@ namespace QuanLyVatTu.GUI.Share
             //typingTimer1.Stop();
             //typingTimer1.Start();
         }
+
+        private void btnAnhVatTu_Click(object sender, EventArgs e)
+        {
+            frmChiTietAnhVatTu frm = new frmChiTietAnhVatTu(Int32.Parse(txtMaVatTu.Text), txtTenVatTu.Text);
+            frm.ShowDialog();
+        }
     }
 }

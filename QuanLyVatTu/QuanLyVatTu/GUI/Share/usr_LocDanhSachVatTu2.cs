@@ -41,6 +41,7 @@ namespace QuanLyVatTu.GUI.Share
             }
 
             LoadDSVatTu();
+            groupPanel2.Text = $"Danh sách dự đoán là trùng nhau {dogiongkhac}%";
         }
 
         private void panelEx1_Resize(object sender, EventArgs e)
@@ -458,6 +459,7 @@ namespace QuanLyVatTu.GUI.Share
             {
                 dogiongkhac = 90;
                 btnLocTuDong.Text = $"Lọc tự động ({dogiongkhac}%)";
+                groupPanel2.Text = $"Danh sách dự đoán là trùng nhau {dogiongkhac}%";
                 ChuanHoaVaHienThi();
             }
         }
@@ -468,6 +470,7 @@ namespace QuanLyVatTu.GUI.Share
             {
                 dogiongkhac = 80;
                 btnLocTuDong.Text = $"Lọc tự động ({dogiongkhac}%)";
+                groupPanel2.Text = $"Danh sách dự đoán là trùng nhau {dogiongkhac}%";
                 ChuanHoaVaHienThi();
             }
         }
@@ -478,6 +481,7 @@ namespace QuanLyVatTu.GUI.Share
             {
                 dogiongkhac = 70;
                 btnLocTuDong.Text = $"Lọc tự động ({dogiongkhac}%)";
+                groupPanel2.Text = $"Danh sách dự đoán là trùng nhau {dogiongkhac}%";
                 ChuanHoaVaHienThi();
             }
         }
@@ -488,6 +492,7 @@ namespace QuanLyVatTu.GUI.Share
             {
                 dogiongkhac = 60;
                 btnLocTuDong.Text = $"Lọc tự động ({dogiongkhac}%)";
+                groupPanel2.Text = $"Danh sách dự đoán là trùng nhau {dogiongkhac}%";
                 ChuanHoaVaHienThi();
             }
         }

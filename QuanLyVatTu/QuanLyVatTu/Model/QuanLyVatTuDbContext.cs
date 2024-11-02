@@ -12,6 +12,7 @@ namespace QuanLyVatTu.Model
         {
         }
 
+        public virtual DbSet<AnhVatTu> AnhVatTus { get; set; }
         public virtual DbSet<ChiTietPhuongAn> ChiTietPhuongAns { get; set; }
         public virtual DbSet<DangNhap> DangNhaps { get; set; }
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
@@ -44,6 +45,10 @@ namespace QuanLyVatTu.Model
 
             modelBuilder.Entity<VatTu>()
                 .Property(e => e.madanhmuc)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<VatTu>()
+                .Property(e => e.mavattu_hethong)
                 .IsUnicode(false);
         }
     }

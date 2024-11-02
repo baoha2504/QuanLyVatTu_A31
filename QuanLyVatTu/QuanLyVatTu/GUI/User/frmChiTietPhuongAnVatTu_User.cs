@@ -54,7 +54,7 @@ namespace QuanLyVatTu.GUI.User
             using (var dbContext = new QuanLyVatTuDbContext())
             {
                 int maphuongan = pavt.maphuongan;
-                var chitiet_pavts = dbContext.ChiTietPhuongAns.Where(m => m.maphuongan == maphuongan).OrderBy(m => m.tenvattu).ToList();
+                var chitiet_pavts = dbContext.ChiTietPhuongAns.Where(m => m.maphuongan == maphuongan).OrderBy(m => m.tt_uutien).ThenBy(m => m.tenvattu).ToList();
                 if (chitiet_pavts != null)
                 {
                     solanload++;
@@ -313,9 +313,9 @@ namespace QuanLyVatTu.GUI.User
                                 cell.Style.BackColor = Color.White;
                             }
                             string tvt = (string)dataGridView_DSVatTu.Rows[rowID].Cells["dtgv2_Column2"].Value;
-                            int id = DS_vattus.FindIndex(m=>m.tenvattu == tvt);
+                            int id = DS_vattus.FindIndex(m => m.tenvattu == tvt);
                             int mavattu = DS_vattus[id].mavattu;
-                            
+
                             ChiTietPhuongAn ctpavt = DS_chitietphuonganvattus.SingleOrDefault(m => m.mavattu == mavattu);
                             if (ctpavt != null)
                             {
@@ -479,6 +479,17 @@ namespace QuanLyVatTu.GUI.User
             {
                 using (var dbContext = new QuanLyVatTuDbContext())
                 {
+                    List<string> column2Values = new List<string>();
+                    foreach (DataGridViewRow row in dataGridView_DS_CTPAVT.Rows)
+                    {
+                        // Lấy giá trị cho cột Column2 nếu không rỗng
+                        if (row.Cells["Column2"].Value != null)
+                        {
+                            string stringValue = row.Cells["Column2"].Value.ToString();
+                            column2Values.Add(stringValue);
+                        }
+                    }
+
                     // vật tư phương án bị sửa ==> cập nhật
                     for (int i = 0; i < DS_chitietphuonganvattus.Count; i++)
                     {
@@ -490,6 +501,11 @@ namespace QuanLyVatTu.GUI.User
                             ct.doicu = DS_chitietphuonganvattus[i].doicu;
                             ct.capmoi = DS_chitietphuonganvattus[i].capmoi;
                             ct.ghichu = DS_chitietphuonganvattus[i].ghichu;
+                            int ttIndex = column2Values.IndexOf(DS_chitietphuonganvattus[i].tenvattu);
+                            if (ttIndex != -1)
+                            {
+                                ct.tt_uutien = ttIndex + 1;
+                            }
                         }
                     }
 
@@ -515,6 +531,11 @@ namespace QuanLyVatTu.GUI.User
                         ct.capmoi = DS_thongtinphuonganvattus_MoiThem[i].capmoi;
                         ct.ghichu = DS_thongtinphuonganvattus_MoiThem[i].ghichu;
                         ct.maphuongan = Int32.Parse(txtMaPhuongAn.Text);
+                        int ttIndex = column2Values.IndexOf(DS_chitietphuonganvattus[i].tenvattu);
+                        if (ttIndex != -1)
+                        {
+                            ct.tt_uutien = ttIndex + 1;
+                        }
                         dbContext.ChiTietPhuongAns.Add(ct);
                     }
 
@@ -522,7 +543,7 @@ namespace QuanLyVatTu.GUI.User
                     PhuongAnVatTu p = dbContext.PhuongAnVatTus.SingleOrDefault(m => m.maphuongan == maphuongan);
                     p.tenphuongan = txtTenPhuongAn.Text;
                     p.thoigianlap = DateTime.Now;
-                    if(swTrangThaiPhuongAn.IsOn == true)
+                    if (swTrangThaiPhuongAn.IsOn == true)
                     {
                         p.hoanthanh = 1;
                     }
@@ -542,6 +563,7 @@ namespace QuanLyVatTu.GUI.User
                     MessageBox.Show("Lưu thay đổi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtLanSuaCuoi.Text = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
                     //LamMoi();
+                    this.Close();
                 }
             }
         }
@@ -685,6 +707,42 @@ namespace QuanLyVatTu.GUI.User
             dataGridView_DSVatTu.Columns["dtgv2_Column2"].Width = (int)(dataGridView_DSVatTu.Width * 7 / 19);
             dataGridView_DSVatTu.Columns["dtgv2_Column3"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 19);
             dataGridView_DSVatTu.Columns["dtgv2_Column4"].Width = (int)(dataGridView_DSVatTu.Width * 5 / 19);
+        }
+
+        private void btnLenTren_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra xem có dòng nào được chọn không và vị trí dòng có phải là dòng đầu tiên không
+            if (dataGridView_DS_CTPAVT.SelectedRows.Count > 0)
+            {
+                int rowIndex = dataGridView_DS_CTPAVT.SelectedRows[0].Index;
+                if (rowIndex > 0) // Kiểm tra nếu dòng không phải là dòng đầu tiên
+                {
+                    // Thực hiện hoán đổi vị trí dòng được chọn với dòng phía trên
+                    DataGridViewRow selectedRow = dataGridView_DS_CTPAVT.Rows[rowIndex];
+                    dataGridView_DS_CTPAVT.Rows.RemoveAt(rowIndex);
+                    dataGridView_DS_CTPAVT.Rows.Insert(rowIndex - 1, selectedRow);
+                    dataGridView_DS_CTPAVT.ClearSelection();
+                    dataGridView_DS_CTPAVT.Rows[rowIndex - 1].Selected = true; // Chọn lại dòng đã di chuyển
+                }
+            }
+        }
+
+        private void btnXuongDuoi_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra xem có dòng nào được chọn không và vị trí dòng có phải là dòng cuối cùng không
+            if (dataGridView_DS_CTPAVT.SelectedRows.Count > 0)
+            {
+                int rowIndex = dataGridView_DS_CTPAVT.SelectedRows[0].Index;
+                if (rowIndex < dataGridView_DS_CTPAVT.Rows.Count - 1) // Kiểm tra nếu dòng không phải là dòng cuối cùng
+                {
+                    // Thực hiện hoán đổi vị trí dòng được chọn với dòng phía dưới
+                    DataGridViewRow selectedRow = dataGridView_DS_CTPAVT.Rows[rowIndex];
+                    dataGridView_DS_CTPAVT.Rows.RemoveAt(rowIndex);
+                    dataGridView_DS_CTPAVT.Rows.Insert(rowIndex + 1, selectedRow);
+                    dataGridView_DS_CTPAVT.ClearSelection();
+                    dataGridView_DS_CTPAVT.Rows[rowIndex + 1].Selected = true; // Chọn lại dòng đã di chuyển
+                }
+            }
         }
     }
 }
