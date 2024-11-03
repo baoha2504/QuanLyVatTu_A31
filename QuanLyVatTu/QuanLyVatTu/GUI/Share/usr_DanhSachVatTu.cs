@@ -19,6 +19,7 @@ namespace QuanLyVatTu.GUI.Share
         private int currentPage = 1;
         private int pageSize = 200; // Number of items per page
         private int totalPages = 0;
+        frmLoad frmLoad;
         public usr_DanhSachVatTu()
         {
             InitializeComponent();
@@ -122,6 +123,7 @@ namespace QuanLyVatTu.GUI.Share
 
         private void LoadDSVatTu()
         {
+            this.Cursor = Cursors.WaitCursor;
             dataGridView_DSVatTu.Rows.Clear();
             danhMucs.Clear();
 
@@ -185,6 +187,14 @@ namespace QuanLyVatTu.GUI.Share
                     danhMucs.Add(danhMuc);
                     dataGridView_DSVatTu.Rows.Add();
                     dataGridView_DSVatTu.Rows[i].Cells["Column1"].Value = madanhmuc + pagedVatTus[i].mavattu;
+                    if (string.IsNullOrEmpty(pagedVatTus[i].mavattu_hethong))
+                    {
+                        dataGridView_DSVatTu.Rows[i].Cells["Column10"].Value = madanhmuc + pagedVatTus[i].mavattu;
+                    }
+                    else
+                    {
+                        dataGridView_DSVatTu.Rows[i].Cells["Column10"].Value = pagedVatTus[i].mavattu_hethong;
+                    }
                     dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value = pagedVatTus[i].tenvattu;
                     dataGridView_DSVatTu.Rows[i].Cells["Column3"].Value = pagedVatTus[i].donvitinh;
                     string dongia = function.FormatDecimal((decimal)pagedVatTus[i].dongia);
@@ -214,6 +224,7 @@ namespace QuanLyVatTu.GUI.Share
                 }
                 lblPageNumber.Text = $"Trang {currentPage}/{totalPages}";
             }
+            this.Cursor = Cursors.Default;
         }
 
 
@@ -444,6 +455,7 @@ namespace QuanLyVatTu.GUI.Share
         private void usr_DanhSachVatTu_Resize(object sender, EventArgs e)
         {
             dataGridView_DSVatTu.Columns["Column1"].Width = (int)(dataGridView_DSVatTu.Width * 2 / 27);
+            dataGridView_DSVatTu.Columns["Column10"].Width = (int)(dataGridView_DSVatTu.Width * 2 / 27);
             dataGridView_DSVatTu.Columns["Column2"].Width = (int)(dataGridView_DSVatTu.Width * 5 / 27);
             dataGridView_DSVatTu.Columns["Column3"].Width = (int)(dataGridView_DSVatTu.Width * 2.4 / 27);
             dataGridView_DSVatTu.Columns["Column4"].Width = (int)(dataGridView_DSVatTu.Width * 2.3 / 27);

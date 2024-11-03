@@ -132,15 +132,18 @@ namespace QuanLyVatTu.GUI.User
         {
             using (var dbContext = new QuanLyVatTuDbContext())
             {
+                this.Cursor = Cursors.WaitCursor;
                 var vatTus = dbContext.VatTus.Where(m => m.trangthai == 1).OrderBy(m => m.tenvattu).ToList();
                 DS_vattus = vatTus; // Lưu dữ liệu vào danh sách
                 totalPages = (DS_vattus.Count + pageSize - 1) / pageSize;
                 DisplayCurrentPage(); // Hiển thị trang hiện tại
+                this.Cursor = Cursors.Default;
             }
         }
 
         private void DisplayCurrentPage()
         {
+            this.Cursor = Cursors.WaitCursor;
             dataGridView_DSVatTu.Rows.Clear(); // Xóa dữ liệu cũ
             lblPageNumber.Text = $"Trang {currentPage}/{totalPages}";      // Cập nhật số trang
 
@@ -173,6 +176,7 @@ namespace QuanLyVatTu.GUI.User
                     }
                 }
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnTrangTruoc_Click(object sender, EventArgs e)

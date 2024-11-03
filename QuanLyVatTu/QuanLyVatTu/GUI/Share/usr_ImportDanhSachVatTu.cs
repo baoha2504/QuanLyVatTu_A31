@@ -46,9 +46,11 @@ namespace QuanLyVatTu.GUI.Share
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    this.Cursor = Cursors.WaitCursor;
                     txtPathFileExcel.Text = openFileDialog.FileName;
                     LoadDS_Excel(openFileDialog.FileName);
                     LoadVatTuMoiThem();
+                    this.Cursor = Cursors.Default;
                 }
             }
         }
@@ -184,6 +186,7 @@ namespace QuanLyVatTu.GUI.Share
 
         private void LoadVatTuMoiThem()
         {
+            this.Cursor = Cursors.WaitCursor;
             var vattu = new List<VatTu>();
             using (var dbContext = new QuanLyVatTuDbContext())
             {
@@ -192,6 +195,7 @@ namespace QuanLyVatTu.GUI.Share
             CompareVatTus(vattu, vatTuMoiExcels);
             LoadVatTuGiong();
             LoadVatTuKhac();
+            this.Cursor = Cursors.Default;
         }
 
         private void LoadVatTuMoiThem_KhiClick()
@@ -392,7 +396,7 @@ namespace QuanLyVatTu.GUI.Share
 
         private void btnLuuDanhSachDaLoc_Click(object sender, EventArgs e)
         {
-            
+            this.Cursor = Cursors.WaitCursor;
             if (dataGridView_VatTuMoi.Rows.Count >= 1)
             {
                 DialogResult result = MessageBox.Show("Xác nhận lưu danh vật tư mới?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -444,6 +448,7 @@ namespace QuanLyVatTu.GUI.Share
             {
                 MessageBox.Show("Hãy nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void groupPanel2_Resize(object sender, EventArgs e)

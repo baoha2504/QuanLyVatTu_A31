@@ -18,7 +18,7 @@ namespace QuanLyVatTu.GUI.Share
         List<VatTuTrung> vatTuBiTrungs = new List<VatTuTrung>();
         VatTu vattu_duocchon = new VatTu();
         int line_choising = -1;
-        double dogiongkhac = 70;
+        double dogiongkhac = 60;
         private int currentPage = 1;   // Trang hiện tại
         private int pageSize = 200;    // Số dòng trên mỗi trang
         private int totalPages = 0;    // Tổng số trang
@@ -57,6 +57,7 @@ namespace QuanLyVatTu.GUI.Share
         {
             using (var dbContext = new QuanLyVatTuDbContext())
             {
+                this.Cursor = Cursors.WaitCursor;
                 var vattu = new List<VatTu>();
 
                 if (cbbDanhMuc.Text == "Tất cả danh mục")
@@ -74,6 +75,7 @@ namespace QuanLyVatTu.GUI.Share
                 totalPages = (vatTuHoatDongs.Count + pageSize - 1) / pageSize;
                 
                 DisplayCurrentPage();    // Hiển thị trang hiện tại
+                this.Cursor = Cursors.Default;
             }
         }
 
@@ -272,6 +274,7 @@ namespace QuanLyVatTu.GUI.Share
 
         private void ChuanHoaVaHienThi()
         {
+            this.Cursor = Cursors.WaitCursor;
             dataGridView_DSVatTuTrung.Rows.Clear();
             vatTuBiTrungs.Clear();
             using (var dbContext = new QuanLyVatTuDbContext())
@@ -346,6 +349,7 @@ namespace QuanLyVatTu.GUI.Share
                     }
                 }
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnTimKiemVatTu2_Click(object sender, EventArgs e)

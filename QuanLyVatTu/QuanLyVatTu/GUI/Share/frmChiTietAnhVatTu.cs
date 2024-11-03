@@ -52,7 +52,7 @@ namespace QuanLyVatTu.GUI.Share
                         }
                         else
                         {
-                            MessageBox.Show("File ảnh 1 không tồn tại.");
+                            //MessageBox.Show("File ảnh 1 không tồn tại.");
                         }
                     }
                     else if (item.tt_anh == 2)
@@ -64,7 +64,7 @@ namespace QuanLyVatTu.GUI.Share
                         }
                         else
                         {
-                            MessageBox.Show("File ảnh 2 không tồn tại.");
+                            //MessageBox.Show("File ảnh 2 không tồn tại.");
                         }
                     }
                     else if (item.tt_anh == 3)
@@ -76,7 +76,7 @@ namespace QuanLyVatTu.GUI.Share
                         }
                         else
                         {
-                            MessageBox.Show("File ảnh 3 không tồn tại.");
+                            //MessageBox.Show("File ảnh 3 không tồn tại.");
                         }
                     }
                     else if (item.tt_anh == 4)
@@ -88,7 +88,7 @@ namespace QuanLyVatTu.GUI.Share
                         }
                         else
                         {
-                            MessageBox.Show("File ảnh 4 không tồn tại.");
+                            //MessageBox.Show("File ảnh 4 không tồn tại.");
                         }
                     }
                 }
@@ -194,10 +194,11 @@ namespace QuanLyVatTu.GUI.Share
                 SaveOrUpdateImage(dbContext, path_anh4, mavattu, 4);
                 dbContext.SaveChanges();
                 MessageBox.Show("Lưu thông tin thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
         }
 
-        public void CheckAndCopyImage(string sourceFilePath, string destinationFolderName, string destinationFileName)
+        public string CheckAndCopyImage(string sourceFilePath, string destinationFolderName, string destinationFileName)
         {
             // Đường dẫn thư mục gốc
             string destinationDirectory = @"C:\QuanLyVatTu\Data\AnhVatTu";
@@ -216,6 +217,8 @@ namespace QuanLyVatTu.GUI.Share
 
             // Sao chép file từ sourceFilePath đến destinationFullPath, ghi đè nếu đã tồn tại
             File.Copy(sourceFilePath, destinationFullPath, true);
+
+            return destinationFullPath;
         }
 
         private void SaveOrUpdateImage(QuanLyVatTuDbContext dbContext, string imagePath, int mavattu, int imageType)
@@ -225,18 +228,18 @@ namespace QuanLyVatTu.GUI.Share
                 var anh = dbContext.AnhVatTus.FirstOrDefault(m => m.mavattu == mavattu && m.tt_anh == imageType);
                 if (anh != null)
                 {
-                    anh.duongdananh = imagePath;
-                    CheckAndCopyImage(imagePath, tenvattu, $"{imageType}{Path.GetExtension(imagePath)}");
+                    string destinationFullPath = CheckAndCopyImage(imagePath, tenvattu, $"{imageType}{Path.GetExtension(imagePath)}");
+                    anh.duongdananh = destinationFullPath;
                 }
                 else
                 {
+                    string destinationFullPath = CheckAndCopyImage(imagePath, tenvattu, $"{imageType}{Path.GetExtension(imagePath)}");
                     var newAnh = new AnhVatTu
                     {
-                        duongdananh = imagePath,
+                        duongdananh = destinationFullPath,
                         mavattu = mavattu,
                         tt_anh = imageType
                     };
-                    CheckAndCopyImage(imagePath, tenvattu, $"{imageType}{Path.GetExtension(imagePath)}");
                     dbContext.AnhVatTus.Add(newAnh);
                 }
             }

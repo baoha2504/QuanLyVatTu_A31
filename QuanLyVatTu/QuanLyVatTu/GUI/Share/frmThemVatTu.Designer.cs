@@ -110,6 +110,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel63 = new System.Windows.Forms.Panel();
             this.panel66 = new System.Windows.Forms.Panel();
+            this.btnAnhVatTu = new DevComponents.DotNetBar.ButtonX();
+            this.panel67 = new System.Windows.Forms.Panel();
             this.btnLuu = new DevComponents.DotNetBar.ButtonX();
             this.panel65 = new System.Windows.Forms.Panel();
             this.panel64 = new System.Windows.Forms.Panel();
@@ -118,8 +120,6 @@
             this.panel61 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel60 = new System.Windows.Forms.Panel();
-            this.panel67 = new System.Windows.Forms.Panel();
-            this.btnAnhVatTu = new DevComponents.DotNetBar.ButtonX();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -905,7 +905,6 @@
             // txtMaVatTu
             // 
             this.txtMaVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMaVatTu.Enabled = false;
             this.txtMaVatTu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaVatTu.Location = new System.Drawing.Point(0, 0);
             this.txtMaVatTu.Multiline = true;
@@ -1000,6 +999,28 @@
             this.panel66.Size = new System.Drawing.Size(835, 35);
             this.panel66.TabIndex = 19;
             // 
+            // btnAnhVatTu
+            // 
+            this.btnAnhVatTu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAnhVatTu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAnhVatTu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAnhVatTu.Location = new System.Drawing.Point(550, 0);
+            this.btnAnhVatTu.Name = "btnAnhVatTu";
+            this.btnAnhVatTu.Size = new System.Drawing.Size(135, 35);
+            this.btnAnhVatTu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAnhVatTu.TabIndex = 10;
+            this.btnAnhVatTu.Text = "Ảnh vật tư";
+            this.btnAnhVatTu.Tooltip = "Ảnh của vật tư";
+            this.btnAnhVatTu.Click += new System.EventHandler(this.btnAnhVatTu_Click);
+            // 
+            // panel67
+            // 
+            this.panel67.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel67.Location = new System.Drawing.Point(685, 0);
+            this.panel67.Name = "panel67";
+            this.panel67.Size = new System.Drawing.Size(15, 35);
+            this.panel67.TabIndex = 9;
+            // 
             // btnLuu
             // 
             this.btnLuu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -1076,28 +1097,6 @@
             this.panel60.Name = "panel60";
             this.panel60.Size = new System.Drawing.Size(10, 330);
             this.panel60.TabIndex = 4;
-            // 
-            // panel67
-            // 
-            this.panel67.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel67.Location = new System.Drawing.Point(685, 0);
-            this.panel67.Name = "panel67";
-            this.panel67.Size = new System.Drawing.Size(15, 35);
-            this.panel67.TabIndex = 9;
-            // 
-            // btnAnhVatTu
-            // 
-            this.btnAnhVatTu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAnhVatTu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAnhVatTu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAnhVatTu.Location = new System.Drawing.Point(550, 0);
-            this.btnAnhVatTu.Name = "btnAnhVatTu";
-            this.btnAnhVatTu.Size = new System.Drawing.Size(135, 35);
-            this.btnAnhVatTu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAnhVatTu.TabIndex = 10;
-            this.btnAnhVatTu.Text = "Ảnh vật tư";
-            this.btnAnhVatTu.Tooltip = "Ảnh của vật tư";
-            this.btnAnhVatTu.Click += new System.EventHandler(this.btnAnhVatTu_Click);
             // 
             // frmThemVatTu
             // 

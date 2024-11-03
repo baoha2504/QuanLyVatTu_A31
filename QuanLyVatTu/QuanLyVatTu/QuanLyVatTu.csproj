@@ -102,6 +102,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\BienDungChung.cs" />
     <Compile Include="Class\ChiTietPhuongAnVatTu_Print.cs" />
     <Compile Include="Class\Config.cs" />
     <Compile Include="Class\Login.cs" />
@@ -170,6 +171,12 @@
     </Compile>
     <Compile Include="GUI\Share\frmChiTietVatTuMoi.Designer.cs">
       <DependentUpon>frmChiTietVatTuMoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Share\frmLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Share\frmLoad.Designer.cs">
+      <DependentUpon>frmLoad.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Share\frmThemDanhMuc.cs">
       <SubType>Form</SubType>
@@ -313,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmChiTietVatTuMoi.resx">
       <DependentUpon>frmChiTietVatTuMoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Share\frmLoad.resx">
+      <DependentUpon>frmLoad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Share\frmThemDanhMuc.resx">
       <DependentUpon>frmThemDanhMuc.cs</DependentUpon>

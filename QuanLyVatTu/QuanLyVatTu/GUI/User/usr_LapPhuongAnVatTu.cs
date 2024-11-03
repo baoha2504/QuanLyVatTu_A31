@@ -53,10 +53,12 @@ namespace QuanLyVatTu.GUI.User
         {
             using (var dbContext = new QuanLyVatTuDbContext())
             {
+                this.Cursor = Cursors.WaitCursor;
                 var vatTus = dbContext.VatTus.Where(m => m.trangthai == 1).OrderBy(m => m.tenvattu).ToList();
                 DS_vatTus = vatTus; // Lưu dữ liệu vào danh sách
                 totalPages = (DS_vatTus.Count + pageSize - 1) / pageSize;
                 DisplayCurrentPage(); // Hiển thị trang hiện tại
+                this.Cursor = Cursors.Default;
             }
         }
 
