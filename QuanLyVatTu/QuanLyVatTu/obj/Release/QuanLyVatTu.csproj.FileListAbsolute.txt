@@ -104,3 +104,6 @@ E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share.usr_DanhSachTuCungNghia.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share.usr_LocDanhSachVatTu2.resources
 E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVa.6E15CABF.Up2Date
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share.frmChiTietAnhVatTu.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share.frmLoad.resources
+E:\A31\QuanLyVatTu_A31\QuanLyVatTu\QuanLyVatTu\obj\Release\QuanLyVatTu.GUI.Share.frm_XemAnh.resources
