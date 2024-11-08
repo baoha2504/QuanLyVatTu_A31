@@ -9,5 +9,6 @@ namespace QuanLyVatTu.Class
     internal class BienDungChung
     {
         public static bool isUpdateCompleted { get; set; }
+        public static string serverIP { get; set; }
     }
 }

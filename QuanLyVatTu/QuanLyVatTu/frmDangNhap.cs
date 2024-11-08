@@ -4,6 +4,7 @@ using QuanLyVatTu.GUI.User;
 using QuanLyVatTu.Model;
 using QuanLyVatTu.Support;
 using System;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -97,10 +98,20 @@ namespace QuanLyVatTu
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
                 if (txtTenTaiKhoan.Text != string.Empty && txtMatKhau.Text != string.Empty)
                 {
                     using (var dbContext = new QuanLyVatTuDbContext())
                     {
+                        string connectionString = dbContext.Database.Connection.ConnectionString;
+                        var builder = new SqlConnectionStringBuilder(connectionString);
+                        string serverName = builder.DataSource; // Lấy tên server từ DataSource
+                        BienDungChung.serverIP = serverName;
+                        if (BienDungChung.serverIP == ".")
+                        {
+                            BienDungChung.serverIP = "127.0.0.1";
+                        }
+
                         string password = function.ComputeSHA256(txtMatKhau.Text.ToLower());
                         DangNhap dangNhap = dbContext.DangNhaps.FirstOrDefault(m => m.tentaikhoan == txtTenTaiKhoan.Text.ToLower() && m.matkhau == password);
                         if (dangNhap != null)
@@ -187,6 +198,7 @@ namespace QuanLyVatTu
                     txtThongBao.ForeColor = Color.OrangeRed;
                     txtThongBao.Text = "Hãy nhập đầy đủ tài khoản và mật khẩu";
                 }
+                this.Cursor = Cursors.Default;
             }
             catch (Exception ex)
             {

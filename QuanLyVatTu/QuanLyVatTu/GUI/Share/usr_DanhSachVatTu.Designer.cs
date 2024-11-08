@@ -215,7 +215,7 @@
             // 
             // Column3
             // 
-            this.Column3.HeaderText = "Đơn vị tính(VNĐ)";
+            this.Column3.HeaderText = "Đơn vị tính";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -223,7 +223,7 @@
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Đơn giá";
+            this.Column4.HeaderText = "Đơn giá(VNĐ)";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -536,6 +536,7 @@
             this.txtNoiDungTimKiem.Size = new System.Drawing.Size(200, 35);
             this.txtNoiDungTimKiem.TabIndex = 0;
             this.txtNoiDungTimKiem.TextChanged += new System.EventHandler(this.txtNoiDungTimKiem_TextChanged);
+            this.txtNoiDungTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNoiDungTimKiem_KeyDown);
             // 
             // panel6
             // 

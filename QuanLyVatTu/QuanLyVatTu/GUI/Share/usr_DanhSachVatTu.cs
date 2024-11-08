@@ -187,14 +187,7 @@ namespace QuanLyVatTu.GUI.Share
                     danhMucs.Add(danhMuc);
                     dataGridView_DSVatTu.Rows.Add();
                     dataGridView_DSVatTu.Rows[i].Cells["Column1"].Value = madanhmuc + pagedVatTus[i].mavattu;
-                    if (string.IsNullOrEmpty(pagedVatTus[i].mavattu_hethong))
-                    {
-                        dataGridView_DSVatTu.Rows[i].Cells["Column10"].Value = madanhmuc + pagedVatTus[i].mavattu;
-                    }
-                    else
-                    {
-                        dataGridView_DSVatTu.Rows[i].Cells["Column10"].Value = pagedVatTus[i].mavattu_hethong;
-                    }
+                    dataGridView_DSVatTu.Rows[i].Cells["Column10"].Value = pagedVatTus[i].mavattu_hethong;
                     dataGridView_DSVatTu.Rows[i].Cells["Column2"].Value = pagedVatTus[i].tenvattu;
                     dataGridView_DSVatTu.Rows[i].Cells["Column3"].Value = pagedVatTus[i].donvitinh;
                     string dongia = function.FormatDecimal((decimal)pagedVatTus[i].dongia);
@@ -259,7 +252,7 @@ namespace QuanLyVatTu.GUI.Share
                     frmThemVatTu frmThemVatTu = new frmThemVatTu(vatTus[rowID]);
                     frmThemVatTu.Text = "Sửa thông tin vật tư";
                     frmThemVatTu.ShowDialog();
-                    //LoadDSVatTu();
+                    LoadDSVatTu();
                 }
                 catch { }
             }
@@ -464,6 +457,15 @@ namespace QuanLyVatTu.GUI.Share
             dataGridView_DSVatTu.Columns["Column7"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 27);
             dataGridView_DSVatTu.Columns["Column8"].Width = (int)(dataGridView_DSVatTu.Width * 3 / 27);
             dataGridView_DSVatTu.Columns["Column9"].Width = (int)(dataGridView_DSVatTu.Width * 2 / 27);
+        }
+
+        private void txtNoiDungTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

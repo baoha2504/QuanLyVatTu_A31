@@ -286,6 +286,7 @@
             this.txtNoiDungTimKiem.Size = new System.Drawing.Size(200, 35);
             this.txtNoiDungTimKiem.TabIndex = 0;
             this.txtNoiDungTimKiem.TextChanged += new System.EventHandler(this.txtNoiDungTimKiem_TextChanged);
+            this.txtNoiDungTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNoiDungTimKiem_KeyDown);
             // 
             // panel6
             // 

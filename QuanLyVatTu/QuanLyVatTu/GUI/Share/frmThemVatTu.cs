@@ -1,10 +1,18 @@
-﻿using QuanLyVatTu.Model;
+﻿using Newtonsoft.Json;
+using QuanLyVatTu.Class;
+using QuanLyVatTu.Model;
 using QuanLyVatTu.Support;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+
 
 namespace QuanLyVatTu.GUI.Share
 {
@@ -18,11 +26,19 @@ namespace QuanLyVatTu.GUI.Share
         private const int TypingDelay = 1000;
         private const int TypingDelay1 = 2000;
         private string tenvattu_bandau = "";
+        ToolTip toolTip = new ToolTip();
+        string path_anh1 = "";
+        string path_anh2 = "";
+        string path_anh3 = "";
+        bool checkModifyImage1 = false;
+        bool checkModifyImage2 = false;
+        bool checkModifyImage3 = false;
+
+        private static readonly HttpClient client = new HttpClient();
 
         public frmThemVatTu()
         {
             InitializeComponent();
-            this.MaximizeBox = false;
             btnAnhVatTu.Enabled = false;
 
             typingTimer = new System.Timers.Timer(TypingDelay);
@@ -46,12 +62,12 @@ namespace QuanLyVatTu.GUI.Share
             txtTinhTrang.Text = "Đang sử dụng";
             txtNguoiSuaCuoi.Text = frmDangNhap.tennguoidung;
             txtThoiGianSua.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            AddToolTip();
         }
 
         public frmThemVatTu(VatTu vt)
         {
             InitializeComponent();
-            this.MaximizeBox = false;
             vt_save = vt;
 
             VatTu vatTu = new VatTu();
@@ -64,14 +80,7 @@ namespace QuanLyVatTu.GUI.Share
             typingTimer.Elapsed += OnTypingTimerElapsed;
             typingTimer.AutoReset = false;
 
-            if (string.IsNullOrEmpty(vatTu.mavattu_hethong))
-            {
-                txtMaVatTu.Text = vatTu.madanhmuc + vatTu.mavattu.ToString();
-            }
-            else
-            {
-                txtMaVatTu.Text = vatTu.mavattu_hethong;
-            }
+            txtMaVatTu.Text = vatTu.mavattu_hethong;
             txtTenVatTu.Text = vatTu.tenvattu;
             tenvattu_bandau = vatTu.tenvattu;
             txtDonViTinh.Text = vatTu.donvitinh;
@@ -110,6 +119,15 @@ namespace QuanLyVatTu.GUI.Share
             txtGhiChu.Text = vatTu.ghichu;
             txtNguoiSuaCuoi.Text = frmDangNhap.tennguoidung;
             txtThoiGianSua.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            AddToolTip();
+            _ = LoadImageAsync();
+        }
+
+        private void AddToolTip()
+        {
+            toolTip.SetToolTip(pictureBox1, "Kích đúp chuột vào để thay đổi ảnh mới");
+            toolTip.SetToolTip(pictureBox2, "Kích đúp chuột vào để thay đổi ảnh mới");
+            toolTip.SetToolTip(pictureBox3, "Kích đúp chuột vào để thay đổi ảnh mới");
         }
 
         private bool CheckEmptyInput()
@@ -134,11 +152,19 @@ namespace QuanLyVatTu.GUI.Share
                             // Thêm thông tin vật tư
                             if (IsValidVarchar255(txtMaVatTu))
                             {
+                                bool check = false;
                                 var vt_find = dbContext.VatTus.FirstOrDefault(m => m.mavattu_hethong == txtMaVatTu.Text);
-                                if (vt_find == null)
+                                if (string.IsNullOrEmpty(txtMaVatTu.Text))
+                                {
+                                    check = true;
+                                }
+                                if (vt_find == null || check == true)
                                 {
                                     VatTu vt = new VatTu();
-                                    vt.mavattu_hethong = txtMaVatTu.Text;
+                                    if (check != true)
+                                    {
+                                        vt.mavattu_hethong = txtMaVatTu.Text;
+                                    }
                                     vt.tenvattu = txtTenVatTu.Text;
                                     vt.donvitinh = txtDonViTinh.Text;
                                     try
@@ -173,6 +199,8 @@ namespace QuanLyVatTu.GUI.Share
                                     dbContext.VatTus.Add(vt);
                                     dbContext.SaveChanges();
 
+                                    vt_save = vt;
+
                                     LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
                                     lichSuHoatDong.thoigian = DateTime.Now;
                                     lichSuHoatDong.hoatdong = $"Tài khoản {frmDangNhap.userID} - {frmDangNhap.tennguoidung} thêm vật tư mới {vt.mavattu} - {vt.tenvattu}";
@@ -181,17 +209,20 @@ namespace QuanLyVatTu.GUI.Share
                                     dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
                                     dbContext.SaveChanges();
 
-                                    DialogResult result = MessageBox.Show("Thêm vật tư mới thành công. Bạn có muốn thêm ảnh vật tư không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                                    if (result == DialogResult.OK)
-                                    {
-                                        frmChiTietAnhVatTu frm = new frmChiTietAnhVatTu(vt.mavattu, vt.tenvattu);
-                                        frm.ShowDialog();
-                                    }
+                                    //DialogResult result = MessageBox.Show("Thêm vật tư mới thành công. Bạn có muốn thêm ảnh vật tư không?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                                    //if (result == DialogResult.OK)
+                                    //{
+                                    //    frmChiTietAnhVatTu frm = new frmChiTietAnhVatTu(vt.mavattu, vt.tenvattu);
+                                    //    frm.ShowDialog();
+                                    //}
+
+                                    SaveImage();
+
                                     this.Close();
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Giá trị mã vật tư đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("Giá trị mã vật tư đã tồn tại hoặc trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else
@@ -215,17 +246,25 @@ namespace QuanLyVatTu.GUI.Share
                     {
                         if (IsValidVarchar255(txtMaVatTu))
                         {
-                            bool checkOK = false;
-                            if (txtMaVatTu.Text.Trim() == vt_save.mavattu_hethong)
-                            {
-                                checkOK = true;
-                            }
+                            bool check1 = false;
+                            bool check2 = false;
                             var vt_find = dbContext.VatTus.FirstOrDefault(m => m.mavattu_hethong == txtMaVatTu.Text);
-                            if (vt_find == null || checkOK == true)
+                            if (string.IsNullOrEmpty(txtMaVatTu.Text))
+                            {
+                                check1 = true;
+                            }
+                            if (txtMaVatTu.Text.ToLower().Trim() == vt_save.mavattu_hethong.ToLower().Trim())
+                            {
+                                check2 = true;
+                            }
+                            if (vt_find == null || check1 == true || check2 == true)
                             {
                                 int mavattu = vt_save.mavattu;
                                 VatTu vt = dbContext.VatTus.SingleOrDefault(m => m.mavattu == mavattu);
-                                vt.mavattu_hethong = txtMaVatTu.Text;
+                                if (check1 != true)
+                                {
+                                    vt.mavattu_hethong = txtMaVatTu.Text;
+                                }
                                 vt.tenvattu = txtTenVatTu.Text;
                                 vt.donvitinh = txtDonViTinh.Text;
                                 try
@@ -267,12 +306,14 @@ namespace QuanLyVatTu.GUI.Share
                                 dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
                                 dbContext.SaveChanges();
 
+                                SaveImage();
+
                                 MessageBox.Show("Sửa thông tin vật tư thành công");
                                 this.Close();
                             }
                             else
                             {
-                                MessageBox.Show("Giá trị mã vật tư đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Giá trị mã vật tư đã tồn tại hoặc trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
@@ -411,6 +452,364 @@ namespace QuanLyVatTu.GUI.Share
         {
             frmChiTietAnhVatTu frm = new frmChiTietAnhVatTu(vt_save.mavattu, txtTenVatTu.Text);
             frm.ShowDialog();
+        }
+
+        public static T MinOfThree<T>(T a, T b, T c) where T : IComparable<T>
+        {
+            T min = a;
+
+            if (b.CompareTo(min) < 0)
+            {
+                min = b;
+            }
+
+            if (c.CompareTo(min) < 0)
+            {
+                min = c;
+            }
+
+            return min;
+        }
+
+        private void frmThemVatTu_Resize(object sender, EventArgs e)
+        {
+            panel64.Height = (int)(262 * panel63.Height / 330);
+            panel_picture2_3.Height = (int)(262 * panel63.Height / 330);
+            panel_picture1.Width = 300;
+            panel6.Width = (int)((panel1.Width - 300) / 2);
+
+            panel63.Width = (int)(panel2.Width - 420);
+
+            groupPanel2.Height = (int)(panel_picture2_3.Height / 2);
+            groupPanel3.Height = (int)(panel_picture2_3.Height / 2);
+
+            int minInt = MinOfThree(groupPanel1.Height, groupPanel2.Height, groupPanel3.Height);
+
+            groupPanel1.Height = minInt;
+            groupPanel2.Height = minInt;
+            groupPanel3.Height = minInt;
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                openFileDialog.Title = "Chọn ảnh mới";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (pictureBox1.Image != null)
+                    {
+                        pictureBox1.Image.Dispose();
+                        pictureBox1.Image = null;
+                    }
+                    using (var image = Image.FromFile(openFileDialog.FileName))
+                    {
+                        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                        pictureBox1.Image = new Bitmap(image);
+                    }
+                    path_anh1 = openFileDialog.FileName;
+                    checkModifyImage1 = true;
+                }
+            }
+        }
+
+        private void pictureBox2_DoubleClick(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                openFileDialog.Title = "Chọn ảnh mới";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (pictureBox2.Image != null)
+                    {
+                        pictureBox2.Image.Dispose();
+                        pictureBox2.Image = null;
+                    }
+                    using (var image = Image.FromFile(openFileDialog.FileName))
+                    {
+                        pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+                        pictureBox2.Image = new Bitmap(image);
+                    }
+                    path_anh2 = openFileDialog.FileName;
+                    checkModifyImage2 = true;
+                }
+            }
+        }
+
+        private void pictureBox3_DoubleClick(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                openFileDialog.Title = "Chọn ảnh mới";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (pictureBox3.Image != null)
+                    {
+                        pictureBox3.Image.Dispose();
+                        pictureBox3.Image = null;
+                    }
+                    using (var image = Image.FromFile(openFileDialog.FileName))
+                    {
+                        pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+                        pictureBox3.Image = new Bitmap(image);
+                    }
+                    path_anh3 = openFileDialog.FileName;
+                    checkModifyImage3 = true;
+                }
+            }
+        }
+
+        public async Task UploadImageAsync(string pathImage, string folderName, string imageName)
+        {
+            // Kiểm tra file ảnh có tồn tại không
+            if (!File.Exists(pathImage))
+            {
+                Console.WriteLine("File ảnh không tồn tại.");
+                return;
+            }
+
+            // Đọc file ảnh và chuyển đổi thành Base64
+            byte[] imageBytes = File.ReadAllBytes(pathImage);
+            string imageBase64 = Convert.ToBase64String(imageBytes);
+
+            // Tạo payload JSON để gửi lên server
+            var payload = new
+            {
+                image_base64 = imageBase64,
+                folder_name = folderName,
+                file_name = imageName
+            };
+
+            string jsonPayload = JsonConvert.SerializeObject(payload);
+            StringContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+            try
+            {
+                // Gửi POST request tới API
+                string apiUrl = $"http://{BienDungChung.serverIP}:9000/upload_image"; //
+                HttpResponseMessage response = await client.PostAsync(apiUrl, content);
+
+                // Kiểm tra kết quả trả về từ server
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("Tải lên ảnh thành công: " + responseBody);
+                }
+                else
+                {
+                    Console.WriteLine("Lỗi khi tải lên ảnh: " + response.ReasonPhrase);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi gửi yêu cầu: " + ex.Message);
+            }
+        }
+
+        private async Task LoadImageAsync()
+        {
+            using (var dbContext = new QuanLyVatTuDbContext())
+            {
+                if (vt_save != null)
+                {
+                    var list_image = dbContext.AnhVatTus.Where(m => m.mavattu == vt_save.mavattu).ToList();
+                    if (list_image != null)
+                    {
+                        string url = $"http://{BienDungChung.serverIP}:9000";
+                        foreach (var image in list_image)
+                        {
+                            if (image.tt_anh >= 1 && image.tt_anh <= 3) // Đảm bảo tt_anh nằm trong phạm vi các pictureBox
+                            {
+                                try
+                                {
+                                    // Tải ảnh trong một luồng khác
+                                    byte[] imageBytes = await Task.Run(async () =>
+                                    {
+                                        using (HttpClient client = new HttpClient())
+                                        {
+                                            return await client.GetByteArrayAsync($"{url}{image.duongdananh}");
+                                        }
+                                    });
+
+                                    // Cập nhật UI trong luồng chính
+                                    UpdatePictureBox(imageBytes, (int)image.tt_anh);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show($"Lỗi khi tải ảnh {image.tt_anh}: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void UpdatePictureBox(byte[] imageBytes, int pictureBoxNumber)
+        {
+            if (imageBytes == null) return;
+
+            // Thực hiện cập nhật UI trong luồng chính
+            this.Invoke(new Action(() =>
+            {
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    Image image = Image.FromStream(ms);
+                    switch (pictureBoxNumber)
+                    {
+                        case 1:
+                            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                            pictureBox1.Image = image;
+                            break;
+                        case 2:
+                            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+                            pictureBox2.Image = image;
+                            break;
+                        case 3:
+                            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+                            pictureBox3.Image = image;
+                            break;
+                    }
+                }
+            }));
+        }
+
+        private async void SaveImage()
+        {
+            using (var dbContext = new QuanLyVatTuDbContext())
+            {
+                if (checkModifyImage1)
+                {
+                    await UploadImageAsync(path_anh1, vt_save.mavattu.ToString(), $"1{Path.GetExtension(path_anh1)}");
+                    if (this.Text == "Thêm vật tư")
+                    {
+                        AnhVatTu anhVatTu = new AnhVatTu();
+                        anhVatTu.duongdananh = $"/upload/{vt_save.mavattu.ToString()}/1{Path.GetExtension(path_anh1)}";
+                        anhVatTu.mavattu = vt_save.mavattu;
+                        anhVatTu.tt_anh = 1;
+                        dbContext.AnhVatTus.Add(anhVatTu);
+                        dbContext.SaveChanges();
+                    }
+                    else if (!string.IsNullOrEmpty(path_anh1))
+                    {
+                        var anhvattu1 = dbContext.AnhVatTus.FirstOrDefault(m => m.mavattu == vt_save.mavattu && m.tt_anh == 1);
+                        if (anhvattu1 == null)
+                        {
+                            AnhVatTu anhVatTu = new AnhVatTu();
+                            anhVatTu.duongdananh = $"/upload/{vt_save.mavattu.ToString()}/1{Path.GetExtension(path_anh1)}";
+                            anhVatTu.mavattu = vt_save.mavattu;
+                            anhVatTu.tt_anh = 1;
+                            dbContext.AnhVatTus.Add(anhVatTu);
+                        }
+                        else
+                        {
+                            anhvattu1.duongdananh = $"/upload/{vt_save.mavattu.ToString()}/1{Path.GetExtension(path_anh1)}";
+                        }
+                        dbContext.SaveChanges();
+                    }
+                }
+
+                if (checkModifyImage2)
+                {
+                    await UploadImageAsync(path_anh2, vt_save.mavattu.ToString(), $"2{Path.GetExtension(path_anh2)}");
+                    if (this.Text == "Thêm vật tư")
+                    {
+                        AnhVatTu anhVatTu = new AnhVatTu();
+                        anhVatTu.duongdananh = $"/upload/{vt_save.mavattu.ToString()}/2{Path.GetExtension(path_anh2)}";
+                        anhVatTu.mavattu = vt_save.mavattu;
+                        anhVatTu.tt_anh = 2;
+                        dbContext.AnhVatTus.Add(anhVatTu);
+                        dbContext.SaveChanges();
+                    }
+                    else if (!string.IsNullOrEmpty(path_anh2))
+                    {
+                        var anhvattu2 = dbContext.AnhVatTus.FirstOrDefault(m => m.mavattu == vt_save.mavattu && m.tt_anh == 2);
+                        if (anhvattu2 == null)
+                        {
+                            AnhVatTu anhVatTu = new AnhVatTu();
+                            anhVatTu.duongdananh = $"/upload/{vt_save.mavattu.ToString()}/2{Path.GetExtension(path_anh2)}";
+                            anhVatTu.mavattu = vt_save.mavattu;
+                            anhVatTu.tt_anh = 2;
+                            dbContext.AnhVatTus.Add(anhVatTu);
+                        }
+                        else
+                        {
+                            anhvattu2.duongdananh = $"/upload/{vt_save.mavattu.ToString()}/2{Path.GetExtension(path_anh2)}";
+                        }
+                        dbContext.SaveChanges();
+                    }
+                }
+
+                if (checkModifyImage3 || !string.IsNullOrEmpty(path_anh3))
+                {
+                    await UploadImageAsync(path_anh3, vt_save.mavattu.ToString(), $"3{Path.GetExtension(path_anh3)}");
+                    if (this.Text == "Thêm vật tư")
+                    {
+                        AnhVatTu anhVatTu = new AnhVatTu();
+                        anhVatTu.duongdananh = $"/upload/{vt_save.mavattu.ToString()}/3{Path.GetExtension(path_anh3)}";
+                        anhVatTu.mavattu = vt_save.mavattu;
+                        anhVatTu.tt_anh = 3;
+                        dbContext.AnhVatTus.Add(anhVatTu);
+                        dbContext.SaveChanges();
+                    }
+                    else if (!string.IsNullOrEmpty(path_anh3))
+                    {
+                        var anhvattu3 = dbContext.AnhVatTus.FirstOrDefault(m => m.mavattu == vt_save.mavattu && m.tt_anh == 3);
+                        if (anhvattu3 == null)
+                        {
+                            AnhVatTu anhVatTu = new AnhVatTu();
+                            anhVatTu.duongdananh = $"/upload/{vt_save.mavattu.ToString()}/3{Path.GetExtension(path_anh3)}";
+                            anhVatTu.mavattu = vt_save.mavattu;
+                            anhVatTu.tt_anh = 3;
+                            dbContext.AnhVatTus.Add(anhVatTu);
+                        }
+                        else
+                        {
+                            anhvattu3.duongdananh = $"/upload/{vt_save.mavattu.ToString()}/3{Path.GetExtension(path_anh3)}";
+                        }
+                        dbContext.SaveChanges();
+                    }
+                }
+            }
+        }
+
+        private void btnPhongToAnh1_Click(object sender, EventArgs e)
+        {
+            frm_XemAnh frm_XemAnh = new frm_XemAnh($"Ảnh 1 của vật tư: {vt_save.tenvattu}", pictureBox1.Image);
+            frm_XemAnh.Show();
+        }
+
+        private void btnThayDoiAnh1_Click(object sender, EventArgs e)
+        {
+            pictureBox1_DoubleClick(sender, e);
+        }
+
+        private void btnPhongToAnh2_Click(object sender, EventArgs e)
+        {
+            frm_XemAnh frm_XemAnh = new frm_XemAnh($"Ảnh 2 của vật tư: {vt_save.tenvattu}", pictureBox1.Image);
+            frm_XemAnh.Show();
+        }
+
+        private void btnThayDoiAnh2_Click(object sender, EventArgs e)
+        {
+            pictureBox2_DoubleClick(sender, e);
+        }
+
+        private void btnPhongToAnh3_Click(object sender, EventArgs e)
+        {
+            frm_XemAnh frm_XemAnh = new frm_XemAnh($"Ảnh 3 của vật tư: {vt_save.tenvattu}", pictureBox1.Image);
+            frm_XemAnh.Show();
+        }
+
+        private void btnThayDoiAnh3_Click(object sender, EventArgs e)
+        {
+            pictureBox3_DoubleClick(sender, e);
         }
     }
 }

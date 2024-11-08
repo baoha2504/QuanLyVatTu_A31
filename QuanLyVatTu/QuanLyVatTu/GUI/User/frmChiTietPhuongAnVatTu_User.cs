@@ -748,5 +748,14 @@ namespace QuanLyVatTu.GUI.User
                 }
             }
         }
+
+        private void txtNoiDungTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

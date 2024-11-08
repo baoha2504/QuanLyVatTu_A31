@@ -551,5 +551,22 @@ namespace QuanLyVatTu.GUI.Share
             dataGridView_DSVatTuTrung.Columns["Column10"].Width = (int)(dataGridView_DSVatTuTrung.Width * 2 / 10);
         }
 
+        private void txtNoiDungTimKiem1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiemVatTu1_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtNoiDungTimKiem2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiemVatTu2_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

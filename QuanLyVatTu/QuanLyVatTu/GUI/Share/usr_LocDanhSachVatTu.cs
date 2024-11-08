@@ -548,5 +548,23 @@ namespace QuanLyVatTu.GUI.Share
                 }
             }
         }
+
+        private void txtNoiDungTimKiem1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiemVatTu1_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtNoiDungTimKiem2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiemVatTu2_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

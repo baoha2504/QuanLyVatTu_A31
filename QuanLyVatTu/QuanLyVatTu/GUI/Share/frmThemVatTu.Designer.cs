@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemVatTu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -67,7 +68,13 @@
             this.panel32 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel_picture1 = new System.Windows.Forms.Panel();
+            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnPhongToAnh1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnThayDoiAnh1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel56 = new System.Windows.Forms.Panel();
@@ -108,6 +115,18 @@
             this.panel50 = new System.Windows.Forms.Panel();
             this.panel51 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel68 = new System.Windows.Forms.Panel();
+            this.panel_picture2_3 = new System.Windows.Forms.Panel();
+            this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnPhongToAnh3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnThayDoiAnh3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnPhongToAnh2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnThayDoiAnh2 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel63 = new System.Windows.Forms.Panel();
             this.panel66 = new System.Windows.Forms.Panel();
             this.btnAnhVatTu = new DevComponents.DotNetBar.ButtonX();
@@ -138,6 +157,10 @@
             this.panel29.SuspendLayout();
             this.panel30.SuspendLayout();
             this.panel32.SuspendLayout();
+            this.panel_picture1.SuspendLayout();
+            this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel56.SuspendLayout();
             this.panel57.SuspendLayout();
@@ -155,6 +178,14 @@
             this.panel14.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel68.SuspendLayout();
+            this.panel_picture2_3.SuspendLayout();
+            this.groupPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.contextMenuStrip3.SuspendLayout();
+            this.groupPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
             this.panel63.SuspendLayout();
             this.panel66.SuspendLayout();
             this.panel64.SuspendLayout();
@@ -167,7 +198,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1020, 230);
+            this.panel1.Size = new System.Drawing.Size(1270, 230);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -178,7 +209,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1020, 230);
+            this.panel3.Size = new System.Drawing.Size(1270, 230);
             this.panel3.TabIndex = 7;
             // 
             // panel4
@@ -193,12 +224,12 @@
             this.panel4.Controls.Add(this.panel33);
             this.panel4.Controls.Add(this.panel29);
             this.panel4.Controls.Add(this.panel9);
-            this.panel4.Controls.Add(this.panel7);
+            this.panel4.Controls.Add(this.panel_picture1);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(501, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(519, 230);
+            this.panel4.Size = new System.Drawing.Size(769, 230);
             this.panel4.TabIndex = 1;
             // 
             // panel52
@@ -209,7 +240,7 @@
             this.panel52.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel52.Location = new System.Drawing.Point(10, 190);
             this.panel52.Name = "panel52";
-            this.panel52.Size = new System.Drawing.Size(479, 35);
+            this.panel52.Size = new System.Drawing.Size(478, 35);
             this.panel52.TabIndex = 18;
             // 
             // panel53
@@ -218,7 +249,7 @@
             this.panel53.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel53.Location = new System.Drawing.Point(145, 0);
             this.panel53.Name = "panel53";
-            this.panel53.Size = new System.Drawing.Size(334, 35);
+            this.panel53.Size = new System.Drawing.Size(333, 35);
             this.panel53.TabIndex = 7;
             // 
             // txtThoiGianSua
@@ -229,7 +260,7 @@
             this.txtThoiGianSua.Location = new System.Drawing.Point(0, 0);
             this.txtThoiGianSua.Multiline = true;
             this.txtThoiGianSua.Name = "txtThoiGianSua";
-            this.txtThoiGianSua.Size = new System.Drawing.Size(334, 35);
+            this.txtThoiGianSua.Size = new System.Drawing.Size(333, 35);
             this.txtThoiGianSua.TabIndex = 0;
             // 
             // panel54
@@ -265,7 +296,7 @@
             this.panel48.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel48.Location = new System.Drawing.Point(10, 185);
             this.panel48.Name = "panel48";
-            this.panel48.Size = new System.Drawing.Size(479, 5);
+            this.panel48.Size = new System.Drawing.Size(478, 5);
             this.panel48.TabIndex = 17;
             // 
             // panel44
@@ -276,7 +307,7 @@
             this.panel44.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel44.Location = new System.Drawing.Point(10, 150);
             this.panel44.Name = "panel44";
-            this.panel44.Size = new System.Drawing.Size(479, 35);
+            this.panel44.Size = new System.Drawing.Size(478, 35);
             this.panel44.TabIndex = 16;
             // 
             // panel45
@@ -285,7 +316,7 @@
             this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel45.Location = new System.Drawing.Point(145, 0);
             this.panel45.Name = "panel45";
-            this.panel45.Size = new System.Drawing.Size(334, 35);
+            this.panel45.Size = new System.Drawing.Size(333, 35);
             this.panel45.TabIndex = 7;
             // 
             // txtNguoiSuaCuoi
@@ -296,7 +327,7 @@
             this.txtNguoiSuaCuoi.Location = new System.Drawing.Point(0, 0);
             this.txtNguoiSuaCuoi.Multiline = true;
             this.txtNguoiSuaCuoi.Name = "txtNguoiSuaCuoi";
-            this.txtNguoiSuaCuoi.Size = new System.Drawing.Size(334, 35);
+            this.txtNguoiSuaCuoi.Size = new System.Drawing.Size(333, 35);
             this.txtNguoiSuaCuoi.TabIndex = 0;
             // 
             // panel46
@@ -332,7 +363,7 @@
             this.panel43.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel43.Location = new System.Drawing.Point(10, 145);
             this.panel43.Name = "panel43";
-            this.panel43.Size = new System.Drawing.Size(479, 5);
+            this.panel43.Size = new System.Drawing.Size(478, 5);
             this.panel43.TabIndex = 15;
             // 
             // panel39
@@ -343,7 +374,7 @@
             this.panel39.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel39.Location = new System.Drawing.Point(10, 110);
             this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(479, 35);
+            this.panel39.Size = new System.Drawing.Size(478, 35);
             this.panel39.TabIndex = 14;
             // 
             // panel40
@@ -352,7 +383,7 @@
             this.panel40.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel40.Location = new System.Drawing.Point(145, 0);
             this.panel40.Name = "panel40";
-            this.panel40.Size = new System.Drawing.Size(334, 35);
+            this.panel40.Size = new System.Drawing.Size(333, 35);
             this.panel40.TabIndex = 7;
             // 
             // txtGhiChu
@@ -362,7 +393,7 @@
             this.txtGhiChu.Location = new System.Drawing.Point(0, 0);
             this.txtGhiChu.Multiline = true;
             this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(334, 35);
+            this.txtGhiChu.Size = new System.Drawing.Size(333, 35);
             this.txtGhiChu.TabIndex = 1;
             // 
             // panel41
@@ -398,7 +429,7 @@
             this.panel38.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel38.Location = new System.Drawing.Point(10, 105);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(479, 5);
+            this.panel38.Size = new System.Drawing.Size(478, 5);
             this.panel38.TabIndex = 13;
             // 
             // panel34
@@ -409,7 +440,7 @@
             this.panel34.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel34.Location = new System.Drawing.Point(10, 70);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(479, 35);
+            this.panel34.Size = new System.Drawing.Size(478, 35);
             this.panel34.TabIndex = 12;
             // 
             // panel35
@@ -418,7 +449,7 @@
             this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel35.Location = new System.Drawing.Point(145, 0);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(334, 35);
+            this.panel35.Size = new System.Drawing.Size(333, 35);
             this.panel35.TabIndex = 7;
             // 
             // txtTinhTrang
@@ -433,7 +464,7 @@
             "Bị trùng"});
             this.txtTinhTrang.Location = new System.Drawing.Point(0, 0);
             this.txtTinhTrang.Name = "txtTinhTrang";
-            this.txtTinhTrang.Size = new System.Drawing.Size(334, 26);
+            this.txtTinhTrang.Size = new System.Drawing.Size(333, 26);
             this.txtTinhTrang.TabIndex = 3;
             // 
             // panel36
@@ -469,7 +500,7 @@
             this.panel33.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel33.Location = new System.Drawing.Point(10, 65);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(479, 5);
+            this.panel33.Size = new System.Drawing.Size(478, 5);
             this.panel33.TabIndex = 11;
             // 
             // panel29
@@ -480,7 +511,7 @@
             this.panel29.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel29.Location = new System.Drawing.Point(10, 30);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(479, 35);
+            this.panel29.Size = new System.Drawing.Size(478, 35);
             this.panel29.TabIndex = 10;
             // 
             // panel30
@@ -489,7 +520,7 @@
             this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel30.Location = new System.Drawing.Point(145, 0);
             this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(334, 35);
+            this.panel30.Size = new System.Drawing.Size(333, 35);
             this.panel30.TabIndex = 7;
             // 
             // txtDanhMuc
@@ -500,7 +531,7 @@
             this.txtDanhMuc.FormattingEnabled = true;
             this.txtDanhMuc.Location = new System.Drawing.Point(0, 0);
             this.txtDanhMuc.Name = "txtDanhMuc";
-            this.txtDanhMuc.Size = new System.Drawing.Size(334, 26);
+            this.txtDanhMuc.Size = new System.Drawing.Size(333, 26);
             this.txtDanhMuc.TabIndex = 3;
             // 
             // panel31
@@ -536,16 +567,115 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(10, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(479, 30);
+            this.panel9.Size = new System.Drawing.Size(478, 30);
             this.panel9.TabIndex = 5;
             // 
-            // panel7
+            // panel_picture1
             // 
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(489, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(30, 230);
-            this.panel7.TabIndex = 4;
+            this.panel_picture1.Controls.Add(this.groupPanel1);
+            this.panel_picture1.Controls.Add(this.panelEx1);
+            this.panel_picture1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel_picture1.Location = new System.Drawing.Point(488, 0);
+            this.panel_picture1.Name = "panel_picture1";
+            this.panel_picture1.Size = new System.Drawing.Size(281, 230);
+            this.panel_picture1.TabIndex = 4;
+            // 
+            // groupPanel1
+            // 
+            this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.pictureBox1);
+            this.groupPanel1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.groupPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupPanel1.Location = new System.Drawing.Point(0, 30);
+            this.groupPanel1.Name = "groupPanel1";
+            this.groupPanel1.Size = new System.Drawing.Size(281, 200);
+            // 
+            // 
+            // 
+            this.groupPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel1.Style.BackColorGradientAngle = 90;
+            this.groupPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderBottomWidth = 1;
+            this.groupPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderLeftWidth = 1;
+            this.groupPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderRightWidth = 1;
+            this.groupPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel1.Style.BorderTopWidth = 1;
+            this.groupPanel1.Style.CornerDiameter = 4;
+            this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel1.TabIndex = 0;
+            this.groupPanel1.Text = "Ảnh 1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ContextMenuStrip = this.contextMenuStrip1;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(275, 177);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnPhongToAnh1,
+            this.btnThayDoiAnh1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 52);
+            // 
+            // btnPhongToAnh1
+            // 
+            this.btnPhongToAnh1.Name = "btnPhongToAnh1";
+            this.btnPhongToAnh1.Size = new System.Drawing.Size(166, 24);
+            this.btnPhongToAnh1.Text = "Phóng to ảnh";
+            this.btnPhongToAnh1.Click += new System.EventHandler(this.btnPhongToAnh1_Click);
+            // 
+            // btnThayDoiAnh1
+            // 
+            this.btnThayDoiAnh1.Name = "btnThayDoiAnh1";
+            this.btnThayDoiAnh1.Size = new System.Drawing.Size(166, 24);
+            this.btnThayDoiAnh1.Text = "Thay đổi ảnh";
+            this.btnThayDoiAnh1.Click += new System.EventHandler(this.btnThayDoiAnh1_Click);
+            // 
+            // panelEx1
+            // 
+            this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelEx1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelEx1.Location = new System.Drawing.Point(0, 0);
+            this.panelEx1.Name = "panelEx1";
+            this.panelEx1.Size = new System.Drawing.Size(281, 30);
+            this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx1.Style.BackColor1.Color = System.Drawing.Color.AliceBlue;
+            this.panelEx1.Style.BackColor2.Color = System.Drawing.Color.AliceBlue;
+            this.panelEx1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx1.Style.GradientAngle = 90;
+            this.panelEx1.TabIndex = 1;
+            this.panelEx1.Text = "ẢNH VẬT TƯ";
             // 
             // panel5
             // 
@@ -967,6 +1097,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel2.Controls.Add(this.panel68);
             this.panel2.Controls.Add(this.panel63);
             this.panel2.Controls.Add(this.panel62);
             this.panel2.Controls.Add(this.panel61);
@@ -974,8 +1105,181 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 230);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1020, 330);
+            this.panel2.Size = new System.Drawing.Size(1270, 330);
             this.panel2.TabIndex = 1;
+            // 
+            // panel68
+            // 
+            this.panel68.Controls.Add(this.panel_picture2_3);
+            this.panel68.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel68.Location = new System.Drawing.Point(990, 0);
+            this.panel68.Name = "panel68";
+            this.panel68.Size = new System.Drawing.Size(280, 330);
+            this.panel68.TabIndex = 9;
+            // 
+            // panel_picture2_3
+            // 
+            this.panel_picture2_3.Controls.Add(this.groupPanel3);
+            this.panel_picture2_3.Controls.Add(this.groupPanel2);
+            this.panel_picture2_3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_picture2_3.Location = new System.Drawing.Point(0, 0);
+            this.panel_picture2_3.Name = "panel_picture2_3";
+            this.panel_picture2_3.Size = new System.Drawing.Size(280, 262);
+            this.panel_picture2_3.TabIndex = 5;
+            // 
+            // groupPanel3
+            // 
+            this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.pictureBox3);
+            this.groupPanel3.DisabledBackColor = System.Drawing.Color.Empty;
+            this.groupPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupPanel3.Location = new System.Drawing.Point(0, 131);
+            this.groupPanel3.Name = "groupPanel3";
+            this.groupPanel3.Size = new System.Drawing.Size(280, 125);
+            // 
+            // 
+            // 
+            this.groupPanel3.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel3.Style.BackColorGradientAngle = 90;
+            this.groupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderBottomWidth = 1;
+            this.groupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderLeftWidth = 1;
+            this.groupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderRightWidth = 1;
+            this.groupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderTopWidth = 1;
+            this.groupPanel3.Style.CornerDiameter = 4;
+            this.groupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel3.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel3.TabIndex = 2;
+            this.groupPanel3.Text = "Ảnh 3";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.ContextMenuStrip = this.contextMenuStrip3;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(274, 102);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.DoubleClick += new System.EventHandler(this.pictureBox3_DoubleClick);
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnPhongToAnh3,
+            this.btnThayDoiAnh3});
+            this.contextMenuStrip3.Name = "contextMenuStrip1";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(167, 52);
+            // 
+            // btnPhongToAnh3
+            // 
+            this.btnPhongToAnh3.Name = "btnPhongToAnh3";
+            this.btnPhongToAnh3.Size = new System.Drawing.Size(166, 24);
+            this.btnPhongToAnh3.Text = "Phóng to ảnh";
+            this.btnPhongToAnh3.Click += new System.EventHandler(this.btnPhongToAnh3_Click);
+            // 
+            // btnThayDoiAnh3
+            // 
+            this.btnThayDoiAnh3.Name = "btnThayDoiAnh3";
+            this.btnThayDoiAnh3.Size = new System.Drawing.Size(166, 24);
+            this.btnThayDoiAnh3.Text = "Thay đổi ảnh";
+            this.btnThayDoiAnh3.Click += new System.EventHandler(this.btnThayDoiAnh3_Click);
+            // 
+            // groupPanel2
+            // 
+            this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel2.Controls.Add(this.pictureBox2);
+            this.groupPanel2.DisabledBackColor = System.Drawing.Color.Empty;
+            this.groupPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupPanel2.Location = new System.Drawing.Point(0, 0);
+            this.groupPanel2.Name = "groupPanel2";
+            this.groupPanel2.Size = new System.Drawing.Size(280, 131);
+            // 
+            // 
+            // 
+            this.groupPanel2.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel2.Style.BackColorGradientAngle = 90;
+            this.groupPanel2.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel2.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderBottomWidth = 1;
+            this.groupPanel2.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel2.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderLeftWidth = 1;
+            this.groupPanel2.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderRightWidth = 1;
+            this.groupPanel2.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel2.Style.BorderTopWidth = 1;
+            this.groupPanel2.Style.CornerDiameter = 4;
+            this.groupPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel2.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel2.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel2.TabIndex = 1;
+            this.groupPanel2.Text = "Ảnh 2";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.ContextMenuStrip = this.contextMenuStrip2;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(274, 108);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.DoubleClick += new System.EventHandler(this.pictureBox2_DoubleClick);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnPhongToAnh2,
+            this.btnThayDoiAnh2});
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(167, 52);
+            // 
+            // btnPhongToAnh2
+            // 
+            this.btnPhongToAnh2.Name = "btnPhongToAnh2";
+            this.btnPhongToAnh2.Size = new System.Drawing.Size(166, 24);
+            this.btnPhongToAnh2.Text = "Phóng to ảnh";
+            this.btnPhongToAnh2.Click += new System.EventHandler(this.btnPhongToAnh2_Click);
+            // 
+            // btnThayDoiAnh2
+            // 
+            this.btnThayDoiAnh2.Name = "btnThayDoiAnh2";
+            this.btnThayDoiAnh2.Size = new System.Drawing.Size(166, 24);
+            this.btnThayDoiAnh2.Text = "Thay đổi ảnh";
+            this.btnThayDoiAnh2.Click += new System.EventHandler(this.btnThayDoiAnh2_Click);
             // 
             // panel63
             // 
@@ -1011,6 +1315,7 @@
             this.btnAnhVatTu.TabIndex = 10;
             this.btnAnhVatTu.Text = "Ảnh vật tư";
             this.btnAnhVatTu.Tooltip = "Ảnh của vật tư";
+            this.btnAnhVatTu.Visible = false;
             this.btnAnhVatTu.Click += new System.EventHandler(this.btnAnhVatTu_Click);
             // 
             // panel67
@@ -1102,14 +1407,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 560);
+            this.ClientSize = new System.Drawing.Size(1270, 560);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmThemVatTu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm vật tư";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.frmThemVatTu_Resize);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -1136,6 +1442,10 @@
             this.panel30.ResumeLayout(false);
             this.panel32.ResumeLayout(false);
             this.panel32.PerformLayout();
+            this.panel_picture1.ResumeLayout(false);
+            this.groupPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel56.ResumeLayout(false);
             this.panel57.ResumeLayout(false);
@@ -1161,6 +1471,14 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel68.ResumeLayout(false);
+            this.panel_picture2_3.ResumeLayout(false);
+            this.groupPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.contextMenuStrip3.ResumeLayout(false);
+            this.groupPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.panel63.ResumeLayout(false);
             this.panel66.ResumeLayout(false);
             this.panel64.ResumeLayout(false);
@@ -1209,7 +1527,7 @@
         private System.Windows.Forms.Panel panel32;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel_picture1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel56;
@@ -1264,5 +1582,23 @@
         private System.Windows.Forms.TextBox txtDonGia;
         private DevComponents.DotNetBar.ButtonX btnAnhVatTu;
         private System.Windows.Forms.Panel panel67;
+        private System.Windows.Forms.Panel panel68;
+        private System.Windows.Forms.Panel panel_picture2_3;
+        private DevComponents.DotNetBar.PanelEx panelEx1;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem btnPhongToAnh1;
+        private System.Windows.Forms.ToolStripMenuItem btnThayDoiAnh1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem btnPhongToAnh2;
+        private System.Windows.Forms.ToolStripMenuItem btnThayDoiAnh2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem btnPhongToAnh3;
+        private System.Windows.Forms.ToolStripMenuItem btnThayDoiAnh3;
     }
 }

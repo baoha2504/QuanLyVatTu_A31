@@ -218,5 +218,14 @@ namespace QuanLyVatTu.GUI.Share
             dataGridView_DS_PAVT.Columns["Column7"].Width = (int)(dataGridView_DS_PAVT.Width * 5 / 31);
             dataGridView_DS_PAVT.Columns["Column9"].Width = (int)(dataGridView_DS_PAVT.Width * 3 / 31);
         }
+
+        private void txtNoiDungTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

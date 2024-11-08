@@ -137,5 +137,14 @@ namespace QuanLyVatTu.GUI.Admin
             dataGridView_DSTaiKhoan.Columns["Column8"].Width = (int)(dataGridView_DSTaiKhoan.Width * 5 / 43);
             dataGridView_DSTaiKhoan.Columns["Column9"].Width = (int)(dataGridView_DSTaiKhoan.Width * 4 / 43);
         }
+
+        private void txtNoiDungTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiemTheoTen_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

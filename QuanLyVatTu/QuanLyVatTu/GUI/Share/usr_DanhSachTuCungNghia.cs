@@ -200,5 +200,14 @@ namespace QuanLyVatTu.GUI.Share
             dataGridView_DSTuKhoa.Columns["Column6"].Width = (int)(dataGridView_DSTuKhoa.Width * 2 / 20);
             dataGridView_DSTuKhoa.Columns["Column7"].Width = (int)(dataGridView_DSTuKhoa.Width * 2 / 20);
         }
+
+        private void txtNoiDungTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

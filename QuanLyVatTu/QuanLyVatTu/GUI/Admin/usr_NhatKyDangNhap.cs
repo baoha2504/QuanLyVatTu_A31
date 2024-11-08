@@ -81,5 +81,14 @@ namespace QuanLyVatTu.GUI.Admin
             dataGridView_DSLog.Columns["Column2"].Width = (int)(dataGridView_DSLog.Width * 10 / 24);
             dataGridView_DSLog.Columns["Column3"].Width = (int)(dataGridView_DSLog.Width * 10 / 24);
         }
+
+        private void txtNoiDungTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimKiem_Click(sender, e);
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

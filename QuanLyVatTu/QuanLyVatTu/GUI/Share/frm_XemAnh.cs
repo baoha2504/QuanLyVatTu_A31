@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,26 +23,34 @@ namespace QuanLyVatTu.GUI.Share
         private float zoomFactor = 1.0f;
         private Image originalImage;
 
-        public frm_XemAnh(string urlImage)
+        public frm_XemAnh(string text, Image image)
         {
             InitializeComponent();
-            LoadImage(urlImage);
-            this.Text = urlImage;
+            LoadImage(image);
+            this.Text = text;
             pictureBox.MouseWheel += new MouseEventHandler(OnMouseWheel);
         }
 
-        private void LoadImage(string urlImage)
+        private void LoadImage(Image image)
         {
-            try
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.Image = image;
+        }
+
+        private void UpdatePictureBox(byte[] imageBytes)
+        {
+            if (imageBytes == null) return;
+
+            // Thực hiện cập nhật UI trong luồng chính
+            this.Invoke(new Action(() =>
             {
-                originalImage = Image.FromFile(urlImage);
-                pictureBox.Image = originalImage;
-                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading image: " + ex.Message);
-            }
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    Image image = Image.FromStream(ms);
+                    pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox.Image = image;
+                }
+            }));
         }
 
         private void OnMouseWheel(object sender, MouseEventArgs e)
