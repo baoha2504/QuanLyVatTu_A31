@@ -23,7 +23,40 @@ namespace QuanLyVatTu.GUI.Admin
             InitializeComponent();
             this.pavt = pavt;
             dataGridView_DS_CTPAVT.RowTemplate.Height = 35;
+            dataGridView_DS_CTPAVT.Columns["Column8"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView_DS_CTPAVT.Columns["Column8"].DefaultCellStyle.Padding = new Padding(0, 5, 0, 5);
             LoadData();
+        }
+
+        private List<TenchihuyNhanxet> Load_NhanXet(string str1, string str2)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(str1) || string.IsNullOrEmpty(str2))
+                {
+                    return null;
+                }
+                else
+                {
+                    string[] tenchihuyArray = str1.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] nhanxetArray = str2.Split(new[] { "@*@" }, StringSplitOptions.RemoveEmptyEntries);
+
+                    List<TenchihuyNhanxet> danhSach = new List<TenchihuyNhanxet>();
+                    for (int i = 0; i < Math.Min(tenchihuyArray.Length, nhanxetArray.Length); i++)
+                    {
+                        danhSach.Add(new TenchihuyNhanxet
+                        {
+                            tenchihuy = tenchihuyArray[i],
+                            nhanxet = nhanxetArray[i]
+                        });
+                    }
+                    return danhSach;
+                }
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         private void LoadData()
@@ -49,7 +82,34 @@ namespace QuanLyVatTu.GUI.Admin
                         string capmoi = function.FormatDecimal((Decimal)chitiet_pavts[i].capmoi);
                         dataGridView_DS_CTPAVT.Rows[i].Cells["Column6"].Value = capmoi;
                         dataGridView_DS_CTPAVT.Rows[i].Cells["Column7"].Value = chitiet_pavts[i].ghichu;
-                        dataGridView_DS_CTPAVT.Rows[i].Cells["Column8"].Value = chitiet_pavts[i].binhluan;
+
+                        List<TenchihuyNhanxet> danhsach = Load_NhanXet(pavt.nguoiduyet, chitiet_pavts[i].binhluan);
+                        if (danhsach != null)
+                        {
+                            int dem = 0;
+                            for (int j = 0; j < danhsach.Count; j++)
+                            {
+                                if (danhsach[j].tenchihuy.Trim().ToLower() == frmDangNhap.tennguoidung.Trim().ToLower())
+                                {
+                                    if (!string.IsNullOrEmpty(danhsach[j].nhanxet.Trim()))
+                                    {
+                                        dataGridView_DS_CTPAVT.Rows[i].Cells["Column9"].Value = danhsach[j].nhanxet;
+                                    }
+                                }
+                                else
+                                {
+                                    if (!string.IsNullOrEmpty(danhsach[j].nhanxet.Trim()))
+                                    {
+                                        dem++;
+                                        if (dem > 1)
+                                        {
+                                            dataGridView_DS_CTPAVT.Rows[i].Height += 10;
+                                        }
+                                        dataGridView_DS_CTPAVT.Rows[i].Cells["Column8"].Value += $"{danhsach[j].tenchihuy}: {danhsach[j].nhanxet}" + Environment.NewLine;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -81,6 +141,27 @@ namespace QuanLyVatTu.GUI.Admin
             {
                 swTrangThaiPhuongAn.IsOn = false;
             }
+        }
+
+        public static string GetApprovalStatus(string input, string name)
+        {
+            try
+            {
+                string[] lines = input.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string line in lines)
+                {
+                    if (line.StartsWith(name + ":"))
+                    {
+                        return line.Split(':')[1].Trim();
+                    }
+                }
+            }
+            catch
+            {
+                return string.Empty;
+            }
+            return string.Empty;
         }
 
         private void dataGridView_DS_CTPAVT_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -147,10 +228,41 @@ namespace QuanLyVatTu.GUI.Admin
                     string newValue = e.FormattedValue.ToString();
                     DS_chitietphuonganvattus[rowID].ghichu = newValue;
                 }
-                else if (e.ColumnIndex == 7)
+                else if (e.ColumnIndex == 8)
                 {
-                    string newValue = e.FormattedValue.ToString();
-                    DS_chitietphuonganvattus[rowID].binhluan = newValue;
+                    DS_chitietphuonganvattus[rowID].binhluan = "";
+                    if (!string.IsNullOrEmpty(txtNguoiDuyetCuoi.Text) && !string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[e.RowIndex].Cells[e.ColumnIndex - 1].Value))
+                    {
+                        string value_chihuykhac = (string)dataGridView_DS_CTPAVT.Rows[e.RowIndex].Cells[e.ColumnIndex - 1].Value;
+
+                        string[] DS_tenchihuy_daduyet_Array = txtNguoiDuyetCuoi.Text.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+                        for (int i = 0; i < DS_tenchihuy_daduyet_Array.Length; i++)
+                        {
+                            string value_tenchihuy_daduyet = GetApprovalStatus(value_chihuykhac, DS_tenchihuy_daduyet_Array[i]);
+                            if (!string.IsNullOrEmpty(value_tenchihuy_daduyet))
+                            {
+                                if (DS_tenchihuy_daduyet_Array[i].Trim().ToLower() == frmDangNhap.tennguoidung.Trim().ToLower())
+                                {
+                                    string newValue = e.FormattedValue.ToString() + "@*@";
+                                    DS_chitietphuonganvattus[rowID].binhluan += newValue;
+                                }
+                                else
+                                {
+                                    DS_chitietphuonganvattus[rowID].binhluan += value_tenchihuy_daduyet + "@*@";
+                                }
+                            }
+                            else
+                            {
+                                string newValue = e.FormattedValue.ToString() + "@*@";
+                                DS_chitietphuonganvattus[rowID].binhluan += newValue;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        string newValue = e.FormattedValue.ToString() + "@*@";
+                        DS_chitietphuonganvattus[rowID].binhluan += newValue;
+                    }
                 }
             }
             catch { }
@@ -196,7 +308,48 @@ namespace QuanLyVatTu.GUI.Admin
                             chitiet_pavts[i].doicu = DS_chitietphuonganvattus[i].doicu;
                             chitiet_pavts[i].capmoi = DS_chitietphuonganvattus[i].capmoi;
                             chitiet_pavts[i].ghichu = DS_chitietphuonganvattus[i].ghichu;
-                            chitiet_pavts[i].binhluan = DS_chitietphuonganvattus[i].binhluan;
+                            if (string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[i].Cells[7].Value))
+                            {
+                                chitiet_pavts[i].binhluan = " @*@" + DS_chitietphuonganvattus[i].binhluan;
+                            }
+                            else if (!string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[i].Cells[7].Value) &&
+                                string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[i].Cells[8].Value))
+                            {
+                                chitiet_pavts[i].binhluan = "";
+                                if (!string.IsNullOrEmpty(txtNguoiDuyetCuoi.Text))
+                                {
+                                    string value_chihuykhac = (string)dataGridView_DS_CTPAVT.Rows[i].Cells[7].Value;
+
+                                    string[] DS_tenchihuy_daduyet_Array = txtNguoiDuyetCuoi.Text.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+                                    for (int j = 0; j < DS_tenchihuy_daduyet_Array.Length; j++)
+                                    {
+                                        string value_tenchihuy_daduyet = GetApprovalStatus(value_chihuykhac, DS_tenchihuy_daduyet_Array[j]);
+                                        if (!string.IsNullOrEmpty(value_tenchihuy_daduyet))
+                                        {
+                                            if (DS_tenchihuy_daduyet_Array[j].Trim().ToLower() == frmDangNhap.tennguoidung.Trim().ToLower())
+                                            {
+                                                chitiet_pavts[i].binhluan += " @*@";
+                                            }
+                                            else
+                                            {
+                                                chitiet_pavts[i].binhluan += (value_tenchihuy_daduyet + "@*@");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            chitiet_pavts[i].binhluan += " @*@";
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    chitiet_pavts[i].binhluan += " @*@";
+                                }
+                            }
+                            else
+                            {
+                                chitiet_pavts[i].binhluan = DS_chitietphuonganvattus[i].binhluan;
+                            }
                         }
                     }
 
@@ -306,13 +459,14 @@ namespace QuanLyVatTu.GUI.Admin
             panel32.Width = (int)(panel7.Width / 3.5);
 
             dataGridView_DS_CTPAVT.Columns["Column1"].Width = (int)(dataGridView_DS_CTPAVT.Width * 1 / 26);
-            dataGridView_DS_CTPAVT.Columns["Column2"].Width = (int)(dataGridView_DS_CTPAVT.Width * 6 / 26);
-            dataGridView_DS_CTPAVT.Columns["Column3"].Width = (int)(dataGridView_DS_CTPAVT.Width * 3 / 26);
-            dataGridView_DS_CTPAVT.Columns["Column4"].Width = (int)(dataGridView_DS_CTPAVT.Width * 2 / 26);
-            dataGridView_DS_CTPAVT.Columns["Column5"].Width = (int)(dataGridView_DS_CTPAVT.Width * 2 / 26);
-            dataGridView_DS_CTPAVT.Columns["Column6"].Width = (int)(dataGridView_DS_CTPAVT.Width * 2 / 26);
-            dataGridView_DS_CTPAVT.Columns["Column7"].Width = (int)(dataGridView_DS_CTPAVT.Width * 4 / 26);
-            dataGridView_DS_CTPAVT.Columns["Column8"].Width = (int)(dataGridView_DS_CTPAVT.Width * 5 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column2"].Width = (int)(dataGridView_DS_CTPAVT.Width * 5.5 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column3"].Width = (int)(dataGridView_DS_CTPAVT.Width * 2.5 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column4"].Width = (int)(dataGridView_DS_CTPAVT.Width * 1.5 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column5"].Width = (int)(dataGridView_DS_CTPAVT.Width * 1.5 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column6"].Width = (int)(dataGridView_DS_CTPAVT.Width * 1.5 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column7"].Width = (int)(dataGridView_DS_CTPAVT.Width * 3.5 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column8"].Width = (int)(dataGridView_DS_CTPAVT.Width * 4 / 26);
+            dataGridView_DS_CTPAVT.Columns["Column9"].Width = (int)(dataGridView_DS_CTPAVT.Width * 4 / 26);
         }
     }
 }

@@ -109,6 +109,7 @@
     <Compile Include="Class\NewVatTuFromExcel.cs" />
     <Compile Include="Class\SoSanhVatTu.cs" />
     <Compile Include="Class\TaiKhoan.cs" />
+    <Compile Include="Class\TenchihuyNhanxet.cs" />
     <Compile Include="Class\ThongTinPhuongAnVatTu.cs" />
     <Compile Include="Class\TimTuKhoaTrung.cs" />
     <Compile Include="Class\VatTuTrung.cs" />

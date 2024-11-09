@@ -33,6 +33,8 @@ namespace QuanLyVatTu.GUI.User
         {
             InitializeComponent();
             this.pavt = pavt;
+            dataGridView_DS_CTPAVT.Columns["Column8"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dataGridView_DS_CTPAVT.Columns["Column8"].DefaultCellStyle.Padding = new Padding(0, 5, 0, 5);
             dataGridView_DS_CTPAVT.RowTemplate.Height = 30;
             dataGridView_DSVatTu.RowTemplate.Height = 30;
             LoadData();
@@ -45,6 +47,37 @@ namespace QuanLyVatTu.GUI.User
                     cbbDanhMuc.Items.Add(dm.tendanhmuc);
                 }
                 cbbDanhMuc.Items.Add("Tất cả danh mục");
+            }
+        }
+
+        private List<TenchihuyNhanxet> Load_NhanXet(string str1, string str2)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(str1) || string.IsNullOrEmpty(str2))
+                {
+                    return null;
+                }
+                else
+                {
+                    string[] tenchihuyArray = str1.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] nhanxetArray = str2.Split(new[] { "@*@" }, StringSplitOptions.RemoveEmptyEntries);
+
+                    List<TenchihuyNhanxet> danhSach = new List<TenchihuyNhanxet>();
+                    for (int i = 0; i < Math.Min(tenchihuyArray.Length, nhanxetArray.Length); i++)
+                    {
+                        danhSach.Add(new TenchihuyNhanxet
+                        {
+                            tenchihuy = tenchihuyArray[i],
+                            nhanxet = nhanxetArray[i]
+                        });
+                    }
+                    return danhSach;
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
 
@@ -78,7 +111,25 @@ namespace QuanLyVatTu.GUI.User
                         string capmoi = function.FormatDecimal((Decimal)DS_chitietphuonganvattus[i].capmoi);
                         dataGridView_DS_CTPAVT.Rows[i].Cells["Column6"].Value = capmoi;
                         dataGridView_DS_CTPAVT.Rows[i].Cells["Column7"].Value = DS_chitietphuonganvattus[i].ghichu;
-                        dataGridView_DS_CTPAVT.Rows[i].Cells["Column8"].Value = DS_chitietphuonganvattus[i].binhluan;
+                        //dataGridView_DS_CTPAVT.Rows[i].Cells["Column8"].Value = DS_chitietphuonganvattus[i].binhluan;
+
+                        List<TenchihuyNhanxet> danhsach = Load_NhanXet(pavt.nguoiduyet, DS_chitietphuonganvattus[i].binhluan);
+                        if (danhsach != null)
+                        {
+                            int dem = 0;
+                            for (int j = 0; j < danhsach.Count; j++)
+                            {
+                                if (!string.IsNullOrEmpty(danhsach[j].nhanxet.Trim()))
+                                {
+                                    dem++;
+                                    if (dem > 1)
+                                    {
+                                        dataGridView_DS_CTPAVT.Rows[i].Height += 10;
+                                    }
+                                    dataGridView_DS_CTPAVT.Rows[i].Cells["Column8"].Value += $"{danhsach[j].tenchihuy}: {danhsach[j].nhanxet}" + Environment.NewLine;
+                                }
+                            }
+                        }
                     }
                     for (int i = DS_chitietphuonganvattus.Count; i < (DS_chitietphuonganvattus.Count + DS_thongtinphuonganvattus_MoiThem.Count); i++)
                     {
@@ -535,11 +586,8 @@ namespace QuanLyVatTu.GUI.User
                         ct.capmoi = DS_thongtinphuonganvattus_MoiThem[i].capmoi;
                         ct.ghichu = DS_thongtinphuonganvattus_MoiThem[i].ghichu;
                         ct.maphuongan = Int32.Parse(txtMaPhuongAn.Text);
-                        int ttIndex = column2Values.IndexOf(DS_chitietphuonganvattus[i].tenvattu);
-                        if (ttIndex != -1)
-                        {
-                            ct.tt_uutien = ttIndex + 1;
-                        }
+                        ct.tt_uutien = DS_chitietphuonganvattus.Count + 1 + i;
+
                         dbContext.ChiTietPhuongAns.Add(ct);
                     }
 
