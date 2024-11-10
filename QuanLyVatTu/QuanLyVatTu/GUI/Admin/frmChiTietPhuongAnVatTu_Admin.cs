@@ -145,23 +145,31 @@ namespace QuanLyVatTu.GUI.Admin
 
         public static string GetApprovalStatus(string input, string name)
         {
-            try
-            {
-                string[] lines = input.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-
-                foreach (string line in lines)
-                {
-                    if (line.StartsWith(name + ":"))
-                    {
-                        return line.Split(':')[1].Trim();
-                    }
-                }
-            }
-            catch
+            if (input == null)
             {
                 return string.Empty;
             }
-            return string.Empty;
+            else
+            {
+                try
+                {
+                    string[] lines = input.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+                    foreach (string line in lines)
+                    {
+                        if (line.StartsWith(name + ":"))
+                        {
+                            return line.Split(':')[1].Trim();
+                        }
+                    }
+                }
+                catch
+                {
+                    return string.Empty;
+                }
+                return string.Empty;
+            }
+
         }
 
         private void dataGridView_DS_CTPAVT_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -230,38 +238,14 @@ namespace QuanLyVatTu.GUI.Admin
                 }
                 else if (e.ColumnIndex == 8)
                 {
-                    DS_chitietphuonganvattus[rowID].binhluan = "";
-                    if (!string.IsNullOrEmpty(txtNguoiDuyetCuoi.Text) && !string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[e.RowIndex].Cells[e.ColumnIndex - 1].Value))
+                    string newValue = e.FormattedValue.ToString();
+                    if (!string.IsNullOrEmpty(newValue.Trim()))
                     {
-                        string value_chihuykhac = (string)dataGridView_DS_CTPAVT.Rows[e.RowIndex].Cells[e.ColumnIndex - 1].Value;
-
-                        string[] DS_tenchihuy_daduyet_Array = txtNguoiDuyetCuoi.Text.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
-                        for (int i = 0; i < DS_tenchihuy_daduyet_Array.Length; i++)
-                        {
-                            string value_tenchihuy_daduyet = GetApprovalStatus(value_chihuykhac, DS_tenchihuy_daduyet_Array[i]);
-                            if (!string.IsNullOrEmpty(value_tenchihuy_daduyet))
-                            {
-                                if (DS_tenchihuy_daduyet_Array[i].Trim().ToLower() == frmDangNhap.tennguoidung.Trim().ToLower())
-                                {
-                                    string newValue = e.FormattedValue.ToString() + "@*@";
-                                    DS_chitietphuonganvattus[rowID].binhluan += newValue;
-                                }
-                                else
-                                {
-                                    DS_chitietphuonganvattus[rowID].binhluan += value_tenchihuy_daduyet + "@*@";
-                                }
-                            }
-                            else
-                            {
-                                string newValue = e.FormattedValue.ToString() + "@*@";
-                                DS_chitietphuonganvattus[rowID].binhluan += newValue;
-                            }
-                        }
+                        DS_chitietphuonganvattus[rowID].binhluan = newValue;
                     }
                     else
                     {
-                        string newValue = e.FormattedValue.ToString() + "@*@";
-                        DS_chitietphuonganvattus[rowID].binhluan += newValue;
+                        DS_chitietphuonganvattus[rowID].binhluan = " ";
                     }
                 }
             }
@@ -308,10 +292,32 @@ namespace QuanLyVatTu.GUI.Admin
                             chitiet_pavts[i].doicu = DS_chitietphuonganvattus[i].doicu;
                             chitiet_pavts[i].capmoi = DS_chitietphuonganvattus[i].capmoi;
                             chitiet_pavts[i].ghichu = DS_chitietphuonganvattus[i].ghichu;
-                            if (string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[i].Cells[7].Value))
+
+                            // chưa có chỉ huy trước nhận xét ở dòng nhưng đã nhận xét ở dòng khác
+                            if (string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[i].Cells[7].Value) &&
+                                !string.IsNullOrEmpty(txtNguoiDuyetCuoi.Text))
                             {
-                                chitiet_pavts[i].binhluan = " @*@" + DS_chitietphuonganvattus[i].binhluan;
+                                chitiet_pavts[i].binhluan = "";
+                                bool check = false;
+                                string[] DS_tenchihuy_daduyet_Array = txtNguoiDuyetCuoi.Text.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+                                for (int j = 0; j < DS_tenchihuy_daduyet_Array.Length; j++)
+                                {
+                                    if (DS_tenchihuy_daduyet_Array[j].Trim().ToLower() == frmDangNhap.tennguoidung.Trim().ToLower())
+                                    {
+                                        check = true;
+                                        chitiet_pavts[i].binhluan += ((string)dataGridView_DS_CTPAVT.Rows[i].Cells[8].Value + "@*@");
+                                    }
+                                    else
+                                    {
+                                        chitiet_pavts[i].binhluan += " @*@";
+                                    }
+                                }
+                                if (check == false)
+                                {
+                                    chitiet_pavts[i].binhluan += ((string)dataGridView_DS_CTPAVT.Rows[i].Cells[8].Value + "@*@");
+                                }
                             }
+                            // đã có chỉ huy khác nhận xét nhưng chỉ huy đang đăng nhập không nhận xét
                             else if (!string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[i].Cells[7].Value) &&
                                 string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[i].Cells[8].Value))
                             {
@@ -324,7 +330,7 @@ namespace QuanLyVatTu.GUI.Admin
                                     for (int j = 0; j < DS_tenchihuy_daduyet_Array.Length; j++)
                                     {
                                         string value_tenchihuy_daduyet = GetApprovalStatus(value_chihuykhac, DS_tenchihuy_daduyet_Array[j]);
-                                        if (!string.IsNullOrEmpty(value_tenchihuy_daduyet))
+                                        if (!string.IsNullOrEmpty(value_tenchihuy_daduyet.Trim()))
                                         {
                                             if (DS_tenchihuy_daduyet_Array[j].Trim().ToLower() == frmDangNhap.tennguoidung.Trim().ToLower())
                                             {
@@ -346,9 +352,38 @@ namespace QuanLyVatTu.GUI.Admin
                                     chitiet_pavts[i].binhluan += " @*@";
                                 }
                             }
+                            // đã có chỉ huy khác nhận xét và chỉ huy đang đăng nhập cũng nhận xét
+                            else if (!string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[i].Cells[7].Value) &&
+                                !string.IsNullOrEmpty((string)dataGridView_DS_CTPAVT.Rows[i].Cells[8].Value))
+                            {
+                                chitiet_pavts[i].binhluan = "";
+                                if (!string.IsNullOrEmpty(txtNguoiDuyetCuoi.Text))
+                                {
+                                    string value_chihuykhac = (string)dataGridView_DS_CTPAVT.Rows[i].Cells[7].Value;
+
+                                    string[] DS_tenchihuy_daduyet_Array = txtNguoiDuyetCuoi.Text.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+                                    for (int j = 0; j < DS_tenchihuy_daduyet_Array.Length; j++)
+                                    {
+                                        string value_tenchihuy_daduyet = GetApprovalStatus(value_chihuykhac, DS_tenchihuy_daduyet_Array[j]);
+                                        if (DS_tenchihuy_daduyet_Array[j].Trim().ToLower() == frmDangNhap.tennguoidung.Trim().ToLower())
+                                        {
+                                            chitiet_pavts[i].binhluan += ((string)dataGridView_DS_CTPAVT.Rows[i].Cells[8].Value + "@*@");
+                                        }
+                                        else
+                                        {
+                                            chitiet_pavts[i].binhluan += (value_tenchihuy_daduyet + "@*@");
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    chitiet_pavts[i].binhluan += " @*@";
+                                }
+                            }
+                            // nhận xét đầu tiên
                             else
                             {
-                                chitiet_pavts[i].binhluan = DS_chitietphuonganvattus[i].binhluan;
+                                chitiet_pavts[i].binhluan = ((string)dataGridView_DS_CTPAVT.Rows[i].Cells[8].Value + "@*@");
                             }
                         }
                     }
