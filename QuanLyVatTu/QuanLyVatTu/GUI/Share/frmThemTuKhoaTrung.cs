@@ -1,12 +1,6 @@
 ﻿using QuanLyVatTu.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyVatTu.GUI.Share
@@ -27,33 +21,33 @@ namespace QuanLyVatTu.GUI.Share
             if (string.IsNullOrWhiteSpace(txtTenTuKhoaTrung.Text))
             {
                 MessageBox.Show("Tên từ khóa đang trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
-
-            using (var dbContext = new QuanLyVatTuDbContext())
+            else
             {
-                string tukhoa = txtTenTuKhoaTrung.Text.Trim().ToLower();
-
-                // Kiểm tra từ khóa chính
-                bool isTukhoachinhExists = dbContext.TuKhoaVatTus.Any(tk => tk.tukhoachinh.ToLower() == tukhoa);
-                if (isTukhoachinhExists)
+                using (var dbContext = new QuanLyVatTuDbContext())
                 {
-                    MessageBox.Show("Tên từ khóa vật tư đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                    string tukhoa = txtTenTuKhoaTrung.Text.Trim().ToLower();
 
-                // Kiểm tra từ khóa trùng
-                bool isTukhoatrungExists = dbContext.TuKhoaTrungs.Any(tk => tk.tukhoatrung.ToLower() == tukhoa);
-                if (isTukhoatrungExists)
-                {
-                    MessageBox.Show("Tên từ khóa vật tư đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    // Kiểm tra từ khóa chính
+                    bool isTukhoachinhExists = dbContext.TuKhoaVatTus.Any(tk => tk.tukhoachinh.ToLower() == tukhoa);
+                    bool isTukhoatrungExists = dbContext.TuKhoaTrungs.Any(tk => tk.tukhoatrung.ToLower() == tukhoa);
+                    if (isTukhoachinhExists)
+                    {
+                        MessageBox.Show("Tên từ khóa vật tư đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (isTukhoatrungExists) // Kiểm tra từ khóa trùng
+                    {
+                        MessageBox.Show("Tên từ khóa vật tư đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        tkt.tukhoatrung = txtTenTuKhoaTrung.Text;
+                        tkt.nguoisuacuoi = frmDangNhap.tennguoidung;
+                        tkt.thoigiansua = DateTime.Now;
+                        tkt.tukhoa_id = tukhoa_id;
+                        this.Close();
+                    }
                 }
-                tkt.tukhoatrung = txtTenTuKhoaTrung.Text;
-                tkt.nguoisuacuoi = frmDangNhap.tennguoidung;
-                tkt.thoigiansua = DateTime.Now;
-                tkt.tukhoa_id = tukhoa_id;
-                this.Close();
             }
         }
     }

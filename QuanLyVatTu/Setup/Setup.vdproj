@@ -782,6 +782,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -1901,15 +1909,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PM QuanLyVatTu"
-        "ProductCode" = "8:{E7A72E07-EE2F-49CF-B8A6-CB4624675E60}"
-        "PackageCode" = "8:{7AB1B81A-2BB0-4059-8185-AD4100BCE351}"
+        "ProductCode" = "8:{05663202-D3A0-4869-9F13-7A93C1052C71}"
+        "PackageCode" = "8:{DFC51E88-7BA4-46E6-9BED-1AAA0ABB3BB8}"
         "UpgradeCode" = "8:{84894958-C84E-4688-93D1-2146FF72F4F8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.2"
+        "ProductVersion" = "8:1.0.3"
         "Manufacturer" = "8:PM QuanLyVatTu"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

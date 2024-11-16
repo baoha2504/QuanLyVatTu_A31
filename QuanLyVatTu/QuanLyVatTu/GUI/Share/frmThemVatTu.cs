@@ -69,6 +69,10 @@ namespace QuanLyVatTu.GUI.Share
         {
             InitializeComponent();
             vt_save = vt;
+            if (string.IsNullOrEmpty(vt_save.mavattu_hethong))
+            {
+                vt_save.mavattu_hethong = "";
+            }
 
             VatTu vatTu = new VatTu();
             using (var dbContext = new QuanLyVatTuDbContext())

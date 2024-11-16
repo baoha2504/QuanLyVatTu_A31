@@ -3,6 +3,7 @@ using QuanLyVatTu.GUI.User;
 using QuanLyVatTu.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -97,10 +98,18 @@ namespace QuanLyVatTu.GUI.Share
                     if(DS_phuonganvattus[i].hoanthanh == 1)
                     {
                         dataGridView_DS_PAVT.Rows[i].Cells["Column9"].Value = "Hoàn thành";
+                        foreach (DataGridViewCell cell in dataGridView_DS_PAVT.Rows[i].Cells)
+                        {
+                            cell.Style.BackColor = Color.LightGreen;
+                        }
                     }
                     else
                     {
                         dataGridView_DS_PAVT.Rows[i].Cells["Column9"].Value = "Chưa hoàn thành";
+                        foreach (DataGridViewCell cell in dataGridView_DS_PAVT.Rows[i].Cells)
+                        {
+                            cell.Style.BackColor = Color.Orange;
+                        }
                     }
                 }
             }
