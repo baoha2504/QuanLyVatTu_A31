@@ -93,7 +93,10 @@ namespace QuanLyVatTu.GUI.Share
         {
             frmThemTuKhoaTrung frm = new frmThemTuKhoaTrung(tkvt.tukhoa_id);
             frm.ShowDialog();
-            listtukhoatrung_MoiThem.Add(frm.tkt);
+            if (frm.tkt != null && frm.tkt.thoigiansua != null)
+            {
+                listtukhoatrung_MoiThem.Add(frm.tkt);
+            }
             LoadData_GridView();
         }
 

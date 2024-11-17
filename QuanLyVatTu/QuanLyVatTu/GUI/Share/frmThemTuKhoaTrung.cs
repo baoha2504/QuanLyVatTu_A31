@@ -18,7 +18,7 @@ namespace QuanLyVatTu.GUI.Share
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTenTuKhoaTrung.Text))
+            if (string.IsNullOrEmpty(txtTenTuKhoaTrung.Text))
             {
                 MessageBox.Show("Tên từ khóa đang trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
