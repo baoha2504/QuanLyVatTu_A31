@@ -805,5 +805,24 @@ namespace QuanLyVatTu.GUI.User
                 e.SuppressKeyPress = true;
             }
         }
+
+        private void txtDenTrang_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    currentPage = Int32.Parse(txtDenTrang.Text);
+                    pageSize = 200;
+                    DisplayCurrentPage();
+                    e.SuppressKeyPress = true;
+                }
+                catch
+                {
+                    MessageBox.Show("Lỗi nhập dữ liệu đầu vào", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDenTrang.Text = string.Empty;
+                }
+            }
+        }
     }
 }

@@ -42,11 +42,14 @@ namespace QuanLyVatTu.GUI.User
 
         private void frmUser_Load(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             btnDanhSachPhuongAnVatTu_Click(sender, e);
+            this.Cursor = Cursors.Default;
         }
 
         private void btnLapPhuongAnVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Phương án vật tư";
             lblTieuDe2.Caption = "Lập phương án vật tư";
             HideControlInMainContainer();
@@ -63,10 +66,12 @@ namespace QuanLyVatTu.GUI.User
                 usr_LapPhuongAnVatTu.Visible = true;
                 usr_LapPhuongAnVatTu.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDanhSachPhuongAnVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Phương án vật tư";
             lblTieuDe2.Caption = "Danh sách phương án vật tư";
             HideControlInMainContainer();
@@ -83,10 +88,12 @@ namespace QuanLyVatTu.GUI.User
                 usr_DanhSachPhuongAnVatTu.BringToFront();
                 usr_DanhSachPhuongAnVatTu.LamMoi();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDanhSachVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Danh sách vật tư";
             HideControlInMainContainer();
@@ -102,10 +109,12 @@ namespace QuanLyVatTu.GUI.User
                 usr_DanhSachVatTu.Visible = true;
                 usr_DanhSachVatTu.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDanhMucVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Danh mục vật tư";
             HideControlInMainContainer();
@@ -121,10 +130,12 @@ namespace QuanLyVatTu.GUI.User
                 usr_DanhMucVatTu.Visible = true;
                 usr_DanhMucVatTu.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnLocDanhSachVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Chuẩn hóa danh sách vật tư";
             HideControlInMainContainer();
@@ -152,10 +163,12 @@ namespace QuanLyVatTu.GUI.User
                 usr_LocDanhSachVatTu2.Visible = true;
                 usr_LocDanhSachVatTu2.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnImportDanhSachVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Nhập file danh sách vật tư";
             HideControlInMainContainer();
@@ -171,10 +184,12 @@ namespace QuanLyVatTu.GUI.User
                 usr_ImportDanhSachVatTu.Visible = true;
                 usr_ImportDanhSachVatTu.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnTuKhoaCungNghia_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Từ khóa cùng nghĩa";
             HideControlInMainContainer();
@@ -190,10 +205,12 @@ namespace QuanLyVatTu.GUI.User
                 usr_DanhSachTuCungNghia.Visible = true;
                 usr_DanhSachTuCungNghia.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Trợ giúp";
             lblTieuDe2.Caption = "Đổi mật khẩu";
             HideControlInMainContainer();
@@ -209,6 +226,7 @@ namespace QuanLyVatTu.GUI.User
                 usr_DoiMatKhau.Visible = true;
                 usr_DoiMatKhau.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -219,6 +237,7 @@ namespace QuanLyVatTu.GUI.User
             {
                 using (var dbContext = new QuanLyVatTuDbContext())
                 {
+                    this.Cursor = Cursors.WaitCursor;
                     LichSuDangNhap lichSuDangNhap = new LichSuDangNhap();
                     lichSuDangNhap.thoigian = DateTime.Now;
                     lichSuDangNhap.trangthai = $"Tài khoản {lblNguoiDung.Caption} đăng xuất thành công";
@@ -233,6 +252,7 @@ namespace QuanLyVatTu.GUI.User
                     frmDangNhap frmDangNhap = new frmDangNhap();
                     frmDangNhap.ShowDialog();
 
+                    this.Cursor = Cursors.Default;
                     // Đóng form sau khi đăng nhập thành công
                     this.Close();
                 }
@@ -251,6 +271,7 @@ namespace QuanLyVatTu.GUI.User
                 }
                 else
                 {
+                    this.Cursor = Cursors.WaitCursor;
                     using (var dbContext = new QuanLyVatTuDbContext())
                     {
                         LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
@@ -261,6 +282,7 @@ namespace QuanLyVatTu.GUI.User
                         dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
                         dbContext.SaveChanges();
                     }
+                    this.Cursor = Cursors.Default;
                 }
             }
         }

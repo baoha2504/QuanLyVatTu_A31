@@ -156,6 +156,7 @@ namespace QuanLyVatTu.GUI.User
                     }
                 }
             }
+            MessageBox.Show("Lọc thông tin vật tư thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void txtNoiDungTimKiem_TextChanged(object sender, EventArgs e)
@@ -518,6 +519,7 @@ namespace QuanLyVatTu.GUI.User
                     }
                 }
             }
+            MessageBox.Show("Lọc thông tin vật tư thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void groupPanel2_Resize(object sender, EventArgs e)
@@ -588,6 +590,25 @@ namespace QuanLyVatTu.GUI.User
             {
                 btnTimKiem2_Click(sender, e);
                 e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtDenTrang_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    currentPage = Int32.Parse(txtDenTrang.Text);
+                    pageSize = 200;
+                    DisplayCurrentPage();
+                    e.SuppressKeyPress = true;
+                }
+                catch
+                {
+                    MessageBox.Show("Lỗi nhập dữ liệu đầu vào", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDenTrang.Text = string.Empty;
+                }
             }
         }
     }

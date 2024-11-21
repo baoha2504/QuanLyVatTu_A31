@@ -34,11 +34,14 @@ namespace QuanLyVatTu.GUI.Admin
 
         private void frmAdmin_Load(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             btnDanhSachPhuongAnVatTu_Click(sender, e);
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDanhSachPhuongAnVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Phương án vật tư";
             lblTieuDe2.Caption = "Danh sách phương án vật tư";
             HideControlInMainContainer();
@@ -54,10 +57,12 @@ namespace QuanLyVatTu.GUI.Admin
                 usr_DanhSachPhuongAnVatTu.Visible = true;
                 usr_DanhSachPhuongAnVatTu.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDanhSachVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Danh sách vật tư";
             HideControlInMainContainer();
@@ -73,10 +78,12 @@ namespace QuanLyVatTu.GUI.Admin
                 usr_DanhSachVatTu.Visible = true;
                 usr_DanhSachVatTu.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDanhMucVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Danh mục vật tư";
             HideControlInMainContainer();
@@ -92,10 +99,12 @@ namespace QuanLyVatTu.GUI.Admin
                 usr_DanhMucVatTu.Visible = true;
                 usr_DanhMucVatTu.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnLocDanhSachVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Chuấn hóa danh sách vật tư";
             HideControlInMainContainer();
@@ -111,10 +120,12 @@ namespace QuanLyVatTu.GUI.Admin
                 usr_LocDanhSachVatTu.Visible = true;
                 usr_LocDanhSachVatTu.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnImportDanhSachVatTu_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Quản lý vật tư";
             lblTieuDe2.Caption = "Nhập file danh sách vật tư";
             HideControlInMainContainer();
@@ -130,10 +141,12 @@ namespace QuanLyVatTu.GUI.Admin
                 usr_ImportDanhSachVatTu.Visible = true;
                 usr_ImportDanhSachVatTu.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDanhSachTaiKhoan_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Tài khoản hệ thông";
             lblTieuDe2.Caption = "Danh sách tài khoản";
             HideControlInMainContainer();
@@ -149,10 +162,12 @@ namespace QuanLyVatTu.GUI.Admin
                 usr_DanhSachTaiKhoan.Visible = true;
                 usr_DanhSachTaiKhoan.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnNhatKyHoatDong_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Nhật ký hệ thống";
             lblTieuDe2.Caption = "Nhật ký hoạt động";
             HideControlInMainContainer();
@@ -168,10 +183,12 @@ namespace QuanLyVatTu.GUI.Admin
                 usr_NhatKyHoatDong.Visible = true;
                 usr_NhatKyHoatDong.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnNhatKyDangNhap_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Nhật ký hệ thống";
             lblTieuDe2.Caption = "Nhật ký đăng nhập";
             HideControlInMainContainer();
@@ -187,10 +204,12 @@ namespace QuanLyVatTu.GUI.Admin
                 usr_NhatKyDangNhap.Visible = true;
                 usr_NhatKyDangNhap.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             lblTieuDe1.Caption = "Trợ giúp";
             lblTieuDe2.Caption = "Đổi mật khẩu";
             HideControlInMainContainer();
@@ -206,6 +225,7 @@ namespace QuanLyVatTu.GUI.Admin
                 usr_DoiMatKhau.Visible = true;
                 usr_DoiMatKhau.BringToFront();
             }
+            this.Cursor = Cursors.Default;
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -216,6 +236,7 @@ namespace QuanLyVatTu.GUI.Admin
             {
                 using (var dbContext = new QuanLyVatTuDbContext())
                 {
+                    this.Cursor = Cursors.WaitCursor;
                     LichSuDangNhap lichSuDangNhap = new LichSuDangNhap();
                     lichSuDangNhap.thoigian = DateTime.Now;
                     lichSuDangNhap.trangthai = $"Tài khoản {lblNguoiDung.Caption} đăng xuất thành công";
@@ -230,6 +251,7 @@ namespace QuanLyVatTu.GUI.Admin
                     frmDangNhap frmDangNhap = new frmDangNhap();
                     frmDangNhap.ShowDialog();
 
+                    this.Cursor = Cursors.Default;
                     // Đóng form sau khi đăng nhập thành công
                     this.Close();
                 }
@@ -250,6 +272,7 @@ namespace QuanLyVatTu.GUI.Admin
                 {
                     using (var dbContext = new QuanLyVatTuDbContext())
                     {
+                        this.Cursor = Cursors.WaitCursor;
                         LichSuHoatDong lichSuHoatDong = new LichSuHoatDong();
                         lichSuHoatDong.thoigian = DateTime.Now;
                         lichSuHoatDong.hoatdong = $"Tài khoản {frmDangNhap.userID} - {frmDangNhap.tennguoidung} đã đăng xuất thành công";
@@ -257,6 +280,7 @@ namespace QuanLyVatTu.GUI.Admin
                         lichSuHoatDong.id = frmDangNhap.userID;
                         dbContext.LichSuHoatDongs.Add(lichSuHoatDong);
                         dbContext.SaveChanges();
+                        this.Cursor = Cursors.Default;
                     }
                 }
             }

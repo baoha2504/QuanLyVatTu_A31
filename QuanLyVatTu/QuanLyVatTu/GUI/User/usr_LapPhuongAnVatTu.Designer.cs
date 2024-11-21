@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panel4 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -90,6 +90,9 @@
             this.btnXacNhanPhuongAn = new DevComponents.DotNetBar.ButtonX();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDenTrang = new System.Windows.Forms.TextBox();
+            this.panel28 = new System.Windows.Forms.Panel();
             this.panelEx1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -100,6 +103,7 @@
             this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu)).BeginInit();
             this.panel22.SuspendLayout();
+            this.panel26.SuspendLayout();
             this.panel16.SuspendLayout();
             this.groupPanel2.SuspendLayout();
             this.panel20.SuspendLayout();
@@ -224,14 +228,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_DSVatTu.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DSVatTu.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView_DSVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_DSVatTu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView_DSVatTu.Location = new System.Drawing.Point(0, 0);
@@ -302,9 +306,9 @@
             this.lblPageNumber.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.lblPageNumber.DisabledBackColor = System.Drawing.Color.Empty;
             this.lblPageNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPageNumber.Location = new System.Drawing.Point(210, 0);
+            this.lblPageNumber.Location = new System.Drawing.Point(230, 0);
             this.lblPageNumber.Name = "lblPageNumber";
-            this.lblPageNumber.Size = new System.Drawing.Size(140, 30);
+            this.lblPageNumber.Size = new System.Drawing.Size(100, 30);
             this.lblPageNumber.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.lblPageNumber.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.lblPageNumber.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -320,7 +324,7 @@
             this.btnTrangTruoc.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTrangTruoc.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnTrangTruoc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTrangTruoc.Location = new System.Drawing.Point(150, 0);
+            this.btnTrangTruoc.Location = new System.Drawing.Point(170, 0);
             this.btnTrangTruoc.Name = "btnTrangTruoc";
             this.btnTrangTruoc.Size = new System.Drawing.Size(60, 30);
             this.btnTrangTruoc.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -334,7 +338,7 @@
             this.btnTrangTiep.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTrangTiep.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnTrangTiep.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnTrangTiep.Location = new System.Drawing.Point(350, 0);
+            this.btnTrangTiep.Location = new System.Drawing.Point(330, 0);
             this.btnTrangTiep.Name = "btnTrangTiep";
             this.btnTrangTiep.Size = new System.Drawing.Size(60, 30);
             this.btnTrangTiep.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -348,15 +352,18 @@
             this.panel25.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel25.Location = new System.Drawing.Point(0, 0);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(150, 30);
+            this.panel25.Size = new System.Drawing.Size(170, 30);
             this.panel25.TabIndex = 20;
             // 
             // panel26
             // 
+            this.panel26.Controls.Add(this.label2);
+            this.panel26.Controls.Add(this.txtDenTrang);
+            this.panel26.Controls.Add(this.panel28);
             this.panel26.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel26.Location = new System.Drawing.Point(410, 0);
+            this.panel26.Location = new System.Drawing.Point(390, 0);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(150, 30);
+            this.panel26.Size = new System.Drawing.Size(170, 30);
             this.panel26.TabIndex = 19;
             // 
             // panel17
@@ -525,14 +532,14 @@
             this.Column10,
             this.Column11,
             this.Column12});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_DSVatTuDaChon.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DSVatTuDaChon.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView_DSVatTuDaChon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_DSVatTuDaChon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView_DSVatTuDaChon.Location = new System.Drawing.Point(0, 40);
@@ -853,6 +860,36 @@
             this.panel1.Size = new System.Drawing.Size(1200, 30);
             this.panel1.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(14, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 18);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Đến trang:";
+            // 
+            // txtDenTrang
+            // 
+            this.txtDenTrang.Dock = System.Windows.Forms.DockStyle.Right;
+            this.txtDenTrang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDenTrang.Location = new System.Drawing.Point(90, 0);
+            this.txtDenTrang.Multiline = true;
+            this.txtDenTrang.Name = "txtDenTrang";
+            this.txtDenTrang.Size = new System.Drawing.Size(50, 30);
+            this.txtDenTrang.TabIndex = 6;
+            this.txtDenTrang.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDenTrang_KeyDown);
+            // 
+            // panel28
+            // 
+            this.panel28.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel28.Location = new System.Drawing.Point(140, 0);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(30, 30);
+            this.panel28.TabIndex = 8;
+            // 
             // usr_LapPhuongAnVatTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -870,6 +907,8 @@
             this.panel18.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTu)).EndInit();
             this.panel22.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel26.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             this.groupPanel2.ResumeLayout(false);
@@ -945,5 +984,8 @@
         private DevComponents.DotNetBar.ButtonX btnXuongDuoi;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDenTrang;
+        private System.Windows.Forms.Panel panel28;
     }
 }

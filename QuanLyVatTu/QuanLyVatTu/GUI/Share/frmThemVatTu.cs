@@ -33,6 +33,7 @@ namespace QuanLyVatTu.GUI.Share
         bool checkModifyImage1 = false;
         bool checkModifyImage2 = false;
         bool checkModifyImage3 = false;
+        List<VatTuTrung> vatTuBiTrungs = new List<VatTuTrung>();
 
         private static readonly HttpClient client = new HttpClient();
 
@@ -63,6 +64,7 @@ namespace QuanLyVatTu.GUI.Share
             txtNguoiSuaCuoi.Text = frmDangNhap.tennguoidung;
             txtThoiGianSua.Text = DateTime.Now.ToString("dd/MM/yyyy");
             AddToolTip();
+            dataGridView_DSVatTuTrung.RowTemplate.Height = 30;
         }
 
         public frmThemVatTu(VatTu vt)
@@ -125,6 +127,7 @@ namespace QuanLyVatTu.GUI.Share
             txtThoiGianSua.Text = DateTime.Now.ToString("dd/MM/yyyy");
             AddToolTip();
             _ = LoadImageAsync();
+            dataGridView_DSVatTuTrung.RowTemplate.Height = 30;
         }
 
         private void AddToolTip()
@@ -492,6 +495,10 @@ namespace QuanLyVatTu.GUI.Share
             groupPanel1.Height = minInt;
             groupPanel2.Height = minInt;
             groupPanel3.Height = minInt;
+
+            dataGridView_DSVatTuTrung.Columns["Column1"].Width = (int)(dataGridView_DSVatTuTrung.Width * 1 / 11);
+            dataGridView_DSVatTuTrung.Columns["Column2"].Width = (int)(dataGridView_DSVatTuTrung.Width * 4.5 / 11);
+            dataGridView_DSVatTuTrung.Columns["Column3"].Width = (int)(dataGridView_DSVatTuTrung.Width * 4.5 / 11);
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
@@ -814,6 +821,89 @@ namespace QuanLyVatTu.GUI.Share
         private void btnThayDoiAnh3_Click(object sender, EventArgs e)
         {
             pictureBox3_DoubleClick(sender, e);
+        }
+
+        private void ChuanHoaVaHienThi()
+        {
+            this.Cursor = Cursors.WaitCursor;
+            dataGridView_DSVatTuTrung.Rows.Clear();
+            using (var dbContext = new QuanLyVatTuDbContext())
+            {
+                var vatTuHoatDongs = dbContext.VatTus.Where(m => m.trangthai == 1).OrderBy(m => m.tenvattu).ToList();
+                for (int i = 0; i < vatTuHoatDongs.Count; i++)
+                {
+
+                    double similarity = function.CalculateCosineSimilarity(txtTenVatTu.Text, vatTuHoatDongs[i].tenvattu);
+                    similarity = similarity * 100;
+                    if (similarity >= 60)
+                    {
+                        VatTuTrung vtt = new VatTuTrung();
+                        vtt.mavattu = vatTuHoatDongs[i].mavattu;
+                        vtt.tenvattu = vatTuHoatDongs[i].tenvattu;
+                        vtt.nguongoc = vatTuHoatDongs[i].nguongoc;
+                        vtt.madanhmuc = vatTuHoatDongs[i].madanhmuc;
+                        vtt.giongnhau = similarity;
+                        vtt.tinhtrangxacnhan = 1;
+                        vatTuBiTrungs.Add(vtt);
+                    }
+                    else // check theo từ khóa trùng nhau
+                    {
+                        var liststring = function.GetList_TuKhoVatTu_VatTuTrung();
+                        if (liststring != null)
+                        {
+                            int dem = 0;
+                            for (int k = 0; k < liststring.Count; k++)
+                            {
+                                if (txtTenVatTu.Text.Contains(liststring[k].tentukhoa.Trim()) || vatTuHoatDongs[i].tenvattu.Contains(liststring[k].tentukhoa.Trim()))
+                                {
+                                    dem++;
+                                }
+                            }
+                            if (dem >= 2)
+                            {
+                                VatTuTrung vtt = new VatTuTrung();
+                                vtt.mavattu = vatTuHoatDongs[i].mavattu;
+                                vtt.tenvattu = vatTuHoatDongs[i].tenvattu;
+                                vtt.nguongoc = vatTuHoatDongs[i].nguongoc;
+                                vtt.madanhmuc = vatTuHoatDongs[i].madanhmuc;
+                                vtt.madanhmuc = vatTuHoatDongs[i].madanhmuc;
+                                vtt.giongnhau = similarity;
+                                vtt.tinhtrangxacnhan = 1;
+                                vatTuBiTrungs.Add(vtt);
+                            }
+                        }
+                    }
+                }
+                for (int i = 0; i < vatTuBiTrungs.Count; i++)
+                {
+                    // thêm vào datagridview
+                    dataGridView_DSVatTuTrung.Rows.Add();
+                    dataGridView_DSVatTuTrung.Rows[i].Cells["Column1"].Value = i+1;
+                    dataGridView_DSVatTuTrung.Rows[i].Cells["Column2"].Value = vatTuBiTrungs[i].tenvattu;
+                    if (vatTuBiTrungs[i].giongnhau >= 60)
+                    {
+                        dataGridView_DSVatTuTrung.Rows[i].Cells["Column3"].Value = Math.Round(vatTuBiTrungs[i].giongnhau, 2) + "%";
+                    }
+                    else
+                    {
+                        dataGridView_DSVatTuTrung.Rows[i].Cells["Column3"].Value = "Cùng nghĩa";
+                    }
+                }
+            }
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btnKiemTraTrung_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTenVatTu.Text.Trim()))
+            {
+                MessageBox.Show("Tên vật tư kiểm tra trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                ChuanHoaVaHienThi();
+                MessageBox.Show("Kiểm tra vật tư trùng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

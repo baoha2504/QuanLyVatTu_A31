@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemVatTu));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -139,6 +140,13 @@
             this.panel61 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel60 = new System.Windows.Forms.Panel();
+            this.groupPanel4 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnKiemTraTrung = new DevComponents.DotNetBar.ButtonX();
+            this.dataGridView_DSVatTuTrung = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -190,6 +198,8 @@
             this.panel66.SuspendLayout();
             this.panel64.SuspendLayout();
             this.panel61.SuspendLayout();
+            this.groupPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTuTrung)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -1295,6 +1305,8 @@
             // panel66
             // 
             this.panel66.Controls.Add(this.btnAnhVatTu);
+            this.panel66.Controls.Add(this.panel7);
+            this.panel66.Controls.Add(this.btnKiemTraTrung);
             this.panel66.Controls.Add(this.panel67);
             this.panel66.Controls.Add(this.btnLuu);
             this.panel66.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1308,7 +1320,7 @@
             this.btnAnhVatTu.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAnhVatTu.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btnAnhVatTu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnAnhVatTu.Location = new System.Drawing.Point(550, 0);
+            this.btnAnhVatTu.Location = new System.Drawing.Point(400, 0);
             this.btnAnhVatTu.Name = "btnAnhVatTu";
             this.btnAnhVatTu.Size = new System.Drawing.Size(135, 35);
             this.btnAnhVatTu.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1349,6 +1361,7 @@
             // 
             // panel64
             // 
+            this.panel64.Controls.Add(this.groupPanel4);
             this.panel64.Controls.Add(this.txtThongSoKyThuat);
             this.panel64.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel64.Location = new System.Drawing.Point(0, 0);
@@ -1358,13 +1371,13 @@
             // 
             // txtThongSoKyThuat
             // 
-            this.txtThongSoKyThuat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtThongSoKyThuat.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtThongSoKyThuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThongSoKyThuat.Location = new System.Drawing.Point(0, 0);
             this.txtThongSoKyThuat.Multiline = true;
             this.txtThongSoKyThuat.Name = "txtThongSoKyThuat";
             this.txtThongSoKyThuat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtThongSoKyThuat.Size = new System.Drawing.Size(835, 262);
+            this.txtThongSoKyThuat.Size = new System.Drawing.Size(835, 150);
             this.txtThongSoKyThuat.TabIndex = 0;
             // 
             // panel62
@@ -1402,6 +1415,120 @@
             this.panel60.Name = "panel60";
             this.panel60.Size = new System.Drawing.Size(10, 330);
             this.panel60.TabIndex = 4;
+            // 
+            // groupPanel4
+            // 
+            this.groupPanel4.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel4.Controls.Add(this.dataGridView_DSVatTuTrung);
+            this.groupPanel4.DisabledBackColor = System.Drawing.Color.Empty;
+            this.groupPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupPanel4.Location = new System.Drawing.Point(0, 150);
+            this.groupPanel4.Name = "groupPanel4";
+            this.groupPanel4.Size = new System.Drawing.Size(835, 112);
+            // 
+            // 
+            // 
+            this.groupPanel4.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel4.Style.BackColorGradientAngle = 90;
+            this.groupPanel4.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel4.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderBottomWidth = 1;
+            this.groupPanel4.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel4.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderLeftWidth = 1;
+            this.groupPanel4.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderRightWidth = 1;
+            this.groupPanel4.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderTopWidth = 1;
+            this.groupPanel4.Style.CornerDiameter = 4;
+            this.groupPanel4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel4.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel4.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel4.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            // 
+            // 
+            // 
+            this.groupPanel4.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.groupPanel4.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.groupPanel4.TabIndex = 1;
+            this.groupPanel4.Text = "Kiểm tra trùng theo tên vật tư";
+            // 
+            // panel7
+            // 
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel7.Location = new System.Drawing.Point(535, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(15, 35);
+            this.panel7.TabIndex = 11;
+            // 
+            // btnKiemTraTrung
+            // 
+            this.btnKiemTraTrung.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnKiemTraTrung.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnKiemTraTrung.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnKiemTraTrung.Location = new System.Drawing.Point(550, 0);
+            this.btnKiemTraTrung.Name = "btnKiemTraTrung";
+            this.btnKiemTraTrung.Size = new System.Drawing.Size(135, 35);
+            this.btnKiemTraTrung.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnKiemTraTrung.TabIndex = 12;
+            this.btnKiemTraTrung.Text = "Kiểm tra trùng";
+            this.btnKiemTraTrung.Tooltip = "Kiểm tra vật tư trùng";
+            this.btnKiemTraTrung.Click += new System.EventHandler(this.btnKiemTraTrung_Click);
+            // 
+            // dataGridView_DSVatTuTrung
+            // 
+            this.dataGridView_DSVatTuTrung.AllowUserToAddRows = false;
+            this.dataGridView_DSVatTuTrung.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_DSVatTuTrung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_DSVatTuTrung.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_DSVatTuTrung.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView_DSVatTuTrung.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_DSVatTuTrung.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridView_DSVatTuTrung.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView_DSVatTuTrung.Name = "dataGridView_DSVatTuTrung";
+            this.dataGridView_DSVatTuTrung.ReadOnly = true;
+            this.dataGridView_DSVatTuTrung.RowHeadersWidth = 51;
+            this.dataGridView_DSVatTuTrung.RowTemplate.Height = 24;
+            this.dataGridView_DSVatTuTrung.Size = new System.Drawing.Size(829, 89);
+            this.dataGridView_DSVatTuTrung.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "STT";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên vật tư";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Giống so với vật tư đã có";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 200;
             // 
             // frmThemVatTu
             // 
@@ -1485,6 +1612,8 @@
             this.panel64.PerformLayout();
             this.panel61.ResumeLayout(false);
             this.panel61.PerformLayout();
+            this.groupPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSVatTuTrung)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1600,5 +1729,12 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
         private System.Windows.Forms.ToolStripMenuItem btnPhongToAnh3;
         private System.Windows.Forms.ToolStripMenuItem btnThayDoiAnh3;
+        private DevComponents.DotNetBar.Controls.GroupPanel groupPanel4;
+        private System.Windows.Forms.Panel panel7;
+        private DevComponents.DotNetBar.ButtonX btnKiemTraTrung;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView_DSVatTuTrung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }
